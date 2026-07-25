@@ -159,7 +159,7 @@ body {
 
 .app-header {
   background: linear-gradient(135deg, var(--orange-500), var(--coral-500));
-  padding: var(--space-4) var(--space-5);
+  padding: var(--space-3) var(--space-4);
   position: sticky;
   top: 0;
   z-index: 50;
@@ -169,9 +169,52 @@ body {
   align-items: center;
 }
 
-.header-left {
+.header-notif {
+  position: relative;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: var(--radius-full);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.header-notif:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.notif-badge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 18px;
+  height: 18px;
+  background: var(--coral-500);
+  border: 2px solid var(--white);
+  border-radius: var(--radius-full);
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: var(--white);
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.notif-badge.visible {
+  display: flex;
+}
+
+.header-center {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
 }
 
 .header-fecha {
@@ -195,18 +238,11 @@ body {
 }
 
 .app-title {
-  font-size: var(--text-xl);
+  font-size: var(--text-lg);
   font-weight: 700;
   color: var(--white);
   letter-spacing: -0.025em;
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-}
-
-.header-icon {
-  width: 28px;
-  height: 28px;
+  margin: 0;
 }
 
 .app-subtitle {
