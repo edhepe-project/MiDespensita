@@ -115,7 +115,7 @@ window.APP_DB = {
       compras
     };
   },
-  async getComprasByWeek() {
+  async getStatsByWeek() {
     const now = new Date();
     const diaSemana = now.getDay();
     const diasDesdeLunes = diaSemana === 0 ? 6 : diaSemana - 1;
