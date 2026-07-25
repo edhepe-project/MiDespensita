@@ -15,6 +15,16 @@ APP_Pages.precios = async function() {
     }
   }
 
+  // Obtener precios regionales del servidor (si hay internet)
+  let preciosRegionales = [];
+  const ubicacion = await APP_DB.getUbicacion();
+  if (navigator.onLine && ubicacion?.ciudad && APP_Sync) {
+    try {
+      const data = await APP_Sync.getPreciosCiudad(ubicacion.ciudad);
+      preciosRegionales = data.precios || [];
+    } catch (e) {}
+  }
+
   // Estadísticas del mes
   const now = new Date();
   const stats = await APP_DB.getStatsByMonth(now.getFullYear(), now.getMonth());
@@ -69,6 +79,27 @@ APP_Pages.precios = async function() {
         : productosConPrecios.map(p => renderPrecioItem(p)).join('')
       }
     </div>
+
+    ${preciosRegionales.length > 0 ? `
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">📍 Precios en ${ubicacion?.ciudad || 'tu ciudad'}</span>
+      </div>
+      <p class="text-secondary" style="font-size: var(--text-xs); margin-bottom: 12px;">
+        Datos compartidos por otros usuarios
+      </p>
+      <div class="precios-regionales">
+        ${preciosRegionales.slice(0, 10).map(p => `
+          <div class="precio-regional">
+            <span class="precio-regional-nombre">${p.producto_nombre}</span>
+            <span class="precio-regional-tienda">${p.tienda} - ${p.marca || ''}</span>
+            <span class="precio-regional-valor">$${p.precio_promedio.toFixed(2)}</span>
+            <span class="precio-regional-muestras">${p.num_muestras} datos</span>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+    ` : ''}
 
     <div class="card stats-resumen">
       <div class="section-title">Resumen del mes</div>

@@ -9,6 +9,7 @@ const ASSETS = [
   BASE_URL + 'js/init.js',
   BASE_URL + 'js/app.js',
   BASE_URL + 'js/db.js',
+  BASE_URL + 'js/sync.js',
   BASE_URL + 'js/components/comprar.js',
   BASE_URL + 'js/components/productos.js',
   BASE_URL + 'js/components/precios.js',

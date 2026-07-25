@@ -52,6 +52,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // Detectar ubicación (en segundo plano)
   APP_DB.detectarUbicacion();
 
+  // Iniciar sync con servidor (si hay internet)
+  if (navigator.onLine && APP_Sync) {
+    APP_Sync.syncAutomatico();
+  }
+
   navigate(getPage());
 
   if ('serviceWorker' in navigator) {

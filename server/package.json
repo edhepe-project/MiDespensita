@@ -1,0 +1,20 @@
+{
+  "name": "midespensita-server",
+  "version": "1.0.0",
+  "description": "Backend para MiDespensita - Precios compartidos por región",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "better-sqlite3": "^9.4.3",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
