@@ -116,6 +116,16 @@ APP_Pages.precios = async function() {
         <span class="stat-value">${APP_Format.money(stats.promedio)}</span>
       </div>
     </div>
+
+    <div class="card" onclick="window.location.hash='#config'" style="cursor: pointer">
+      <div class="card-header">
+        <span class="card-title">⚙️ Configuración</span>
+        <span class="text-secondary">→</span>
+      </div>
+      <p class="text-secondary" style="font-size: var(--text-sm)">
+        Exportar, importar, ajustes
+      </p>
+    </div>
   `;
 
   bindPreciosEvents();

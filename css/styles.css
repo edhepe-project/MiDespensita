@@ -1209,3 +1209,27 @@ body {
   font-size: 0.65rem;
   margin-left: var(--space-2);
 }
+
+/* Configuración */
+.config-stats {
+  display: flex;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+.config-stat {
+  text-align: center;
+  flex: 1;
+}
+
+.config-stat-value {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.config-stat-label {
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  display: block;
+}
