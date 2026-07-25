@@ -235,15 +235,27 @@ window.APP_DB = {
   },
   async getCiudadFromCoords(lat, lon) {
     try {
+      // Intentar con diferentes niveles de zoom para mejor precisión
       const response = await fetch(
-        `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&zoom=10`
+        `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&zoom=18&addressdetails=1`
       );
       const data = await response.json();
-      const ciudad = data.address?.city || data.address?.town || data.address?.village || 'Desconocida';
+
+      // Buscar ciudad en diferentes campos
+      const ciudad = data.address?.city ||
+                     data.address?.town ||
+                     data.address?.village ||
+                     data.address?.municipality ||
+                     data.address?.county ||
+                     'Desconocida';
+
       const region = data.address?.state || '';
-      return { ciudad, region };
+      const pais = data.address?.country || '';
+      const codigoPostal = data.address?.postcode || '';
+
+      return { ciudad, region, pais, codigoPostal };
     } catch (error) {
-      return { ciudad: 'Sin ubicación', region: '' };
+      return { ciudad: 'Sin ubicación', region: '', pais: '', codigoPostal: '' };
     }
   },
 

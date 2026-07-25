@@ -175,14 +175,42 @@ app.post('/api/sync', (req, res) => {
 
 app.get('/api/precios/:ciudad', (req, res) => {
   const { ciudad } = req.params;
-  const precios = queryAll(`
+  let precios = queryAll(`
     SELECT pr.*, p.nombre as producto_nombre, p.categoria
     FROM precios_regionales pr
     JOIN productos p ON pr.producto_id = p.id
     WHERE pr.ciudad = ?
     ORDER BY p.nombre, pr.precio_promedio
   `, [ciudad]);
-  res.json({ ciudad, precios });
+
+  let origen = ciudad;
+
+  // Fallback: si no hay datos, buscar por ciudad parcial
+  if (precios.length === 0 && ciudad) {
+    precios = queryAll(`
+      SELECT pr.*, p.nombre as producto_nombre, p.categoria
+      FROM precios_regionales pr
+      JOIN productos p ON pr.producto_id = p.id
+      WHERE pr.ciudad LIKE ?
+      ORDER BY p.nombre, pr.precio_promedio
+      LIMIT 20
+    `, [`%${ciudad}%`]);
+    if (precios.length > 0) origen = `cerca de ${ciudad}`;
+  }
+
+  // Fallback: buscar en todas las ciudades de México
+  if (precios.length === 0) {
+    precios = queryAll(`
+      SELECT pr.*, p.nombre as producto_nombre, p.categoria
+      FROM precios_regionales pr
+      JOIN productos p ON pr.producto_id = p.id
+      ORDER BY p.nombre, pr.precio_promedio
+      LIMIT 20
+    `);
+    if (precios.length > 0) origen = 'México (datos generales)';
+  }
+
+  res.json({ ciudad, origen, precios });
 });
 
 app.get('/api/precios/:ciudad/:producto', (req, res) => {

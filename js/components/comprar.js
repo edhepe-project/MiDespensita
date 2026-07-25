@@ -26,10 +26,12 @@ APP_Pages.comprar = async function() {
 
   // Obtener precios regionales del servidor
   let preciosRegionales = [];
+  let origenPrecios = '';
   if (navigator.onLine && ubicacion?.ciudad && APP_Sync) {
     try {
       const data = await APP_Sync.getPreciosCiudad(ubicacion.ciudad);
       preciosRegionales = data.precios || [];
+      origenPrecios = data.origen || ubicacion.ciudad;
     } catch (e) {}
   }
 
@@ -66,10 +68,10 @@ APP_Pages.comprar = async function() {
     ` : ''}
 
     ${preciosRegionales.length > 0 ? `
-    <div class="section-title">📍 Precios en ${ubicacion?.ciudad || 'tu ciudad'}</div>
+    <div class="section-title">📍 Precios en ${origenPrecios || ubicacion?.ciudad || 'tu ciudad'}</div>
     <div class="card">
       <p class="text-secondary" style="font-size: var(--text-xs); margin-bottom: 12px">
-        Otros usuarios encontraron estos precios
+        ${origenPrecios !== ubicacion?.ciudad ? 'Precios de zona cercana' : 'Otros usuarios encontraron estos precios'}
       </p>
       <div class="precios-regionales">
         ${preciosRegionales.slice(0, 5).map(p => `
