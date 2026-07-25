@@ -1,7 +1,6 @@
 // Sincronización con servidor
 window.APP_Sync = {
-  SERVER_URL: 'https://midespensita-api.onrender.com', // Cambiar por tu URL de servidor
-  // SERVER_URL: 'http://localhost:3001', // Para desarrollo local
+  SERVER_URL: 'https://midespensita-api.onrender.com',
 
   // Obtener o crear usuario
   async getUsuario() {
