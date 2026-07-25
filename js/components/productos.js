@@ -135,7 +135,7 @@ function mostrarModalCantidad(productoId, nombre, btnElement) {
   const modal = document.createElement('div');
   modal.className = 'modal-overlay';
   modal.innerHTML = `
-    <div class="modal-content">
+    <div class="modal-content modal-compact">
       <div class="modal-header">
         <span class="modal-title">${nombre}</span>
         <button class="modal-close" id="cerrar-modal">×</button>
@@ -143,7 +143,7 @@ function mostrarModalCantidad(productoId, nombre, btnElement) {
 
       <div class="form-group">
         <label class="form-label">¿Cuántas necesitas?</label>
-        <input type="number" class="form-input input-precio" id="input-cantidad" value="1" min="1">
+        <input type="number" inputmode="numeric" pattern="[0-9]*" class="form-input input-precio" id="input-cantidad" value="1" min="1">
       </div>
 
       <button class="btn btn-primary" style="width:100%" id="btn-guardar">
@@ -167,8 +167,13 @@ function mostrarModalCantidad(productoId, nombre, btnElement) {
     setTimeout(() => { btnElement.textContent = '+ Lista'; }, 1500);
   });
 
-  // Focus en el input
-  setTimeout(() => modal.querySelector('#input-cantidad').focus(), 100);
+  // Enter para guardar
+  modal.querySelector('#input-cantidad').addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      modal.querySelector('#btn-guardar').click();
+    }
+  });
 }
 
 function mostrarModalNuevoProducto() {

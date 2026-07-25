@@ -262,7 +262,7 @@ async function mostrarModalCompra(itemId, nombreProducto) {
   const modal = document.createElement('div');
   modal.className = 'modal-overlay';
   modal.innerHTML = `
-    <div class="modal-content">
+    <div class="modal-content modal-compact">
       <div class="modal-header">
         <span class="modal-title">Registrar compra</span>
         <button class="modal-close" id="cerrar-modal">×</button>
@@ -289,14 +289,14 @@ async function mostrarModalCompra(itemId, nombreProducto) {
       <div class="form-group">
         <label class="form-label">Presentación</label>
         <div class="input-with-unit">
-          <input type="number" class="form-input input-presentacion" id="input-presentacion" placeholder="1" step="0.1" min="0.1" value="1">
+          <input type="number" inputmode="decimal" pattern="[0-9]*" class="form-input input-presentacion" id="input-presentacion" placeholder="1" step="0.1" min="0.1" value="1">
           <span class="input-unit">${unidad}</span>
         </div>
       </div>
 
       <div class="form-group">
         <label class="form-label">Precio</label>
-        <input type="number" class="form-input input-precio" id="input-precio" placeholder="0.00" step="0.50" min="0">
+        <input type="number" inputmode="decimal" pattern="[0-9]*" class="form-input input-precio" id="input-precio" placeholder="0.00" step="0.50" min="0">
       </div>
 
       <button class="btn btn-primary" style="width:100%" id="btn-guardar-compra">
@@ -310,6 +310,14 @@ async function mostrarModalCompra(itemId, nombreProducto) {
   // Eventos
   modal.querySelector('#cerrar-modal').addEventListener('click', () => modal.remove());
   modal.addEventListener('click', (e) => { if (e.target === modal) modal.remove(); });
+
+  // Enter en precio guarda
+  modal.querySelector('#input-precio').addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      modal.querySelector('#btn-guardar-compra').click();
+    }
+  });
 
   modal.querySelector('#btn-guardar-compra').addEventListener('click', async () => {
     const tienda = modal.querySelector('#input-tienda').value.trim();
