@@ -237,6 +237,10 @@ async function mostrarModalCompra(itemId, nombreProducto) {
   const items = await APP_DB.getItemsByLista(lista.id);
   const item = items.find(i => i.id === itemId);
 
+  // Obtener unidad del producto
+  const producto = await APP_DB.getProducto(item.productoId);
+  const unidad = producto?.unidad || 'pieza';
+
   // Obtener sugerencias
   const tiendasUsadas = await APP_DB.getTiendasByProducto(item.productoId);
   const marcasUsadas = await APP_DB.getMarcasByProducto(item.productoId);
@@ -270,7 +274,10 @@ async function mostrarModalCompra(itemId, nombreProducto) {
 
       <div class="form-group">
         <label class="form-label">Presentación</label>
-        <input type="text" class="form-input" id="input-presentacion" placeholder="Ej: 1L, 1.5kg, 500ml" autocomplete="off">
+        <div class="input-with-unit">
+          <input type="number" class="form-input input-presentacion" id="input-presentacion" placeholder="1" step="0.1" min="0.1" value="1">
+          <span class="input-unit">${unidad}</span>
+        </div>
       </div>
 
       <div class="form-group">
@@ -294,7 +301,8 @@ async function mostrarModalCompra(itemId, nombreProducto) {
     const tienda = modal.querySelector('#input-tienda').value.trim();
     const marca = modal.querySelector('#input-marca').value.trim();
     const precio = parseFloat(modal.querySelector('#input-precio').value);
-    const presentacion = modal.querySelector('#input-presentacion').value.trim();
+    const cantidadPresentacion = parseFloat(modal.querySelector('#input-presentacion').value) || 1;
+    const presentacion = `${cantidadPresentacion}${unidad}`;
 
     if (!tienda) { alert('Escribe la tienda'); return; }
     if (!precio || precio <= 0) { alert('Escribe un precio válido'); return; }

@@ -1233,3 +1233,31 @@ body {
   color: var(--text-secondary);
   display: block;
 }
+
+/* Input con unidad */
+.input-with-unit {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.input-with-unit .form-input {
+  border-radius: var(--radius-md) 0 0 var(--radius-md);
+  flex: 1;
+}
+
+.input-unit {
+  padding: var(--space-3) var(--space-4);
+  background: var(--gray-100);
+  border: 2px solid var(--border);
+  border-left: none;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  font-weight: 600;
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+}
+
+.input-presentacion {
+  text-align: center;
+  font-weight: 600;
+}
