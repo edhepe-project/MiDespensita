@@ -1,22 +1,27 @@
-const CACHE_NAME = 'midespensita-v1';
+const CACHE_NAME = 'midespensita-v2';
+
+// Rutas relativas para funcionar en GitHub Pages
+const BASE_URL = self.location.pathname.replace(/\/[^/]*$/, '/');
 const ASSETS = [
-  '/',
-  '/index.html',
-  '/css/styles.css',
-  '/js/init.js',
-  '/js/app.js',
-  '/js/db.js',
-  '/js/components/comprar.js',
-  '/js/components/productos.js',
-  '/js/components/precios.js',
-  '/js/components/comparar_semanas.js',
-  '/js/components/predicciones.js',
-  '/js/utils/format.js',
-  '/js/utils/constants.js',
-  '/js/utils/units.js',
-  '/icons/icon.svg',
-  '/icons/icon-192.png',
-  '/manifest.json'
+  BASE_URL,
+  BASE_URL + 'index.html',
+  BASE_URL + 'css/styles.css',
+  BASE_URL + 'js/init.js',
+  BASE_URL + 'js/app.js',
+  BASE_URL + 'js/db.js',
+  BASE_URL + 'js/components/comprar.js',
+  BASE_URL + 'js/components/productos.js',
+  BASE_URL + 'js/components/precios.js',
+  BASE_URL + 'js/components/comparar_semanas.js',
+  BASE_URL + 'js/components/predicciones.js',
+  BASE_URL + 'js/utils/format.js',
+  BASE_URL + 'js/utils/constants.js',
+  BASE_URL + 'js/utils/units.js',
+  BASE_URL + 'js/utils/longpress.js',
+  BASE_URL + 'icons/icon.svg',
+  BASE_URL + 'icons/icon-192.png',
+  BASE_URL + 'icons/icon-512.png',
+  BASE_URL + 'manifest.json'
 ];
 
 self.addEventListener('install', event => {
@@ -43,6 +48,6 @@ self.addEventListener('fetch', event => {
         caches.open(CACHE_NAME).then(cache => cache.put(event.request, clone));
         return response;
       });
-    }).catch(() => caches.match('/index.html'))
+    }).catch(() => caches.match(BASE_URL + 'index.html'))
   );
 });
