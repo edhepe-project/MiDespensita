@@ -49,13 +49,18 @@ document.addEventListener('DOMContentLoaded', () => {
   initFecha();
   initUbicacion();
 
-  // Detectar ubicación (en segundo plano)
-  APP_DB.detectarUbicacion();
+  // Detectar ubicación (en segundo plano, sin bloquear)
+  APP_DB.detectarUbicacion().catch(() => {});
 
-  // Iniciar sync con servidor (si hay internet)
-  if (navigator.onLine && APP_Sync) {
-    APP_Sync.syncAutomatico();
+  // Sync cuando hay internet
+  if (navigator.onLine) {
+    if (APP_Sync) APP_Sync.syncAutomatico();
   }
+
+  // Intentar sync cuando vuelve la conexión
+  window.addEventListener('online', () => {
+    if (APP_Sync) APP_Sync.syncPrecios();
+  });
 
   navigate(getPage());
 

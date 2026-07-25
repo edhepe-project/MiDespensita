@@ -24,15 +24,27 @@ APP_Pages.comprar = async function() {
   // Calcular stats de la semana (lunes a domingo)
   const stats = await APP_DB.getStatsByWeek();
 
-  // Obtener precios regionales del servidor
+  // Obtener precios regionales (online o cache local)
   let preciosRegionales = [];
-  let origenPrecios = '';
+  let origenPrecios = ubicacion?.ciudad || '';
+
   if (navigator.onLine && ubicacion?.ciudad && APP_Sync) {
     try {
       const data = await APP_Sync.getPreciosCiudad(ubicacion.ciudad);
       preciosRegionales = data.precios || [];
       origenPrecios = data.origen || ubicacion.ciudad;
+      // Guardar en cache local
+      localStorage.setItem('precios_regionales', JSON.stringify(preciosRegionales));
+      localStorage.setItem('precios_origen', origenPrecios);
     } catch (e) {}
+  } else {
+    // Usar cache local si no hay internet
+    const cache = localStorage.getItem('precios_regionales');
+    const cacheOrigen = localStorage.getItem('precios_origen');
+    if (cache) {
+      preciosRegionales = JSON.parse(cache);
+      origenPrecios = cacheOrigen || ubicacion?.ciudad || '';
+    }
   }
 
   container.innerHTML = `
