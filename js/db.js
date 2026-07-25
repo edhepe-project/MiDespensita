@@ -115,6 +115,36 @@ window.APP_DB = {
       compras
     };
   },
+  async getComprasByWeek() {
+    const now = new Date();
+    const diaSemana = now.getDay();
+    const diasDesdeLunes = diaSemana === 0 ? 6 : diaSemana - 1;
+    const lunes = new Date(now);
+    lunes.setDate(now.getDate() - diasDesdeLunes);
+    lunes.setHours(0, 0, 0, 0);
+    const domingo = new Date(lunes);
+    domingo.setDate(lunes.getDate() + 6);
+    domingo.setHours(23, 59, 59, 999);
+
+    const compras = await db.compras.where('fecha').between(lunes, domingo).toArray();
+
+    // Contar artículos comprados
+    let totalArticulos = 0;
+    for (const compra of compras) {
+      const detalle = await db.detalle_compra.where('compraId').equals(compra.id).toArray();
+      totalArticulos += detalle.reduce((sum, d) => sum + d.cantidad, 0);
+    }
+
+    const total = compras.reduce((sum, c) => sum + c.total, 0);
+    return {
+      total,
+      promedio: compras.length > 0 ? total / compras.length : 0,
+      numCompras: compras.length,
+      totalArticulos,
+      compras,
+      semana: `${lunes.getDate()} - ${domingo.getDate()} ${domingo.toLocaleString('es', { month: 'short' })}`
+    };
+  },
 
   // ============ PRECIOS ============
   async addPrecio(productoId, tienda, marca, precio, ciudad, presentacion) {

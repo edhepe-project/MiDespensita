@@ -21,9 +21,8 @@ APP_Pages.comprar = async function() {
   const pendientes = items.filter(i => !i.comprado);
   const comprados = items.filter(i => i.comprado);
 
-  // Calcular total gastado este mes
-  const now = new Date();
-  const stats = await APP_DB.getStatsByMonth(now.getFullYear(), now.getMonth());
+  // Calcular stats de la semana (lunes a domingo)
+  const stats = await APP_DB.getStatsByWeek();
 
   // Obtener precios regionales del servidor
   let preciosRegionales = [];
@@ -37,12 +36,12 @@ APP_Pages.comprar = async function() {
   container.innerHTML = `
     <div class="card stats-resumen">
       <div class="stat-row">
-        <span class="stat-label">Gastado este mes</span>
+        <span class="stat-label">Gastado esta semana</span>
         <span class="stat-value">${APP_Format.money(stats.total)}</span>
       </div>
       <div class="stat-row">
-        <span class="stat-label">Compras realizadas</span>
-        <span class="stat-value">${stats.numCompras}</span>
+        <span class="stat-label">Artículos comprados</span>
+        <span class="stat-value">${stats.totalArticulos}</span>
       </div>
     </div>
 
