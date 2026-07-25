@@ -91,7 +91,7 @@ APP_Pages.comprar = async function() {
             <span class="precio-regional-nombre">${p.producto_nombre}</span>
             <span class="precio-regional-tienda">${p.tienda} - ${p.marca || ''}</span>
             <span class="precio-regional-valor">$${p.precio_promedio.toFixed(2)}</span>
-            <span class="precio-regional-muestras">${p.num_muestras} datos</span>
+            <span class="precio-regional-muestras">${p.num_muestras} compra${p.num_muestras > 1 ? 's' : ''}</span>
           </div>
         `).join('')}
       </div>
