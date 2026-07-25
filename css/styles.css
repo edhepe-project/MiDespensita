@@ -1,0 +1,1179 @@
+/* ============================================
+   MiDespensita - Diseño Alegre y Emocionante
+   ============================================ */
+
+:root {
+  /* Paleta cálida y alegre */
+  --coral-50: #fff5f5;
+  --coral-100: #ffe4e6;
+  --coral-200: #fecdd3;
+  --coral-300: #fda4af;
+  --coral-400: #fb7185;
+  --coral-500: #f43f5e;
+  --coral-600: #e11d48;
+
+  --amber-50: #fffbeb;
+  --amber-100: #fef3c7;
+  --amber-200: #fde68a;
+  --amber-300: #fcd34d;
+  --amber-400: #fbbf24;
+  --amber-500: #f59e0b;
+  --amber-600: #d97706;
+
+  --orange-50: #fff7ed;
+  --orange-100: #ffedd5;
+  --orange-200: #fed7aa;
+  --orange-300: #fdba74;
+  --orange-400: #fb923c;
+  --orange-500: #f97316;
+  --orange-600: #ea580c;
+
+  --green-50: #f0fdf4;
+  --green-100: #dcfce7;
+  --green-200: #bbf7d0;
+  --green-300: #86efac;
+  --green-400: #4ade80;
+  --green-500: #22c55e;
+  --green-600: #16a34a;
+
+  --pink-50: #fdf2f8;
+  --pink-100: #fce7f3;
+  --pink-200: #fbcfe8;
+  --pink-300: #f9a8d4;
+  --pink-400: #f472b6;
+  --pink-500: #ec4899;
+
+  --gray-50: #fafafa;
+  --gray-100: #f4f4f5;
+  --gray-200: #e4e4e7;
+  --gray-300: #d4d4d8;
+  --gray-400: #a1a1aa;
+  --gray-500: #71717a;
+  --gray-600: #52525b;
+  --gray-700: #3f3f46;
+  --gray-800: #27272a;
+  --gray-900: #18181b;
+
+  --white: #ffffff;
+
+  /* Tokens principales - Alegres */
+  --bg: #fffbf5;
+  --surface: var(--white);
+  --text: var(--gray-800);
+  --text-secondary: var(--gray-500);
+  --text-muted: var(--gray-400);
+  --border: #fde8d0;
+
+  /* Color principal: Naranja cálido (emoción, energía) */
+  --primary: var(--orange-500);
+  --primary-hover: var(--orange-600);
+  --primary-light: var(--orange-50);
+  --primary-bg: var(--orange-100);
+
+  /* Acentos alegres */
+  --accent-coral: var(--coral-500);
+  --accent-amber: var(--amber-500);
+  --accent-pink: var(--pink-500);
+  --accent-green: var(--green-500);
+
+  /* Tipografía */
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, sans-serif;
+  --font-mono: 'SF Mono', 'Cascadia Code', Consolas, monospace;
+
+  /* Escala de tamaños */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+
+  /* Espaciado */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+
+  /* Bordes */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+
+  /* Sombras cálidas */
+  --shadow-xs: 0 1px 2px rgba(249, 115, 22, 0.05);
+  --shadow-sm: 0 2px 8px rgba(249, 115, 22, 0.08);
+  --shadow-md: 0 4px 12px rgba(249, 115, 22, 0.12);
+  --shadow-lg: 0 8px 24px rgba(249, 115, 22, 0.16);
+  --shadow-glow: 0 0 20px rgba(249, 115, 22, 0.3);
+
+  /* Transiciones */
+  --transition: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================
+   RESET & BASE
+   ============================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Permitir selección de texto en inputs */
+input, textarea, select {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ============================================
+   HEADER - Alegre y llamativo
+   ============================================ */
+
+.app-header {
+  background: linear-gradient(135deg, var(--orange-500), var(--coral-500));
+  padding: var(--space-4) var(--space-5);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-fecha {
+  text-align: right;
+  color: var(--white);
+  font-size: var(--text-xs);
+  line-height: 1.3;
+}
+
+.header-fecha-dia {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.header-fecha-mes {
+  font-size: var(--text-xs);
+  opacity: 0.9;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.app-title {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.025em;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.header-icon {
+  width: 28px;
+  height: 28px;
+}
+
+.app-subtitle {
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.9);
+  display: block;
+  margin-top: 4px;
+  font-weight: 400;
+}
+
+/* ============================================
+   MAIN CONTENT
+   ============================================ */
+
+.app-main {
+  flex: 1;
+  padding: var(--space-5);
+  padding-bottom: 100px;
+  max-width: 600px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ============================================
+   BOTTOM NAVIGATION - Alegre
+   ============================================ */
+
+.app-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.98);
+  border-top: 2px solid var(--orange-100);
+  display: flex;
+  justify-content: space-around;
+  padding: var(--space-2) 0;
+  padding-bottom: max(var(--space-2), env(safe-area-inset-bottom));
+  z-index: 100;
+  backdrop-filter: blur(12px);
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: var(--gray-400);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition);
+  gap: 4px;
+}
+
+.nav-item:hover {
+  color: var(--orange-500);
+  background: var(--orange-50);
+}
+
+.nav-item.active {
+  color: var(--primary);
+  background: var(--orange-50);
+}
+
+.nav-icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* ============================================
+   CARDS - Cálidos y acogedores
+   ============================================ */
+
+.card {
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-5);
+  margin-bottom: var(--space-4);
+  transition: all var(--transition);
+}
+
+.card:hover {
+  border-color: var(--orange-200);
+  box-shadow: var(--shadow-sm);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-4);
+}
+
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* ============================================
+   STATS RESUMEN - Alegre y emocionante
+   ============================================ */
+
+.stats-resumen {
+  background: linear-gradient(135deg, var(--orange-500), var(--coral-500));
+  border: none;
+  color: var(--white);
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.stats-resumen::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.stats-resumen .stat-label {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: var(--text-sm);
+}
+
+.stats-resumen .stat-value {
+  color: var(--white);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+}
+
+.stats-resumen .stat-row + .stat-row {
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.stats-resumen .section-title {
+  color: var(--white);
+}
+
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-3) 0;
+}
+
+/* ============================================
+   SECTION TITLES
+   ============================================ */
+
+.section-title {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--orange-600);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: var(--space-6) 0 var(--space-3);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* ============================================
+   LISTA DE COMPRA - Emocionante
+   ============================================ */
+
+.lista-compra {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.item-compra {
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-4);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-4);
+  transition: all var(--transition);
+}
+
+.item-compra:hover {
+  border-color: var(--orange-300);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.item-compra.pendiente {
+  border-left: 4px solid var(--primary);
+  background: linear-gradient(90deg, var(--orange-50) 0%, var(--white) 100%);
+}
+
+.item-compra.comprado {
+  opacity: 0.7;
+  background: var(--green-50);
+  border-color: var(--green-200);
+}
+
+.item-main {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex: 1;
+  min-width: 0;
+}
+
+.item-icon {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--orange-100), var(--amber-100));
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.item-check {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, var(--green-400), var(--green-500));
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: var(--text-xl);
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+}
+
+.item-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.item-nombre {
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.item-detalle {
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  margin-top: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.rango-precio {
+  color: var(--primary);
+  font-weight: 700;
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+}
+
+.ultimo-precio {
+  color: var(--text-secondary);
+}
+
+.sin-precios {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* ============================================
+   BOTONES - Llamativos y emocionantes
+   ============================================ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-5);
+  border: none;
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn:focus-visible {
+  outline: 3px solid var(--orange-300);
+  outline-offset: 2px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--orange-500), var(--coral-500));
+  color: var(--white);
+  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--orange-600), var(--coral-600));
+  box-shadow: 0 6px 20px rgba(249, 115, 22, 0.4);
+  transform: translateY(-2px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  background: var(--orange-50);
+  color: var(--orange-600);
+  border: 2px solid var(--orange-200);
+}
+
+.btn-secondary:hover {
+  background: var(--orange-100);
+  border-color: var(--orange-300);
+}
+
+.btn-small {
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--text-xs);
+}
+
+.btn-comprar {
+  flex-shrink: 0;
+}
+
+/* ============================================
+   FAB - Llamativo y emocionante
+   ============================================ */
+
+.fab {
+  position: fixed;
+  bottom: 90px;
+  right: var(--space-5);
+  width: 60px;
+  height: 60px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, var(--orange-500), var(--coral-500));
+  color: var(--white);
+  border: none;
+  font-size: var(--text-2xl);
+  font-weight: 300;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(249, 115, 22, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  transition: all var(--transition);
+}
+
+.fab:hover {
+  background: linear-gradient(135deg, var(--orange-600), var(--coral-600));
+  box-shadow: 0 12px 32px rgba(249, 115, 22, 0.5);
+  transform: scale(1.1) rotate(90deg);
+}
+
+.fab:active {
+  transform: scale(0.95) rotate(90deg);
+}
+
+/* ============================================
+   FORMULARIOS
+   ============================================ */
+
+.form-group {
+  margin-bottom: var(--space-5);
+}
+
+.form-label {
+  display: block;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: var(--space-2);
+}
+
+.form-input,
+.form-select {
+  width: 100%;
+  padding: var(--space-4);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-lg);
+  font-size: var(--text-base);
+  font-family: var(--font-sans);
+  background: var(--surface);
+  color: var(--text);
+  transition: all var(--transition);
+}
+
+.form-input:focus,
+.form-select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px var(--orange-100);
+}
+
+.form-input::placeholder {
+  color: var(--text-muted);
+}
+
+/* ============================================
+   MODAL - Alegre
+   ============================================ */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 200;
+  padding: var(--space-5);
+}
+
+.modal-content {
+  background: var(--surface);
+  width: 100%;
+  max-width: 500px;
+  max-height: 85vh;
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  padding: var(--space-6);
+  overflow-y: auto;
+  animation: slideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-5);
+}
+
+.modal-title {
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--text);
+}
+
+.modal-close {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  background: var(--gray-100);
+  border: none;
+  font-size: var(--text-lg);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  transition: all var(--transition);
+}
+
+.modal-close:hover {
+  background: var(--coral-100);
+  color: var(--coral-500);
+  transform: rotate(90deg);
+}
+
+.modal-producto {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--orange-600);
+  margin-bottom: var(--space-5);
+  padding-bottom: var(--space-4);
+  border-bottom: 2px solid var(--border);
+}
+
+.input-precio {
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  text-align: center;
+  font-family: var(--font-mono);
+  padding: var(--space-5);
+  border-color: var(--orange-200);
+  background: linear-gradient(180deg, var(--orange-50) 0%, var(--white) 100%);
+}
+
+/* ============================================
+   PRODUCTOS - LISTA MAESTRA
+   ============================================ */
+
+.categoria-seccion {
+  margin-bottom: var(--space-6);
+}
+
+.categoria-header {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--orange-600);
+  padding: var(--space-3) 0;
+  border-bottom: 2px solid var(--orange-100);
+  margin-bottom: var(--space-3);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.item-producto {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-4);
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-xl);
+  margin-bottom: var(--space-3);
+  transition: all var(--transition);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+.item-producto:hover {
+  border-color: var(--orange-200);
+  box-shadow: var(--shadow-sm);
+  transform: translateX(4px);
+}
+
+.item-producto .item-detalle {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: var(--text-xs);
+}
+
+.marca-info {
+  color: var(--text-secondary);
+}
+
+.precio-info {
+  color: var(--primary);
+  font-family: var(--font-mono);
+  font-weight: 700;
+}
+
+.item-acciones {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+}
+
+.btn-editar-producto,
+.btn-borrar-producto {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-borrar-producto:hover {
+  background: var(--coral-100);
+  color: var(--coral-600);
+  border-color: var(--coral-200);
+}
+
+.btn-menu-producto {
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  transition: all var(--transition);
+}
+
+.btn-menu-producto:hover {
+  background: var(--gray-100);
+  color: var(--text);
+}
+
+.menu-producto {
+  position: fixed;
+  background: var(--surface);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  overflow: hidden;
+  animation: menuPopIn 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes menuPopIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+  padding: var(--space-4) var(--space-6);
+  border: none;
+  background: transparent;
+  font-size: var(--text-base);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.menu-item:first-child {
+  border-bottom: 1px solid var(--border);
+}
+
+.menu-item-editar {
+  color: var(--orange-600);
+}
+
+.menu-item-editar:hover {
+  background: var(--orange-50);
+}
+
+.menu-item-borrar {
+  color: var(--coral-600);
+}
+
+.menu-item-borrar:hover {
+  background: var(--coral-50);
+}
+
+.menu-icon-editar,
+.menu-icon-borrar {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-icon-editar {
+  background: var(--orange-100);
+  color: var(--orange-600);
+}
+
+.menu-icon-borrar {
+  background: var(--coral-100);
+  color: var(--coral-600);
+}
+
+/* ============================================
+   PRECIOS - ANÁLISIS ALEGRE
+   ============================================ */
+
+.precio-card {
+  border-left: 4px solid var(--primary);
+  background: linear-gradient(90deg, var(--orange-50) 0%, var(--white) 50%);
+}
+
+.precios-lista {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.precio-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-4);
+  background: var(--white);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-lg);
+  position: relative;
+  transition: all var(--transition);
+}
+
+.precio-item:hover {
+  border-color: var(--orange-200);
+}
+
+.precio-item.mejor {
+  background: linear-gradient(135deg, var(--green-50), var(--green-100));
+  border-color: var(--green-300);
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.2);
+}
+
+.precio-info-main {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.precio-tienda-marca {
+  font-weight: 600;
+  font-size: var(--text-sm);
+  color: var(--text);
+}
+
+.precio-valor {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--primary);
+  font-family: var(--font-mono);
+}
+
+.precio-unitario {
+  font-size: var(--text-xs);
+  color: var(--green-600);
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+.precio-detalle {
+  display: flex;
+  gap: var(--space-4);
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  margin-top: var(--space-1);
+}
+
+.diferencia {
+  font-size: var(--text-xs);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, var(--orange-400), var(--coral-400));
+  color: var(--white);
+  font-weight: 700;
+  font-family: var(--font-mono);
+}
+
+.diferencia.malo {
+  background: linear-gradient(135deg, var(--coral-400), var(--coral-500));
+}
+
+.mejor-badge {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--green-600);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: var(--green-100);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+}
+
+/* ============================================
+   EMPTY STATE - Alegre
+   ============================================ */
+
+.empty-state {
+  text-align: center;
+  padding: var(--space-12) var(--space-6);
+  color: var(--text-secondary);
+}
+
+.empty-state-icon {
+  font-size: 4rem;
+  margin-bottom: var(--space-4);
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.empty-state p {
+  margin-bottom: var(--space-2);
+}
+
+/* ============================================
+   LOADING
+   ============================================ */
+
+.loading {
+  text-align: center;
+  padding: var(--space-12);
+  color: var(--text-secondary);
+}
+
+/* ============================================
+   UTILIDADES
+   ============================================ */
+
+.text-center { text-align: center; }
+.text-secondary { color: var(--text-secondary); }
+.text-muted { color: var(--text-muted); }
+.mt-4 { margin-top: var(--space-4); }
+.mt-6 { margin-top: var(--space-6); }
+.mb-4 { margin-bottom: var(--space-4); }
+.mb-6 { margin-bottom: var(--space-6); }
+.hidden { display: none !important; }
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (min-width: 640px) {
+  .app-main {
+    padding: var(--space-8);
+  }
+
+  .modal-content {
+    border-radius: var(--radius-xl);
+    margin-bottom: var(--space-8);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============================================
+   BOTÓN DE REGRESAR
+   ============================================ */
+
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-5);
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+  transition: all var(--transition);
+  margin-bottom: var(--space-5);
+}
+
+.btn-back:hover {
+  background: var(--orange-50);
+  border-color: var(--orange-200);
+  color: var(--orange-600);
+}
+
+.btn-back:active {
+  transform: scale(0.98);
+}
+
+/* ============================================
+   LONG PRESS MENU - Compartido
+   ============================================ */
+
+.longpress-menu {
+  position: fixed;
+  background: var(--surface);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  overflow: hidden;
+  animation: longpressPopIn 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes longpressPopIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.longpress-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+  padding: var(--space-4) var(--space-6);
+  border: none;
+  background: transparent;
+  font-size: var(--text-base);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.longpress-item:first-child {
+  border-bottom: 1px solid var(--border);
+}
+
+.longpress-editar {
+  color: var(--orange-600);
+}
+
+.longpress-editar:hover {
+  background: var(--orange-50);
+}
+
+.longpress-borrar {
+  color: var(--coral-600);
+}
+
+.longpress-borrar:hover {
+  background: var(--coral-50);
+}
+
+.longpress-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.longpress-icon-editar {
+  background: var(--orange-100);
+  color: var(--orange-600);
+}
+
+.longpress-icon-borrar {
+  background: var(--coral-100);
+  color: var(--coral-600);
+}
+
+.item-compra {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+.item-cantidad {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-right: var(--space-2);
+}

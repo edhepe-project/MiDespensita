@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.pyc
+serve.py
+
+# Logs
+*.log
+
+# Test data (opcional - quitar si quieres incluirlo)
+# test_data.js
+# limpiar.html
+
+# Excel files (datos personales)
+*.xlsx

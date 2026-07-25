@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Limpiando...</title>
+</head>
+<body>
+  <h2>Limpiando base de datos...</h2>
+  <script src="https://unpkg.com/dexie@3/dist/dexie.js"></script>
+  <script>
+    const db = new Dexie('DespensaApp');
+    db.delete().then(() => {
+      document.body.innerHTML = '<h2>✅ Base de datos limpiada</h2><p>Redirigiendo...</p>';
+      setTimeout(() => window.location.href = '/', 1500);
+    }).catch(err => {
+      document.body.innerHTML = '<h2>Error: ' + err + '</h2>';
+    });
+  </script>
+</body>
+</html>
