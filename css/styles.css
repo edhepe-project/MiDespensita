@@ -905,60 +905,53 @@ body {
 }
 
 .precio-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: var(--space-4);
+  padding: var(--space-3) var(--space-4);
   background: var(--white);
   border: 2px solid var(--border);
   border-radius: var(--radius-lg);
-  position: relative;
-  transition: all var(--transition);
-}
-
-.precio-item:hover {
-  border-color: var(--orange-200);
+  margin-bottom: var(--space-2);
 }
 
 .precio-item.mejor {
-  background: linear-gradient(135deg, var(--green-50), var(--green-100));
+  background: var(--green-50);
   border-color: var(--green-300);
-  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.2);
 }
 
-.precio-info-main {
+.precio-item-top {
   display: flex;
-  flex-direction: column;
-  flex: 1;
-  min-width: 0;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-1);
 }
 
-.precio-tienda-marca {
+.precio-item-tienda {
   font-weight: 600;
-  font-size: var(--text-sm);
+  font-size: var(--text-base);
   color: var(--text);
 }
 
-.precio-valor {
+.precio-item-precio {
   font-size: var(--text-xl);
   font-weight: 700;
   color: var(--primary);
   font-family: var(--font-mono);
 }
 
-.precio-unitario {
-  font-size: var(--text-xs);
-  color: var(--green-600);
-  font-weight: 600;
-  margin-top: 2px;
-}
-
-.precio-detalle {
+.precio-item-bottom {
   display: flex;
-  gap: var(--space-4);
+  justify-content: space-between;
+  align-items: center;
   font-size: var(--text-xs);
   color: var(--text-secondary);
-  margin-top: var(--space-1);
+}
+
+.precio-item-marca {
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.precio-item-detalles {
+  color: var(--text-muted);
 }
 
 .diferencia {

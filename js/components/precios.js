@@ -133,27 +133,26 @@ function renderPrecioItem(data) {
       <div class="precios-lista">
         ${comparativa.map((c, idx) => {
           const esMejor = idx === 0;
-
-          // Normalizar precio por unidad
-          const precioNormalizado = APP_Units.normalizarPrecio(c.promedio, c.presentacion);
-          const unidad = APP_Units.obtenerUnidadBase(c.presentacion);
-          const precioUnitario = unidad !== 'unidad' ? `$${precioNormalizado.toFixed(2)}/${unidad}` : '';
-
           const diff = idx > 0
             ? ((c.promedio - comparativa[0].promedio) / comparativa[0].promedio * 100).toFixed(0)
             : 0;
+
+          // Separar tienda y marca
+          const partes = c.tiendaMarca.split(' - ');
+          const tienda = partes[0] || '';
+          const marca = partes[1] || '';
+
           return `
             <div class="precio-item ${esMejor ? 'mejor' : ''}">
-              <div class="precio-info-main">
-                <span class="precio-tienda-marca">${c.tiendaMarca}</span>
-                <span class="precio-valor">$${c.promedio.toFixed(2)}</span>
-                ${precioUnitario ? `<span class="precio-unitario">${precioUnitario}</span>` : ''}
+              <div class="precio-item-top">
+                <div class="precio-item-tienda">${tienda}</div>
+                <div class="precio-item-precio">$${c.promedio.toFixed(2)}</div>
+                ${esMejor ? '<span class="mejor-badge">MEJOR</span>' : `<span class="diferencia ${diff > 10 ? 'malo' : ''}">+${diff}%</span>`}
               </div>
-              <div class="precio-detalle">
-                <span>Min: $${c.min.toFixed(2)} | Max: $${c.max.toFixed(2)}</span>
-                <span>${c.compras} compra${c.compras > 1 ? 's' : ''}</span>
+              <div class="precio-item-bottom">
+                <span class="precio-item-marca">${marca || 'Sin marca'}</span>
+                <span class="precio-item-detalles">Min: $${c.min.toFixed(2)} | Max: $${c.max.toFixed(2)} | ${c.compras} compra${c.compras > 1 ? 's' : ''}</span>
               </div>
-              ${!esMejor ? `<span class="diferencia ${diff > 10 ? 'malo' : ''}">+${diff}%</span>` : '<span class="mejor-badge">MEJOR</span>'}
             </div>
           `;
         }).join('')}
@@ -174,7 +173,8 @@ function bindPreciosEvents() {
       const items = card.querySelectorAll('.precio-item');
       let tieneTienda = false;
       items.forEach(item => {
-        if (item.querySelector('.precio-tienda-marca')?.textContent.includes(tienda)) {
+        const tiendaEl = item.querySelector('.precio-item-tienda');
+        if (tiendaEl && tiendaEl.textContent.includes(tienda)) {
           tieneTienda = true;
         }
       });
