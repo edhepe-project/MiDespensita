@@ -12,7 +12,7 @@ window.APP_LongPress = {
       if (e.target.closest('.btn-sin-longpress')) return;
       pressTimer = setTimeout(() => {
         this.mostrarMenu(opciones);
-      }, 800);
+      }, 3000);
     });
 
     elemento.addEventListener('touchend', () => clearTimeout(pressTimer));
@@ -23,7 +23,7 @@ window.APP_LongPress = {
       if (e.target.closest('.btn-sin-longpress')) return;
       pressTimer = setTimeout(() => {
         this.mostrarMenu(opciones);
-      }, 800);
+      }, 3000);
     });
 
     elemento.addEventListener('mouseup', () => clearTimeout(pressTimer));
