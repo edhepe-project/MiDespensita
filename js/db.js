@@ -124,6 +124,18 @@ window.APP_DB = {
       fecha: new Date()
     });
   },
+  async getPreciosRecientes(dias) {
+    const fechaLimite = new Date();
+    fechaLimite.setDate(fechaLimite.getDate() - dias);
+    const precios = await db.precios.where('fecha').above(fechaLimite).toArray();
+    // Enriquecer con datos de producto
+    const resultado = [];
+    for (const p of precios) {
+      const producto = await db.productos.get(p.productoId);
+      resultado.push({ ...p, producto });
+    }
+    return resultado;
+  },
   async getPreciosByProducto(productoId) {
     return db.precios.where('productoId').equals(productoId).toArray();
   },
