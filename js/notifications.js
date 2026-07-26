@@ -19,38 +19,50 @@ window.APP_Notifications = {
     return false;
   },
 
-  // Enviar notificación local
+  // Enviar notificación
   async enviar(titulo, mensaje, options = {}) {
+    // Intentar notificación del sistema
     const tienePermiso = await this.solicitarPermiso();
 
     if (tienePermiso) {
-      // Ruta base para GitHub Pages
-      const basePath = window.location.pathname.includes('/MiDespensita') ? '/MiDespensita' : '';
+      try {
+        const basePath = window.location.pathname.includes('/MiDespensita') ? '/MiDespensita' : '';
+        const notificacion = new Notification(titulo, {
+          body: mensaje,
+          icon: `${basePath}/icons/icon-192.png`,
+          badge: `${basePath}/icons/icon-192.png`,
+          vibrate: [200, 100, 200],
+          tag: options.tag || 'midespensita-' + Date.now(),
+          requireInteraction: true,
+          ...options
+        });
 
-      const notificacion = new Notification(titulo, {
-        body: mensaje,
-        icon: `${basePath}/icons/icon-192.png`,
-        badge: `${basePath}/icons/icon-192.png`,
-        vibrate: [200, 100, 200],
-        tag: options.tag || 'midespensita',
-        ...options
-      });
-
-      notificacion.onclick = () => {
-        window.focus();
-        notificacion.close();
-      };
-
-      return true;
+        notificacion.onclick = () => {
+          window.focus();
+          notificacion.close();
+        };
+      } catch (e) {}
     }
 
-    // Si no hay permiso, mostrar alerta en la app
+    // SIEMPRE mostrar alerta en la app (funciona en todos lados)
     this.mostrarAlertaEnApp(titulo, mensaje);
-    return false;
+
+    // Actualizar badge
+    const badge = document.getElementById('notif-badge');
+    if (badge) {
+      const actual = parseInt(badge.textContent) || 0;
+      badge.textContent = actual + 1;
+      badge.classList.add('visible');
+    }
+
+    return true;
   },
 
-  // Mostrar alerta dentro de la app
+  // Mostrar alerta dentro de la app (siempre funciona)
   mostrarAlertaEnApp(titulo, mensaje) {
+    // Cerrar alertas anteriores
+    document.querySelectorAll('.app-alerta').forEach(a => a.remove());
+
     const alerta = document.createElement('div');
     alerta.className = 'app-alerta';
     alerta.innerHTML = `
@@ -63,8 +75,10 @@ window.APP_Notifications = {
     `;
     document.body.appendChild(alerta);
 
-    // Auto-ocultar después de 5 segundos
-    setTimeout(() => alerta.remove(), 5000);
+    // Auto-ocultar después de 6 segundos
+    setTimeout(() => {
+      if (alerta.parentElement) alerta.remove();
+    }, 6000);
   },
 
   // Verificar ofertas y enviar notificación
@@ -77,7 +91,6 @@ window.APP_Notifications = {
       const data = await response.json();
 
       if (data.precios && data.precios.length > 0) {
-        // Buscar precios bajos (menor al promedio)
         const ofertas = data.precios.filter(p => p.num_muestras >= 2);
 
         if (ofertas.length > 0) {
@@ -86,13 +99,6 @@ window.APP_Notifications = {
             '¡Ofertas en ' + ubicacion.ciudad + '!',
             `${mejorOferta.producto_nombre} - ${mejorOferta.tienda} a $${mejorOferta.precio_promedio.toFixed(2)}`
           );
-
-          // Actualizar badge
-          const badge = document.getElementById('notif-badge');
-          if (badge) {
-            badge.textContent = ofertas.length;
-            badge.classList.add('visible');
-          }
         }
       }
     } catch (e) {}
