@@ -62,6 +62,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (APP_Sync) APP_Sync.syncPrecios();
   });
 
+  // Iniciar notificaciones
+  if (APP_Notifications) {
+    APP_Notifications.iniciar();
+  }
+
   navigate(getPage());
 
   if ('serviceWorker' in navigator) {

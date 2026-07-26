@@ -764,6 +764,62 @@ body {
   padding: var(--space-3);
 }
 
+/* Alerta en la app */
+.app-alerta {
+  position: fixed;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--surface);
+  border: 2px solid var(--primary);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3) var(--space-4);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  box-shadow: var(--shadow-lg);
+  z-index: 300;
+  max-width: 90%;
+  animation: alertaSlideIn 0.3s ease-out;
+}
+
+@keyframes alertaSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.alerta-icono {
+  font-size: 1.5rem;
+}
+
+.alerta-contenido {
+  flex: 1;
+}
+
+.alerta-titulo {
+  font-weight: 600;
+  font-size: var(--text-sm);
+}
+
+.alerta-mensaje {
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+}
+
+.alerta-cerrar {
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+  color: var(--text-secondary);
+}
+
 .input-precio {
   font-size: var(--text-3xl);
   font-weight: 700;
