@@ -21,31 +21,23 @@ window.APP_Notifications = {
 
   // Enviar notificación
   async enviar(titulo, mensaje, options = {}) {
-    // Intentar notificación del sistema
-    const tienePermiso = await this.solicitarPermiso();
+    // SIEMPRE mostrar alerta en la app (funciona en todos lados)
+    this.mostrarAlertaEnApp(titulo, mensaje);
 
+    // Intentar notificación del sistema también
+    const tienePermiso = await this.solicitarPermiso();
     if (tienePermiso) {
       try {
         const basePath = window.location.pathname.includes('/MiDespensita') ? '/MiDespensita' : '';
-        const notificacion = new Notification(titulo, {
+        new Notification(titulo, {
           body: mensaje,
           icon: `${basePath}/icons/icon-192.png`,
           badge: `${basePath}/icons/icon-192.png`,
           vibrate: [200, 100, 200],
-          tag: options.tag || 'midespensita-' + Date.now(),
-          requireInteraction: true,
-          ...options
+          tag: 'midespensita-' + Date.now()
         });
-
-        notificacion.onclick = () => {
-          window.focus();
-          notificacion.close();
-        };
       } catch (e) {}
     }
-
-    // SIEMPRE mostrar alerta en la app (funciona en todos lados)
-    this.mostrarAlertaEnApp(titulo, mensaje);
 
     // Actualizar badge
     const badge = document.getElementById('notif-badge');
@@ -75,13 +67,12 @@ window.APP_Notifications = {
     `;
     document.body.appendChild(alerta);
 
-    // Auto-ocultar después de 6 segundos
     setTimeout(() => {
       if (alerta.parentElement) alerta.remove();
     }, 6000);
   },
 
-  // Verificar ofertas y enviar notificación
+  // Verificar ofertas
   async verificarOfertas() {
     const ubicacion = await APP_DB.getUbicacion();
     if (!ubicacion?.ciudad) return;
@@ -104,12 +95,9 @@ window.APP_Notifications = {
     } catch (e) {}
   },
 
-  // Iniciar verificación periódica
+  // Iniciar verificación
   iniciar() {
-    // Verificar cada hora
     setInterval(() => this.verificarOfertas(), 60 * 60 * 1000);
-
-    // Verificar después de 1 minuto
     setTimeout(() => this.verificarOfertas(), 60000);
   }
 };
