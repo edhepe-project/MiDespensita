@@ -1,30 +1,78 @@
 // Sistema de notificaciones - MiDespensita
 window.APP_Notifications = {
-  // Solicitar permiso para notificaciones
+  subscription: null,
+
+  // Inicializar notificaciones
+  async init() {
+    if (!('serviceWorker' in navigator) || !('PushManager' in window)) {
+      console.log('Push notifications no soportadas');
+      return;
+    }
+
+    try {
+      const registration = await navigator.serviceWorker.ready;
+      this.subscription = await registration.pushManager.getSubscription();
+
+      if (!this.subscription) {
+        // Pedir permiso y suscribir
+        const permiso = await Notification.requestPermission();
+        if (permiso === 'granted') {
+          await this.suscribir(registration);
+        }
+      }
+    } catch (e) {
+      console.log('Error inicializando notificaciones:', e);
+    }
+  },
+
+  // Suscribir a push notifications
+  async suscribir(registration) {
+    try {
+      // Generar clave VAPID (para producción usa una real)
+      const applicationServerKey = this.urlBase64ToUint8Array(
+        'BEl62iUYgUivxVkvT9BNJR37cBd9bQ0nPfWtHyVhNNJp2O9bMhJzHnRdJQ9v2pQ5oR7tY8uI9oP0aS'
+      );
+
+      this.subscription = await registration.pushManager.subscribe({
+        userVisibleOnly: true,
+        applicationServerKey
+      });
+
+      console.log('Suscripción push exitosa');
+    } catch (e) {
+      console.log('Error en suscripción push:', e);
+    }
+  },
+
+  // Convertir clave VAPID
+  urlBase64ToUint8Array(base64String) {
+    const padding = '='.repeat((4 - base64String.length % 4) % 4);
+    const base64 = (base64String + padding).replace(/-/g, '+').replace(/_/g, '/');
+    const rawData = window.atob(base64);
+    const outputArray = new Uint8Array(rawData.length);
+    for (let i = 0; i < rawData.length; ++i) {
+      outputArray[i] = rawData.charCodeAt(i);
+    }
+    return outputArray;
+  },
+
+  // Solicitar permiso
   async solicitarPermiso() {
-    if (!('Notification' in window)) {
-      console.log('Este navegador no soporta notificaciones');
-      return false;
-    }
-
-    if (Notification.permission === 'granted') {
-      return true;
-    }
-
+    if (!('Notification' in window)) return false;
+    if (Notification.permission === 'granted') return true;
     if (Notification.permission !== 'denied') {
       const permiso = await Notification.requestPermission();
       return permiso === 'granted';
     }
-
     return false;
   },
 
   // Enviar notificación
   async enviar(titulo, mensaje, options = {}) {
-    // SIEMPRE mostrar alerta en la app (funciona en todos lados)
+    // SIEMPRE mostrar alerta en la app
     this.mostrarAlertaEnApp(titulo, mensaje);
 
-    // Intentar notificación del sistema también
+    // Intentar push notification
     const tienePermiso = await this.solicitarPermiso();
     if (tienePermiso) {
       try {
@@ -50,9 +98,8 @@ window.APP_Notifications = {
     return true;
   },
 
-  // Mostrar alerta dentro de la app (siempre funciona)
+  // Alerta dentro de la app
   mostrarAlertaEnApp(titulo, mensaje) {
-    // Cerrar alertas anteriores
     document.querySelectorAll('.app-alerta').forEach(a => a.remove());
 
     const alerta = document.createElement('div');
@@ -95,8 +142,9 @@ window.APP_Notifications = {
     } catch (e) {}
   },
 
-  // Iniciar verificación
+  // Iniciar
   iniciar() {
+    this.init();
     setInterval(() => this.verificarOfertas(), 60 * 60 * 1000);
     setTimeout(() => this.verificarOfertas(), 60000);
   }

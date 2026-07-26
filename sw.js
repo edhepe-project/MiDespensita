@@ -1,6 +1,6 @@
-const CACHE_NAME = 'midespensita-v2';
+const CACHE_NAME = 'midespensita-v3';
 
-// Rutas relativas para funcionar en GitHub Pages
+// Rutas relativas para GitHub Pages
 const BASE_URL = self.location.pathname.replace(/\/[^/]*$/, '/');
 const ASSETS = [
   BASE_URL,
@@ -10,11 +10,13 @@ const ASSETS = [
   BASE_URL + 'js/app.js',
   BASE_URL + 'js/db.js',
   BASE_URL + 'js/sync.js',
+  BASE_URL + 'js/notifications.js',
   BASE_URL + 'js/components/comprar.js',
   BASE_URL + 'js/components/productos.js',
   BASE_URL + 'js/components/precios.js',
   BASE_URL + 'js/components/comparar_semanas.js',
   BASE_URL + 'js/components/predicciones.js',
+  BASE_URL + 'js/components/config.js',
   BASE_URL + 'js/utils/format.js',
   BASE_URL + 'js/utils/constants.js',
   BASE_URL + 'js/utils/units.js',
@@ -25,6 +27,7 @@ const ASSETS = [
   BASE_URL + 'manifest.json'
 ];
 
+// Install
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
@@ -33,6 +36,7 @@ self.addEventListener('install', event => {
   );
 });
 
+// Activate
 self.addEventListener('activate', event => {
   event.waitUntil(
     caches.keys().then(keys =>
@@ -41,6 +45,7 @@ self.addEventListener('activate', event => {
   );
 });
 
+// Fetch
 self.addEventListener('fetch', event => {
   event.respondWith(
     caches.match(event.request).then(cached => {
@@ -50,5 +55,49 @@ self.addEventListener('fetch', event => {
         return response;
       });
     }).catch(() => caches.match(BASE_URL + 'index.html'))
+  );
+});
+
+// Push Notification
+self.addEventListener('push', event => {
+  const data = event.data ? event.data.json() : {};
+
+  const title = data.title || 'MiDespensita';
+  const options = {
+    body: data.body || 'Tienes una notificación',
+    icon: BASE_URL + 'icons/icon-192.png',
+    badge: BASE_URL + 'icons/icon-192.png',
+    vibrate: [200, 100, 200],
+    data: data.url || BASE_URL,
+    actions: [
+      { action: 'open', title: 'Abrir' },
+      { action: 'close', title: 'Cerrar' }
+    ]
+  };
+
+  event.waitUntil(
+    self.registration.showNotification(title, options)
+  );
+});
+
+// Click en notificación
+self.addEventListener('notificationclick', event => {
+  event.notification.close();
+
+  if (event.action === 'close') return;
+
+  event.waitUntil(
+    clients.matchAll({ type: 'window' }).then(windowClients => {
+      // Si ya está abierto, enfocar
+      for (const client of windowClients) {
+        if (client.url.includes(BASE_URL) && 'focus' in client) {
+          return client.focus();
+        }
+      }
+      // Si no, abrir nueva ventana
+      if (clients.openWindow) {
+        return clients.openWindow(event.notification.data || BASE_URL);
+      }
+    })
   );
 });
