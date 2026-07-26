@@ -24,10 +24,13 @@ window.APP_Notifications = {
     const tienePermiso = await this.solicitarPermiso();
 
     if (tienePermiso) {
+      // Ruta base para GitHub Pages
+      const basePath = window.location.pathname.includes('/MiDespensita') ? '/MiDespensita' : '';
+
       const notificacion = new Notification(titulo, {
         body: mensaje,
-        icon: '/icons/icon-192.png',
-        badge: '/icons/icon-192.png',
+        icon: `${basePath}/icons/icon-192.png`,
+        badge: `${basePath}/icons/icon-192.png`,
         vibrate: [200, 100, 200],
         tag: options.tag || 'midespensita',
         ...options
