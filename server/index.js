@@ -330,24 +330,29 @@ app.post('/api/familia/crear', async (req, res) => {
     const { usuario_id } = req.body;
     if (!usuario_id) return res.status(400).json({ error: 'usuario_id requerido' });
 
-    // Generar código único
-    let codigo;
-    let intentos = 0;
-    do {
-      codigo = generarCodigoSeguro();
-      const existe = await pool.query('SELECT codigo FROM listas_compartidas WHERE codigo = $1', [codigo]);
-      if (existe.rows.length === 0) break;
-      intentos++;
-    } while (intentos < 5);
+    // 1. Revisar si el usuario ya tiene una lista
+    let lista = await pool.query('SELECT * FROM listas_compartidas WHERE dueno_id = $1', [usuario_id]);
+    
+    // 2. Si no tiene, crearla
+    if (lista.rows.length === 0) {
+      let codigo;
+      let intentos = 0;
+      do {
+        codigo = generarCodigoSeguro();
+        const existe = await pool.query('SELECT codigo FROM listas_compartidas WHERE codigo = $1', [codigo]);
+        if (existe.rows.length === 0) break;
+        intentos++;
+      } while (intentos < 5);
 
-    const expira = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000); // 7 días
-    await pool.query(
-      'INSERT INTO listas_compartidas (codigo, dueno_id, expira_en) VALUES ($1, $2, $3) ON CONFLICT (dueno_id) DO NOTHING',
-      [codigo, usuario_id, expira]
-    );
+      const expira = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000); // 7 días
+      await pool.query(
+        'INSERT INTO listas_compartidas (codigo, dueno_id, expira_en) VALUES ($1, $2, $3)',
+        [codigo, usuario_id, expira]
+      );
+      
+      lista = await pool.query('SELECT * FROM listas_compartidas WHERE dueno_id = $1', [usuario_id]);
+    }
 
-    // Recuperar lista existente del dueño por si ya tenía una
-    const lista = await pool.query('SELECT * FROM listas_compartidas WHERE dueno_id = $1', [usuario_id]);
     res.json({ codigo: lista.rows[0].codigo, expira_en: lista.rows[0].expira_en });
   } catch (e) {
     console.error('Error creando lista compartida:', e);
