@@ -535,6 +535,46 @@ app.get('/api/notificaciones/vapid-public', (req, res) => {
   res.json({ publicKey: VAPID_PUBLIC });
 });
 
+// Probar notificaciones enviándose a sí mismo
+app.post('/api/notificaciones/test', async (req, res) => {
+  const { usuario_id, lista_codigo } = req.body;
+  if (!usuario_id || !lista_codigo) return res.status(400).json({ error: 'Faltan datos' });
+
+  try {
+    const subs = await pool.query(
+      'SELECT suscripcion FROM suscripciones_push WHERE usuario_id = $1 AND lista_codigo = $2',
+      [usuario_id, lista_codigo]
+    );
+
+    if (subs.rows.length === 0) return res.status(404).json({ error: 'No hay suscripción activa para probar' });
+
+    const payload = JSON.stringify({
+      title: '🔔 Prueba exitosa',
+      body: '¡Tus notificaciones están funcionando correctamente!',
+      url: '/MiDespensita/#config'
+    });
+
+    let fallos = 0;
+    for (const sub of subs.rows) {
+      try {
+        await webpush.sendNotification(sub.suscripcion, payload);
+      } catch (err) {
+        console.error('Error enviando push de prueba:', err);
+        fallos++;
+      }
+    }
+
+    if (fallos === subs.rows.length) {
+      res.status(500).json({ error: 'Fallo al enviar a los servidores de Google/Apple' });
+    } else {
+      res.json({ success: true });
+    }
+  } catch (e) {
+    console.error('Error probando push:', e);
+    res.status(500).json({ error: 'Error interno' });
+  }
+});
+
 // Actualizar ítem (marcar como comprado, cambiar cantidad)
 app.patch('/api/familia/:codigo/lista/:itemId', async (req, res) => {
   const { codigo, itemId } = req.params;

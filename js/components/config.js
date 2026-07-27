@@ -63,9 +63,14 @@ APP_Pages.config = async function() {
         <p class="text-secondary" style="margin-bottom: 12px; font-size: var(--text-sm)">
           Recibe una alerta en tu celular cuando alguien agregue algo a la lista familiar.
         </p>
-        <button class="btn btn-primary" style="width:100%" id="btn-activar-notif">
-          ${localStorage.getItem('midespensita_push_activo') === '1' ? '🔕 Desactivar notificaciones' : '🔔 Activar notificaciones'}
-        </button>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <button class="btn btn-primary" style="flex:1" id="btn-activar-notif">
+            ${localStorage.getItem('midespensita_push_activo') === '1' ? '🔕 Desactivar' : '🔔 Activar'}
+          </button>
+          <button class="btn btn-secondary" style="flex:1; display: ${localStorage.getItem('midespensita_push_activo') === '1' ? 'block' : 'none'}" id="btn-probar-notif">
+            🧪 Probar
+          </button>
+        </div>
         <p id="notif-estado" style="font-size: 11px; margin-top: 8px; color: var(--text-muted)">
           ${localStorage.getItem('midespensita_push_activo') === '1' ? '✅ Notificaciones activas' : ''}
         </p>
@@ -232,13 +237,33 @@ function bindConfigEvents() {
     const result = await APP_Push.activar(lista_codigo, usuario?.id || 'anonimo');
 
     if (result.success) {
-      btn.textContent = '🔕 Desactivar notificaciones';
+      btn.textContent = '🔕 Desactivar';
       estado.textContent = '✅ Notificaciones activas';
       estado.style.color = 'var(--green-600, #16a34a)';
+      const btnProbar = document.getElementById('btn-probar-notif');
+      if (btnProbar) btnProbar.style.display = 'block';
     } else {
       alert('No se pudo activar: ' + result.error);
-      btn.textContent = '🔔 Activar notificaciones';
+      btn.textContent = '🔔 Activar';
     }
+    btn.disabled = false;
+  });
+
+  document.getElementById('btn-probar-notif')?.addEventListener('click', async () => {
+    const btn = document.getElementById('btn-probar-notif');
+    btn.textContent = '...';
+    btn.disabled = true;
+    
+    const lista_codigo = APP_Sync.getCodigoFamilia();
+    const usuario = await APP_Sync.getUsuario();
+    const result = await APP_Push.probar(lista_codigo, usuario?.id);
+    
+    if (result.success) {
+      alert('Prueba enviada. Deberías recibir la notificación en unos segundos.');
+    } else {
+      alert('Error enviando prueba: ' + result.error);
+    }
+    btn.textContent = '🧪 Probar';
     btn.disabled = false;
   });
 

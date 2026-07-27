@@ -72,6 +72,21 @@ const APP_Push = (() => {
       }
     },
 
+    // Enviar push de prueba a sí mismo
+    async probar(lista_codigo, usuario_id) {
+      try {
+        const res = await fetch(`${SERVER_URL}/api/notificaciones/test`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ lista_codigo, usuario_id })
+        });
+        const data = await res.json();
+        return data.success ? { success: true } : { error: data.error };
+      } catch (e) {
+        return { error: e.message };
+      }
+    },
+
     // Desactivar / desuscribir
     async desactivar() {
       const reg = await navigator.serviceWorker.ready;
