@@ -16,6 +16,25 @@ APP_Pages.config = async function() {
 
     <div class="card">
       <div class="card-header">
+        <span class="card-title">👤 Mi nombre</span>
+      </div>
+      <p class="text-secondary" style="margin-bottom: 12px; font-size: var(--text-sm)">
+        Así aparecerás en las notificaciones familiares.
+      </p>
+      <div style="display: flex; gap: 8px">
+        <input type="text" class="form-input" id="input-mi-nombre"
+          placeholder="Ej: Mamá, Papá, Juan..."
+          value="${localStorage.getItem('midespensita_nombre') || ''}"
+          style="flex:1; font-size: var(--text-sm)">
+        <button class="btn btn-primary" id="btn-guardar-nombre" style="white-space: nowrap">Guardar</button>
+      </div>
+      <p id="nombre-estado" style="font-size: 11px; margin-top: 6px; color: var(--text-muted)">
+        ${localStorage.getItem('midespensita_nombre') ? '✅ Nombre: ' + localStorage.getItem('midespensita_nombre') : ''}
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
         <span class="card-title">👨‍👩‍👦 Lista Familiar</span>
       </div>
 
@@ -147,6 +166,15 @@ APP_Pages.config = async function() {
 };
 
 function bindConfigEvents() {
+  // ---- NOMBRE ----
+  document.getElementById('btn-guardar-nombre').addEventListener('click', () => {
+    const nombre = document.getElementById('input-mi-nombre').value.trim();
+    if (!nombre) return alert('Escribe un nombre primero');
+    localStorage.setItem('midespensita_nombre', nombre);
+    document.getElementById('nombre-estado').textContent = '✅ Nombre: ' + nombre;
+    document.getElementById('nombre-estado').style.color = 'var(--green-600, #16a34a)';
+  });
+
   // ---- LISTA FAMILIAR ----
   document.getElementById('btn-compartir-lista').addEventListener('click', async () => {
     const btn = document.getElementById('btn-compartir-lista');
