@@ -140,6 +140,7 @@ function renderItemFamiliar(item, esComprado) {
   return `
     <div class="item-compra ${esComprado ? 'comprado' : 'pendiente'}"
          data-familia-id="${item.id}"
+         data-cantidad="${item.cantidad}"
          data-item-nombre="${item.nombre_producto}">
       <div class="item-main">
         <div class="${esComprado ? 'item-check' : 'item-icon'}">
@@ -147,7 +148,7 @@ function renderItemFamiliar(item, esComprado) {
         </div>
         <div class="item-info">
           <div class="item-nombre">${item.nombre_producto}</div>
-          <div class="item-detalle" style="font-size:11px;color:var(--text-muted)">
+          <div class="item-detalle" id="detalle-fam-${item.id}" style="font-size:11px;color:var(--text-muted)">
             ${esComprado ? 'Ya comprado' : 'x' + item.cantidad}
           </div>
         </div>
@@ -162,7 +163,36 @@ function renderItemFamiliar(item, esComprado) {
   `;
 }
 
+async function cargarDetallesPreciosFamiliar() {
+  const items = document.querySelectorAll('.item-compra.pendiente[data-item-nombre]');
+  if (items.length === 0) return;
+  const productos = await APP_DB.getAllProductos();
+  
+  for (const item of items) {
+    const nombre = item.dataset.itemNombre;
+    const familiaId = item.dataset.familiaId;
+    const cantidad = item.dataset.cantidad || 1;
+    
+    const productoLocal = productos.find(p => p.nombre.toLowerCase() === nombre.toLowerCase());
+    
+    if (productoLocal) {
+      const rango = await APP_DB.getRangoPrecios(productoLocal.id);
+      const detalle = document.getElementById(`detalle-fam-${familiaId}`);
+      if (detalle && rango) {
+        detalle.innerHTML = `
+          <span>x${cantidad}</span> | 
+          <span style="color:var(--primary); font-weight: 500">$${rango.min} - $${rango.max}</span> | 
+          <span>Último: $${rango.ultimo.precio}</span>
+        `;
+      }
+    }
+  }
+}
+
 function bindListaFamiliarEvents(codigo) {
+  // Cargar detalles de precios localmente
+  cargarDetallesPreciosFamiliar();
+
   // Marcar como comprado
   document.querySelectorAll('.btn-familia-comprar').forEach(btn => {
     btn.addEventListener('click', async () => {
