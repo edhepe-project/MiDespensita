@@ -126,17 +126,25 @@ APP_Pages.config = async function() {
 
     <div class="card">
       <div class="card-header">
-        <span class="card-title">💾 Exportar datos</span>
+        <span class="card-title">📄 Generar Reporte PDF</span>
       </div>
-      <p class="text-secondary" style="margin-bottom: 12px">Descarga todos tus datos como archivo JSON</p>
-      <button class="btn btn-primary" style="width:100%" id="btn-exportar">Exportar JSON</button>
+      <p class="text-secondary" style="margin-bottom: 12px">Descarga tu lista de compras y catálogo de precios en formato PDF limpio para imprimir o compartir.</p>
+      <button class="btn btn-primary" style="width:100%" id="btn-exportar-pdf">Generar PDF</button>
     </div>
 
     <div class="card">
       <div class="card-header">
-        <span class="card-title">📥 Importar datos</span>
+        <span class="card-title">💾 Crear Respaldo (Backup)</span>
       </div>
-      <p class="text-secondary" style="margin-bottom: 12px">Carga datos desde un archivo JSON de respaldo</p>
+      <p class="text-secondary" style="margin-bottom: 12px">Guarda tus datos en formato JSON para no perderlos si cambias de equipo.</p>
+      <button class="btn btn-secondary" style="width:100%" id="btn-exportar">Exportar Backup JSON</button>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">📥 Restaurar Respaldo</span>
+      </div>
+      <p class="text-secondary" style="margin-bottom: 12px">Carga tus datos desde un archivo JSON de respaldo.</p>
       <input type="file" id="input-importar" accept=".json" style="display:none">
       <button class="btn btn-secondary" style="width:100%" id="btn-importar">Seleccionar archivo</button>
     </div>
@@ -304,6 +312,72 @@ function bindConfigEvents() {
       document.getElementById('ubicacion-header').textContent = ciudad.trim();
       APP_Pages.config();
     }
+  });
+
+  // Generar PDF
+  document.getElementById('btn-exportar-pdf').addEventListener('click', async () => {
+    const lista = await APP_DB.getListaActiva();
+    const itemsLista = await APP_DB.getItemsByLista(lista.id);
+    const pendientes = itemsLista.filter(i => !i.comprado);
+    const productos = await APP_DB.getAllProductos();
+    
+    let reportHTML = `
+      <div id="printable-report" style="display:none; padding: 20px; font-family: sans-serif; color: black;">
+        <div class="print-title" style="font-size: 24px; font-weight: bold; margin-bottom: 10px; border-bottom: 2px solid #ccc; padding-bottom: 10px;">Reporte de MiDespensita</div>
+        <div style="margin-bottom: 20px;"><strong>Fecha:</strong> ${new Date().toLocaleDateString('es-MX')}</div>
+    `;
+
+    if (pendientes.length > 0) {
+      reportHTML += `
+        <div class="print-subtitle" style="font-size: 18px; font-weight: bold; margin-top: 20px; margin-bottom: 10px;">🛒 Lista de Compras Pendiente</div>
+        <table class="print-table" style="width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: 14px;">
+          <thead><tr>
+            <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #f5f5f5;">Producto</th>
+            <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #f5f5f5;">Cantidad</th>
+          </tr></thead>
+          <tbody>
+            ${pendientes.map(item => `<tr>
+              <td style="border: 1px solid #ddd; padding: 8px;">${item.producto?.nombre || 'Sin nombre'}</td>
+              <td style="border: 1px solid #ddd; padding: 8px;">${item.cantidad}</td>
+            </tr>`).join('')}
+          </tbody>
+        </table>
+      `;
+    }
+
+    if (productos.length > 0) {
+      reportHTML += `
+        <div class="print-subtitle" style="font-size: 18px; font-weight: bold; margin-top: 20px; margin-bottom: 10px; page-break-before: always;">📦 Catálogo de Productos y Precios</div>
+        <table class="print-table" style="width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: 14px;">
+          <thead><tr>
+            <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #f5f5f5;">Producto</th>
+            <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #f5f5f5;">Categoría</th>
+            <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #f5f5f5;">Último Precio</th>
+          </tr></thead>
+          <tbody>
+      `;
+      for (const prod of productos) {
+        const rango = await APP_DB.getRangoPrecios(prod.id);
+        const precioText = rango ? `$${rango.ultimo.precio.toFixed(2)} (${rango.ultimo.tienda})` : 'Sin compras';
+        reportHTML += `<tr>
+          <td style="border: 1px solid #ddd; padding: 8px;">${prod.nombre}</td>
+          <td style="border: 1px solid #ddd; padding: 8px;">${APP_CATEGORIAS[prod.categoria]?.nombre || prod.categoria}</td>
+          <td style="border: 1px solid #ddd; padding: 8px;">${precioText}</td>
+        </tr>`;
+      }
+      reportHTML += `
+          </tbody>
+        </table>
+      `;
+    }
+    
+    reportHTML += `</div>`;
+
+    const oldReport = document.getElementById('printable-report');
+    if (oldReport) oldReport.remove();
+    
+    document.body.insertAdjacentHTML('beforeend', reportHTML);
+    window.print();
   });
 
   // Exportar datos

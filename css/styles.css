@@ -1530,3 +1530,19 @@ body {
 .notif-badge { position: absolute; top: 8px; right: 8px; width: 8px; height: 8px; background-color: var(--red-500, #ef4444); border-radius: 50%; display: none; }
 .header-notif { position: relative; }
 
+
+/* ============================================
+   PRINT STYLES (PDF EXPORT)
+   ============================================ */
+@media print {
+  body { background: white; color: black; font-family: sans-serif; }
+  .app-header, .app-nav, #app-content, .notif-dropdown, .fab { display: none !important; }
+  #printable-report { display: block !important; }
+  .print-page { page-break-after: always; }
+  .print-title { font-size: 24px; font-weight: bold; margin-bottom: 20px; border-bottom: 2px solid #ccc; padding-bottom: 10px; }
+  .print-subtitle { font-size: 18px; font-weight: bold; margin-top: 20px; margin-bottom: 10px; }
+  .print-table { width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: 12px; }
+  .print-table th, .print-table td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+  .print-table th { background-color: #f5f5f5; font-weight: bold; }
+  .print-text-right { text-align: right; }
+}
