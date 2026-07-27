@@ -57,6 +57,27 @@ APP_Pages.config = async function() {
 
     <div class="card">
       <div class="card-header">
+        <span class="card-title">🔔 Notificaciones</span>
+      </div>
+      ${APP_Push?.esCompatible() ? `
+        <p class="text-secondary" style="margin-bottom: 12px; font-size: var(--text-sm)">
+          Recibe una alerta en tu celular cuando alguien agregue algo a la lista familiar.
+        </p>
+        <button class="btn btn-primary" style="width:100%" id="btn-activar-notif">
+          ${localStorage.getItem('midespensita_push_activo') === '1' ? '🔕 Desactivar notificaciones' : '🔔 Activar notificaciones'}
+        </button>
+        <p id="notif-estado" style="font-size: 11px; margin-top: 8px; color: var(--text-muted)">
+          ${localStorage.getItem('midespensita_push_activo') === '1' ? '✅ Notificaciones activas' : ''}
+        </p>
+      ` : `
+        <p class="text-secondary" style="font-size: var(--text-sm)">
+          ⚠️ Tu navegador no soporta notificaciones push. Instala la app en la pantalla de inicio para habilitarlas.
+        </p>
+      `}
+    </div>
+
+    <div class="card">
+      <div class="card-header">
         <span class="card-title">📍 Ubicación</span>
       </div>
       <p class="text-secondary" style="margin-bottom: 12px">${ubicacion?.ciudad || 'No configurada'}</p>
@@ -181,6 +202,45 @@ function bindConfigEvents() {
     btn.disabled = false;
   });
 
+
+  // ---- NOTIFICACIONES PUSH ----
+  document.getElementById('btn-activar-notif')?.addEventListener('click', async () => {
+    const btn = document.getElementById('btn-activar-notif');
+    const estado = document.getElementById('notif-estado');
+
+    const yaActivo = localStorage.getItem('midespensita_push_activo') === '1';
+
+    if (yaActivo) {
+      await APP_Push.desactivar();
+      btn.textContent = '🔔 Activar notificaciones';
+      estado.textContent = '';
+      return;
+    }
+
+    btn.textContent = '...';
+    btn.disabled = true;
+
+    const lista_codigo = APP_Sync.getCodigoFamilia();
+    if (!lista_codigo) {
+      alert('Primero únete o crea una lista familiar para activar las notificaciones.');
+      btn.textContent = '🔔 Activar notificaciones';
+      btn.disabled = false;
+      return;
+    }
+
+    const usuario = await APP_Sync.getUsuario();
+    const result = await APP_Push.activar(lista_codigo, usuario?.id || 'anonimo');
+
+    if (result.success) {
+      btn.textContent = '🔕 Desactivar notificaciones';
+      estado.textContent = '✅ Notificaciones activas';
+      estado.style.color = 'var(--green-600, #16a34a)';
+    } else {
+      alert('No se pudo activar: ' + result.error);
+      btn.textContent = '🔔 Activar notificaciones';
+    }
+    btn.disabled = false;
+  });
 
   // ---- UBICACIÓN ----
 

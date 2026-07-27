@@ -196,7 +196,8 @@ window.APP_Sync = {
         body: JSON.stringify({
           nombre_producto: nombreProducto,
           cantidad,
-          agregado_por: usuario?.id || 'anonimo'
+          agregado_por: usuario?.nombre || usuario?.id || 'Tu familiar',
+          usuario_id: usuario?.id || 'anonimo'
         })
       });
       return await response.json();

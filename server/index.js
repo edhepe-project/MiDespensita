@@ -2,6 +2,12 @@ const express = require('express');
 const cors = require('cors');
 const { Pool } = require('pg');
 const { v4: uuidv4 } = require('uuid');
+const webpush = require('web-push');
+
+// ============ VAPID CONFIG ============
+const VAPID_PUBLIC  = process.env.VAPID_PUBLIC  || 'BLFadV5BsxClgM0gt9gjEPOnmnOMfj3v4GElxk2z027HG5gAf3tHQJKy-No1sz-ofKVFqC0sEgiuWsb7dC3R91Q';
+const VAPID_PRIVATE = process.env.VAPID_PRIVATE || 'PZhQR3_wAru0_pHH1lHfx91SvQZpLy5nnLMu5CfcDvk';
+webpush.setVapidDetails('mailto:soporte@midespensita.app', VAPID_PUBLIC, VAPID_PRIVATE);
 
 // Forzar el uso de IPv4 para evitar el error ENETUNREACH en entornos sin IPv6
 require('dns').setDefaultResultOrder('ipv4first');
@@ -175,6 +181,17 @@ async function initDB() {
         comprado_por TEXT DEFAULT '',
         fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         fecha_actualizacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+      )
+    `);
+
+    await client.query(`
+      CREATE TABLE IF NOT EXISTS suscripciones_push (
+        id SERIAL PRIMARY KEY,
+        lista_codigo TEXT REFERENCES listas_compartidas(codigo) ON DELETE CASCADE,
+        usuario_id TEXT NOT NULL,
+        endpoint TEXT NOT NULL UNIQUE,
+        suscripcion JSONB NOT NULL,
+        fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
       )
     `);
 
@@ -452,7 +469,7 @@ app.get('/api/familia/:codigo/lista', async (req, res) => {
 // Agregar ítem a la lista compartida
 app.post('/api/familia/:codigo/lista', async (req, res) => {
   const { codigo } = req.params;
-  const { nombre_producto, cantidad, agregado_por } = req.body;
+  const { nombre_producto, cantidad, agregado_por, usuario_id } = req.body;
   if (!nombre_producto) return res.status(400).json({ error: 'nombre_producto requerido' });
 
   try {
@@ -466,11 +483,56 @@ app.post('/api/familia/:codigo/lista', async (req, res) => {
       'INSERT INTO lista_familiar_items (lista_codigo, nombre_producto, cantidad, agregado_por) VALUES ($1, $2, $3, $4) RETURNING *',
       [codigo, nombre_producto, cantidad || 1, agregado_por || 'anonimo']
     );
+
+    // === Enviar push a todos los miembros excepto quien agregó ===
+    const subs = await pool.query(
+      'SELECT suscripcion, usuario_id FROM suscripciones_push WHERE lista_codigo = $1 AND usuario_id != $2',
+      [codigo, usuario_id || 'anonimo']
+    );
+    const payload = JSON.stringify({
+      title: '🛒 Lista familiar actualizada',
+      body: `${agregado_por || 'Tu familiar'} agregó: ${nombre_producto}`,
+      url: '/MiDespensita/#comprar'
+    });
+    for (const sub of subs.rows) {
+      try {
+        await webpush.sendNotification(sub.suscripcion, payload);
+      } catch (pushErr) {
+        // Si la suscripción expiró, borrarla
+        if (pushErr.statusCode === 410) {
+          await pool.query("DELETE FROM suscripciones_push WHERE endpoint = $1", [sub.suscripcion.endpoint]);
+        }
+      }
+    }
+
     res.json({ success: true, item: item.rows[0] });
   } catch (e) {
     console.error('Error agregando ítem:', e);
     res.status(500).json({ error: 'Error interno' });
   }
+});
+
+// Guardar suscripción push
+app.post('/api/notificaciones/suscribir', async (req, res) => {
+  const { lista_codigo, usuario_id, suscripcion } = req.body;
+  if (!lista_codigo || !suscripcion) return res.status(400).json({ error: 'Datos requeridos' });
+  try {
+    await pool.query(
+      `INSERT INTO suscripciones_push (lista_codigo, usuario_id, endpoint, suscripcion)
+       VALUES ($1, $2, $3, $4)
+       ON CONFLICT (endpoint) DO UPDATE SET suscripcion = $4, lista_codigo = $1, usuario_id = $2`,
+      [lista_codigo, usuario_id || 'anonimo', suscripcion.endpoint, JSON.stringify(suscripcion)]
+    );
+    res.json({ success: true });
+  } catch (e) {
+    console.error('Error guardando suscripción:', e);
+    res.status(500).json({ error: 'Error interno' });
+  }
+});
+
+// Retornar llave pública VAPID (necesaria para que el cliente se suscriba)
+app.get('/api/notificaciones/vapid-public', (req, res) => {
+  res.json({ publicKey: VAPID_PUBLIC });
 });
 
 // Actualizar ítem (marcar como comprado, cambiar cantidad)
