@@ -92,14 +92,16 @@ function bindProductosEvents() {
   const clearBtn = document.getElementById('clear-search');
 
   buscarInput.addEventListener('input', (e) => {
-    const query = e.target.value.toLowerCase();
+    // Normalizar query (quitar acentos)
+    const query = e.target.value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     
     // Mostrar/ocultar la X
     clearBtn.style.display = query.length > 0 ? 'block' : 'none';
     
     // Filtrar productos
     document.querySelectorAll('.item-producto').forEach(el => {
-      const nombre = el.dataset.nombre;
+      // Normalizar nombre del producto
+      const nombre = el.dataset.nombre.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
       const mostrar = nombre.includes(query);
       
       const contenedor = el.parentElement.classList.contains('swipe-wrapper') ? el.parentElement : el;
