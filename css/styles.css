@@ -1211,12 +1211,7 @@ body {
 .swipe-wrapper .item-producto,
 .swipe-wrapper .item-compra {
   margin-bottom: 0;
-  border-radius: 0;
-}
-
-.swipe-wrapper:first-child .item-producto,
-.swipe-wrapper:first-child .item-compra {
-  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  border-radius: var(--radius-xl);
 }
 
 /* Contenido del ítem que se desliza */
