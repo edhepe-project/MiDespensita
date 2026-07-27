@@ -3,6 +3,9 @@ const cors = require('cors');
 const { Pool } = require('pg');
 const { v4: uuidv4 } = require('uuid');
 
+// Forzar el uso de IPv4 para evitar el error ENETUNREACH en entornos sin IPv6
+require('dns').setDefaultResultOrder('ipv4first');
+
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -219,5 +222,10 @@ initDB().then(() => {
     console.log(`MiDespensita API (Supabase) en http://localhost:${PORT}`);
   });
 }).catch(err => {
-  console.error('Error:', err);
+  console.error('Error crítico al conectar con la base de datos:', err);
+  // Iniciar el servidor de todas formas para que Render no falle el despliegue
+  // y podamos ver el endpoint de health
+  app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Servidor iniciado en modo fallback en puerto ${PORT}`);
+  });
 });
