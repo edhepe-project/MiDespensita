@@ -1515,3 +1515,23 @@ body {
   width: 100%;
 }
 
+
+
+/* Notificaciones Dropdown */
+.notif-dropdown { position: fixed; top: 60px; right: 10px; width: 300px; max-width: calc(100% - 20px); background: #fff; border-radius: var(--radius-lg); box-shadow: var(--shadow-xl); z-index: 1000; overflow: hidden; border: 1px solid var(--border); display: flex; flex-direction: column; max-height: 70vh; }
+.notif-dropdown-header { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; border-bottom: 1px solid var(--border); background: var(--bg-secondary); }
+.notif-dropdown-header h4 { margin: 0; font-size: 14px; font-weight: 600; }
+.notif-dropdown-header button { background: none; border: none; font-size: 16px; cursor: pointer; color: var(--text-muted); }
+.notif-list { padding: 8px; overflow-y: auto; flex: 1; }
+.notif-item { padding: 12px; border-bottom: 1px solid var(--border); border-radius: var(--radius); }
+.notif-item:last-child { border-bottom: none; }
+.notif-item.unread { background: var(--orange-50); }
+.notif-item-title { font-weight: 600; font-size: 13px; margin-bottom: 4px; color: var(--text-primary); }
+.notif-item-body { font-size: 12px; color: var(--text-secondary); }
+
+
+
+/* Red dot badge for notifications */
+.notif-badge { position: absolute; top: 8px; right: 8px; width: 8px; height: 8px; background-color: var(--red-500, #ef4444); border-radius: 50%; display: none; }
+.header-notif { position: relative; }
+

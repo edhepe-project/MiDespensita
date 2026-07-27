@@ -90,9 +90,20 @@ self.addEventListener('push', event => {
     ]
   };
 
-  event.waitUntil(
-    self.registration.showNotification(title, options)
-  );
+  const promiseChain = Promise.all([
+    self.registration.showNotification(title, options),
+    clients.matchAll({ type: 'window', includeUncontrolled: true }).then(windowClients => {
+      for (const client of windowClients) {
+        client.postMessage({
+          type: 'PUSH_RECEIVED',
+          title: title,
+          body: options.body
+        });
+      }
+    })
+  ]);
+
+  event.waitUntil(promiseChain);
 });
 
 // Click en notificación

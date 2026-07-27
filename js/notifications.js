@@ -69,6 +69,9 @@ window.APP_Notifications = {
 
   // Enviar notificación
   async enviar(titulo, mensaje, options = {}) {
+    // Agregar al historial y UI (esto actualizará el badge también)
+    this.agregarAHistorial(titulo, mensaje);
+
     // SIEMPRE mostrar alerta en la app
     this.mostrarAlertaEnApp(titulo, mensaje);
 
@@ -85,14 +88,6 @@ window.APP_Notifications = {
           tag: 'midespensita-' + Date.now()
         });
       } catch (e) {}
-    }
-
-    // Actualizar badge
-    const badge = document.getElementById('notif-badge');
-    if (badge) {
-      const actual = parseInt(badge.textContent) || 0;
-      badge.textContent = actual + 1;
-      badge.classList.add('visible');
     }
 
     return true;
@@ -142,10 +137,96 @@ window.APP_Notifications = {
     } catch (e) {}
   },
 
+  // ---- Historial y UI Dropdown ----
+  agregarAHistorial(titulo, mensaje) {
+    let history = JSON.parse(localStorage.getItem('midespensita_notifs_hist') || '[]');
+    history.unshift({ titulo, mensaje, fecha: new Date().toISOString(), leida: false });
+    if (history.length > 20) history = history.slice(0, 20); // Guardar últimas 20
+    localStorage.setItem('midespensita_notifs_hist', JSON.stringify(history));
+    this.actualizarBadge();
+    this.renderDropdown();
+  },
+
+  actualizarBadge() {
+    const badge = document.getElementById('notif-badge');
+    if (!badge) return;
+    const history = JSON.parse(localStorage.getItem('midespensita_notifs_hist') || '[]');
+    const unread = history.filter(n => !n.leida).length;
+    if (unread > 0) {
+      badge.style.display = 'block';
+    } else {
+      badge.style.display = 'none';
+    }
+  },
+
+  marcarLeidas() {
+    let history = JSON.parse(localStorage.getItem('midespensita_notifs_hist') || '[]');
+    history.forEach(n => n.leida = true);
+    localStorage.setItem('midespensita_notifs_hist', JSON.stringify(history));
+    this.actualizarBadge();
+    this.renderDropdown();
+  },
+
+  renderDropdown() {
+    const list = document.getElementById('notif-list');
+    if (!list) return;
+    const history = JSON.parse(localStorage.getItem('midespensita_notifs_hist') || '[]');
+    if (history.length === 0) {
+      list.innerHTML = '<div style="padding: 20px; text-align: center; color: var(--text-muted); font-size: 13px;">No hay notificaciones recientes</div>';
+      return;
+    }
+
+    list.innerHTML = history.map(n => {
+      const f = new Date(n.fecha);
+      const fechaStr = f.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) + ' - ' + f.toLocaleDateString();
+      return `
+        <div class="notif-item ${n.leida ? '' : 'unread'}">
+          <div class="notif-item-title">${n.titulo}</div>
+          <div class="notif-item-body">${n.mensaje}</div>
+          <div style="font-size: 10px; color: var(--text-muted); margin-top: 4px; text-align: right;">${fechaStr}</div>
+        </div>
+      `;
+    }).join('');
+  },
+
   // Iniciar
   iniciar() {
     this.init();
     setInterval(() => this.verificarOfertas(), 60 * 60 * 1000);
     setTimeout(() => this.verificarOfertas(), 60000);
+
+    // Escuchar mensajes del SW (Push entrantes)
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.addEventListener('message', (event) => {
+        if (event.data && event.data.type === 'PUSH_RECEIVED') {
+          this.agregarAHistorial(event.data.title, event.data.body);
+          this.mostrarAlertaEnApp(event.data.title, event.data.body);
+        }
+      });
+    }
+
+    // Inicializar UI
+    this.actualizarBadge();
+    this.renderDropdown();
+
+    const btnNotif = document.getElementById('header-notif');
+    const dropdown = document.getElementById('notif-dropdown');
+    const btnCerrar = document.getElementById('btn-cerrar-notifs');
+
+    if (btnNotif && dropdown) {
+      btnNotif.addEventListener('click', () => {
+        const isVisible = dropdown.style.display === 'flex';
+        dropdown.style.display = isVisible ? 'none' : 'flex';
+        if (!isVisible) {
+          this.marcarLeidas();
+        }
+      });
+    }
+
+    if (btnCerrar && dropdown) {
+      btnCerrar.addEventListener('click', () => {
+        dropdown.style.display = 'none';
+      });
+    }
   }
 };

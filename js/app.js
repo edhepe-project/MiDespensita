@@ -38,6 +38,9 @@ async function navigate(page, direction = null) {
   } else {
     await render();
   }
+
+  // Scroll to top
+  window.scrollTo(0, 0);
 }
 
 // ── Swipe de navegación entre páginas ─────────────────────────────────────────
