@@ -43,6 +43,13 @@ APP_Pages.precios = async function() {
       </div>
     </div>
 
+    <div id="lista-precios" style="margin-bottom: var(--space-4);">
+      ${productosConPrecios.length === 0
+        ? '<div class="empty-state"><div class="empty-state-icon">💰</div><p>Registra compras para ver análisis de precios</p></div>'
+        : productosConPrecios.map(p => renderPrecioItem(p)).join('')
+      }
+    </div>
+
     <div class="card btn-comparar-semanas" onclick="window.location.hash = '#comparar_semanas'">
       <div class="card-header">
         <span class="card-title">📊 Comparar Semanas</span>
@@ -61,13 +68,6 @@ APP_Pages.precios = async function() {
       <p class="text-secondary" style="font-size: var(--text-sm)">
         Tendencias de precio y cuándo comprar
       </p>
-    </div>
-
-    <div id="lista-precios">
-      ${productosConPrecios.length === 0
-        ? '<div class="empty-state"><div class="empty-state-icon">💰</div><p>Registra compras para ver análisis de precios</p></div>'
-        : productosConPrecios.map(p => renderPrecioItem(p)).join('')
-      }
     </div>
 
     <div class="card stats-resumen">
