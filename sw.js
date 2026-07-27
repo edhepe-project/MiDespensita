@@ -1,4 +1,4 @@
-const CACHE_NAME = 'midespensita-v7';
+const CACHE_NAME = 'midespensita-v8';
 
 // Rutas relativas para GitHub Pages
 const BASE_URL = self.location.pathname.replace(/\/[^/]*$/, '/');
