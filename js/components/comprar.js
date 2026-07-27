@@ -175,9 +175,9 @@ function bindComprarEvents() {
     });
   });
 
-  // Long press en items de la lista
+  // Swipe actions en items de la lista
   document.querySelectorAll('.item-compra').forEach(item => {
-    APP_LongPress.configurar(item, {
+    APP_Swipe.configurar(item, {
       editar: {
         texto: 'Editar',
         accion: async () => {

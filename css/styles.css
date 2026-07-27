@@ -1196,81 +1196,83 @@ body {
 }
 
 /* ============================================
-   LONG PRESS MENU - Compartido
+   SWIPE TO ACTION - Compartido
    ============================================ */
 
-.longpress-menu {
-  position: fixed;
-  background: var(--surface);
-  border-radius: var(--radius-xl);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
+/* Wrapper posicionado relativo para contener el ítem y los botones */
+.swipe-wrapper {
+  position: relative;
   overflow: hidden;
-  animation: longpressPopIn 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border-radius: var(--radius-xl);
+  margin-bottom: var(--space-3);
 }
 
-@keyframes longpressPopIn {
-  from {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0.8);
-  }
-  to {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-  }
+/* Ajustar margin del ítem dentro del wrapper para no duplicar */
+.swipe-wrapper .item-producto,
+.swipe-wrapper .item-compra {
+  margin-bottom: 0;
+  border-radius: 0;
 }
 
-.longpress-item {
+.swipe-wrapper:first-child .item-producto,
+.swipe-wrapper:first-child .item-compra {
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+}
+
+/* Contenido del ítem que se desliza */
+.swipe-item-content {
+  position: relative;
+  z-index: 1;
+  will-change: transform;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Contenedor de los botones de acción */
+.swipe-actions {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
   display: flex;
-  align-items: center;
-  gap: var(--space-3);
-  width: 100%;
-  padding: var(--space-4) var(--space-6);
-  border: none;
-  background: transparent;
-  font-size: var(--text-base);
-  font-weight: 500;
-  cursor: pointer;
-  transition: background var(--transition);
+  align-items: stretch;
+  z-index: 0;
 }
 
-.longpress-item:first-child {
-  border-bottom: 1px solid var(--border);
-}
-
-.longpress-editar {
-  color: var(--orange-600);
-}
-
-.longpress-editar:hover {
-  background: var(--orange-50);
-}
-
-.longpress-borrar {
-  color: var(--coral-600);
-}
-
-.longpress-borrar:hover {
-  background: var(--coral-50);
-}
-
-.longpress-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: var(--radius-full);
+/* Botones de acción individuales */
+.swipe-btn {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 65px;
+  border: none;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 600;
+  gap: 4px;
+  transition: filter 0.15s ease;
 }
 
-.longpress-icon-editar {
-  background: var(--orange-100);
-  color: var(--orange-600);
+.swipe-btn:active {
+  filter: brightness(0.85);
 }
 
-.longpress-icon-borrar {
-  background: var(--coral-100);
-  color: var(--coral-600);
+.swipe-editar {
+  background: linear-gradient(135deg, #f97316, #fb923c);
+  color: white;
+}
+
+.swipe-borrar {
+  background: linear-gradient(135deg, #ef4444, #f87171);
+  color: white;
+  border-radius: 0 var(--radius-xl) var(--radius-xl) 0;
+}
+
+.swipe-editar svg,
+.swipe-borrar svg {
+  flex-shrink: 0;
 }
 
 .item-compra {
@@ -1279,6 +1281,7 @@ body {
   user-select: none;
   touch-action: manipulation;
 }
+
 
 .item-cantidad {
   font-size: var(--text-sm);

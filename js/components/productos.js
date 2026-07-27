@@ -102,9 +102,9 @@ function bindProductosEvents() {
     });
   });
 
-  // Long press en productos
+  // Swipe actions en productos
   document.querySelectorAll('.item-producto').forEach(item => {
-    APP_LongPress.configurar(item, {
+    APP_Swipe.configurar(item, {
       editar: {
         texto: 'Editar',
         accion: async () => {
