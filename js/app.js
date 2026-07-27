@@ -1,16 +1,93 @@
 // App main - Router
+const PAGES_ORDER = ['comprar', 'productos', 'precios'];
+
 function getPage() {
   return (window.location.hash.slice(1) || 'comprar').split('?')[0];
 }
 
-async function navigate(page) {
+async function navigate(page, direction = null) {
   const render = APP_Pages[page] || APP_Pages.comprar;
+  const content = document.getElementById('app-content');
 
   document.querySelectorAll('.nav-item').forEach(el => {
     el.classList.toggle('active', el.dataset.page === page);
   });
 
-  await render();
+  // Animación de transición
+  if (direction) {
+    const enterFrom  = direction === 'left'  ? 'translateX(100%)' : 'translateX(-100%)';
+    const exitTo     = direction === 'left'  ? 'translateX(-100%)' : 'translateX(100%)';
+
+    content.style.transition = 'none';
+    content.style.transform  = exitTo;
+    content.style.opacity    = '0';
+
+    await render();
+
+    requestAnimationFrame(() => {
+      content.style.transition = 'none';
+      content.style.transform  = enterFrom;
+      content.style.opacity    = '0';
+
+      requestAnimationFrame(() => {
+        content.style.transition = 'transform 0.28s cubic-bezier(0.4,0,0.2,1), opacity 0.28s ease';
+        content.style.transform  = 'translateX(0)';
+        content.style.opacity    = '1';
+      });
+    });
+  } else {
+    await render();
+  }
+}
+
+// ── Swipe de navegación entre páginas ─────────────────────────────────────────
+function initPageSwipe() {
+  const content = document.getElementById('app-content');
+  let startX = 0, startY = 0;
+  let isTracking = false, isScrolling = false;
+
+  content.addEventListener('touchstart', (e) => {
+    // No iniciar si el toque viene de un elemento con swipe de ítem
+    if (e.target.closest('.swipe-item-content') || e.target.closest('.swipe-wrapper')) return;
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+    isTracking = true;
+    isScrolling = false;
+  }, { passive: true });
+
+  content.addEventListener('touchmove', (e) => {
+    if (!isTracking) return;
+    const dx = e.touches[0].clientX - startX;
+    const dy = Math.abs(e.touches[0].clientY - startY);
+
+    // Si el movimiento es más vertical que horizontal → scroll, ignorar
+    if (dy > Math.abs(dx) + 10) {
+      isScrolling = true;
+      isTracking = false;
+    }
+  }, { passive: true });
+
+  content.addEventListener('touchend', (e) => {
+    if (!isTracking || isScrolling) return;
+    isTracking = false;
+
+    const dx = e.changedTouches[0].clientX - startX;
+    const THRESHOLD = 80; // px mínimos para cambiar de pantalla
+
+    if (Math.abs(dx) < THRESHOLD) return;
+
+    const currentPage  = getPage();
+    const currentIndex = PAGES_ORDER.indexOf(currentPage);
+    if (currentIndex === -1) return;
+
+    if (dx < 0 && currentIndex < PAGES_ORDER.length - 1) {
+      // Swipe izquierda → siguiente página
+      window.location.hash = '#' + PAGES_ORDER[currentIndex + 1];
+    } else if (dx > 0 && currentIndex > 0) {
+      // Swipe derecha → página anterior
+      window.location.hash = '#' + PAGES_ORDER[currentIndex - 1];
+    }
+  }, { passive: true });
 }
 
 // Función global para botón de regresar
@@ -42,32 +119,40 @@ async function initUbicacion() {
   }
 }
 
-window.addEventListener('hashchange', () => navigate(getPage()));
+window.addEventListener('hashchange', () => {
+  const page = getPage();
+  const prev = window._lastPage;
+  const prevIndex = PAGES_ORDER.indexOf(prev);
+  const currIndex = PAGES_ORDER.indexOf(page);
+  let dir = null;
+  if (prevIndex !== -1 && currIndex !== -1) {
+    dir = currIndex > prevIndex ? 'left' : 'right';
+  }
+  window._lastPage = page;
+  navigate(page, dir);
+});
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Mostrar fecha y ubicación inmediatamente
   initFecha();
   initUbicacion();
 
-  // Detectar ubicación (en segundo plano, sin bloquear)
   APP_DB.detectarUbicacion().catch(() => {});
 
-  // Sync cuando hay internet
   if (navigator.onLine) {
     if (APP_Sync) APP_Sync.syncAutomatico();
   }
 
-  // Intentar sync cuando vuelve la conexión
   window.addEventListener('online', () => {
     if (APP_Sync) APP_Sync.syncPrecios();
   });
 
-  // Iniciar notificaciones
   if (APP_Notifications) {
     APP_Notifications.iniciar();
   }
 
+  window._lastPage = getPage();
   navigate(getPage());
+  initPageSwipe();
 
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('./sw.js').catch((err) => console.error("SW Error:", err));
