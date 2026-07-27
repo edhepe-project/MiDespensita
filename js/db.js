@@ -236,9 +236,11 @@ window.APP_DB = {
   async getCiudadFromCoords(lat, lon) {
     try {
       // Intentar con diferentes niveles de zoom para mejor precisión
+      // Agregamos email para cumplir con las políticas de Nominatim y evitar bloqueos
       const response = await fetch(
-        `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&zoom=18&addressdetails=1`
+        `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&zoom=18&addressdetails=1&email=hola@midespensita.com`
       );
+      if (!response.ok) throw new Error('Nominatim falló');
       const data = await response.json();
 
       // Buscar ciudad en diferentes campos
@@ -300,30 +302,35 @@ window.APP_DB = {
           // Si falla, intentar detectar por IP
           this.detectarPorIP().then(resolve);
         },
-        { timeout: 8000, maximumAge: 86400000 }
+        { timeout: 12000, maximumAge: 86400000 }
       );
     });
   },
 
-  // Detectar ubicación por IP (funciona en HTTP)
   async detectarPorIP() {
-    // Intentar con varios servicios
+    // Intentar con varios servicios más fiables
     const servicios = [
+      { url: 'https://ipwho.is/', parse: (d) => ({ ciudad: d.city, region: d.region }) },
       { url: 'https://ipinfo.io/json', parse: (d) => ({ ciudad: d.city, region: d.region }) },
-      { url: 'https://ipapi.co/json/', parse: (d) => ({ ciudad: d.city, region: d.region }) },
-      { url: 'https://api.ipify.org?format=json', parse: null }
+      { url: 'https://freeipapi.com/api/json', parse: (d) => ({ ciudad: d.cityName, region: d.regionName }) },
+      { url: 'https://ipapi.co/json/', parse: (d) => ({ ciudad: d.city, region: d.region }) }
     ];
 
     for (const servicio of servicios) {
       try {
         const response = await fetch(servicio.url);
+        if (!response.ok) continue;
         const data = await response.json();
-        if (servicio.parse && data.city) {
+        if (servicio.parse && (data.city || data.cityName)) {
           const ubicacion = servicio.parse(data);
-          await this.setUbicacion(ubicacion.ciudad, ubicacion.region);
-          return ubicacion;
+          if (ubicacion.ciudad) {
+            await this.setUbicacion(ubicacion.ciudad, ubicacion.region);
+            return ubicacion;
+          }
         }
-      } catch (e) {}
+      } catch (e) {
+        console.log('Falló proveedor de IP:', servicio.url);
+      }
     }
     return { ciudad: 'Sin ubicación', region: '' };
   },
