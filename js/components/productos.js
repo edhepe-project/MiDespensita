@@ -132,10 +132,12 @@ function bindProductosEvents() {
 }
 
 function mostrarModalCantidad(productoId, nombre, btnElement) {
+  const esFamiliar = !!(APP_Sync?.getCodigoFamilia && APP_Sync.getCodigoFamilia());
+
   const modal = document.createElement('div');
   modal.className = 'modal-overlay';
   modal.innerHTML = `
-    <div class="modal-content modal-compact">
+    <div class="modal-content">
       <div class="modal-header">
         <span class="modal-title">${nombre}</span>
         <button class="modal-close" id="cerrar-modal">×</button>
@@ -147,7 +149,7 @@ function mostrarModalCantidad(productoId, nombre, btnElement) {
       </div>
 
       <button class="btn btn-primary" style="width:100%" id="btn-guardar">
-        Agregar a mi lista
+        ${esFamiliar ? '👨‍👩‍👦 Agregar a lista familiar' : 'Agregar a mi lista'}
       </button>
     </div>
   `;
@@ -159,8 +161,19 @@ function mostrarModalCantidad(productoId, nombre, btnElement) {
 
   modal.querySelector('#btn-guardar').addEventListener('click', async () => {
     const cantidad = parseInt(modal.querySelector('#input-cantidad').value) || 1;
-    const lista = await APP_DB.getListaActiva();
-    await APP_DB.addItem(lista.id, productoId, cantidad);
+    
+    if (esFamiliar) {
+      // Agregar al servidor en modo familiar
+      const result = await APP_Sync.agregarItemLista(nombre, cantidad);
+      if (!result?.success) {
+        alert('Error: ' + (result?.error || 'No se pudo agregar a la lista familiar'));
+        return;
+      }
+    } else {
+      // Agregar local
+      const lista = await APP_DB.getListaActiva();
+      await APP_DB.addItem(lista.id, productoId, cantidad);
+    }
 
     modal.remove();
     btnElement.textContent = '✓';

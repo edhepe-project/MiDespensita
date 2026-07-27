@@ -115,6 +115,7 @@ async function renderListaFamiliar(container, codigo, ubicacion, itemsCache = nu
   }
 
   // Auto-refresh cada 30 s si hay internet
+  let lastItemsStr = JSON.stringify(items);
   const refreshTimer = setInterval(async () => {
     if (!navigator.onLine || !document.getElementById('btn-agregar')) {
       clearInterval(refreshTimer);
@@ -122,8 +123,15 @@ async function renderListaFamiliar(container, codigo, ubicacion, itemsCache = nu
     }
     const nuevos = await APP_Sync.getListaFamiliar();
     if (nuevos !== null) {
-      const pendientesCont = document.querySelector('.lista-compra');
-      if (pendientesCont) APP_Pages.comprar(); // re-render completo
+      const nuevosStr = JSON.stringify(nuevos);
+      if (nuevosStr !== lastItemsStr) {
+        lastItemsStr = nuevosStr;
+        const pendientesCont = document.querySelector('.lista-compra');
+        // Solo re-render si estamos en la vista de compras
+        if (pendientesCont || document.querySelector('.empty-state')) {
+          APP_Pages.comprar(); // re-render completo
+        }
+      }
     }
   }, 30000);
 }
