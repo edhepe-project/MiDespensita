@@ -6,7 +6,6 @@ APP_Pages.comprar = async function() {
   const ubicacion = await APP_DB.detectarUbicacion();
   document.getElementById('ubicacion-header').textContent = ubicacion.ciudad || 'Sin ubicación';
 
-  // Permitir cambiar ubicación al tocar
   document.getElementById('ubicacion-header').onclick = async () => {
     const ciudad = prompt('¿En qué ciudad estás?', ubicacion.ciudad || '');
     if (ciudad && ciudad.trim()) {
@@ -15,41 +14,256 @@ APP_Pages.comprar = async function() {
     }
   };
 
-  // Obtener lista activa
+  // ¿Está en modo familiar?
+  const codigoFamilia = APP_Sync?.getCodigoFamilia?.();
+
+  if (codigoFamilia && navigator.onLine) {
+    await renderListaFamiliar(container, codigoFamilia, ubicacion);
+  } else if (codigoFamilia) {
+    // Offline con familia: usar caché
+    const cache = localStorage.getItem('midespensita_lista_familiar_cache');
+    const items = cache ? JSON.parse(cache) : [];
+    await renderListaFamiliar(container, codigoFamilia, ubicacion, items);
+  } else {
+    await renderListaLocal(container, ubicacion);
+  }
+};
+
+// ─── MODO LISTA FAMILIAR (servidor) ───────────────────────────────────────────
+async function renderListaFamiliar(container, codigo, ubicacion, itemsCache = null) {
+  const stats = await APP_DB.getStatsByWeek();
+
+  // Cargar precios regionales en paralelo sin bloquear
+  let preciosRegionales = [];
+  let origenPrecios = ubicacion?.ciudad || '';
+  const preciosCache = localStorage.getItem('precios_regionales');
+  if (preciosCache) { preciosRegionales = JSON.parse(preciosCache); origenPrecios = localStorage.getItem('precios_origen') || origenPrecios; }
+
+  // Obtener lista del servidor (o caché offline)
+  let items = itemsCache;
+  if (items === null) {
+    items = await APP_Sync.getListaFamiliar() || [];
+  }
+
+  const pendientes = items.filter(i => !i.comprado);
+  const comprados  = items.filter(i => i.comprado);
+
+  container.innerHTML = `
+    <div class="familia-modo-badge">👨‍👩‍👦 Lista Familiar · <span style="opacity:.7;font-size:11px">${codigo}</span></div>
+
+    <div class="card stats-resumen">
+      <div class="stat-row">
+        <span class="stat-label">Pendientes</span>
+        <span class="stat-value">${pendientes.length}</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-label">Ya comprados</span>
+        <span class="stat-value">${comprados.length}</span>
+      </div>
+    </div>
+
+    ${pendientes.length > 0 ? `
+    <div class="section-title">Pendientes (${pendientes.length})</div>
+    <div class="lista-compra">
+      ${pendientes.map(item => renderItemFamiliar(item, false)).join('')}
+    </div>
+    ` : `
+    <div class="empty-state">
+      <div class="empty-state-icon">🛒</div>
+      <p>La lista está vacía</p>
+      <p class="text-secondary">Agrega productos con el botón +</p>
+    </div>
+    `}
+
+    ${comprados.length > 0 ? `
+    <div class="section-title">Comprados (${comprados.length})
+      <button class="btn btn-secondary" id="btn-limpiar-comprados" style="font-size:11px;padding:4px 10px;float:right">🗑 Limpiar</button>
+    </div>
+    <div class="lista-compra">
+      ${comprados.map(item => renderItemFamiliar(item, true)).join('')}
+    </div>
+    ` : ''}
+
+    ${preciosRegionales.length > 0 ? `
+    <div class="section-title">📍 Precios en ${origenPrecios}</div>
+    <div class="card">
+      <div class="precios-regionales">
+        ${preciosRegionales.slice(0, 5).map(p => `
+          <div class="precio-regional">
+            <span class="precio-regional-nombre">${p.producto_nombre}</span>
+            <span class="precio-regional-tienda">${p.tienda} - ${p.marca || ''}</span>
+            <span class="precio-regional-valor">$${p.precio_promedio.toFixed(2)}</span>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+    ` : ''}
+
+    <button class="fab" id="btn-agregar">+</button>
+  `;
+
+  bindListaFamiliarEvents(codigo);
+
+  // Actualizar precios en segundo plano
+  if (navigator.onLine && ubicacion?.ciudad) {
+    APP_Sync.getPreciosCiudad(ubicacion.ciudad).then(data => {
+      if (data.precios?.length) {
+        localStorage.setItem('precios_regionales', JSON.stringify(data.precios));
+        localStorage.setItem('precios_origen', data.origen || ubicacion.ciudad);
+      }
+    }).catch(() => {});
+  }
+
+  // Auto-refresh cada 30 s si hay internet
+  const refreshTimer = setInterval(async () => {
+    if (!navigator.onLine || !document.getElementById('btn-agregar')) {
+      clearInterval(refreshTimer);
+      return;
+    }
+    const nuevos = await APP_Sync.getListaFamiliar();
+    if (nuevos !== null) {
+      const pendientesCont = document.querySelector('.lista-compra');
+      if (pendientesCont) APP_Pages.comprar(); // re-render completo
+    }
+  }, 30000);
+}
+
+function renderItemFamiliar(item, esComprado) {
+  return `
+    <div class="item-compra ${esComprado ? 'comprado' : 'pendiente'}"
+         data-familia-id="${item.id}"
+         data-item-nombre="${item.nombre_producto}">
+      <div class="item-main">
+        <div class="${esComprado ? 'item-check' : 'item-icon'}">
+          ${esComprado ? '✓' : '🛒'}
+        </div>
+        <div class="item-info">
+          <div class="item-nombre">${item.nombre_producto}</div>
+          <div class="item-detalle" style="font-size:11px;color:var(--text-muted)">
+            ${esComprado ? 'Ya comprado' : 'x' + item.cantidad}
+          </div>
+        </div>
+      </div>
+      ${!esComprado ? `
+        <button class="btn btn-primary btn-familia-comprar btn-sin-longpress"
+          data-id="${item.id}" data-nombre="${item.nombre_producto}">
+          ✓ Listo
+        </button>
+      ` : ''}
+    </div>
+  `;
+}
+
+function bindListaFamiliarEvents(codigo) {
+  // Marcar como comprado
+  document.querySelectorAll('.btn-familia-comprar').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const id = parseInt(btn.dataset.id);
+      btn.textContent = '...';
+      btn.disabled = true;
+      await APP_Sync.marcarCompradoLista(id, true);
+      APP_Pages.comprar();
+    });
+  });
+
+  // Limpiar comprados
+  document.getElementById('btn-limpiar-comprados')?.addEventListener('click', async () => {
+    if (confirm('¿Limpiar todos los productos ya comprados?')) {
+      await APP_Sync.limpiarListaComprados();
+      APP_Pages.comprar();
+    }
+  });
+
+  // Swipe para borrar ítems de la lista
+  document.querySelectorAll('.item-compra').forEach(item => {
+    APP_Swipe.configurar(item, {
+      borrar: {
+        texto: 'Quitar',
+        confirmar: `¿Quitar "${item.dataset.itemNombre}" de la lista?`,
+        accion: async () => {
+          const id = parseInt(item.dataset.familiaId);
+          await APP_Sync.borrarItemLista(id);
+          APP_Pages.comprar();
+        }
+      }
+    });
+  });
+
+  // Botón + → pedir nombre del producto
+  document.getElementById('btn-agregar').addEventListener('click', () => {
+    mostrarModalAgregarFamiliar();
+  });
+}
+
+async function mostrarModalAgregarFamiliar() {
+  const modal = document.createElement('div');
+  modal.className = 'modal-overlay';
+  modal.innerHTML = `
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="modal-title">Agregar a la lista</span>
+        <button class="modal-close" id="cerrar-modal">×</button>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Producto</label>
+        <input type="text" class="form-input" id="input-nombre-familiar"
+          placeholder="Ej: Leche, Huevos, Pan..." autofocus>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Cantidad</label>
+        <input type="number" class="form-input" id="input-cantidad-familiar" value="1" min="1">
+      </div>
+      <button class="btn btn-primary" style="width:100%" id="btn-guardar-familiar">Agregar</button>
+    </div>
+  `;
+  document.body.appendChild(modal);
+  modal.querySelector('#cerrar-modal').addEventListener('click', () => modal.remove());
+  modal.addEventListener('click', e => { if (e.target === modal) modal.remove(); });
+
+  const guardar = async () => {
+    const nombre = modal.querySelector('#input-nombre-familiar').value.trim();
+    const cantidad = parseInt(modal.querySelector('#input-cantidad-familiar').value) || 1;
+    if (!nombre) { alert('Escribe el nombre del producto'); return; }
+    const result = await APP_Sync.agregarItemLista(nombre, cantidad);
+    if (result?.success) {
+      modal.remove();
+      APP_Pages.comprar();
+    } else {
+      alert('Error: ' + (result?.error || 'No se pudo agregar'));
+    }
+  };
+
+  modal.querySelector('#btn-guardar-familiar').addEventListener('click', guardar);
+  modal.querySelector('#input-nombre-familiar').addEventListener('keydown', e => {
+    if (e.key === 'Enter') guardar();
+  });
+}
+
+// ─── MODO LISTA LOCAL (sin familia) ───────────────────────────────────────────
+async function renderListaLocal(container, ubicacion) {
   const lista = await APP_DB.getListaActiva();
   const items = await APP_DB.getItemsByLista(lista.id);
   const pendientes = items.filter(i => !i.comprado);
-  const comprados = items.filter(i => i.comprado);
-
-  // Calcular stats de la semana (lunes a domingo)
+  const comprados  = items.filter(i => i.comprado);
   const stats = await APP_DB.getStatsByWeek();
 
-  // Obtener precios regionales (online o cache local)
   let preciosRegionales = [];
   let origenPrecios = ubicacion?.ciudad || '';
-
   if (navigator.onLine && ubicacion?.ciudad && APP_Sync) {
     try {
       const data = await APP_Sync.getPreciosCiudad(ubicacion.ciudad);
       preciosRegionales = data.precios || [];
       origenPrecios = data.origen || ubicacion.ciudad;
-      // Guardar en cache local
       localStorage.setItem('precios_regionales', JSON.stringify(preciosRegionales));
       localStorage.setItem('precios_origen', origenPrecios);
     } catch (e) {}
   } else {
-    // Usar cache local si no hay internet
     const cache = localStorage.getItem('precios_regionales');
     const cacheOrigen = localStorage.getItem('precios_origen');
-    if (cache) {
-      preciosRegionales = JSON.parse(cache);
-      origenPrecios = cacheOrigen || ubicacion?.ciudad || '';
-    }
+    if (cache) { preciosRegionales = JSON.parse(cache); origenPrecios = cacheOrigen || origenPrecios; }
   }
 
   container.innerHTML = `
-    <div id="familia-banner-container"></div>
-
     <div class="card stats-resumen">
       <div class="stat-row">
         <span class="stat-label">Gastado esta semana</span>
@@ -104,7 +318,8 @@ APP_Pages.comprar = async function() {
   `;
 
   bindComprarEvents();
-};
+}
+
 
 function renderPendiente(item) {
   const cat = APP_CATEGORIAS[item.producto?.categoria] || APP_CATEGORIAS.otros;
@@ -205,79 +420,6 @@ function bindComprarEvents() {
     window.location.hash = '#productos';
   });
 
-  // ---- FAMILIA: cargar ítems pendientes ----
-  if (navigator.onLine && APP_Sync && localStorage.getItem('midespensita_familia_codigo_propio')) {
-    cargarItemsFamilia();
-  }
-
-  // Escuchar si llegan nuevos ítems durante esta sesión
-  window.addEventListener('familia-nuevos-items', () => cargarItemsFamilia(), { once: true });
-}
-
-async function cargarItemsFamilia() {
-  const bannerContainer = document.getElementById('familia-banner-container');
-  if (!bannerContainer) return;
-
-  const items = await APP_Sync.getItemsFamiliares();
-  if (items.length === 0) {
-    bannerContainer.innerHTML = '';
-    return;
-  }
-
-  // Mostrar panel expandido con los ítems
-  bannerContainer.innerHTML = `
-    <div class="familia-items-panel">
-      <div class="familia-items-header">👨‍👩‍👦 Tu familiar agregó ${items.length} producto${items.length > 1 ? 's' : ''}</div>
-      ${items.map(item => `
-        <div class="familia-item" data-item-id="${item.id}">
-          <div style="flex:1">
-            <div class="familia-item-nombre">${item.cantidad > 1 ? item.cantidad + 'x ' : ''}${item.nombre_producto}</div>
-            ${item.nota ? `<div class="familia-item-nota">${item.nota}</div>` : ''}
-          </div>
-          <div class="familia-item-acciones">
-            <button class="btn-familia-aceptar" data-id="${item.id}" data-nombre="${item.nombre_producto}" data-cantidad="${item.cantidad}">✅ Agregar</button>
-            <button class="btn-familia-ignorar" data-id="${item.id}">✕</button>
-          </div>
-        </div>
-      `).join('')}
-    </div>
-  `;
-
-  // Botones aceptar
-  bannerContainer.querySelectorAll('.btn-familia-aceptar').forEach(btn => {
-    btn.addEventListener('click', async () => {
-      const id = parseInt(btn.dataset.id);
-      const nombre = btn.dataset.nombre;
-      const cantidad = parseInt(btn.dataset.cantidad) || 1;
-
-      // Buscar o crear el producto en la lista local
-      const todosProductos = await APP_DB.getAllProductos();
-      let producto = todosProductos.find(p => p.nombre.toLowerCase() === nombre.toLowerCase() && p.activo !== 0);
-      if (!producto) {
-        const nuevoId = await APP_DB.addProducto({ nombre, categoria: 'otros', activo: 1 });
-        producto = { id: nuevoId };
-      }
-      const lista = await APP_DB.getListaActiva();
-      await APP_DB.addItem(lista.id, producto.id, cantidad);
-      await APP_Sync.procesarItemFamiliar(id);
-
-      btn.closest('.familia-item').style.opacity = '0.4';
-      btn.closest('.familia-item').style.pointerEvents = 'none';
-      btn.textContent = '✅ Agregado';
-      setTimeout(() => cargarItemsFamilia(), 300);
-    });
-  });
-
-  // Botones ignorar
-  bannerContainer.querySelectorAll('.btn-familia-ignorar').forEach(btn => {
-    btn.addEventListener('click', async () => {
-      const id = parseInt(btn.dataset.id);
-      await APP_Sync.procesarItemFamiliar(id);
-      btn.closest('.familia-item').remove();
-      const restantes = bannerContainer.querySelectorAll('.familia-item').length;
-      if (restantes === 0) bannerContainer.innerHTML = '';
-    });
-  });
 }
 
 async function mostrarModalEditarCantidad(itemId, nombreProducto) {

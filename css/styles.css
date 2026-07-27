@@ -1501,3 +1501,17 @@ body {
   cursor: pointer;
 }
 
+.familia-modo-badge {
+  background: linear-gradient(135deg, #10b981, #34d399);
+  color: white;
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  display: inline-block;
+  margin: 0 auto 16px auto;
+  font-weight: 700;
+  font-size: var(--text-sm);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+  text-align: center;
+  width: 100%;
+}
+

@@ -52,11 +52,6 @@ APP_Pages.config = async function() {
             ? '✅ Conectado a lista: ' + localStorage.getItem('midespensita_familia_codigo_ajeno')
             : ''}
         </p>
-        ${localStorage.getItem('midespensita_familia_codigo_ajeno') ? `
-          <button class="btn btn-secondary" style="width:100%; margin-top:8px; font-size:var(--text-sm)" id="btn-agregar-familiar">
-            ➕ Agregar producto a la lista familiar
-          </button>
-        ` : ''}
       </div>
     </div>
 
@@ -186,21 +181,6 @@ function bindConfigEvents() {
     btn.disabled = false;
   });
 
-  document.getElementById('btn-agregar-familiar')?.addEventListener('click', () => {
-    const nombre = prompt('¿Qué necesitas que compren?');
-    if (!nombre || !nombre.trim()) return;
-    const cantidadStr = prompt('¿Cuántas unidades?', '1');
-    const cantidad = parseInt(cantidadStr) || 1;
-    const nota = prompt('¿Alguna nota? (marca, tamaño, etc.) - deja vacío si no', '') || '';
-
-    APP_Sync.agregarItemFamiliar(nombre.trim(), cantidad, nota).then(result => {
-      if (result.success) {
-        alert('✅ Enviado. Tu familiar lo verá pronto.');
-      } else {
-        alert('Error: ' + (result.error || 'No se pudo enviar'));
-      }
-    });
-  });
 
   // ---- UBICACIÓN ----
 

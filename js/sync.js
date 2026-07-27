@@ -115,7 +115,14 @@ window.APP_Sync = {
     }, 30000);
   },
 
-  // ============ LISTA FAMILIAR ============
+  // ============ LISTA FAMILIAR COMPARTIDA ============
+
+  // Obtener el código activo (propio o ajeno)
+  getCodigoFamilia() {
+    return localStorage.getItem('midespensita_familia_codigo_propio') ||
+           localStorage.getItem('midespensita_familia_codigo_ajeno') ||
+           null;
+  },
 
   // Crear o recuperar la lista compartida del dueño
   async crearListaFamiliar() {
@@ -159,16 +166,38 @@ window.APP_Sync = {
     }
   },
 
-  // Agregar ítem a la lista de un familiar (el hijo agrega aquí)
-  async agregarItemFamiliar(nombreProducto, cantidad = 1, nota = '') {
-    const codigoAjeno = localStorage.getItem('midespensita_familia_codigo_ajeno');
-    if (!codigoAjeno) return { error: 'No estás conectado a ninguna lista' };
+  // Obtener toda la lista compartida del servidor
+  async getListaFamiliar() {
+    const codigo = this.getCodigoFamilia();
+    if (!codigo) return null;
+    try {
+      const response = await fetch(`${this.SERVER_URL}/api/familia/${codigo}/lista`);
+      if (!response.ok) return null;
+      const data = await response.json();
+      // Guardar en caché local para modo offline
+      localStorage.setItem('midespensita_lista_familiar_cache', JSON.stringify(data.items || []));
+      return data.items || [];
+    } catch (e) {
+      // Sin internet: usar caché
+      const cache = localStorage.getItem('midespensita_lista_familiar_cache');
+      return cache ? JSON.parse(cache) : null;
+    }
+  },
+
+  // Agregar ítem a la lista compartida
+  async agregarItemLista(nombreProducto, cantidad = 1) {
+    const codigo = this.getCodigoFamilia();
+    if (!codigo) return { error: 'Sin lista familiar activa' };
     try {
       const usuario = await this.getUsuario();
-      const response = await fetch(`${this.SERVER_URL}/api/familia/${codigoAjeno}/items`, {
+      const response = await fetch(`${this.SERVER_URL}/api/familia/${codigo}/lista`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ usuario_id: usuario?.id, nombre_producto: nombreProducto, cantidad, nota })
+        body: JSON.stringify({
+          nombre_producto: nombreProducto,
+          cantidad,
+          agregado_por: usuario?.id || 'anonimo'
+        })
       });
       return await response.json();
     } catch (e) {
@@ -176,37 +205,46 @@ window.APP_Sync = {
     }
   },
 
-  // Obtener ítems pendientes de mi lista (el dueño los revisa)
-  async getItemsFamiliares() {
-    const codigoPropio = localStorage.getItem('midespensita_familia_codigo_propio');
-    if (!codigoPropio) return [];
+  // Marcar ítem como comprado/no comprado
+  async marcarCompradoLista(itemId, comprado, compradoPor = '') {
+    const codigo = this.getCodigoFamilia();
+    if (!codigo) return;
     try {
-      const response = await fetch(`${this.SERVER_URL}/api/familia/${codigoPropio}/items`);
-      const data = await response.json();
-      return data.items || [];
-    } catch (e) {
-      return [];
-    }
-  },
-
-  // Procesar (aceptar/ignorar) un ítem familiar
-  async procesarItemFamiliar(itemId) {
-    const codigoPropio = localStorage.getItem('midespensita_familia_codigo_propio');
-    if (!codigoPropio) return;
-    try {
-      await fetch(`${this.SERVER_URL}/api/familia/${codigoPropio}/items/${itemId}`, { method: 'DELETE' });
+      await fetch(`${this.SERVER_URL}/api/familia/${codigo}/lista/${itemId}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ comprado, comprado_por: compradoPor })
+      });
     } catch (e) {}
   },
 
-  // Sincronizar items familiares y disparar evento si hay nuevos
+  // Borrar ítem de la lista compartida
+  async borrarItemLista(itemId) {
+    const codigo = this.getCodigoFamilia();
+    if (!codigo) return;
+    try {
+      await fetch(`${this.SERVER_URL}/api/familia/${codigo}/lista/${itemId}`, { method: 'DELETE' });
+    } catch (e) {}
+  },
+
+  // Limpiar items comprados (para nueva semana)
+  async limpiarListaComprados() {
+    const codigo = this.getCodigoFamilia();
+    if (!codigo) return;
+    try {
+      await fetch(`${this.SERVER_URL}/api/familia/${codigo}/lista`, { method: 'DELETE' });
+    } catch (e) {}
+  },
+
+  // Sincronizar lista familiar y disparar evento si cambió
   async syncFamilia() {
-    const items = await this.getItemsFamiliares();
-    const prev = parseInt(localStorage.getItem('midespensita_familia_pendientes') || '0');
-    localStorage.setItem('midespensita_familia_pendientes', items.length);
-    if (items.length > prev) {
-      window.dispatchEvent(new CustomEvent('familia-nuevos-items', { detail: { items } }));
+    const codigo = this.getCodigoFamilia();
+    if (!codigo) return;
+    const items = await this.getListaFamiliar();
+    if (items !== null) {
+      window.dispatchEvent(new CustomEvent('familia-lista-actualizada', { detail: { items } }));
     }
-    return items;
   }
 };
+
 

@@ -164,6 +164,20 @@ async function initDB() {
       )
     `);
 
+    await client.query(`
+      CREATE TABLE IF NOT EXISTS lista_familiar_items (
+        id SERIAL PRIMARY KEY,
+        lista_codigo TEXT REFERENCES listas_compartidas(codigo) ON DELETE CASCADE,
+        nombre_producto TEXT NOT NULL,
+        cantidad INTEGER DEFAULT 1,
+        comprado BOOLEAN DEFAULT FALSE,
+        agregado_por TEXT DEFAULT 'anonimo',
+        comprado_por TEXT DEFAULT '',
+        fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        fecha_actualizacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+      )
+    `);
+
     console.log('Base de datos PostgreSQL inicializada');
   } finally {
     client.release();
@@ -387,7 +401,7 @@ app.post('/api/familia/:codigo/items', async (req, res) => {
   res.json({ success: true, item: item.rows[0] });
 });
 
-// Obtener ítems pendientes de una lista (el dueño los revisa)
+// Obtener ítems pendientes de una lista (el dueño los revisa) - modelo viejo
 app.get('/api/familia/:codigo/items', async (req, res) => {
   const { codigo } = req.params;
   const items = await pool.query(
@@ -397,7 +411,7 @@ app.get('/api/familia/:codigo/items', async (req, res) => {
   res.json({ items: items.rows });
 });
 
-// Marcar ítem como procesado (aceptado o ignorado)
+// Marcar ítem como procesado - modelo viejo
 app.delete('/api/familia/:codigo/items/:itemId', async (req, res) => {
   const { codigo, itemId } = req.params;
   await pool.query(
@@ -405,6 +419,102 @@ app.delete('/api/familia/:codigo/items/:itemId', async (req, res) => {
     [itemId, codigo]
   );
   res.json({ success: true });
+});
+
+// ============ LISTA COMPARTIDA REAL ============
+
+// Obtener toda la lista compartida
+app.get('/api/familia/:codigo/lista', async (req, res) => {
+  const { codigo } = req.params;
+  try {
+    const lista = await pool.query(
+      'SELECT * FROM listas_compartidas WHERE codigo = $1 AND (expira_en IS NULL OR expira_en > NOW())',
+      [codigo]
+    );
+    if (lista.rows.length === 0) return res.status(404).json({ error: 'Lista no encontrada o expirada' });
+
+    const items = await pool.query(
+      'SELECT * FROM lista_familiar_items WHERE lista_codigo = $1 ORDER BY comprado ASC, fecha_creacion DESC',
+      [codigo]
+    );
+    res.json({ items: items.rows });
+  } catch (e) {
+    console.error('Error obteniendo lista familiar:', e);
+    res.status(500).json({ error: 'Error interno' });
+  }
+});
+
+// Agregar ítem a la lista compartida
+app.post('/api/familia/:codigo/lista', async (req, res) => {
+  const { codigo } = req.params;
+  const { nombre_producto, cantidad, agregado_por } = req.body;
+  if (!nombre_producto) return res.status(400).json({ error: 'nombre_producto requerido' });
+
+  try {
+    const lista = await pool.query(
+      'SELECT * FROM listas_compartidas WHERE codigo = $1 AND (expira_en IS NULL OR expira_en > NOW())',
+      [codigo]
+    );
+    if (lista.rows.length === 0) return res.status(404).json({ error: 'Lista no encontrada' });
+
+    const item = await pool.query(
+      'INSERT INTO lista_familiar_items (lista_codigo, nombre_producto, cantidad, agregado_por) VALUES ($1, $2, $3, $4) RETURNING *',
+      [codigo, nombre_producto, cantidad || 1, agregado_por || 'anonimo']
+    );
+    res.json({ success: true, item: item.rows[0] });
+  } catch (e) {
+    console.error('Error agregando ítem:', e);
+    res.status(500).json({ error: 'Error interno' });
+  }
+});
+
+// Actualizar ítem (marcar como comprado, cambiar cantidad)
+app.patch('/api/familia/:codigo/lista/:itemId', async (req, res) => {
+  const { codigo, itemId } = req.params;
+  const { comprado, cantidad, comprado_por } = req.body;
+  try {
+    const sets = [];
+    const values = [];
+    let idx = 1;
+    if (comprado !== undefined) { sets.push(`comprado = $${idx++}`); values.push(comprado); }
+    if (cantidad !== undefined) { sets.push(`cantidad = $${idx++}`); values.push(cantidad); }
+    if (comprado_por !== undefined) { sets.push(`comprado_por = $${idx++}`); values.push(comprado_por); }
+    sets.push(`fecha_actualizacion = NOW()`);
+    values.push(itemId, codigo);
+
+    await pool.query(
+      `UPDATE lista_familiar_items SET ${sets.join(', ')} WHERE id = $${idx++} AND lista_codigo = $${idx}`,
+      values
+    );
+    res.json({ success: true });
+  } catch (e) {
+    res.status(500).json({ error: 'Error interno' });
+  }
+});
+
+// Borrar ítem de la lista compartida
+app.delete('/api/familia/:codigo/lista/:itemId', async (req, res) => {
+  const { codigo, itemId } = req.params;
+  try {
+    await pool.query(
+      'DELETE FROM lista_familiar_items WHERE id = $1 AND lista_codigo = $2',
+      [itemId, codigo]
+    );
+    res.json({ success: true });
+  } catch (e) {
+    res.status(500).json({ error: 'Error interno' });
+  }
+});
+
+// Limpiar items comprados (resetear lista para nueva semana)
+app.delete('/api/familia/:codigo/lista', async (req, res) => {
+  const { codigo } = req.params;
+  try {
+    await pool.query('DELETE FROM lista_familiar_items WHERE lista_codigo = $1 AND comprado = TRUE', [codigo]);
+    res.json({ success: true });
+  } catch (e) {
+    res.status(500).json({ error: 'Error interno' });
+  }
 });
 
 // ============================================
