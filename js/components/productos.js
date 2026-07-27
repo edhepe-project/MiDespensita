@@ -87,9 +87,18 @@ function bindProductosEvents() {
   // Buscar
   document.getElementById('buscar-producto').addEventListener('input', (e) => {
     const query = e.target.value.toLowerCase();
+    
+    // Filtrar productos
     document.querySelectorAll('.item-producto').forEach(el => {
       const nombre = el.dataset.nombre;
       el.style.display = nombre.includes(query) ? '' : 'none';
+    });
+
+    // Ocultar categorías vacías
+    document.querySelectorAll('.categoria-seccion').forEach(seccion => {
+      const tieneVisibles = Array.from(seccion.querySelectorAll('.item-producto'))
+                                 .some(el => el.style.display !== 'none');
+      seccion.style.display = tieneVisibles ? '' : 'none';
     });
   });
 
