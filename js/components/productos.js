@@ -21,12 +21,15 @@ APP_Pages.productos = async function() {
   }
 
   container.innerHTML = `
-    <div class="card">
+    <div class="card" id="search-card" style="position: sticky; top: 60px; z-index: 40; transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); margin-bottom: 15px;">
       <div class="card-header">
         <span class="card-title">Mis Productos</span>
         <span class="text-secondary">${todosProductos.length}</span>
       </div>
-      <input type="text" class="form-input" id="buscar-producto" placeholder="Buscar producto...">
+      <div style="position: relative;">
+        <input type="text" class="form-input" id="buscar-producto" placeholder="Buscar producto..." style="padding-right: 35px;">
+        <span id="clear-search" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); color: var(--text-muted); cursor: pointer; display: none; padding: 5px; font-weight: bold; font-size: 16px; user-select: none;">✕</span>
+      </div>
     </div>
 
     <div id="lista-productos">
@@ -85,8 +88,14 @@ function bindProductosEvents() {
   cargarDetallesProductos();
 
   // Buscar
-  document.getElementById('buscar-producto').addEventListener('input', (e) => {
+  const buscarInput = document.getElementById('buscar-producto');
+  const clearBtn = document.getElementById('clear-search');
+
+  buscarInput.addEventListener('input', (e) => {
     const query = e.target.value.toLowerCase();
+    
+    // Mostrar/ocultar la X
+    clearBtn.style.display = query.length > 0 ? 'block' : 'none';
     
     // Filtrar productos
     document.querySelectorAll('.item-producto').forEach(el => {
@@ -107,6 +116,35 @@ function bindProductosEvents() {
       seccion.style.display = tieneVisibles ? '' : 'none';
     });
   });
+
+  // Limpiar búsqueda
+  clearBtn.addEventListener('click', () => {
+    buscarInput.value = '';
+    buscarInput.dispatchEvent(new Event('input'));
+    buscarInput.focus();
+  });
+
+  // Lógica de scroll para ocultar/mostrar búsqueda (Headroom)
+  let lastScrollY = window.scrollY;
+  const searchCard = document.getElementById('search-card');
+  
+  if (window.productosScrollHandler) {
+    window.removeEventListener('scroll', window.productosScrollHandler);
+  }
+  
+  window.productosScrollHandler = () => {
+    if (!document.getElementById('search-card')) return;
+    const currentScrollY = window.scrollY;
+    
+    if (currentScrollY > lastScrollY && currentScrollY > 120) {
+      searchCard.style.transform = 'translateY(-150%)';
+    } else {
+      searchCard.style.transform = 'translateY(0)';
+    }
+    lastScrollY = currentScrollY;
+  };
+  
+  window.addEventListener('scroll', window.productosScrollHandler);
 
   // Botones + Lista
   document.querySelectorAll('.btn-agregar-lista').forEach(btn => {
