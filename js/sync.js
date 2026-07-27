@@ -35,10 +35,15 @@ window.APP_Sync = {
       // Obtener precios locales recientes (últimos 30 días)
       const precios = await APP_DB.getPreciosRecientes(30);
 
-      if (precios.length === 0) return;
+      // Filtrar los que ya se enviaron
+      const lastSync = localStorage.getItem('midespensita_last_sync');
+      const lastSyncDate = lastSync ? new Date(lastSync) : new Date(0);
+      const nuevosPrecios = precios.filter(p => new Date(p.fecha) > lastSyncDate);
+
+      if (nuevosPrecios.length === 0) return;
 
       // Preparar datos para enviar
-      const preciosParaEnviar = precios.map(p => ({
+      const preciosParaEnviar = nuevosPrecios.map(p => ({
         producto: p.producto?.nombre || 'Desconocido',
         categoria: p.producto?.categoria || 'otros',
         unidad: p.producto?.unidad || 'pieza',
@@ -61,6 +66,9 @@ window.APP_Sync = {
       });
 
       const result = await response.json();
+      if (result.success) {
+        localStorage.setItem('midespensita_last_sync', new Date().toISOString());
+      }
       console.log(`Sync completado: ${result.guardados} precios enviados`);
       return result;
     } catch (e) {

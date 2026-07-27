@@ -132,12 +132,24 @@ app.post('/api/sync', async (req, res) => {
 
   // Actualizar precios regionales
   try {
-    await pool.query('DELETE FROM precios_regionales WHERE ciudad = $1', [ciudad]);
-    await pool.query(`INSERT INTO precios_regionales (ciudad, producto_id, marca, tienda, precio_promedio, precio_min, precio_max, num_muestras)
-      SELECT ciudad, producto_id, marca, tienda, AVG(precio), MIN(precio), MAX(precio), COUNT(*)
-      FROM precios WHERE ciudad = $1 AND fecha >= NOW() - INTERVAL '90 days'
-      GROUP BY ciudad, producto_id, marca, tienda`, [ciudad]);
-  } catch (e) {}
+    const client = await pool.connect();
+    try {
+      await client.query('BEGIN');
+      await client.query('DELETE FROM precios_regionales WHERE ciudad = $1', [ciudad]);
+      await client.query(`INSERT INTO precios_regionales (ciudad, producto_id, marca, tienda, precio_promedio, precio_min, precio_max, num_muestras)
+        SELECT ciudad, producto_id, marca, tienda, AVG(precio), MIN(precio), MAX(precio), COUNT(*)
+        FROM precios WHERE ciudad = $1 AND fecha >= NOW() - INTERVAL '90 days'
+        GROUP BY ciudad, producto_id, marca, tienda`, [ciudad]);
+      await client.query('COMMIT');
+    } catch (err) {
+      await client.query('ROLLBACK');
+      console.error('Error actualizando precios regionales:', err);
+    } finally {
+      client.release();
+    }
+  } catch (e) {
+    console.error('Error de conexión a DB:', e);
+  }
 
   res.json({ success: true, guardados });
 });

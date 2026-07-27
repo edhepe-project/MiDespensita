@@ -1,4 +1,4 @@
-const CACHE_NAME = 'midespensita-v3';
+const CACHE_NAME = 'midespensita-v4';
 
 // Rutas relativas para GitHub Pages
 const BASE_URL = self.location.pathname.replace(/\/[^/]*$/, '/');
@@ -9,6 +9,7 @@ const ASSETS = [
   BASE_URL + 'js/init.js',
   BASE_URL + 'js/app.js',
   BASE_URL + 'js/db.js',
+  BASE_URL + 'js/dexie.min.js',
   BASE_URL + 'js/sync.js',
   BASE_URL + 'js/notifications.js',
   BASE_URL + 'js/components/comprar.js',
@@ -54,7 +55,14 @@ self.addEventListener('fetch', event => {
         caches.open(CACHE_NAME).then(cache => cache.put(event.request, clone));
         return response;
       });
-    }).catch(() => caches.match(BASE_URL + 'index.html'))
+    }).catch(() => {
+      // Solo devolver index.html si es una peticion de navegacion (HTML)
+      if (event.request.mode === 'navigate' || 
+          (event.request.headers.get('accept') && event.request.headers.get('accept').includes('text/html'))) {
+        return caches.match(BASE_URL + 'index.html');
+      }
+      return new Response('Offline resource not available', { status: 503, statusText: 'Service Unavailable' });
+    })
   );
 });
 
