@@ -49,7 +49,7 @@ async function renderListaFamiliar(container, codigo, ubicacion, itemsCache = nu
   const comprados  = items.filter(i => i.comprado);
 
   container.innerHTML = `
-    <div class="familia-modo-badge">👨‍👩‍👦 Lista Familiar · <span style="opacity:.7;font-size:11px">${codigo}</span></div>
+    <div class="familia-modo-badge">👨‍👩‍👦 Lista familiar</div>
 
     <div class="card stats-resumen">
       <div class="stat-row">
