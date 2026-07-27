@@ -54,7 +54,7 @@ function renderProductoItem(producto) {
         <div class="item-detalle" id="detalle-prod-${producto.id}">...</div>
       </div>
       <div class="item-acciones">
-        <button class="btn btn-small btn-primary btn-agregar-lista btn-sin-longpress" data-id="${producto.id}" data-nombre="${producto.nombre}">
+        <button class="btn btn-small btn-primary btn-agregar-lista btn-sin-longpress" data-id="${producto.id}" data-nombre="${producto.nombre}" data-unidad="${producto.unidad || 'pzas'}">
           + Lista
         </button>
       </div>
@@ -108,12 +108,13 @@ function bindProductosEvents() {
     });
   });
 
-  // Agregar a lista
+  // Botones + Lista
   document.querySelectorAll('.btn-agregar-lista').forEach(btn => {
-    btn.addEventListener('click', async () => {
+    btn.addEventListener('click', () => {
       const productoId = parseInt(btn.dataset.id);
       const nombre = btn.dataset.nombre;
-      mostrarModalCantidad(productoId, nombre, btn);
+      const unidad = btn.dataset.unidad || 'pzas';
+      mostrarModalCantidad(productoId, nombre, btn, unidad);
     });
   });
 
@@ -146,7 +147,7 @@ function bindProductosEvents() {
   });
 }
 
-function mostrarModalCantidad(productoId, nombre, btnElement) {
+function mostrarModalCantidad(productoId, nombre, btnElement, unidad = 'pzas') {
   const esFamiliar = !!(APP_Sync?.getCodigoFamilia && APP_Sync.getCodigoFamilia());
 
   const modal = document.createElement('div');
@@ -160,7 +161,10 @@ function mostrarModalCantidad(productoId, nombre, btnElement) {
 
       <div class="form-group">
         <label class="form-label">¿Cuántas necesitas?</label>
-        <input type="number" inputmode="numeric" pattern="[0-9]*" class="form-input input-precio" id="input-cantidad" value="1" min="1">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <input type="number" inputmode="numeric" pattern="[0-9]*" class="form-input input-precio" id="input-cantidad" value="1" min="1" style="flex: 1;">
+          <span style="color: var(--text-muted); font-size: var(--text-sm); min-width: 40px;">${unidad}</span>
+        </div>
       </div>
 
       <button class="btn btn-primary" style="width:100%" id="btn-guardar">
