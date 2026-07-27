@@ -91,13 +91,19 @@ function bindProductosEvents() {
     // Filtrar productos
     document.querySelectorAll('.item-producto').forEach(el => {
       const nombre = el.dataset.nombre;
-      el.style.display = nombre.includes(query) ? '' : 'none';
+      const mostrar = nombre.includes(query);
+      
+      const contenedor = el.parentElement.classList.contains('swipe-wrapper') ? el.parentElement : el;
+      contenedor.style.display = mostrar ? '' : 'none';
     });
 
     // Ocultar categorías vacías
     document.querySelectorAll('.categoria-seccion').forEach(seccion => {
       const tieneVisibles = Array.from(seccion.querySelectorAll('.item-producto'))
-                                 .some(el => el.style.display !== 'none');
+                                 .some(el => {
+                                   const contenedor = el.parentElement.classList.contains('swipe-wrapper') ? el.parentElement : el;
+                                   return contenedor.style.display !== 'none';
+                                 });
       seccion.style.display = tieneVisibles ? '' : 'none';
     });
   });
