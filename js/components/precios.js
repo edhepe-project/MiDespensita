@@ -145,16 +145,22 @@ function bindPreciosEvents() {
   document.getElementById('filtro-tienda')?.addEventListener('change', (e) => {
     const tienda = e.target.value;
     document.querySelectorAll('.precio-card').forEach(card => {
+      const items = card.querySelectorAll('.precio-item');
+      
       if (!tienda) {
         card.style.display = '';
+        items.forEach(item => item.style.display = '');
         return;
       }
-      const items = card.querySelectorAll('.precio-item');
+      
       let tieneTienda = false;
       items.forEach(item => {
         const tiendaEl = item.querySelector('.precio-item-tienda');
-        if (tiendaEl && tiendaEl.textContent.includes(tienda)) {
+        if (tiendaEl && tiendaEl.textContent.trim() === tienda.trim()) {
           tieneTienda = true;
+          item.style.display = ''; // Mostrar solo el de esta tienda
+        } else {
+          item.style.display = 'none'; // Ocultar los de otras tiendas
         }
       });
       card.style.display = tieneTienda ? '' : 'none';
