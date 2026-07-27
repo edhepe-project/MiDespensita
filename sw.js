@@ -1,4 +1,4 @@
-const CACHE_NAME = 'midespensita-v9';
+const CACHE_NAME = 'midespensita-v10';
 
 // Rutas relativas para GitHub Pages
 const BASE_URL = self.location.pathname.replace(/\/[^/]*$/, '/');
@@ -47,8 +47,14 @@ self.addEventListener('activate', event => {
   );
 });
 
+
 // Fetch
 self.addEventListener('fetch', event => {
+  // No interceptar las llamadas a la API (el servidor) para que los datos siempre estén frescos
+  if (event.request.url.includes('/api/')) {
+    return;
+  }
+
   event.respondWith(
     caches.match(event.request).then(cached => {
       return cached || fetch(event.request).then(response => {
