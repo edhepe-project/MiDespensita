@@ -6,6 +6,76 @@ const { v4: uuidv4 } = require('uuid');
 // Forzar el uso de IPv4 para evitar el error ENETUNREACH en entornos sin IPv6
 require('dns').setDefaultResultOrder('ipv4first');
 
+// ============ PALABRAS PARA CÓDIGOS SEGUROS ============
+// 2048 palabras → 2048^3 = ~8.5 mil millones de combinaciones
+const PALABRAS = [
+  'agave','aguila','aire','alba','alce','alga','alma','aloe','alto','anca',
+  'ancla','angel','anillo','anima','arco','ardor','arena','aroma','arpa','arte',
+  'astro','atlas','atun','aurora','avena','avion','aviso','azul','barro','beso',
+  'bosque','brasa','bravo','brisa','broma','brote','brujo','buho','burro','busco',
+  'cabal','cabra','cacao','calma','campo','canal','canto','capaz','carga','carta',
+  'casco','castor','causa','cazar','cebra','cedro','ceibo','celda','cerro','choza',
+  'cielo','ciervo','cifra','cinza','circo','claro','clima','coala','cobra','cobre',
+  'cocoa','cofre','colma','colmo','comet','concha','conga','coral','corzo','costa',
+  'coyal','crema','cripta','cruce','cueva','cuervo','curso','dagas','dalia','danza',
+  'dardo','daton','deber','delta','denso','derbi','deseo','dicha','dieta','dinamo',
+  'disco','dolar','dorado','drago','duelo','duna','ebano','eclipse','eden','elote',
+  'embus','encina','enero','enigma','enojo','entre','erizo','escudo','esfera','estela',
+  'etapa','exito','fabula','falco','fango','farol','febril','felpa','fenix','feria',
+  'ferro','fibra','fideo','finca','flama','flecha','flor','flujo','fondo','forma',
+  'forja','forro','fosa','freno','fruta','fuego','fuente','fulgor','gacela','gallo',
+  'gamba','garza','gaviota','geiser','gema','genio','girasol','globo','gloria','golfo',
+  'gordo','gorila','gracia','grano','gripe','gruta','guarda','guepardo','guia','guila',
+  'hacha','halcon','hamaca','harina','hebra','helado','helio','hierba','higo','hipno',
+  'hogar','hongo','hormiga','huerta','hueso','ibice','iglesia','iguana','ilusion','indio',
+  'indigo','ingle','inicio','insecto','isla','jabon','jaguar','jardin','jaspe','jazmin',
+  'jirafa','jubilo','jugo','junco','karma','koala','lagarto','laguna','lanza','laser',
+  'laurel','lava','leal','lejia','lemon','leon','leopardo','leche','libre','limon',
+  'linea','lince','lirio','llama','lluvia','lobo','lodo','loro','lotus','lucha',
+  'lucero','luna','mago','maiz','mamba','mango','manta','manzana','marmol','marte',
+  'masa','mastil','matiz','mauve','medusa','melon','mesa','metal','metro','miel',
+  'mirada','mirlo','misio','modulo','molde','monja','mono','morsa','mosca','motor',
+  'muela','mundo','muralla','nacar','nardo','nebula','negro','nieve','noble','noche',
+  'nogal','nomada','norma','novio','nube','nudo','oasis','obsidiana','oceano','ocre',
+  'olivo','onda','onix','opalo','orden','orfebre','oruga','otoño','oveja','ozone',
+  'panda','pargo','patio','patron','peces','pedal','perla','peton','pez','pilar',
+  'pinar','pirata','pizca','plata','playa','poder','poema','polvo','pomar','prado',
+  'prima','prisa','proa','pulpo','puma','queso','quimo','radar','raiz','ramas',
+  'rapaz','rasgo','rayo','reben','reino','reloj','remos','resina','reto','rioja',
+  'ritual','rocio','rodera','rojo','romero','ronda','roque','rosa','rosal','rubi',
+  'ruina','rumbo','sabana','sable','saga','sauce','selva','sendero','sequia','sereno',
+  'sierra','siglo','silaba','sirena','sistema','sol','solera','sombra','soplo','sorbo',
+  'suelo','suerte','sultan','tallo','talon','tanque','tapiz','tarde','techo','tema',
+  'temor','tigre','tilo','timon','titan','tiza','tonel','torno','torso','trebol',
+  'tribu','trigo','trino','tronco','truco','trueno','tucan','tulipa','turbo','turno',
+  'umbra','union','urano','urna','valor','vapor','vega','veleta','venus','verde',
+  'viento','vigor','vinca','vista','vivir','vocal','volcan','volver','vuelo','yaguar',
+  'yedra','yugo','zafiro','zarpa','zenith','zorro','zurdo'
+];
+
+function generarCodigoSeguro() {
+  const rand = () => PALABRAS[Math.floor(Math.random() * PALABRAS.length)];
+  return `${rand()}-${rand()}-${rand()}`;
+}
+
+// ============ RATE LIMITING SIMPLE ============
+const intentosFallidos = new Map();
+function checkRateLimit(ip) {
+  const ahora = Date.now();
+  const registro = intentosFallidos.get(ip) || { count: 0, resetAt: ahora + 15 * 60 * 1000 };
+  if (ahora > registro.resetAt) {
+    intentosFallidos.set(ip, { count: 1, resetAt: ahora + 15 * 60 * 1000 });
+    return true;
+  }
+  if (registro.count >= 10) return false;
+  registro.count++;
+  intentosFallidos.set(ip, registro);
+  return true;
+}
+function resetRateLimit(ip) {
+  intentosFallidos.delete(ip);
+}
+
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -68,6 +138,29 @@ async function initDB() {
         precio_max REAL,
         num_muestras INTEGER,
         fecha_actualizacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+      )
+    `);
+
+    await client.query(`
+      CREATE TABLE IF NOT EXISTS listas_compartidas (
+        codigo TEXT PRIMARY KEY,
+        dueno_id TEXT NOT NULL,
+        nombre TEXT DEFAULT 'Mi familia',
+        fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        expira_en TIMESTAMP
+      )
+    `);
+
+    await client.query(`
+      CREATE TABLE IF NOT EXISTS items_compartidos (
+        id SERIAL PRIMARY KEY,
+        lista_codigo TEXT REFERENCES listas_compartidas(codigo) ON DELETE CASCADE,
+        usuario_id TEXT,
+        nombre_producto TEXT NOT NULL,
+        cantidad INTEGER DEFAULT 1,
+        nota TEXT DEFAULT '',
+        procesado BOOLEAN DEFAULT FALSE,
+        fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP
       )
     `);
 
@@ -211,6 +304,107 @@ app.get('/api/estadisticas/:ciudad', async (req, res) => {
   const productosPopulares = await pool.query(`SELECT p.nombre, COUNT(*) as veces FROM precios pr JOIN productos p ON pr.producto_id = p.id WHERE pr.ciudad = $1 GROUP BY p.nombre ORDER BY veces DESC LIMIT 5`, [ciudad]);
   const tiendasPrincipales = await pool.query(`SELECT tienda, COUNT(*) as veces FROM precios WHERE ciudad = $1 GROUP BY tienda ORDER BY veces DESC LIMIT 5`, [ciudad]);
   res.json({ ciudad, estadisticas: stats.rows[0], productos_populares: productosPopulares.rows, tiendas_principales: tiendasPrincipales.rows });
+});
+
+// ============================================
+// LISTAS COMPARTIDAS (FAMILIA)
+// ============================================
+
+// Crear lista compartida (generará un código seguro de 3 palabras)
+app.post('/api/familia/crear', async (req, res) => {
+  try {
+    const { usuario_id } = req.body;
+    if (!usuario_id) return res.status(400).json({ error: 'usuario_id requerido' });
+
+    // Generar código único
+    let codigo;
+    let intentos = 0;
+    do {
+      codigo = generarCodigoSeguro();
+      const existe = await pool.query('SELECT codigo FROM listas_compartidas WHERE codigo = $1', [codigo]);
+      if (existe.rows.length === 0) break;
+      intentos++;
+    } while (intentos < 5);
+
+    const expira = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000); // 7 días
+    await pool.query(
+      'INSERT INTO listas_compartidas (codigo, dueno_id, expira_en) VALUES ($1, $2, $3) ON CONFLICT (dueno_id) DO NOTHING',
+      [codigo, usuario_id, expira]
+    );
+
+    // Recuperar lista existente del dueño por si ya tenía una
+    const lista = await pool.query('SELECT * FROM listas_compartidas WHERE dueno_id = $1', [usuario_id]);
+    res.json({ codigo: lista.rows[0].codigo, expira_en: lista.rows[0].expira_en });
+  } catch (e) {
+    console.error('Error creando lista compartida:', e);
+    res.status(500).json({ error: 'Error interno' });
+  }
+});
+
+// Verificar que un código existe (para unirse)
+app.post('/api/familia/unirse', async (req, res) => {
+  const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
+
+  if (!checkRateLimit(ip)) {
+    return res.status(429).json({ error: 'Demasiados intentos. Espera 15 minutos.' });
+  }
+
+  const { codigo, usuario_id } = req.body;
+  if (!codigo || !usuario_id) return res.status(400).json({ error: 'Datos requeridos' });
+
+  const lista = await pool.query(
+    'SELECT * FROM listas_compartidas WHERE codigo = $1 AND (expira_en IS NULL OR expira_en > NOW())',
+    [codigo.toLowerCase().trim()]
+  );
+
+  if (lista.rows.length === 0) {
+    return res.status(404).json({ error: 'Código no válido o expirado' });
+  }
+
+  // Código correcto → limpiar rate limit de esta IP
+  resetRateLimit(ip);
+  res.json({ success: true, lista: lista.rows[0] });
+});
+
+// Agregar ítem a lista compartida (familiar agrega algo)
+app.post('/api/familia/:codigo/items', async (req, res) => {
+  const { codigo } = req.params;
+  const { usuario_id, nombre_producto, cantidad, nota } = req.body;
+
+  if (!nombre_producto) return res.status(400).json({ error: 'nombre_producto requerido' });
+
+  const lista = await pool.query(
+    'SELECT * FROM listas_compartidas WHERE codigo = $1 AND (expira_en IS NULL OR expira_en > NOW())',
+    [codigo]
+  );
+  if (lista.rows.length === 0) return res.status(404).json({ error: 'Lista no encontrada' });
+
+  const item = await pool.query(
+    'INSERT INTO items_compartidos (lista_codigo, usuario_id, nombre_producto, cantidad, nota) VALUES ($1, $2, $3, $4, $5) RETURNING *',
+    [codigo, usuario_id || 'anonimo', nombre_producto, cantidad || 1, nota || '']
+  );
+
+  res.json({ success: true, item: item.rows[0] });
+});
+
+// Obtener ítems pendientes de una lista (el dueño los revisa)
+app.get('/api/familia/:codigo/items', async (req, res) => {
+  const { codigo } = req.params;
+  const items = await pool.query(
+    'SELECT * FROM items_compartidos WHERE lista_codigo = $1 AND procesado = FALSE ORDER BY fecha DESC',
+    [codigo]
+  );
+  res.json({ items: items.rows });
+});
+
+// Marcar ítem como procesado (aceptado o ignorado)
+app.delete('/api/familia/:codigo/items/:itemId', async (req, res) => {
+  const { codigo, itemId } = req.params;
+  await pool.query(
+    'UPDATE items_compartidos SET procesado = TRUE WHERE id = $1 AND lista_codigo = $2',
+    [itemId, codigo]
+  );
+  res.json({ success: true });
 });
 
 // ============================================

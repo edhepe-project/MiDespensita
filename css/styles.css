@@ -1380,3 +1380,124 @@ body {
   text-align: center;
   font-weight: 600;
 }
+
+/* ============================================
+   LISTA FAMILIAR
+   ============================================ */
+
+.familia-codigo-box {
+  background: linear-gradient(135deg, rgba(249,115,22,0.08), rgba(251,146,60,0.05));
+  border: 2px dashed var(--orange-300);
+  border-radius: var(--radius-xl);
+  padding: var(--space-4);
+  text-align: center;
+}
+
+.familia-codigo-texto {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: var(--orange-600);
+  padding: var(--space-2) 0;
+  word-break: break-all;
+}
+
+.familia-banner {
+  background: linear-gradient(135deg, #10b981, #34d399);
+  border-radius: var(--radius-xl);
+  padding: var(--space-4);
+  margin-bottom: var(--space-3);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+  animation: familiaPulse 2s ease-in-out infinite;
+}
+
+@keyframes familiaPulse {
+  0%, 100% { box-shadow: 0 4px 12px rgba(16,185,129,0.3); }
+  50% { box-shadow: 0 4px 24px rgba(16,185,129,0.5); }
+}
+
+.familia-banner-texto {
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.familia-banner-badge {
+  background: white;
+  color: #10b981;
+  font-size: 11px;
+  font-weight: 800;
+  border-radius: 20px;
+  padding: 2px 10px;
+  white-space: nowrap;
+}
+
+.familia-items-panel {
+  background: var(--surface);
+  border: 2px solid #10b981;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  margin-bottom: var(--space-3);
+}
+
+.familia-items-header {
+  background: linear-gradient(135deg, #10b981, #34d399);
+  color: white;
+  padding: var(--space-3) var(--space-4);
+  font-weight: 700;
+  font-size: var(--text-sm);
+}
+
+.familia-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--border);
+  gap: var(--space-2);
+}
+
+.familia-item:last-child { border-bottom: none; }
+
+.familia-item-nombre {
+  font-weight: 600;
+  font-size: var(--text-sm);
+  flex: 1;
+}
+
+.familia-item-nota {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.familia-item-acciones {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.btn-familia-aceptar {
+  background: #10b981;
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 6px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-familia-ignorar {
+  background: var(--gray-100);
+  color: var(--text-muted);
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 6px 10px;
+  font-size: 11px;
+  cursor: pointer;
+}
+

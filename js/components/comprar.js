@@ -48,6 +48,8 @@ APP_Pages.comprar = async function() {
   }
 
   container.innerHTML = `
+    <div id="familia-banner-container"></div>
+
     <div class="card stats-resumen">
       <div class="stat-row">
         <span class="stat-label">Gastado esta semana</span>
@@ -201,6 +203,80 @@ function bindComprarEvents() {
   // Botón agregar
   document.getElementById('btn-agregar').addEventListener('click', () => {
     window.location.hash = '#productos';
+  });
+
+  // ---- FAMILIA: cargar ítems pendientes ----
+  if (navigator.onLine && APP_Sync && localStorage.getItem('midespensita_familia_codigo_propio')) {
+    cargarItemsFamilia();
+  }
+
+  // Escuchar si llegan nuevos ítems durante esta sesión
+  window.addEventListener('familia-nuevos-items', () => cargarItemsFamilia(), { once: true });
+}
+
+async function cargarItemsFamilia() {
+  const bannerContainer = document.getElementById('familia-banner-container');
+  if (!bannerContainer) return;
+
+  const items = await APP_Sync.getItemsFamiliares();
+  if (items.length === 0) {
+    bannerContainer.innerHTML = '';
+    return;
+  }
+
+  // Mostrar panel expandido con los ítems
+  bannerContainer.innerHTML = `
+    <div class="familia-items-panel">
+      <div class="familia-items-header">👨‍👩‍👦 Tu familiar agregó ${items.length} producto${items.length > 1 ? 's' : ''}</div>
+      ${items.map(item => `
+        <div class="familia-item" data-item-id="${item.id}">
+          <div style="flex:1">
+            <div class="familia-item-nombre">${item.cantidad > 1 ? item.cantidad + 'x ' : ''}${item.nombre_producto}</div>
+            ${item.nota ? `<div class="familia-item-nota">${item.nota}</div>` : ''}
+          </div>
+          <div class="familia-item-acciones">
+            <button class="btn-familia-aceptar" data-id="${item.id}" data-nombre="${item.nombre_producto}" data-cantidad="${item.cantidad}">✅ Agregar</button>
+            <button class="btn-familia-ignorar" data-id="${item.id}">✕</button>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+
+  // Botones aceptar
+  bannerContainer.querySelectorAll('.btn-familia-aceptar').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const id = parseInt(btn.dataset.id);
+      const nombre = btn.dataset.nombre;
+      const cantidad = parseInt(btn.dataset.cantidad) || 1;
+
+      // Buscar o crear el producto en la lista local
+      const todosProductos = await APP_DB.getAllProductos();
+      let producto = todosProductos.find(p => p.nombre.toLowerCase() === nombre.toLowerCase() && p.activo !== 0);
+      if (!producto) {
+        const nuevoId = await APP_DB.addProducto({ nombre, categoria: 'otros', activo: 1 });
+        producto = { id: nuevoId };
+      }
+      const lista = await APP_DB.getListaActiva();
+      await APP_DB.addItem(lista.id, producto.id, cantidad);
+      await APP_Sync.procesarItemFamiliar(id);
+
+      btn.closest('.familia-item').style.opacity = '0.4';
+      btn.closest('.familia-item').style.pointerEvents = 'none';
+      btn.textContent = '✅ Agregado';
+      setTimeout(() => cargarItemsFamilia(), 300);
+    });
+  });
+
+  // Botones ignorar
+  bannerContainer.querySelectorAll('.btn-familia-ignorar').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const id = parseInt(btn.dataset.id);
+      await APP_Sync.procesarItemFamiliar(id);
+      btn.closest('.familia-item').remove();
+      const restantes = bannerContainer.querySelectorAll('.familia-item').length;
+      if (restantes === 0) bannerContainer.innerHTML = '';
+    });
   });
 }
 

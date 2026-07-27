@@ -102,6 +102,7 @@ window.APP_Sync = {
     setInterval(async () => {
       if (navigator.onLine) {
         await this.syncPrecios();
+        await this.syncFamilia();
       }
     }, 5 * 60 * 1000);
 
@@ -109,7 +110,103 @@ window.APP_Sync = {
     setTimeout(async () => {
       if (navigator.onLine) {
         await this.syncPrecios();
+        await this.syncFamilia();
       }
     }, 30000);
+  },
+
+  // ============ LISTA FAMILIAR ============
+
+  // Crear o recuperar la lista compartida del dueño
+  async crearListaFamiliar() {
+    try {
+      const usuario = await this.getUsuario();
+      if (!usuario) return null;
+      const response = await fetch(`${this.SERVER_URL}/api/familia/crear`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ usuario_id: usuario.id })
+      });
+      const data = await response.json();
+      if (data.codigo) {
+        localStorage.setItem('midespensita_familia_codigo_propio', data.codigo);
+        localStorage.setItem('midespensita_familia_expira', data.expira_en);
+      }
+      return data;
+    } catch (e) {
+      console.log('Error creando lista familiar:', e.message);
+      return null;
+    }
+  },
+
+  // Unirse a la lista de un familiar con su código
+  async unirseALista(codigo) {
+    try {
+      const usuario = await this.getUsuario();
+      if (!usuario) return { error: 'Sin conexión al servidor' };
+      const response = await fetch(`${this.SERVER_URL}/api/familia/unirse`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ codigo: codigo.toLowerCase().trim(), usuario_id: usuario.id })
+      });
+      const data = await response.json();
+      if (data.success) {
+        localStorage.setItem('midespensita_familia_codigo_ajeno', codigo.toLowerCase().trim());
+      }
+      return data;
+    } catch (e) {
+      return { error: 'Sin conexión a internet' };
+    }
+  },
+
+  // Agregar ítem a la lista de un familiar (el hijo agrega aquí)
+  async agregarItemFamiliar(nombreProducto, cantidad = 1, nota = '') {
+    const codigoAjeno = localStorage.getItem('midespensita_familia_codigo_ajeno');
+    if (!codigoAjeno) return { error: 'No estás conectado a ninguna lista' };
+    try {
+      const usuario = await this.getUsuario();
+      const response = await fetch(`${this.SERVER_URL}/api/familia/${codigoAjeno}/items`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ usuario_id: usuario?.id, nombre_producto: nombreProducto, cantidad, nota })
+      });
+      return await response.json();
+    } catch (e) {
+      return { error: 'Sin conexión a internet' };
+    }
+  },
+
+  // Obtener ítems pendientes de mi lista (el dueño los revisa)
+  async getItemsFamiliares() {
+    const codigoPropio = localStorage.getItem('midespensita_familia_codigo_propio');
+    if (!codigoPropio) return [];
+    try {
+      const response = await fetch(`${this.SERVER_URL}/api/familia/${codigoPropio}/items`);
+      const data = await response.json();
+      return data.items || [];
+    } catch (e) {
+      return [];
+    }
+  },
+
+  // Procesar (aceptar/ignorar) un ítem familiar
+  async procesarItemFamiliar(itemId) {
+    const codigoPropio = localStorage.getItem('midespensita_familia_codigo_propio');
+    if (!codigoPropio) return;
+    try {
+      await fetch(`${this.SERVER_URL}/api/familia/${codigoPropio}/items/${itemId}`, { method: 'DELETE' });
+    } catch (e) {}
+  },
+
+  // Sincronizar items familiares y disparar evento si hay nuevos
+  async syncFamilia() {
+    const items = await this.getItemsFamiliares();
+    const prev = parseInt(localStorage.getItem('midespensita_familia_pendientes') || '0');
+    localStorage.setItem('midespensita_familia_pendientes', items.length);
+    if (items.length > prev) {
+      window.dispatchEvent(new CustomEvent('familia-nuevos-items', { detail: { items } }));
+    }
+    return items;
   }
 };
+

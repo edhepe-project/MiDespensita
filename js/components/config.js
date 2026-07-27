@@ -16,6 +16,52 @@ APP_Pages.config = async function() {
 
     <div class="card">
       <div class="card-header">
+        <span class="card-title">👨‍👩‍👦 Lista Familiar</span>
+      </div>
+
+      <div id="familia-dueno">
+        <p class="text-secondary" style="margin-bottom: 12px; font-size: var(--text-sm)">
+          Comparte tu lista con tu familia. Ellos podrán agregar productos y tú los ves al ir al super.
+        </p>
+        <button class="btn btn-primary" style="width:100%; margin-bottom: 8px" id="btn-compartir-lista">
+          🔗 Generar código de invitación
+        </button>
+        <div id="familia-codigo-display" style="display:none" class="familia-codigo-box">
+          <p style="font-size: 11px; color: var(--text-muted); margin-bottom: 4px">Comparte este código con tu familiar:</p>
+          <div class="familia-codigo-texto" id="familia-codigo-texto"></div>
+          <p style="font-size: 11px; color: var(--text-muted); margin-top: 6px" id="familia-expira-texto"></p>
+          <button class="btn btn-secondary" style="width:100%; margin-top:8px" id="btn-copiar-codigo">
+            📋 Copiar código
+          </button>
+        </div>
+      </div>
+
+      <div style="border-top: 1px solid var(--border); margin: 12px 0"></div>
+
+      <div id="familia-miembro">
+        <p class="text-secondary" style="margin-bottom: 8px; font-size: var(--text-sm)">
+          ¿Tu familiar ya tiene la app? Únete a su lista con su código:
+        </p>
+        <div style="display: flex; gap: 8px">
+          <input type="text" class="form-input" id="input-codigo-familiar"
+            placeholder="p.ej: tigre-mango-luna" style="flex:1; font-size: var(--text-sm)">
+          <button class="btn btn-primary" id="btn-unirse-lista" style="white-space: nowrap">Unirse</button>
+        </div>
+        <p id="familia-unido-estado" style="font-size: 11px; margin-top: 6px; color: var(--text-muted)">
+          ${localStorage.getItem('midespensita_familia_codigo_ajeno')
+            ? '✅ Conectado a lista: ' + localStorage.getItem('midespensita_familia_codigo_ajeno')
+            : ''}
+        </p>
+        ${localStorage.getItem('midespensita_familia_codigo_ajeno') ? `
+          <button class="btn btn-secondary" style="width:100%; margin-top:8px; font-size:var(--text-sm)" id="btn-agregar-familiar">
+            ➕ Agregar producto a la lista familiar
+          </button>
+        ` : ''}
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
         <span class="card-title">📍 Ubicación</span>
       </div>
       <p class="text-secondary" style="margin-bottom: 12px">${ubicacion?.ciudad || 'No configurada'}</p>
@@ -75,11 +121,89 @@ APP_Pages.config = async function() {
     </div>
   `;
 
+
   bindConfigEvents();
 };
 
 function bindConfigEvents() {
-  // Cambiar ubicación
+  // ---- LISTA FAMILIAR ----
+  document.getElementById('btn-compartir-lista').addEventListener('click', async () => {
+    const btn = document.getElementById('btn-compartir-lista');
+    btn.textContent = 'Generando...';
+    btn.disabled = true;
+
+    const data = await APP_Sync.crearListaFamiliar();
+    if (data && data.codigo) {
+      document.getElementById('familia-codigo-texto').textContent = data.codigo;
+      const expira = new Date(data.expira_en);
+      document.getElementById('familia-expira-texto').textContent =
+        `Expira el ${expira.toLocaleDateString('es', { day: 'numeric', month: 'long' })}`;
+      document.getElementById('familia-codigo-display').style.display = 'block';
+      btn.textContent = '🔗 Tu código (ya generado)';
+    } else {
+      alert('Necesitas conexión a internet para generar el código');
+      btn.textContent = '🔗 Generar código de invitación';
+    }
+    btn.disabled = false;
+  });
+
+  // Mostrar código si ya existe
+  const codigoPropio = localStorage.getItem('midespensita_familia_codigo_propio');
+  if (codigoPropio) {
+    document.getElementById('familia-codigo-texto').textContent = codigoPropio;
+    document.getElementById('familia-codigo-display').style.display = 'block';
+    document.getElementById('btn-compartir-lista').textContent = '🔗 Tu código (ya generado)';
+  }
+
+  document.getElementById('btn-copiar-codigo')?.addEventListener('click', () => {
+    const codigo = document.getElementById('familia-codigo-texto').textContent;
+    navigator.clipboard.writeText(codigo).then(() => {
+      const btn = document.getElementById('btn-copiar-codigo');
+      btn.textContent = '✅ Copiado!';
+      setTimeout(() => { btn.textContent = '📋 Copiar código'; }, 2000);
+    });
+  });
+
+  document.getElementById('btn-unirse-lista').addEventListener('click', async () => {
+    const input = document.getElementById('input-codigo-familiar');
+    const codigo = input.value.trim();
+    if (!codigo) return alert('Escribe el código primero');
+
+    const btn = document.getElementById('btn-unirse-lista');
+    btn.textContent = '...';
+    btn.disabled = true;
+
+    const result = await APP_Sync.unirseALista(codigo);
+    if (result.success) {
+      document.getElementById('familia-unido-estado').textContent = '✅ Conectado a lista: ' + codigo;
+      document.getElementById('familia-unido-estado').style.color = 'var(--orange-600)';
+      alert('¡Te uniste exitosamente! Ahora puedes agregar productos desde esta app.');
+      APP_Pages.config();
+    } else {
+      alert('Error: ' + (result.error || 'Código no válido'));
+    }
+    btn.textContent = 'Unirse';
+    btn.disabled = false;
+  });
+
+  document.getElementById('btn-agregar-familiar')?.addEventListener('click', () => {
+    const nombre = prompt('¿Qué necesitas que compren?');
+    if (!nombre || !nombre.trim()) return;
+    const cantidadStr = prompt('¿Cuántas unidades?', '1');
+    const cantidad = parseInt(cantidadStr) || 1;
+    const nota = prompt('¿Alguna nota? (marca, tamaño, etc.) - deja vacío si no', '') || '';
+
+    APP_Sync.agregarItemFamiliar(nombre.trim(), cantidad, nota).then(result => {
+      if (result.success) {
+        alert('✅ Enviado. Tu familiar lo verá pronto.');
+      } else {
+        alert('Error: ' + (result.error || 'No se pudo enviar'));
+      }
+    });
+  });
+
+  // ---- UBICACIÓN ----
+
   document.getElementById('btn-cambiar-ubicacion').addEventListener('click', async () => {
     const ciudad = prompt('¿En qué ciudad estás?');
     if (ciudad && ciudad.trim()) {
