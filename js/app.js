@@ -132,6 +132,7 @@ window.addEventListener('hashchange', () => {
     dir = currIndex > prevIndex ? 'left' : 'right';
   }
   window._lastPage = page;
+  // Las páginas fuera del orden (historial, config, etc.) nav sin animación
   navigate(page, dir);
 });
 

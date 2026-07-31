@@ -70,6 +70,16 @@ APP_Pages.precios = async function() {
       </p>
     </div>
 
+    <div class="card" onclick="window.location.hash = '#historial'" style="cursor:pointer">
+      <div class="card-header">
+        <span class="card-title">📋 Historial de Compras</span>
+        <span class="text-secondary">→</span>
+      </div>
+      <p class="text-secondary" style="font-size: var(--text-sm)">
+        Todas tus compras filtradas por tienda y semana
+      </p>
+    </div>
+
     <div class="card stats-resumen">
       <div class="section-title">Resumen del mes</div>
       <div class="stat-row">
