@@ -1,4 +1,4 @@
-﻿// Comprar component - Pantalla principal
+// Comprar component - Pantalla principal
 APP_Pages.comprar = async function() {
   const container = document.getElementById('app-content');
 
@@ -550,17 +550,8 @@ async function renderListaLocal(container, ubicacion) {
     ` : ''}
 
     <button class="fab" id="btn-agregar">+</button>
-    ${pendientes.length > 0 ? `
-    <button onclick="compartirListaWhatsApp()" style="
-      position: fixed; bottom: 90px; right: 16px;
-      background: #25d366; color: white; border: none;
-      border-radius: 50px; padding: 10px 16px;
-      font-size: 13px; font-weight: 600; cursor: pointer;
-      box-shadow: 0 4px 12px rgba(37,211,102,0.4);
-      z-index: 100; display: flex; align-items: center; gap: 6px;
-    ">📲 Compartir</button>
-    ` : ''}
   `;
+
 
   bindComprarEvents();
 }
