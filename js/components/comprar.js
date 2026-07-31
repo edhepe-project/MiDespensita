@@ -1,4 +1,4 @@
-// Comprar component - Pantalla principal
+﻿// Comprar component - Pantalla principal
 APP_Pages.comprar = async function() {
   const container = document.getElementById('app-content');
 
@@ -121,16 +121,6 @@ async function renderListaFamiliar(container, codigo, ubicacion, dataCache = nul
     ` : ''}
 
     <button class="fab" id="btn-agregar">+</button>
-    ${pendientes.length > 0 ? `
-    <button onclick="compartirListaWhatsApp()" style="
-      position: fixed; bottom: 90px; right: 16px;
-      background: #25d366; color: white; border: none;
-      border-radius: 50px; padding: 10px 16px;
-      font-size: 13px; font-weight: 600; cursor: pointer;
-      box-shadow: 0 4px 12px rgba(37,211,102,0.4);
-      z-index: 100; display: flex; align-items: center; gap: 6px;
-    ">📲 Compartir</button>
-    ` : ''}
   `;
 
   bindListaFamiliarEvents(codigo);
@@ -494,7 +484,16 @@ async function renderListaLocal(container, ubicacion) {
     </div>
 
     ${pendientes.length > 0 ? `
-    <div class="section-title">Pendientes (${pendientes.length})</div>
+    <div class="section-title" style="display:flex; align-items:center; justify-content:space-between">
+      <span>Pendientes (${pendientes.length})</span>
+      <button onclick="compartirListaWhatsApp()" style="
+        background: #25d366; color: white; border: none;
+        border-radius: 50px; padding: 5px 12px;
+        font-size: 12px; font-weight: 600; cursor: pointer;
+        box-shadow: 0 2px 6px rgba(37,211,102,0.35);
+        display: flex; align-items: center; gap: 5px;
+      ">📲 Compartir</button>
+    </div>
     ${Object.entries(pendientesPorCat).map(([cat, catItems]) => `
       <div style="margin-bottom:4px">
         <div style="font-size:11px; color:var(--text-muted); padding: 4px 4px 2px; font-weight:600; letter-spacing:0.5px; text-transform:uppercase">
