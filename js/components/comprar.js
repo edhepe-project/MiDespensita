@@ -22,7 +22,17 @@ APP_Pages.comprar = async function() {
   } else if (codigoFamilia) {
     // Offline con familia: usar caché
     const cache = localStorage.getItem('midespensita_lista_familiar_cache');
-    const data = cache ? JSON.parse(cache) : { items: [], presupuesto: 0 };
+    let data = { items: [], presupuesto: 0 };
+    if (cache) {
+      try {
+        const parsed = JSON.parse(cache);
+        if (Array.isArray(parsed)) {
+          data = { items: parsed, presupuesto: 0 };
+        } else {
+          data = parsed;
+        }
+      } catch (e) {}
+    }
     await renderListaFamiliar(container, codigoFamilia, ubicacion, data);
   } else {
     await renderListaLocal(container, ubicacion);
