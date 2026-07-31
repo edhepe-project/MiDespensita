@@ -100,6 +100,16 @@ async function renderListaFamiliar(container, codigo, ubicacion, itemsCache = nu
     ` : ''}
 
     <button class="fab" id="btn-agregar">+</button>
+    ${pendientes.length > 0 ? `
+    <button onclick="compartirListaWhatsApp()" style="
+      position: fixed; bottom: 90px; right: 16px;
+      background: #25d366; color: white; border: none;
+      border-radius: 50px; padding: 10px 16px;
+      font-size: 13px; font-weight: 600; cursor: pointer;
+      box-shadow: 0 4px 12px rgba(37,211,102,0.4);
+      z-index: 100; display: flex; align-items: center; gap: 6px;
+    ">📲 Compartir</button>
+    ` : ''}
   `;
 
   bindListaFamiliarEvents(codigo);
@@ -327,7 +337,9 @@ async function renderListaLocal(container, ubicacion) {
     `}
 
     ${comprados.length > 0 ? `
-    <div class="section-title">Comprados (${comprados.length})</div>
+    <div class="section-title">Comprados (${comprados.length})
+      <button class="btn btn-secondary" id="btn-nueva-semana" style="font-size:11px;padding:4px 10px;float:right">🗑 Limpiar</button>
+    </div>
     <div class="lista-compra">
       ${comprados.map(item => renderComprado(item)).join('')}
     </div>
@@ -353,6 +365,16 @@ async function renderListaLocal(container, ubicacion) {
     ` : ''}
 
     <button class="fab" id="btn-agregar">+</button>
+    ${pendientes.length > 0 ? `
+    <button onclick="compartirListaWhatsApp()" style="
+      position: fixed; bottom: 90px; right: 16px;
+      background: #25d366; color: white; border: none;
+      border-radius: 50px; padding: 10px 16px;
+      font-size: 13px; font-weight: 600; cursor: pointer;
+      box-shadow: 0 4px 12px rgba(37,211,102,0.4);
+      z-index: 100; display: flex; align-items: center; gap: 6px;
+    ">📲 Compartir</button>
+    ` : ''}
   `;
 
   bindComprarEvents();
@@ -386,11 +408,19 @@ function renderComprado(item) {
         <div class="item-check">✓</div>
         <div class="item-info">
           <div class="item-nombre">${item.producto?.nombre || 'Sin nombre'}</div>
-          <div class="item-detalle">Ya comprado</div>
+          <div class="item-detalle" id="detalle-comprado-${item.id}">Ya comprado</div>
         </div>
       </div>
+      <button class="btn btn-secondary" style="font-size:11px;padding:4px 8px" 
+        onclick="deshacerComprado(${item.id})">Deshacer</button>
     </div>
   `;
+}
+
+// Deshacer: volver un item comprado a pendiente
+async function deshacerComprado(itemId) {
+  await APP_DB.updateItem(itemId, { comprado: false });
+  APP_Pages.comprar();
 }
 
 async function cargarDetallesPrecios() {
@@ -420,6 +450,18 @@ async function cargarDetallesPrecios() {
 function bindComprarEvents() {
   // Cargar detalles de precios en background
   cargarDetallesPrecios();
+
+  // Limpiar comprados (modo local)
+  document.getElementById('btn-nueva-semana')?.addEventListener('click', async () => {
+    if (confirm('¿Limpiar todos los productos ya comprados de la lista?')) {
+      const lista = await APP_DB.getListaActiva();
+      const items = await APP_DB.getItemsByLista(lista.id);
+      for (const item of items.filter(i => i.comprado)) {
+        await APP_DB.removeItem(item.id);
+      }
+      APP_Pages.comprar();
+    }
+  });
 
   // Botón comprar
   document.querySelectorAll('.btn-comprar').forEach(btn => {
@@ -602,8 +644,8 @@ async function mostrarModalCompra(itemId, nombreProducto) {
       }]
     });
 
-    // Marcar item como comprado y eliminar
-    await APP_DB.removeItem(itemId);
+    // Marcar como comprado (queda visible en sección "Ya comprados")
+    await APP_DB.updateItem(itemId, { comprado: true });
 
     modal.remove();
     APP_Pages.comprar();

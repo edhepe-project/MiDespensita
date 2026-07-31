@@ -26,22 +26,12 @@ window.APP_Notifications = {
   },
 
   // Suscribir a push notifications
+  // La suscripción real se hace a través de APP_Push (push.js) desde Configuración.
+  // Este método ya no usa llave VAPID hardcodeada para evitar errores en producción.
   async suscribir(registration) {
-    try {
-      // Generar clave VAPID (para producción usa una real)
-      const applicationServerKey = this.urlBase64ToUint8Array(
-        'BEl62iUYgUivxVkvT9BNJR37cBd9bQ0nPfWtHyVhNNJp2O9bMhJzHnRdJQ9v2pQ5oR7tY8uI9oP0aS'
-      );
-
-      this.subscription = await registration.pushManager.subscribe({
-        userVisibleOnly: true,
-        applicationServerKey
-      });
-
-      console.log('Suscripción push exitosa');
-    } catch (e) {
-      console.log('Error en suscripción push:', e);
-    }
+    // No hacer nada aquí; el flujo correcto es:
+    // Configuración → Activar Notificaciones → APP_Push.activar()
+    console.log('[Notif] Suscripción push manejada por APP_Push desde Configuración.');
   },
 
   // Convertir clave VAPID

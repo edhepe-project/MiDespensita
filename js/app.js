@@ -147,7 +147,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.addEventListener('online', () => {
     if (APP_Sync) APP_Sync.syncPrecios();
+    ocultarBannerOffline();
   });
+
+  window.addEventListener('offline', () => {
+    mostrarBannerOffline();
+  });
+
+  // Mostrar si ya está offline al iniciar
+  if (!navigator.onLine) mostrarBannerOffline();
 
   if (APP_Notifications) {
     APP_Notifications.iniciar();
@@ -161,3 +169,58 @@ document.addEventListener('DOMContentLoaded', () => {
     navigator.serviceWorker.register('./sw.js').catch((err) => console.error("SW Error:", err));
   }
 });
+
+// ── Banner offline ─────────────────────────────────────────────────────────────
+function mostrarBannerOffline() {
+  if (document.getElementById('offline-banner')) return;
+  const banner = document.createElement('div');
+  banner.id = 'offline-banner';
+  banner.innerHTML = '📵 Sin conexión — trabajando sin internet';
+  banner.style.cssText = `
+    position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+    background: #f59e0b; color: #fff; text-align: center;
+    font-size: 13px; font-weight: 600; padding: 6px;
+    animation: slideDown 0.3s ease;
+  `;
+  document.body.prepend(banner);
+}
+
+function ocultarBannerOffline() {
+  const banner = document.getElementById('offline-banner');
+  if (banner) banner.remove();
+}
+
+// ── Compartir lista por WhatsApp ───────────────────────────────────────────────
+window.compartirListaWhatsApp = async function() {
+  try {
+    const codigoFamilia = APP_Sync?.getCodigoFamilia?.();
+    let pendientes = [];
+
+    if (codigoFamilia && navigator.onLine) {
+      const items = await APP_Sync.getListaFamiliar() || [];
+      pendientes = items.filter(i => !i.comprado);
+    } else {
+      const lista = await APP_DB.getListaActiva();
+      const items = await APP_DB.getItemsByLista(lista.id);
+      pendientes = items.filter(i => !i.comprado);
+    }
+
+    if (pendientes.length === 0) {
+      alert('¡No hay productos pendientes en la lista!');
+      return;
+    }
+
+    const lineas = pendientes.map(item => {
+      const nombre = item.nombre_producto || item.producto?.nombre || 'Sin nombre';
+      const cantidad = item.cantidad || 1;
+      return `• ${nombre} x${cantidad}`;
+    });
+
+    const texto = `🛒 *Lista de compras*\n${lineas.join('\n')}`;
+    const url = `https://wa.me/?text=${encodeURIComponent(texto)}`;
+    window.open(url, '_blank');
+  } catch(e) {
+    alert('Error al generar la lista');
+  }
+};
+

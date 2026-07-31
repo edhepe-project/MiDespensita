@@ -72,6 +72,16 @@ APP_Pages.config = async function() {
             : ''}
         </p>
       </div>
+
+      ${(localStorage.getItem('midespensita_familia_codigo_propio') || localStorage.getItem('midespensita_familia_codigo_ajeno')) ? `
+      <div style="border-top: 1px solid var(--border); margin: 12px 0"></div>
+      <button class="btn btn-secondary" id="btn-salir-lista" style="width:100%; color: var(--coral-600); border-color: var(--coral-600)">
+        🚪 Salir de lista familiar
+      </button>
+      <p style="font-size: 11px; color: var(--text-muted); margin-top: 6px; text-align: center">
+        Volverás al modo personal. Tus datos locales no se borran.
+      </p>
+      ` : ''}
     </div>
 
     <div class="card">
@@ -243,6 +253,18 @@ function bindConfigEvents() {
     btn.disabled = false;
   });
 
+
+  // ---- SALIR DE LISTA FAMILIAR ----
+  document.getElementById('btn-salir-lista')?.addEventListener('click', () => {
+    if (confirm('¿Seguro que quieres salir de la lista familiar? Volverás al modo personal.')) {
+      localStorage.removeItem('midespensita_familia_codigo_propio');
+      localStorage.removeItem('midespensita_familia_codigo_ajeno');
+      localStorage.removeItem('midespensita_lista_familiar_cache');
+      localStorage.removeItem('midespensita_push_activo');
+      alert('✅ Saliste de la lista familiar. Ahora estás en modo personal.');
+      APP_Pages.config();
+    }
+  });
 
   // ---- NOTIFICACIONES PUSH ----
   document.getElementById('btn-activar-notif')?.addEventListener('click', async () => {

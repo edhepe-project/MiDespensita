@@ -12,6 +12,13 @@ APP_Pages.productos = async function() {
 
   const todosProductos = await APP_DB.getAllProductos();
 
+  // Obtener IDs de productos ya en la lista activa
+  const lista = await APP_DB.getListaActiva();
+  const itemsEnLista = await APP_DB.getItemsByLista(lista.id);
+  const idsEnLista = new Set(
+    itemsEnLista.filter(i => !i.comprado).map(i => i.productoId)
+  );
+
   // Agrupar por categoría
   const porCategoria = {};
   for (const prod of todosProductos) {
@@ -38,7 +45,7 @@ APP_Pages.productos = async function() {
           <div class="categoria-header">
             ${APP_CATEGORIAS[cat]?.icono || '📦'} ${APP_CATEGORIAS[cat]?.nombre || cat}
           </div>
-          ${prods.map(p => renderProductoItem(p)).join('')}
+          ${prods.map(p => renderProductoItem(p, idsEnLista.has(p.id))).join('')}
         </div>
       `).join('')}
     </div>
@@ -49,7 +56,7 @@ APP_Pages.productos = async function() {
   bindProductosEvents();
 };
 
-function renderProductoItem(producto) {
+function renderProductoItem(producto, yaEnLista = false) {
   return `
     <div class="item-producto" data-id="${producto.id}" data-nombre="${producto.nombre.toLowerCase()}" data-producto-id="${producto.id}" data-producto-nombre="${producto.nombre}">
       <div class="item-info">
@@ -57,8 +64,10 @@ function renderProductoItem(producto) {
         <div class="item-detalle" id="detalle-prod-${producto.id}">...</div>
       </div>
       <div class="item-acciones">
-        <button class="btn btn-small btn-primary btn-agregar-lista btn-sin-longpress" data-id="${producto.id}" data-nombre="${producto.nombre}" data-unidad="${producto.unidad || 'pzas'}">
-          + Lista
+        <button class="btn btn-small ${yaEnLista ? 'btn-secondary' : 'btn-primary'} btn-agregar-lista btn-sin-longpress"
+          data-id="${producto.id}" data-nombre="${producto.nombre}" data-unidad="${producto.unidad || 'pzas'}"
+          style="${yaEnLista ? 'color: var(--green-600, #16a34a); font-weight: 700;' : ''}">
+          ${yaEnLista ? '✓ En lista' : '+ Lista'}
         </button>
       </div>
     </div>
