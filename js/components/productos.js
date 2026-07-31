@@ -244,8 +244,14 @@ function mostrarModalCantidad(productoId, nombre, btnElement, unidad = 'pzas') {
     }
 
     modal.remove();
-    btnElement.textContent = '✓';
-    setTimeout(() => { btnElement.textContent = '+ Lista'; }, 1500);
+    // Cambiar botón a estado "En lista" permanente
+    btnElement.textContent = '✓ En lista';
+    btnElement.classList.remove('btn-primary');
+    btnElement.classList.add('btn-secondary');
+    btnElement.style.color = 'var(--green-600, #16a34a)';
+    btnElement.style.fontWeight = '700';
+    btnElement.disabled = true;
+
   });
 
   // Enter para guardar
