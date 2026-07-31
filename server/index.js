@@ -5,7 +5,7 @@ const { v4: uuidv4 } = require('uuid');
 const webpush = require('web-push');
 
 // ============ VAPID CONFIG ============
-const VAPID_PUBLIC  = process.env.VAPID_PUBLIC  || 'BLFadV5BsxClgM0gt9gjEPOnmnOMfj3v4GElxk2z027HG5gAf3tHQJKy-No1sz-ofKVFqC0sEgiuWsb7dC3R91Q';
+const VAPID_PUBLIC = process.env.VAPID_PUBLIC || 'BLFadV5BsxClgM0gt9gjEPOnmnOMfj3v4GElxk2z027HG5gAf3tHQJKy-No1sz-ofKVFqC0sEgiuWsb7dC3R91Q';
 const VAPID_PRIVATE = process.env.VAPID_PRIVATE || 'PZhQR3_wAru0_pHH1lHfx91SvQZpLy5nnLMu5CfcDvk';
 webpush.setVapidDetails('mailto:soporte@midespensita.app', VAPID_PUBLIC, VAPID_PRIVATE);
 
@@ -15,48 +15,48 @@ require('dns').setDefaultResultOrder('ipv4first');
 // ============ PALABRAS PARA CÓDIGOS SEGUROS ============
 // 2048 palabras → 2048^3 = ~8.5 mil millones de combinaciones
 const PALABRAS = [
-  'agave','aguila','aire','alba','alce','alga','alma','aloe','alto','anca',
-  'ancla','angel','anillo','anima','arco','ardor','arena','aroma','arpa','arte',
-  'astro','atlas','atun','aurora','avena','avion','aviso','azul','barro','beso',
-  'bosque','brasa','bravo','brisa','broma','brote','brujo','buho','burro','busco',
-  'cabal','cabra','cacao','calma','campo','canal','canto','capaz','carga','carta',
-  'casco','castor','causa','cazar','cebra','cedro','ceibo','celda','cerro','choza',
-  'cielo','ciervo','cifra','cinza','circo','claro','clima','coala','cobra','cobre',
-  'cocoa','cofre','colma','colmo','comet','concha','conga','coral','corzo','costa',
-  'coyal','crema','cripta','cruce','cueva','cuervo','curso','dagas','dalia','danza',
-  'dardo','daton','deber','delta','denso','derbi','deseo','dicha','dieta','dinamo',
-  'disco','dolar','dorado','drago','duelo','duna','ebano','eclipse','eden','elote',
-  'embus','encina','enero','enigma','enojo','entre','erizo','escudo','esfera','estela',
-  'etapa','exito','fabula','falco','fango','farol','febril','felpa','fenix','feria',
-  'ferro','fibra','fideo','finca','flama','flecha','flor','flujo','fondo','forma',
-  'forja','forro','fosa','freno','fruta','fuego','fuente','fulgor','gacela','gallo',
-  'gamba','garza','gaviota','geiser','gema','genio','girasol','globo','gloria','golfo',
-  'gordo','gorila','gracia','grano','gripe','gruta','guarda','guepardo','guia','guila',
-  'hacha','halcon','hamaca','harina','hebra','helado','helio','hierba','higo','hipno',
-  'hogar','hongo','hormiga','huerta','hueso','ibice','iglesia','iguana','ilusion','indio',
-  'indigo','ingle','inicio','insecto','isla','jabon','jaguar','jardin','jaspe','jazmin',
-  'jirafa','jubilo','jugo','junco','karma','koala','lagarto','laguna','lanza','laser',
-  'laurel','lava','leal','lejia','lemon','leon','leopardo','leche','libre','limon',
-  'linea','lince','lirio','llama','lluvia','lobo','lodo','loro','lotus','lucha',
-  'lucero','luna','mago','maiz','mamba','mango','manta','manzana','marmol','marte',
-  'masa','mastil','matiz','mauve','medusa','melon','mesa','metal','metro','miel',
-  'mirada','mirlo','misio','modulo','molde','monja','mono','morsa','mosca','motor',
-  'muela','mundo','muralla','nacar','nardo','nebula','negro','nieve','noble','noche',
-  'nogal','nomada','norma','novio','nube','nudo','oasis','obsidiana','oceano','ocre',
-  'olivo','onda','onix','opalo','orden','orfebre','oruga','otoño','oveja','ozone',
-  'panda','pargo','patio','patron','peces','pedal','perla','peton','pez','pilar',
-  'pinar','pirata','pizca','plata','playa','poder','poema','polvo','pomar','prado',
-  'prima','prisa','proa','pulpo','puma','queso','quimo','radar','raiz','ramas',
-  'rapaz','rasgo','rayo','reben','reino','reloj','remos','resina','reto','rioja',
-  'ritual','rocio','rodera','rojo','romero','ronda','roque','rosa','rosal','rubi',
-  'ruina','rumbo','sabana','sable','saga','sauce','selva','sendero','sequia','sereno',
-  'sierra','siglo','silaba','sirena','sistema','sol','solera','sombra','soplo','sorbo',
-  'suelo','suerte','sultan','tallo','talon','tanque','tapiz','tarde','techo','tema',
-  'temor','tigre','tilo','timon','titan','tiza','tonel','torno','torso','trebol',
-  'tribu','trigo','trino','tronco','truco','trueno','tucan','tulipa','turbo','turno',
-  'umbra','union','urano','urna','valor','vapor','vega','veleta','venus','verde',
-  'viento','vigor','vinca','vista','vivir','vocal','volcan','volver','vuelo','yaguar',
-  'yedra','yugo','zafiro','zarpa','zenith','zorro','zurdo'
+  'agave', 'aguila', 'aire', 'alba', 'alce', 'alga', 'alma', 'aloe', 'alto', 'anca',
+  'ancla', 'angel', 'anillo', 'anima', 'arco', 'ardor', 'arena', 'aroma', 'arpa', 'arte',
+  'astro', 'atlas', 'atun', 'aurora', 'avena', 'avion', 'aviso', 'azul', 'barro', 'beso',
+  'bosque', 'brasa', 'bravo', 'brisa', 'broma', 'brote', 'brujo', 'buho', 'burro', 'busco',
+  'cabal', 'cabra', 'cacao', 'calma', 'campo', 'canal', 'canto', 'capaz', 'carga', 'carta',
+  'casco', 'castor', 'causa', 'cazar', 'cebra', 'cedro', 'ceibo', 'celda', 'cerro', 'choza',
+  'cielo', 'ciervo', 'cifra', 'cinza', 'circo', 'claro', 'clima', 'coala', 'cobra', 'cobre',
+  'cocoa', 'cofre', 'colma', 'colmo', 'comet', 'concha', 'conga', 'coral', 'corzo', 'costa',
+  'coyal', 'crema', 'cripta', 'cruce', 'cueva', 'cuervo', 'curso', 'dagas', 'dalia', 'danza',
+  'dardo', 'daton', 'deber', 'delta', 'denso', 'derbi', 'deseo', 'dicha', 'dieta', 'dinamo',
+  'disco', 'dolar', 'dorado', 'drago', 'duelo', 'duna', 'ebano', 'eclipse', 'eden', 'elote',
+  'embus', 'encina', 'enero', 'enigma', 'enojo', 'entre', 'erizo', 'escudo', 'esfera', 'estela',
+  'etapa', 'exito', 'fabula', 'falco', 'fango', 'farol', 'febril', 'felpa', 'fenix', 'feria',
+  'ferro', 'fibra', 'fideo', 'finca', 'flama', 'flecha', 'flor', 'flujo', 'fondo', 'forma',
+  'forja', 'forro', 'fosa', 'freno', 'fruta', 'fuego', 'fuente', 'fulgor', 'gacela', 'gallo',
+  'gamba', 'garza', 'gaviota', 'geiser', 'gema', 'genio', 'girasol', 'globo', 'gloria', 'golfo',
+  'gordo', 'gorila', 'gracia', 'grano', 'gripe', 'gruta', 'guarda', 'guepardo', 'guia', 'guila',
+  'hacha', 'halcon', 'hamaca', 'harina', 'hebra', 'helado', 'helio', 'hierba', 'higo', 'hipno',
+  'hogar', 'hongo', 'hormiga', 'huerta', 'hueso', 'ibice', 'iglesia', 'iguana', 'ilusion', 'indio',
+  'indigo', 'ingle', 'inicio', 'insecto', 'isla', 'jabon', 'jaguar', 'jardin', 'jaspe', 'jazmin',
+  'jirafa', 'jubilo', 'jugo', 'junco', 'karma', 'koala', 'lagarto', 'laguna', 'lanza', 'laser',
+  'laurel', 'lava', 'leal', 'lejia', 'lemon', 'leon', 'leopardo', 'leche', 'libre', 'limon',
+  'linea', 'lince', 'lirio', 'llama', 'lluvia', 'lobo', 'lodo', 'loro', 'lotus', 'lucha',
+  'lucero', 'luna', 'mago', 'maiz', 'mamba', 'mango', 'manta', 'manzana', 'marmol', 'marte',
+  'masa', 'mastil', 'matiz', 'mauve', 'medusa', 'melon', 'mesa', 'metal', 'metro', 'miel',
+  'mirada', 'mirlo', 'misio', 'modulo', 'molde', 'monja', 'mono', 'morsa', 'mosca', 'motor',
+  'muela', 'mundo', 'muralla', 'nacar', 'nardo', 'nebula', 'negro', 'nieve', 'noble', 'noche',
+  'nogal', 'nomada', 'norma', 'novio', 'nube', 'nudo', 'oasis', 'obsidiana', 'oceano', 'ocre',
+  'olivo', 'onda', 'onix', 'opalo', 'orden', 'orfebre', 'oruga', 'otoño', 'oveja', 'ozone',
+  'panda', 'pargo', 'patio', 'patron', 'peces', 'pedal', 'perla', 'peton', 'pez', 'pilar',
+  'pinar', 'pirata', 'pizca', 'plata', 'playa', 'poder', 'poema', 'polvo', 'pomar', 'prado',
+  'prima', 'prisa', 'proa', 'pulpo', 'puma', 'queso', 'quimo', 'radar', 'raiz', 'ramas',
+  'rapaz', 'rasgo', 'rayo', 'reben', 'reino', 'reloj', 'remos', 'resina', 'reto', 'rioja',
+  'ritual', 'rocio', 'rodera', 'rojo', 'romero', 'ronda', 'roque', 'rosa', 'rosal', 'rubi',
+  'ruina', 'rumbo', 'sabana', 'sable', 'saga', 'sauce', 'selva', 'sendero', 'sequia', 'sereno',
+  'sierra', 'siglo', 'silaba', 'sirena', 'sistema', 'sol', 'solera', 'sombra', 'soplo', 'sorbo',
+  'suelo', 'suerte', 'sultan', 'tallo', 'talon', 'tanque', 'tapiz', 'tarde', 'techo', 'tema',
+  'temor', 'tigre', 'tilo', 'timon', 'titan', 'tiza', 'tonel', 'torno', 'torso', 'trebol',
+  'tribu', 'trigo', 'trino', 'tronco', 'truco', 'trueno', 'tucan', 'tulipa', 'turbo', 'turno',
+  'umbra', 'union', 'urano', 'urna', 'valor', 'vapor', 'vega', 'veleta', 'venus', 'verde',
+  'viento', 'vigor', 'vinca', 'vista', 'vivir', 'vocal', 'volcan', 'volver', 'vuelo', 'yaguar',
+  'yedra', 'yugo', 'zafiro', 'zarpa', 'zenith', 'zorro', 'zurdo'
 ];
 
 function generarCodigoSeguro() {
@@ -349,7 +349,7 @@ app.post('/api/familia/crear', async (req, res) => {
 
     // 1. Revisar si el usuario ya tiene una lista
     let lista = await pool.query('SELECT * FROM listas_compartidas WHERE dueno_id = $1', [usuario_id]);
-    
+
     // 2. Si no tiene, crearla
     if (lista.rows.length === 0) {
       let codigo;
@@ -366,7 +366,7 @@ app.post('/api/familia/crear', async (req, res) => {
         'INSERT INTO listas_compartidas (codigo, dueno_id, expira_en) VALUES ($1, $2, $3)',
         [codigo, usuario_id, expira]
       );
-      
+
       lista = await pool.query('SELECT * FROM listas_compartidas WHERE dueno_id = $1', [usuario_id]);
     }
 

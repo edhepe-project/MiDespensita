@@ -120,8 +120,8 @@ window.APP_Sync = {
   // Obtener el código activo (propio o ajeno)
   getCodigoFamilia() {
     return localStorage.getItem('midespensita_familia_codigo_propio') ||
-           localStorage.getItem('midespensita_familia_codigo_ajeno') ||
-           null;
+      localStorage.getItem('midespensita_familia_codigo_ajeno') ||
+      null;
   },
 
   // Crear o recuperar la lista compartida del dueño
@@ -216,7 +216,7 @@ window.APP_Sync = {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ comprado, comprado_por: compradoPor })
       });
-    } catch (e) {}
+    } catch (e) { }
   },
 
   // Borrar ítem de la lista compartida
@@ -225,7 +225,7 @@ window.APP_Sync = {
     if (!codigo) return;
     try {
       await fetch(`${this.SERVER_URL}/api/familia/${codigo}/lista/${itemId}`, { method: 'DELETE' });
-    } catch (e) {}
+    } catch (e) { }
   },
 
   // Limpiar items comprados (para nueva semana)
@@ -234,7 +234,7 @@ window.APP_Sync = {
     if (!codigo) return;
     try {
       await fetch(`${this.SERVER_URL}/api/familia/${codigo}/lista`, { method: 'DELETE' });
-    } catch (e) {}
+    } catch (e) { }
   },
 
   // Sincronizar lista familiar y disparar evento si cambió

@@ -64,8 +64,8 @@ self.addEventListener('fetch', event => {
       });
     }).catch(() => {
       // Solo devolver index.html si es una peticion de navegacion (HTML)
-      if (event.request.mode === 'navigate' || 
-          (event.request.headers.get('accept') && event.request.headers.get('accept').includes('text/html'))) {
+      if (event.request.mode === 'navigate' ||
+        (event.request.headers.get('accept') && event.request.headers.get('accept').includes('text/html'))) {
         return caches.match(BASE_URL + 'index.html');
       }
       return new Response('Offline resource not available', { status: 503, statusText: 'Service Unavailable' });

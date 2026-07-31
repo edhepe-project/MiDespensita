@@ -167,6 +167,22 @@ window.APP_Notifications = {
     this.renderDropdown();
   },
 
+  // Eliminar una notificación por índice
+  eliminarNotif(index) {
+    let history = JSON.parse(localStorage.getItem('midespensita_notifs_hist') || '[]');
+    history.splice(index, 1);
+    localStorage.setItem('midespensita_notifs_hist', JSON.stringify(history));
+    this.actualizarBadge();
+    this.renderDropdown();
+  },
+
+  // Limpiar todo el historial
+  limpiarHistorial() {
+    localStorage.setItem('midespensita_notifs_hist', '[]');
+    this.actualizarBadge();
+    this.renderDropdown();
+  },
+
   renderDropdown() {
     const list = document.getElementById('notif-list');
     if (!list) return;
@@ -176,17 +192,39 @@ window.APP_Notifications = {
       return;
     }
 
-    list.innerHTML = history.map(n => {
+    // Botón "Limpiar todo" al inicio
+    const limpiarBtn = `
+      <div style="padding: 8px 12px; border-bottom: 1px solid var(--border); display: flex; justify-content: flex-end;">
+        <button onclick="APP_Notifications.limpiarHistorial()" style="
+          background: none; border: none; color: var(--text-muted); font-size: 12px;
+          cursor: pointer; padding: 4px 8px; border-radius: 6px;
+          transition: background 0.2s;
+        " onmouseover="this.style.background='var(--surface-2)'" onmouseout="this.style.background='none'">
+          🗑️ Limpiar todo
+        </button>
+      </div>
+    `;
+
+    const items = history.map((n, index) => {
       const f = new Date(n.fecha);
       const fechaStr = f.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) + ' - ' + f.toLocaleDateString();
       return `
-        <div class="notif-item ${n.leida ? '' : 'unread'}">
+        <div class="notif-item ${n.leida ? '' : 'unread'}" style="position: relative; padding-right: 36px;">
+          <button onclick="APP_Notifications.eliminarNotif(${index})" title="Eliminar" style="
+            position: absolute; top: 8px; right: 8px;
+            background: none; border: none; cursor: pointer;
+            color: var(--text-muted); font-size: 16px; line-height: 1;
+            padding: 2px 6px; border-radius: 4px; transition: background 0.2s, color 0.2s;
+          " onmouseover="this.style.background='var(--surface-2)'; this.style.color='var(--coral-600)';"
+             onmouseout="this.style.background='none'; this.style.color='var(--text-muted)';">&#x2715;</button>
           <div class="notif-item-title">${n.titulo}</div>
           <div class="notif-item-body">${n.mensaje}</div>
           <div style="font-size: 10px; color: var(--text-muted); margin-top: 4px; text-align: right;">${fechaStr}</div>
         </div>
       `;
     }).join('');
+
+    list.innerHTML = limpiarBtn + items;
   },
 
   // Iniciar
