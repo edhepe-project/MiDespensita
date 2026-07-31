@@ -203,14 +203,13 @@ function bindListaFamiliarEvents(codigo) {
   // Cargar detalles de precios localmente
   cargarDetallesPreciosFamiliar();
 
-  // Marcar como comprado
+  // Marcar como comprado — abre modal para registrar precio
   document.querySelectorAll('.btn-familia-comprar').forEach(btn => {
-    btn.addEventListener('click', async () => {
-      const id = parseInt(btn.dataset.id);
-      btn.textContent = '...';
-      btn.disabled = true;
-      await APP_Sync.marcarCompradoLista(id, true);
-      APP_Pages.comprar();
+    btn.addEventListener('click', () => {
+      const id      = parseInt(btn.dataset.id);
+      const nombre  = btn.dataset.nombre;
+      const cantidad = parseInt(btn.closest('[data-cantidad]')?.dataset.cantidad || '1');
+      mostrarModalCompraFamiliar(id, nombre, cantidad, btn);
     });
   });
 
@@ -284,6 +283,114 @@ async function mostrarModalAgregarFamiliar() {
   modal.querySelector('#btn-guardar-familiar').addEventListener('click', guardar);
   modal.querySelector('#input-nombre-familiar').addEventListener('keydown', e => {
     if (e.key === 'Enter') guardar();
+  });
+}
+
+// ─── Modal precio para MODO FAMILIAR ──────────────────────────────────────────
+async function mostrarModalCompraFamiliar(familiaId, nombreProducto, cantidad, btnOrigen) {
+  if (btnOrigen) { btnOrigen.textContent = '...'; btnOrigen.disabled = true; }
+
+  const productos = await APP_DB.getAllProductos();
+  let productoLocal = productos.find(p =>
+    p.nombre.toLowerCase() === nombreProducto.toLowerCase()
+  ) || productos.find(p =>
+    p.nombre.toLowerCase().includes(nombreProducto.toLowerCase()) ||
+    nombreProducto.toLowerCase().includes(p.nombre.toLowerCase())
+  );
+
+  const unidad        = productoLocal?.unidad || 'pieza';
+  const tiendasUsadas = productoLocal ? await APP_DB.getTiendasByProducto(productoLocal.id) : [];
+  const marcasUsadas  = productoLocal ? await APP_DB.getMarcasByProducto(productoLocal.id) : [];
+
+  if (btnOrigen) { btnOrigen.textContent = '✓ Listo'; btnOrigen.disabled = false; }
+
+  const modal = document.createElement('div');
+  modal.className = 'modal-overlay';
+  modal.innerHTML = `
+    <div class="modal-content modal-compact">
+      <div class="modal-header">
+        <span class="modal-title">Registrar compra</span>
+        <button class="modal-close" id="cerrar-modal-fam">×</button>
+      </div>
+      <div class="modal-producto">${nombreProducto}
+        <span style="font-size:12px;color:var(--text-muted)">x${cantidad}</span>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Tienda</label>
+        <input type="text" class="form-input" id="fam-input-tienda"
+          placeholder="Ej: Walmart" autocomplete="off" list="fam-sug-tienda">
+        <datalist id="fam-sug-tienda">
+          ${tiendasUsadas.map(t => '<option value="' + t + '">').join('')}
+        </datalist>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Marca</label>
+        <input type="text" class="form-input" id="fam-input-marca"
+          placeholder="Ej: Lala" autocomplete="off" list="fam-sug-marca">
+        <datalist id="fam-sug-marca">
+          ${marcasUsadas.map(m => '<option value="' + m + '">').join('')}
+        </datalist>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Presentación</label>
+        <div class="input-with-unit">
+          <input type="number" inputmode="decimal" class="form-input input-presentacion"
+            id="fam-input-presentacion" placeholder="1" step="0.1" min="0.1" value="1">
+          <span class="input-unit">${unidad}</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Precio</label>
+        <input type="number" inputmode="decimal" class="form-input input-precio"
+          id="fam-input-precio" placeholder="0.00" step="0.50" min="0">
+      </div>
+      <div style="display:flex; gap:8px; margin-top:4px">
+        <button class="btn btn-secondary" style="flex:1" id="fam-btn-sin-precio">Sin precio</button>
+        <button class="btn btn-primary" style="flex:2" id="fam-btn-guardar">✓ Guardar y listo</button>
+      </div>
+    </div>
+  `;
+
+  document.body.appendChild(modal);
+  modal.querySelector('#cerrar-modal-fam').addEventListener('click', () => modal.remove());
+  modal.addEventListener('click', e => { if (e.target === modal) modal.remove(); });
+  modal.querySelector('#fam-input-precio').addEventListener('keydown', e => {
+    if (e.key === 'Enter') { e.preventDefault(); modal.querySelector('#fam-btn-guardar').click(); }
+  });
+
+  modal.querySelector('#fam-btn-sin-precio').addEventListener('click', async () => {
+    modal.remove();
+    await APP_Sync.marcarCompradoLista(familiaId, true);
+    APP_Pages.comprar();
+  });
+
+  modal.querySelector('#fam-btn-guardar').addEventListener('click', async () => {
+    const tienda      = modal.querySelector('#fam-input-tienda').value.trim();
+    const marca       = modal.querySelector('#fam-input-marca').value.trim();
+    const precio      = parseFloat(modal.querySelector('#fam-input-precio').value);
+    const cantPres    = parseFloat(modal.querySelector('#fam-input-presentacion').value) || 1;
+    const presentacion = cantPres + unidad;
+
+    if (!tienda) { alert('Escribe la tienda'); return; }
+    if (!precio || precio <= 0) { alert('Escribe un precio válido'); return; }
+
+    await APP_Sync.marcarCompradoLista(familiaId, true);
+
+    let prodId = productoLocal?.id;
+    if (!prodId) {
+      prodId = await APP_DB.addProducto({
+        nombre: nombreProducto, categoria: 'otros', unidad, activo: 1
+      });
+    }
+
+    await APP_DB.addCompra({
+      tienda,
+      total: precio * cantidad,
+      productos: [{ productoId: prodId, cantidad, marca, presentacion, precioUnitario: precio }]
+    });
+
+    modal.remove();
+    APP_Pages.comprar();
   });
 }
 
