@@ -291,9 +291,26 @@ async function mostrarModalAgregarFamiliar() {
 async function renderListaLocal(container, ubicacion) {
   const lista = await APP_DB.getListaActiva();
   const items = await APP_DB.getItemsByLista(lista.id);
-  const pendientes = items.filter(i => !i.comprado);
   const comprados  = items.filter(i => i.comprado);
   const stats = await APP_DB.getStatsByWeek();
+
+  // Orden lógico por categoría (como caminar por el super)
+  const ORDEN_CATEGORIAS = [
+    'frutas_verduras', 'lacteos', 'carnes', 'panaderia',
+    'congelados', 'abarrotes', 'bebidas', 'limpieza', 'higiene', 'otros'
+  ];
+  const pendientes = items
+    .filter(i => !i.comprado)
+    .sort((a, b) => {
+      const catA = ORDEN_CATEGORIAS.indexOf(a.producto?.categoria || 'otros');
+      const catB = ORDEN_CATEGORIAS.indexOf(b.producto?.categoria || 'otros');
+      return (catA === -1 ? 99 : catA) - (catB === -1 ? 99 : catB);
+    });
+
+  // Presupuesto semanal
+  const presupuesto = parseFloat(localStorage.getItem('midespensita_presupuesto_semana') || '0');
+  const porcentaje  = presupuesto > 0 ? Math.min((stats.total / presupuesto) * 100, 100) : 0;
+  const colorBarra  = porcentaje >= 90 ? '#ef4444' : porcentaje >= 70 ? '#f59e0b' : '#22c55e';
 
   let preciosRegionales = [];
   let origenPrecios = ubicacion?.ciudad || '';
@@ -311,13 +328,37 @@ async function renderListaLocal(container, ubicacion) {
     if (cache) { preciosRegionales = JSON.parse(cache); origenPrecios = cacheOrigen || origenPrecios; }
   }
 
+  // Agrupar pendientes por categoría para mostrarlos en secciones
+  const pendientesPorCat = {};
+  for (const item of pendientes) {
+    const cat = item.producto?.categoria || 'otros';
+    if (!pendientesPorCat[cat]) pendientesPorCat[cat] = [];
+    pendientesPorCat[cat].push(item);
+  }
+
   container.innerHTML = `
     <div class="card stats-resumen">
       <div class="stat-row">
         <span class="stat-label">Gastado esta semana</span>
         <span class="stat-value">${APP_Format.money(stats.total)}</span>
       </div>
-      <div class="stat-row">
+      ${presupuesto > 0 ? `
+      <div style="margin-top: 8px">
+        <div style="display:flex; justify-content:space-between; font-size:12px; color:var(--text-muted); margin-bottom:4px">
+          <span>Presupuesto</span>
+          <span>${APP_Format.money(stats.total)} / ${APP_Format.money(presupuesto)}</span>
+        </div>
+        <div style="background:var(--surface-2); border-radius:99px; height:8px; overflow:hidden">
+          <div style="width:${porcentaje}%; background:${colorBarra}; height:100%; border-radius:99px; transition:width 0.5s ease"></div>
+        </div>
+        ${porcentaje >= 90 ? `<p style="font-size:11px; color:#ef4444; margin-top:4px">⚠️ ¡Casi al límite del presupuesto!</p>` : ''}
+      </div>
+      ` : `
+      <div style="font-size:11px; color:var(--text-muted); margin-top:6px; text-align:right">
+        <span onclick="window.location.hash='#config'" style="cursor:pointer; text-decoration:underline">+ Establecer presupuesto</span>
+      </div>
+      `}
+      <div class="stat-row" style="margin-top:8px">
         <span class="stat-label">Artículos comprados</span>
         <span class="stat-value">${stats.totalArticulos}</span>
       </div>
@@ -325,8 +366,24 @@ async function renderListaLocal(container, ubicacion) {
 
     ${pendientes.length > 0 ? `
     <div class="section-title">Pendientes (${pendientes.length})</div>
-    <div class="lista-compra">
-      ${pendientes.map(item => renderPendiente(item)).join('')}
+    ${Object.entries(pendientesPorCat).map(([cat, catItems]) => `
+      <div style="margin-bottom:4px">
+        <div style="font-size:11px; color:var(--text-muted); padding: 4px 4px 2px; font-weight:600; letter-spacing:0.5px; text-transform:uppercase">
+          ${APP_CATEGORIAS[cat]?.icono || '📦'} ${APP_CATEGORIAS[cat]?.nombre || cat}
+        </div>
+        <div class="lista-compra">
+          ${catItems.map(item => renderPendiente(item)).join('')}
+        </div>
+      </div>
+    `).join('')}
+    ` : comprados.length > 0 ? `
+    <div class="card" style="text-align:center; padding: 24px; background: linear-gradient(135deg, #dcfce7, #f0fdf4); border: 1px solid #86efac">
+      <div style="font-size:48px; margin-bottom:12px">🎉</div>
+      <div style="font-weight:700; font-size:18px; color:#16a34a; margin-bottom:6px">¡Lista completada!</div>
+      <div style="font-size:14px; color:#15803d; margin-bottom:16px">Compraste ${comprados.length} producto${comprados.length > 1 ? 's' : ''} por ${APP_Format.money(stats.total)}</div>
+      <button class="btn btn-primary" id="btn-nueva-semana-ticket" style="background:#16a34a; border-color:#16a34a">
+        ✓ Limpiar y empezar nueva compra
+      </button>
     </div>
     ` : `
     <div class="empty-state">
@@ -451,7 +508,7 @@ function bindComprarEvents() {
   // Cargar detalles de precios en background
   cargarDetallesPrecios();
 
-  // Limpiar comprados (modo local)
+  // Limpiar comprados (modo local) — botón en cabecera de sección
   document.getElementById('btn-nueva-semana')?.addEventListener('click', async () => {
     if (confirm('¿Limpiar todos los productos ya comprados de la lista?')) {
       const lista = await APP_DB.getListaActiva();
@@ -461,6 +518,16 @@ function bindComprarEvents() {
       }
       APP_Pages.comprar();
     }
+  });
+
+  // Botón en ticket de ¡Lista completada!
+  document.getElementById('btn-nueva-semana-ticket')?.addEventListener('click', async () => {
+    const lista = await APP_DB.getListaActiva();
+    const items = await APP_DB.getItemsByLista(lista.id);
+    for (const item of items.filter(i => i.comprado)) {
+      await APP_DB.removeItem(item.id);
+    }
+    APP_Pages.comprar();
   });
 
   // Botón comprar

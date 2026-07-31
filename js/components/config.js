@@ -112,6 +112,32 @@ APP_Pages.config = async function() {
 
     <div class="card">
       <div class="card-header">
+        <span class="card-title">💰 Presupuesto Semanal</span>
+      </div>
+      <p class="text-secondary" style="margin-bottom: 12px; font-size: var(--text-sm)">
+        Define cuánto quieres gastar por semana. Verás una barra de progreso en tu lista de compras.
+      </p>
+      <div style="display: flex; gap: 8px; align-items: center">
+        <span style="color: var(--text-muted); font-size: 16px; font-weight: 600">$</span>
+        <input type="number" inputmode="decimal" class="form-input" id="input-presupuesto"
+          placeholder="Ej: 1500" min="0" step="50"
+          value="${localStorage.getItem('midespensita_presupuesto_semana') || ''}"
+          style="flex:1">
+        <button class="btn btn-primary" id="btn-guardar-presupuesto">Guardar</button>
+      </div>
+      <p id="presupuesto-estado" style="font-size:11px; margin-top:6px; color:var(--text-muted)">
+        ${localStorage.getItem('midespensita_presupuesto_semana')
+          ? '✅ Presupuesto: $' + parseFloat(localStorage.getItem('midespensita_presupuesto_semana')).toLocaleString('es-MX') + ' / semana'
+          : 'Sin presupuesto configurado'}
+      </p>
+      ${localStorage.getItem('midespensita_presupuesto_semana') ? `
+      <button class="btn btn-secondary" id="btn-quitar-presupuesto" style="margin-top:6px; font-size:12px; color:var(--text-muted)">
+        × Quitar presupuesto
+      </button>` : ''}
+    </div>
+
+    <div class="card">
+      <div class="card-header">
         <span class="card-title">📍 Ubicación</span>
       </div>
       <p class="text-secondary" style="margin-bottom: 12px">${ubicacion?.ciudad || 'No configurada'}</p>
@@ -323,6 +349,23 @@ function bindConfigEvents() {
     }
     btn.textContent = '🧪 Probar';
     btn.disabled = false;
+  });
+
+  // ---- PRESUPUESTO SEMANAL ----
+  document.getElementById('btn-guardar-presupuesto')?.addEventListener('click', () => {
+    const val = parseFloat(document.getElementById('input-presupuesto').value);
+    if (!val || val <= 0) { alert('Escribe un monto válido mayor a 0'); return; }
+    localStorage.setItem('midespensita_presupuesto_semana', val.toString());
+    const estado = document.getElementById('presupuesto-estado');
+    if (estado) {
+      estado.textContent = '✅ Presupuesto: $' + val.toLocaleString('es-MX') + ' / semana';
+      estado.style.color = 'var(--green-600, #16a34a)';
+    }
+  });
+
+  document.getElementById('btn-quitar-presupuesto')?.addEventListener('click', () => {
+    localStorage.removeItem('midespensita_presupuesto_semana');
+    APP_Pages.config();
   });
 
   // ---- UBICACIÓN ----
