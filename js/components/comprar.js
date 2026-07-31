@@ -22,34 +22,55 @@ APP_Pages.comprar = async function() {
   } else if (codigoFamilia) {
     // Offline con familia: usar caché
     const cache = localStorage.getItem('midespensita_lista_familiar_cache');
-    const items = cache ? JSON.parse(cache) : [];
-    await renderListaFamiliar(container, codigoFamilia, ubicacion, items);
+    const data = cache ? JSON.parse(cache) : { items: [], presupuesto: 0 };
+    await renderListaFamiliar(container, codigoFamilia, ubicacion, data);
   } else {
     await renderListaLocal(container, ubicacion);
   }
 };
 
 // ─── MODO LISTA FAMILIAR (servidor) ───────────────────────────────────────────
-async function renderListaFamiliar(container, codigo, ubicacion, itemsCache = null) {
-  const stats = await APP_DB.getStatsByWeek();
-
+async function renderListaFamiliar(container, codigo, ubicacion, dataCache = null) {
   // Cargar precios regionales en paralelo sin bloquear
   let preciosRegionales = [];
   let origenPrecios = ubicacion?.ciudad || '';
   const preciosCache = localStorage.getItem('precios_regionales');
   if (preciosCache) { preciosRegionales = JSON.parse(preciosCache); origenPrecios = localStorage.getItem('precios_origen') || origenPrecios; }
 
-  // Obtener lista del servidor (o caché offline)
-  let items = itemsCache;
-  if (items === null) {
-    items = await APP_Sync.getListaFamiliar() || [];
+  // Obtener lista y presupuesto del servidor (o caché offline)
+  let data = dataCache;
+  if (data === null) {
+    data = await APP_Sync.getListaFamiliar() || { items: [], presupuesto: 0 };
   }
+  
+  const items = data.items || [];
+  const presupuesto = data.presupuesto || 0;
 
   const pendientes = items.filter(i => !i.comprado);
   const comprados  = items.filter(i => i.comprado);
 
+  // Calcular gastado para el presupuesto sumando el precio pagado de los comprados
+  let gastadoFamiliar = 0;
+  for (const item of comprados) {
+    gastadoFamiliar += (item.precio_pagado || 0);
+  }
+
   container.innerHTML = `
     <div class="familia-modo-badge">👨‍👩‍👦 Lista familiar</div>
+
+    ${presupuesto > 0 ? `
+    <div class="card budget-card">
+      <div style="display:flex; justify-content:space-between; margin-bottom: 8px">
+        <span style="font-size:12px; font-weight:600; color:var(--text-muted)">PRESUPUESTO COMPARTIDO</span>
+        <span style="font-size:12px; font-weight:600; color:${gastadoFamiliar > presupuesto ? 'var(--red-600, #dc2626)' : 'var(--text-main)'}">
+          $${gastadoFamiliar.toLocaleString('es-MX')} / $${presupuesto.toLocaleString('es-MX')}
+        </span>
+      </div>
+      <div style="height:8px; background:var(--bg-card); border-radius:4px; overflow:hidden">
+        <div style="height:100%; width:${Math.min(100, (gastadoFamiliar / presupuesto) * 100)}%; background:${gastadoFamiliar > presupuesto ? 'var(--red-500, #ef4444)' : (gastadoFamiliar > presupuesto * 0.8 ? 'var(--yellow-500, #eab308)' : 'var(--green-500, #22c55e)')}; transition: width 0.3s ease"></div>
+      </div>
+    </div>
+    ` : ''}
 
     <div class="card stats-resumen">
       <div class="stat-row">
@@ -125,7 +146,7 @@ async function renderListaFamiliar(container, codigo, ubicacion, itemsCache = nu
   }
 
   // Auto-refresh cada 30 s si hay internet
-  let lastItemsStr = JSON.stringify(items);
+  let lastDataStr = JSON.stringify(data);
   const refreshTimer = setInterval(async () => {
     if (!navigator.onLine || !document.getElementById('btn-agregar')) {
       clearInterval(refreshTimer);
@@ -134,8 +155,8 @@ async function renderListaFamiliar(container, codigo, ubicacion, itemsCache = nu
     const nuevos = await APP_Sync.getListaFamiliar();
     if (nuevos !== null) {
       const nuevosStr = JSON.stringify(nuevos);
-      if (nuevosStr !== lastItemsStr) {
-        lastItemsStr = nuevosStr;
+      if (nuevosStr !== lastDataStr) {
+        lastDataStr = nuevosStr;
         const pendientesCont = document.querySelector('.lista-compra');
         // Solo re-render si estamos en la vista de compras
         if (pendientesCont || document.querySelector('.empty-state')) {
@@ -374,7 +395,8 @@ async function mostrarModalCompraFamiliar(familiaId, nombreProducto, cantidad, b
     if (!tienda) { alert('Escribe la tienda'); return; }
     if (!precio || precio <= 0) { alert('Escribe un precio válido'); return; }
 
-    await APP_Sync.marcarCompradoLista(familiaId, true);
+    const nombreUsuario = localStorage.getItem('midespensita_nombre') || 'Familiar';
+    await APP_Sync.marcarCompradoLista(familiaId, true, nombreUsuario, precio * cantidad);
 
     let prodId = productoLocal?.id;
     if (!prodId) {

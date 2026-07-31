@@ -166,7 +166,7 @@ window.APP_Sync = {
     }
   },
 
-  // Obtener toda la lista compartida del servidor
+  // Obtener toda la lista compartida del servidor (incluye presupuesto)
   async getListaFamiliar() {
     const codigo = this.getCodigoFamilia();
     if (!codigo) return null;
@@ -174,9 +174,15 @@ window.APP_Sync = {
       const response = await fetch(`${this.SERVER_URL}/api/familia/${codigo}/lista`);
       if (!response.ok) return null;
       const data = await response.json();
+      
+      const resultado = { 
+        items: data.items || [], 
+        presupuesto: data.presupuesto || 0 
+      };
+      
       // Guardar en caché local para modo offline
-      localStorage.setItem('midespensita_lista_familiar_cache', JSON.stringify(data.items || []));
-      return data.items || [];
+      localStorage.setItem('midespensita_lista_familiar_cache', JSON.stringify(resultado));
+      return resultado;
     } catch (e) {
       // Sin internet: usar caché
       const cache = localStorage.getItem('midespensita_lista_familiar_cache');
@@ -206,17 +212,37 @@ window.APP_Sync = {
     }
   },
 
-  // Marcar ítem como comprado/no comprado
-  async marcarCompradoLista(itemId, comprado, compradoPor = '') {
+  // Marcar ítem como comprado/no comprado, con precio pagado opcional
+  async marcarCompradoLista(itemId, comprado, compradoPor = '', precioPagado = 0) {
     const codigo = this.getCodigoFamilia();
     if (!codigo) return;
     try {
       await fetch(`${this.SERVER_URL}/api/familia/${codigo}/lista/${itemId}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ comprado, comprado_por: compradoPor })
+        body: JSON.stringify({ comprado, comprado_por: compradoPor, precio_pagado: precioPagado })
       });
     } catch (e) { }
+  },
+
+  // Actualizar el presupuesto semanal de la familia
+  async setPresupuestoFamiliar(presupuesto) {
+    const codigo = this.getCodigoFamilia();
+    if (!codigo) return { error: 'Sin código familiar' };
+    try {
+      const usuario = await this.getUsuario();
+      const response = await fetch(`${this.SERVER_URL}/api/familia/${codigo}/presupuesto`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          presupuesto: parseFloat(presupuesto),
+          usuario_id: usuario?.id
+        })
+      });
+      return await response.json();
+    } catch (e) {
+      return { error: 'Sin conexión a internet' };
+    }
   },
 
   // Borrar ítem de la lista compartida
@@ -241,9 +267,9 @@ window.APP_Sync = {
   async syncFamilia() {
     const codigo = this.getCodigoFamilia();
     if (!codigo) return;
-    const items = await this.getListaFamiliar();
-    if (items !== null) {
-      window.dispatchEvent(new CustomEvent('familia-lista-actualizada', { detail: { items } }));
+    const data = await this.getListaFamiliar();
+    if (data !== null) {
+      window.dispatchEvent(new CustomEvent('familia-lista-actualizada', { detail: { items: data.items, presupuesto: data.presupuesto } }));
     }
   }
 };

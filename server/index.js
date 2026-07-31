@@ -195,6 +195,10 @@ async function initDB() {
       )
     `);
 
+    // Añadir columnas para la lógica de presupuesto familiar (si no existen)
+    await client.query(`ALTER TABLE listas_compartidas ADD COLUMN IF NOT EXISTS presupuesto REAL DEFAULT 0`);
+    await client.query(`ALTER TABLE lista_familiar_items ADD COLUMN IF NOT EXISTS precio_pagado REAL DEFAULT 0`);
+
     console.log('Base de datos PostgreSQL inicializada');
   } finally {
     client.release();
@@ -459,9 +463,33 @@ app.get('/api/familia/:codigo/lista', async (req, res) => {
       'SELECT * FROM lista_familiar_items WHERE lista_codigo = $1 ORDER BY comprado ASC, fecha_creacion DESC',
       [codigo]
     );
-    res.json({ items: items.rows });
+    res.json({ items: items.rows, presupuesto: lista.rows[0].presupuesto || 0 });
   } catch (e) {
     console.error('Error obteniendo lista familiar:', e);
+    res.status(500).json({ error: 'Error interno' });
+  }
+});
+
+// Actualizar presupuesto de la lista compartida
+app.put('/api/familia/:codigo/presupuesto', async (req, res) => {
+  const { codigo } = req.params;
+  const { presupuesto, usuario_id } = req.body;
+  
+  if (presupuesto === undefined || !usuario_id) return res.status(400).json({ error: 'Faltan datos' });
+
+  try {
+    const lista = await pool.query('SELECT * FROM listas_compartidas WHERE codigo = $1', [codigo]);
+    if (lista.rows.length === 0) return res.status(404).json({ error: 'Lista no encontrada' });
+    
+    // Solo el dueño puede modificar el presupuesto
+    if (lista.rows[0].dueno_id !== usuario_id) {
+      return res.status(403).json({ error: 'Solo el creador de la lista puede cambiar el presupuesto' });
+    }
+
+    await pool.query('UPDATE listas_compartidas SET presupuesto = $1 WHERE codigo = $2', [presupuesto, codigo]);
+    res.json({ success: true });
+  } catch (e) {
+    console.error('Error actualizando presupuesto:', e);
     res.status(500).json({ error: 'Error interno' });
   }
 });
@@ -578,7 +606,7 @@ app.post('/api/notificaciones/test', async (req, res) => {
 // Actualizar ítem (marcar como comprado, cambiar cantidad)
 app.patch('/api/familia/:codigo/lista/:itemId', async (req, res) => {
   const { codigo, itemId } = req.params;
-  const { comprado, cantidad, comprado_por } = req.body;
+  const { comprado, cantidad, comprado_por, precio_pagado } = req.body;
   try {
     const sets = [];
     const values = [];
@@ -586,6 +614,7 @@ app.patch('/api/familia/:codigo/lista/:itemId', async (req, res) => {
     if (comprado !== undefined) { sets.push(`comprado = $${idx++}`); values.push(comprado); }
     if (cantidad !== undefined) { sets.push(`cantidad = $${idx++}`); values.push(cantidad); }
     if (comprado_por !== undefined) { sets.push(`comprado_por = $${idx++}`); values.push(comprado_por); }
+    if (precio_pagado !== undefined) { sets.push(`precio_pagado = $${idx++}`); values.push(precio_pagado); }
     sets.push(`fecha_actualizacion = NOW()`);
     values.push(itemId, codigo);
 
