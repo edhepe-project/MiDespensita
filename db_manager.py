@@ -5,39 +5,95 @@ from datetime import datetime, timedelta
 
 # ==========================================
 # LISTA MAESTRA DE BÚSQUEDAS (TODAS LAS TIENDAS)
+# Estructura: categoría + productos específicos
+# Para agregar productos: edita solo este archivo.
 # ==========================================
 BUSQUEDAS = [
-    # Abarrotes Básico
-    "arroz", "frijol", "aceite", "azucar", "cereal", "galletas",
-    "atun", "pasta", "cafe", "pan", "mayonesa", "salsa", "sal",
-    "tortillas", "sardina", "chorizo", "chile", "vinagre", "ketchup",
-    "miel", "mermelada", "lentejas", "garbanzo", "consome",
-    
-    # Lácteos y Huevos
-    "leche", "huevo", "queso", "crema", "yogurt", "mantequilla", 
-    "leche evaporada", "leche condensada",
-    
-    # Carnes y Frío
-    "jamon", "salchicha", "tocino", "pollo", "carne molida",
-    
-    # Frutas y Verduras (Básicos)
-    "tomate", "cebolla", "ajo", "papa", "limon", "manzana", "platano",
-    
-    # Higiene personal
-    "shampoo", "jabon", "pasta dental", "desodorante", "pañales",
-    "papel higienico", "toallas femeninas", "crema corporal",
-    
-    # Limpieza hogar
-    "detergente", "cloro", "suavizante", "jabon lavatrastes", 
-    "limpiador pisos", "bolsas basura", "servilletas",
-    
+    # ── 1. ABARROTES, CEREALES Y CONSERVAS ──
+    "abarrotes",
+    # Granos y cereales
+    "avena", "arroz", "frijol", "lentejas", "garbanzo", "pasta", "espagueti",
+    # Enlatados
+    "atun", "sardinas", "elote", "chicharo", "champinones", "pure de tomate",
+    "frijoles refritos",
+    # Frutas en almíbar / lácteos dulces
+    "pina en almibar", "duraznos en almibar", "mermelada",
+    "leche condensada", "leche evaporada",
+    # Harinas y repostería
+    "harina de trigo", "harina de maiz", "azucar", "sal", "polvo para hornear",
+    "levadura",
+    # Despensa básica
+    "aceite", "vinagre", "cafe", "chocolate en polvo", "te", "consome",
+    "especias", "pimienta", "mayonesa", "salsa", "ketchup", "miel",
+
+    # ── 2. ALIMENTOS FRESCOS Y REFRIGERADOS ──
+    "carnes",
+    # Carnes y proteínas
+    "pollo", "carne de res", "carne de cerdo", "pescado", "huevo",
+    # Embutidos
+    "jamon", "salchicha", "tocino",
+    # Lácteos
+    "leche", "queso", "yogurt", "mantequilla", "crema",
+    # Frutas y verduras
+    "jitomate", "cebolla", "papa", "zanahoria", "ajo", "limon",
+    "platano", "manzana", "verduras",
+    # Panadería
+    "pan de caja", "tortillas", "galletas", "pan dulce",
     # Bebidas
-    "refresco", "agua", "cerveza", "vino", "tequila", "whisky", "licor",
-    "jugo",
-    
-    # Mascotas
-    "alimento perro", "alimento gato"
+    "agua purificada", "jugo", "refresco",
+    # Congelados
+    "verduras congeladas", "comida congelada",
+
+    # ── 3. CUIDADO PERSONAL E HIGIENE ──
+    "cuidado personal",
+    # Baño y ducha
+    "jabon", "shampoo", "acondicionador", "crema corporal", "esponjas",
+    # Higiene oral
+    "pasta dental", "cepillo dental", "hilo dental", "enjuague bucal",
+    # Afeitado
+    "rastrillo", "espuma de afeitar", "desodorante",
+    # Higiene íntima
+    "toallas femeninas", "tampones",
+    # Skincare
+    "crema facial", "protector solar",
+
+    # ── 4. LIMPIEZA DEL HOGAR Y LAVANDERÍA ──
+    "limpieza hogar",
+    # Ropa
+    "detergente", "suavizante", "cloro",
+    # Cocina
+    "jabon lavatrastes", "desengrasante", "fibras tallar",
+    # Superficies
+    "limpiador pisos", "desinfectante", "limpiador vidrios",
+    # Utensilios
+    "bolsas basura", "guantes de hule", "panos microfibra",
+
+    # ── 5. PAPELERÍA Y DESECHABLES ──
+    # Baño
+    "papel higienico", "panuelos desechables",
+    # Cocina
+    "servilletas", "papel aluminio", "bolsas ziploc",
+
+    # ── 6. BEBÉS ──
+    "bebes",
+    "panales", "toallitas humedas", "crema rozaduras",
+    "formula lactea", "papillas", "cereal infantil",
+
+    # ── 7. MASCOTAS ──
+    "mascotas",
+    "alimento perro", "alimento gato", "croquetas", "arena para gato",
+    "antipulgas",
+
+    # ── 8. SALUD Y BOTIQUÍN ──
+    "botiquin",
+    "paracetamol", "ibuprofeno", "alcohol en gel", "gasas", "vendas",
+    # Mantenimiento
+    "pilas", "focos",
+
+    # ── BEBIDAS ADULTOS ──
+    "cerveza", "vino", "tequila", "whisky",
 ]
+
 
 DB_FILE = "historial.db"
 
