@@ -62,10 +62,14 @@ window.APP_Notifications = {
     // Agregar al historial y UI (esto actualizará el badge también)
     this.agregarAHistorial(titulo, mensaje);
 
-    // SIEMPRE mostrar alerta en la app
-    this.mostrarAlertaEnApp(titulo, mensaje);
+    // Mostrar alerta en app solo si el usuario NO tiene el dropdown abierto
+    const dropdown = document.getElementById('notif-dropdown');
+    const dropdownVisible = dropdown && dropdown.style.display === 'flex';
+    if (!dropdownVisible) {
+      this.mostrarAlertaEnApp(titulo, mensaje);
+    }
 
-    // Intentar push notification
+    // Intentar push notification con tag fijo para que se reemplace
     const tienePermiso = await this.solicitarPermiso();
     if (tienePermiso) {
       try {
@@ -75,7 +79,7 @@ window.APP_Notifications = {
           icon: `${basePath}/icons/icon-192.png`,
           badge: `${basePath}/icons/icon-192.png`,
           vibrate: [200, 100, 200],
-          tag: 'midespensita-' + Date.now()
+          tag: 'midespensita-oferta'  // Tag fijo = reemplaza la anterior en lugar de acumular
         });
       } catch (e) {}
     }
@@ -118,10 +122,19 @@ window.APP_Notifications = {
 
         if (ofertas.length > 0) {
           const mejorOferta = ofertas[0];
-          this.enviar(
-            '¡Ofertas en ' + ubicacion.ciudad + '!',
-            `${mejorOferta.producto_nombre} - ${mejorOferta.tienda} a $${mejorOferta.precio_promedio.toFixed(2)}`
-          );
+
+          // Crear un identificador único de esta oferta para no repetirla
+          const ofertaKey = `${mejorOferta.producto_nombre}|${mejorOferta.tienda}|${mejorOferta.precio_promedio}`;
+          const ultimaNotif = localStorage.getItem('midespensita_ultima_oferta_notif');
+
+          // Solo notificar si es una oferta diferente a la última
+          if (ofertaKey !== ultimaNotif) {
+            localStorage.setItem('midespensita_ultima_oferta_notif', ofertaKey);
+            this.enviar(
+              '¡Ofertas en ' + ubicacion.ciudad + '!',
+              `${mejorOferta.producto_nombre} - ${mejorOferta.tienda} a $${mejorOferta.precio_promedio.toFixed(2)}`
+            );
+          }
         }
       }
     } catch (e) {}
@@ -220,8 +233,8 @@ window.APP_Notifications = {
   // Iniciar
   iniciar() {
     this.init();
-    setInterval(() => this.verificarOfertas(), 60 * 60 * 1000);
-    setTimeout(() => this.verificarOfertas(), 60000);
+    setInterval(() => this.verificarOfertas(), 60 * 60 * 1000); // Cada hora
+    setTimeout(() => this.verificarOfertas(), 5 * 60 * 1000);  // Primera vez: 5 minutos
 
     // Escuchar mensajes del SW (Push entrantes)
     if ('serviceWorker' in navigator) {

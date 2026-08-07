@@ -15,7 +15,7 @@ window.APP_DB = {
   async addProducto(producto) { return db.productos.add(producto); },
   async updateProducto(id, changes) { return db.productos.update(id, changes); },
   async getProducto(id) { return db.productos.get(id); },
-  async getAllProductos() { return db.productos.toArray(); },
+  async getAllProductos() { return db.productos.filter(p => p.activo === 1).toArray(); },
   async searchProductos(query) {
     return db.productos.where('nombre').startsWithIgnoreCase(query).toArray();
   },
@@ -66,7 +66,8 @@ window.APP_DB = {
       region: ubicacion?.region || ''
     });
 
-    for (const item of compra.productos) {
+    // Insertar todos los detalles en paralelo (más rápido que loop secuencial)
+    await Promise.all(compra.productos.map(async (item) => {
       await db.detalle_compra.add({
         compraId,
         productoId: item.productoId,
@@ -85,7 +86,7 @@ window.APP_DB = {
         ubicacion?.ciudad || 'Sin ubicación',
         item.presentacion || ''
       );
-    }
+    }));
 
     return compraId;
   },
@@ -128,10 +129,11 @@ window.APP_DB = {
 
     const compras = await db.compras.where('fecha').between(lunes, domingo).toArray();
 
-    // Contar artículos comprados
+    // Contar artículos comprados en paralelo
     let totalArticulos = 0;
-    for (const compra of compras) {
-      const detalle = await db.detalle_compra.where('compraId').equals(compra.id).toArray();
+    const detallesPromises = compras.map(c => db.detalle_compra.where('compraId').equals(c.id).toArray());
+    const detallesList = await Promise.all(detallesPromises);
+    for (const detalle of detallesList) {
       totalArticulos += detalle.reduce((sum, d) => sum + d.cantidad, 0);
     }
 
@@ -353,8 +355,9 @@ window.APP_DB = {
             // Solo actualizar si cambió la ciudad
             if (ubicacionActual && nuevaUbicacion.ciudad !== ubicacionActual.ciudad) {
               await this.setUbicacion(nuevaUbicacion.ciudad, nuevaUbicacion.region);
-              // Recargar la página para mostrar nueva ubicación
-              window.location.reload();
+              // Actualizar el header directamente (evitar reload que borra el estado)
+              const headerEl = document.getElementById('ubicacion-header');
+              if (headerEl) headerEl.textContent = nuevaUbicacion.ciudad;
             }
           },
           () => {}, // Ignorar errores en segundo plano
@@ -369,14 +372,22 @@ window.APP_DB = {
   // ============ AUTOCOMPLETAR ============
   async getMarcasSugeridas(query) {
     if (!query || query.length < 2) return [];
-    const precios = await db.precios.toArray();
-    const marcas = [...new Set(precios.map(p => p.marca).filter(Boolean))];
-    return marcas.filter(m => m.toLowerCase().includes(query.toLowerCase())).slice(0, 5);
+    // Consultar solo las marcas directamente, sin cargar toda la tabla
+    const todasLasMarcas = await db.precios
+      .orderBy('marca')
+      .uniqueKeys();
+    return todasLasMarcas
+      .filter(m => m && m.toLowerCase().includes(query.toLowerCase()))
+      .slice(0, 5);
   },
   async getTiendasSugeridas(query) {
     if (!query || query.length < 2) return [];
-    const precios = await db.precios.toArray();
-    const tiendas = [...new Set(precios.map(p => p.tienda).filter(Boolean))];
-    return tiendas.filter(t => t.toLowerCase().includes(query.toLowerCase())).slice(0, 5);
+    // Consultar solo las tiendas directamente, sin cargar toda la tabla
+    const todasLasTiendas = await db.precios
+      .orderBy('tienda')
+      .uniqueKeys();
+    return todasLasTiendas
+      .filter(t => t && t.toLowerCase().includes(query.toLowerCase()))
+      .slice(0, 5);
   }
 };

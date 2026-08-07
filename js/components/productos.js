@@ -22,6 +22,7 @@ APP_Pages.productos = async function() {
   // Agrupar por categoría
   const porCategoria = {};
   for (const prod of todosProductos) {
+    if (prod.origen === 'catalogo') continue; // Ocultar productos específicos del catálogo
     const cat = prod.categoria || 'otros';
     if (!porCategoria[cat]) porCategoria[cat] = [];
     porCategoria[cat].push(prod);
@@ -76,21 +77,39 @@ function renderProductoItem(producto, yaEnLista = false) {
 
 async function cargarDetallesProductos() {
   const items = document.querySelectorAll('.item-producto');
+  if (items.length === 0) return;
+
+  // Obtener IDs únicos de todos los productos visibles
+  const productoIds = [...new Set(
+    Array.from(items).map(item => parseInt(item.dataset.id)).filter(Boolean)
+  )];
+
+  // Precargar rangos de precios en paralelo (evitar N awaits secuenciales)
+  const rangosMap = {};
+  await Promise.all(
+    productoIds.map(async (id) => {
+      rangosMap[id] = await APP_DB.getRangoPrecios(id);
+    })
+  );
+
+  // Actualizar el DOM sin más queries a IndexedDB
   for (const item of items) {
     const id = parseInt(item.dataset.id);
-    const rango = await APP_DB.getRangoPrecios(id);
+    const rango = rangosMap[id];
     const detalle = document.getElementById(`detalle-prod-${id}`);
+    if (!detalle) continue;
 
-    if (detalle && rango) {
+    if (rango) {
       detalle.innerHTML = `
         <span class="marca-info">Marca: ${rango.ultimo.marca || '-'}</span>
         <span class="precio-info">Último: $${rango.ultimo.precio} ${rango.ultimo.tienda}</span>
       `;
-    } else if (detalle) {
+    } else {
       detalle.innerHTML = '<span class="sin-precios">Sin compras aún</span>';
     }
   }
 }
+
 
 function bindProductosEvents() {
   // Cargar detalles en background
@@ -210,9 +229,10 @@ function mostrarModalCantidad(productoId, nombre, btnElement, unidad = 'pzas') {
 
       <div class="form-group">
         <label class="form-label">¿Cuántas necesitas?</label>
-        <div style="display: flex; align-items: center; gap: 8px;">
-          <input type="number" inputmode="numeric" pattern="[0-9]*" class="form-input input-precio" id="input-cantidad" value="1" min="1" style="flex: 1;">
-          <span style="color: var(--text-muted); font-size: var(--text-sm); min-width: 40px;">${unidad}</span>
+        <div style="display: flex; align-items: center; justify-content: center; gap: 24px; padding: 16px; background: var(--gray-50); border-radius: 20px; border: 1px solid var(--border);">
+          <button id="prod-qty-minus" style="width: 52px; height: 52px; border-radius: 50%; border: 2px solid var(--border); background: var(--surface); font-size: 26px; cursor: pointer; color: var(--text); display: flex; align-items: center; justify-content: center; -webkit-tap-highlight-color: transparent;">-</button>
+          <div id="prod-qty-display" data-qty="1" style="width: 64px; text-align: center; font-size: 36px; font-weight: 900; color: var(--text);">1</div>
+          <button id="prod-qty-plus" style="width: 52px; height: 52px; border-radius: 50%; border: 2px solid var(--primary); background: var(--primary); font-size: 26px; cursor: pointer; color: white; display: flex; align-items: center; justify-content: center; -webkit-tap-highlight-color: transparent;">+</button>
         </div>
       </div>
 
@@ -224,11 +244,25 @@ function mostrarModalCantidad(productoId, nombre, btnElement, unidad = 'pzas') {
 
   document.body.appendChild(modal);
 
+  const qtyDisplay = modal.querySelector('#prod-qty-display');
+  modal.querySelector('#prod-qty-minus').addEventListener('click', () => {
+    let q = parseInt(qtyDisplay.dataset.qty) || 1;
+    if (q > 1) q--;
+    qtyDisplay.dataset.qty = q;
+    qtyDisplay.textContent = q;
+  });
+  modal.querySelector('#prod-qty-plus').addEventListener('click', () => {
+    let q = parseInt(qtyDisplay.dataset.qty) || 1;
+    q++;
+    qtyDisplay.dataset.qty = q;
+    qtyDisplay.textContent = q;
+  });
+
   modal.querySelector('#cerrar-modal').addEventListener('click', () => modal.remove());
   modal.addEventListener('click', (e) => { if (e.target === modal) modal.remove(); });
 
   modal.querySelector('#btn-guardar').addEventListener('click', async () => {
-    const cantidad = parseInt(modal.querySelector('#input-cantidad').value) || 1;
+    const cantidad = parseInt(qtyDisplay.dataset.qty) || 1;
     
     if (esFamiliar) {
       // Agregar al servidor en modo familiar
@@ -251,15 +285,6 @@ function mostrarModalCantidad(productoId, nombre, btnElement, unidad = 'pzas') {
     btnElement.style.color = 'var(--green-600, #16a34a)';
     btnElement.style.fontWeight = '700';
     btnElement.disabled = true;
-
-  });
-
-  // Enter para guardar
-  modal.querySelector('#input-cantidad').addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') {
-      e.preventDefault();
-      modal.querySelector('#btn-guardar').click();
-    }
   });
 }
 

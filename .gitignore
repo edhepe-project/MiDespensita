@@ -23,3 +23,15 @@ serve.py
 
 # Excel files (datos personales)
 *.xlsx
+
+# Debug and Test scripts
+debug_*
+test_*
+!test_data.js
+
+# SQLite
+*.db
+
+# Imágenes de depuración
+*.png
+!icons/*.png

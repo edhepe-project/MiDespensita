@@ -25,7 +25,7 @@ APP_Pages.config = async function() {
   }
 
   container.innerHTML = `
-    <button class="btn-back" onclick="window.location.hash='#precios'">← Volver</button>
+    <button class="btn-back" onclick="history.back()">← Volver</button>
 
     <div class="card">
       <div class="card-header">

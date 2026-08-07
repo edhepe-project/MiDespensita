@@ -24,7 +24,9 @@
       <h1 class="app-title">MiDespensita</h1>
       <span class="app-subtitle" id="ubicacion-header">Tu lista de compras</span>
     </div>
-    <div class="header-fecha" id="header-fecha"></div>
+    <button class="header-cuenta" id="btn-cuenta" title="Mi cuenta y configuración" onclick="window.location.hash='#config'">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+    </button>
   </header>
 
   <div id="notif-dropdown" class="notif-dropdown" style="display: none;">
@@ -54,8 +56,15 @@
       <svg class="nav-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
       <span class="nav-label">Precios</span>
     </a>
+    <a href="#tiendas" class="nav-item" data-page="tiendas">
+      <svg class="nav-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <span class="nav-label">Tiendas</span>
+    </a>
   </nav>
 
+  <!-- Librería de gráficas -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
   <script src="js/init.js"></script>
   <script src="js/dexie.min.js"></script>
   <script src="js/utils/constants.js"></script>
@@ -73,6 +82,7 @@
   <script src="js/components/predicciones.js"></script>
   <script src="js/components/historial.js"></script>
   <script src="js/components/config.js"></script>
+  <script src="js/components/tiendas.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>

@@ -96,19 +96,11 @@ APP_Pages.precios = async function() {
       </div>
     </div>
 
-    <div class="card" onclick="window.location.hash='#config'" style="cursor: pointer">
-      <div class="card-header">
-        <span class="card-title">⚙️ Configuración</span>
-        <span class="text-secondary">→</span>
-      </div>
-      <p class="text-secondary" style="font-size: var(--text-sm)">
-        Exportar, importar, ajustes
-      </p>
-    </div>
   `;
 
   bindPreciosEvents();
 };
+
 
 function renderPrecioItem(data) {
   const { producto, comparativa } = data;

@@ -17,10 +17,8 @@ APP_Pages.comprar = async function() {
   // ¿Está en modo familiar?
   const codigoFamilia = APP_Sync?.getCodigoFamilia?.();
 
-  if (codigoFamilia && navigator.onLine) {
-    await renderListaFamiliar(container, codigoFamilia, ubicacion);
-  } else if (codigoFamilia) {
-    // Offline con familia: usar caché
+  if (codigoFamilia) {
+    // Usar caché para render inmediato siempre
     const cache = localStorage.getItem('midespensita_lista_familiar_cache');
     let data = { items: [], presupuesto: 0 };
     if (cache) {
@@ -146,10 +144,19 @@ async function renderListaFamiliar(container, codigo, ubicacion, dataCache = nul
   }
 
   // Auto-refresh cada 30 s si hay internet
+  // Limpiar el timer anterior antes de crear uno nuevo para evitar acumulación
+  if (window._familiarRefreshTimer) {
+    clearInterval(window._familiarRefreshTimer);
+    window._familiarRefreshTimer = null;
+  }
+
   let lastDataStr = JSON.stringify(data);
-  const refreshTimer = setInterval(async () => {
+  const actualizarLista = async () => {
     if (!navigator.onLine || !document.getElementById('btn-agregar')) {
-      clearInterval(refreshTimer);
+      if (window._familiarRefreshTimer) {
+        clearInterval(window._familiarRefreshTimer);
+        window._familiarRefreshTimer = null;
+      }
       return;
     }
     const nuevos = await APP_Sync.getListaFamiliar();
@@ -164,7 +171,14 @@ async function renderListaFamiliar(container, codigo, ubicacion, dataCache = nul
         }
       }
     }
-  }, 30000);
+  };
+
+  // Primera actualización en background inmediata si hay internet
+  if (navigator.onLine) {
+    setTimeout(actualizarLista, 100);
+  }
+
+  window._familiarRefreshTimer = setInterval(actualizarLista, 30000);
 }
 
 function renderItemFamiliar(item, esComprado) {
@@ -197,17 +211,34 @@ function renderItemFamiliar(item, esComprado) {
 async function cargarDetallesPreciosFamiliar() {
   const items = document.querySelectorAll('.item-compra.pendiente[data-item-nombre]');
   if (items.length === 0) return;
+
+  // Cargar todos los productos UNA SOLA VEZ antes del loop
   const productos = await APP_DB.getAllProductos();
-  
+
+  // Obtener los IDs únicos de los productos que necesitamos
+  const nombresNecesarios = new Set();
+  items.forEach(item => nombresNecesarios.add(item.dataset.itemNombre?.toLowerCase()));
+
+  // Precargar rangos de precios en paralelo para todos los productos relevantes
+  const productosRelevantes = productos.filter(p => nombresNecesarios.has(p.nombre.toLowerCase()));
+  const rangosMap = {};
+  await Promise.all(
+    productosRelevantes.map(async (p) => {
+      rangosMap[p.nombre.toLowerCase()] = await APP_DB.getRangoPrecios(p.id);
+    })
+  );
+
   for (const item of items) {
     const nombre = item.dataset.itemNombre;
     const familiaId = item.dataset.familiaId;
     const cantidad = item.dataset.cantidad || 1;
-    
-    const productoLocal = productos.find(p => p.nombre.toLowerCase() === nombre.toLowerCase());
-    
+
+    const productoLocal = productosRelevantes.find(
+      p => p.nombre.toLowerCase() === nombre.toLowerCase()
+    );
+
     if (productoLocal) {
-      const rango = await APP_DB.getRangoPrecios(productoLocal.id);
+      const rango = rangosMap[productoLocal.nombre.toLowerCase()];
       const detalle = document.getElementById(`detalle-fam-${familiaId}`);
       if (detalle && rango) {
         detalle.innerHTML = `
@@ -418,10 +449,13 @@ async function mostrarModalCompraFamiliar(familiaId, nombreProducto, cantidad, b
 
 // ─── MODO LISTA LOCAL (sin familia) ───────────────────────────────────────────
 async function renderListaLocal(container, ubicacion) {
-  const lista = await APP_DB.getListaActiva();
+  // Ejecutar queries locales EN PARALELO — no secuencialmente
+  const [lista, stats] = await Promise.all([
+    APP_DB.getListaActiva(),
+    APP_DB.getStatsByWeek()
+  ]);
   const items = await APP_DB.getItemsByLista(lista.id);
   const comprados  = items.filter(i => i.comprado);
-  const stats = await APP_DB.getStatsByWeek();
 
   // Orden lógico por categoría (como caminar por el super)
   const ORDEN_CATEGORIAS = [
@@ -441,21 +475,12 @@ async function renderListaLocal(container, ubicacion) {
   const porcentaje  = presupuesto > 0 ? Math.min((stats.total / presupuesto) * 100, 100) : 0;
   const colorBarra  = porcentaje >= 90 ? '#ef4444' : porcentaje >= 70 ? '#f59e0b' : '#22c55e';
 
+  // Usar SIEMPRE la caché de precios para render inmediato (sin esperar red)
   let preciosRegionales = [];
   let origenPrecios = ubicacion?.ciudad || '';
-  if (navigator.onLine && ubicacion?.ciudad && APP_Sync) {
-    try {
-      const data = await APP_Sync.getPreciosCiudad(ubicacion.ciudad);
-      preciosRegionales = data.precios || [];
-      origenPrecios = data.origen || ubicacion.ciudad;
-      localStorage.setItem('precios_regionales', JSON.stringify(preciosRegionales));
-      localStorage.setItem('precios_origen', origenPrecios);
-    } catch (e) {}
-  } else {
-    const cache = localStorage.getItem('precios_regionales');
-    const cacheOrigen = localStorage.getItem('precios_origen');
-    if (cache) { preciosRegionales = JSON.parse(cache); origenPrecios = cacheOrigen || origenPrecios; }
-  }
+  const cache = localStorage.getItem('precios_regionales');
+  const cacheOrigen = localStorage.getItem('precios_origen');
+  if (cache) { preciosRegionales = JSON.parse(cache); origenPrecios = cacheOrigen || origenPrecios; }
 
   // Agrupar pendientes por categoría para mostrarlos en secciones
   const pendientesPorCat = {};
@@ -564,13 +589,46 @@ async function renderListaLocal(container, ubicacion) {
 
 
   bindComprarEvents();
+
+  // Actualizar caché de precios regionales en segundo plano para la próxima vez
+  if (navigator.onLine && ubicacion?.ciudad && APP_Sync) {
+    APP_Sync.getPreciosCiudad(ubicacion.ciudad).then(data => {
+      if (data && data.precios) {
+        localStorage.setItem('precios_regionales', JSON.stringify(data.precios));
+        localStorage.setItem('precios_origen', data.origen || ubicacion.ciudad);
+      }
+    }).catch(() => {});
+  }
 }
 
 
 function renderPendiente(item) {
   const cat = APP_CATEGORIAS[item.producto?.categoria] || APP_CATEGORIAS.otros;
+  
+  // Leer badge de tienda guardado desde el catálogo
+  const TIENDA_BADGE_COLORS = {
+    'Walmart':        { color: '#0071CE', label: 'Walmart' },
+    'Bodega Aurrerá': { color: '#007934', label: 'Bodega Aurrerá' },
+    'Chedraui':       { color: '#EE2323', label: 'Chedraui' },
+    'Soriana':        { color: '#F15A22', label: 'Soriana' },
+    'La Comer':       { color: '#1A4D8F', label: 'La Comer' },
+  };
+  let tiendaBadgeHTML = '';
+  try {
+    const hints = JSON.parse(localStorage.getItem('midespensita_tienda_hints') || '{}');
+    const nombreKey = (item.producto?.nombre || '').toLowerCase();
+    // Buscar coincidencia exacta o parcial
+    const tiendaMatch = hints[nombreKey] || 
+      Object.entries(hints).find(([k]) => nombreKey.includes(k) || k.includes(nombreKey))?.[1];
+    if (tiendaMatch) {
+      const tb = TIENDA_BADGE_COLORS[tiendaMatch] || { color: '#555', label: tiendaMatch };
+      tiendaBadgeHTML = `<div style="position: absolute; top: 4px; left: 4px; background: ${tb.color}; color: white; padding: 2px 7px; border-radius: 8px; font-size: 10px; font-weight: 900; letter-spacing: 0.5px; box-shadow: 0 1px 3px rgba(0,0,0,0.2);">${tb.label}</div>`;
+    }
+  } catch(e) {}
+
   return `
-    <div class="item-compra pendiente" data-id="${item.id}" data-item-id="${item.id}" data-item-nombre="${item.producto?.nombre || 'Sin nombre'}" data-producto-id="${item.productoId}">
+    <div class="item-compra pendiente" style="position: relative;" data-id="${item.id}" data-item-id="${item.id}" data-item-nombre="${item.producto?.nombre || 'Sin nombre'}" data-producto-id="${item.productoId}">
+      ${tiendaBadgeHTML}
       <div class="item-main">
         <div class="item-icon">${cat.icono}</div>
         <div class="item-info">
@@ -610,25 +668,51 @@ async function deshacerComprado(itemId) {
 }
 
 async function cargarDetallesPrecios() {
-  const items = document.querySelectorAll('.pendiente');
-  for (const item of items) {
-    const id = parseInt(item.dataset.id);
-    const lista = await APP_DB.getListaActiva();
-    const itemsLista = await APP_DB.getItemsByLista(lista.id);
-    const itemData = itemsLista.find(i => i.id === id);
+  const itemEls = document.querySelectorAll('.pendiente');
+  if (itemEls.length === 0) return;
+
+  // Cargar lista e items UNA SOLA VEZ (evitar N+1 queries)
+  const lista = await APP_DB.getListaActiva();
+  const itemsLista = await APP_DB.getItemsByLista(lista.id);
+
+  // Indexar por id para búsqueda O(1)
+  const itemsMap = {};
+  itemsLista.forEach(i => { itemsMap[i.id] = i; });
+
+  // Obtener IDs de productos únicos que necesitamos
+  const productoIds = [...new Set(
+    Array.from(itemEls)
+      .map(el => itemsMap[parseInt(el.dataset.id)]?.productoId)
+      .filter(Boolean)
+  )];
+
+  // Precargar rangos de precios en paralelo
+  const rangosMap = {};
+  await Promise.all(
+    productoIds.map(async (prodId) => {
+      rangosMap[prodId] = await APP_DB.getRangoPrecios(prodId);
+    })
+  );
+
+  // Actualizar el DOM sin más queries a IndexedDB
+  for (const itemEl of itemEls) {
+    const id = parseInt(itemEl.dataset.id);
+    const itemData = itemsMap[id];
+    const detalle = document.getElementById(`detalle-${id}`);
+    if (!detalle) continue;
 
     if (itemData?.producto) {
-      const rango = await APP_DB.getRangoPrecios(itemData.productoId);
-      const detalle = document.getElementById(`detalle-${id}`);
-
-      if (detalle && rango) {
+      const rango = rangosMap[itemData.productoId];
+      if (rango) {
         detalle.innerHTML = `
           <span class="rango-precio">$${rango.min} - $${rango.max}</span>
           <span class="ultimo-precio">Último: $${rango.ultimo.precio} ${rango.ultimo.tienda}</span>
         `;
-      } else if (detalle) {
+      } else {
         detalle.innerHTML = '<span class="sin-precios">Sin compras anteriores</span>';
       }
+    } else {
+      detalle.innerHTML = '<span class="sin-precios">Sin compras anteriores</span>';
     }
   }
 }
@@ -749,9 +833,28 @@ async function mostrarModalCompra(itemId, nombreProducto) {
   const producto = await APP_DB.getProducto(item.productoId);
   const unidad = producto?.unidad || 'pieza';
 
-  // Obtener sugerencias
+  // Obtener sugerencias de historial
   const tiendasUsadas = await APP_DB.getTiendasByProducto(item.productoId);
   const marcasUsadas = await APP_DB.getMarcasByProducto(item.productoId);
+
+  // Leer hint del catálogo (válido por 5 minutos)
+  let hintTienda = '', hintMarca = '', hintPrecio = '';
+  try {
+    const raw = localStorage.getItem('midespensita_catalogo_hint');
+    if (raw) {
+      const hint = JSON.parse(raw);
+      const esReciente = (Date.now() - (hint.ts || 0)) < 5 * 60 * 1000;
+      const nombreHint = (hint.nombre || '').toLowerCase();
+      const nombreProd = nombreProducto.toLowerCase();
+      if (esReciente && (nombreHint.includes(nombreProd) || nombreProd.includes(nombreHint))) {
+        hintTienda = hint.tienda || '';
+        hintPrecio = hint.precio ? hint.precio.toFixed(2) : '';
+        // Extraer marca: primera palabra del nombre del hint como aproximación
+        hintMarca = '';
+        localStorage.removeItem('midespensita_catalogo_hint'); // consumir el hint
+      }
+    }
+  } catch(e) {}
 
   const modal = document.createElement('div');
   modal.className = 'modal-overlay';
@@ -764,9 +867,11 @@ async function mostrarModalCompra(itemId, nombreProducto) {
 
       <div class="modal-producto">${nombreProducto}</div>
 
+      ${hintTienda ? `<div style="background: var(--primary); color:white; padding: 6px 12px; border-radius: 8px; font-size: 12px; margin-bottom: 12px;">🛋 Datos precargados desde el catálogo</div>` : ''}
+
       <div class="form-group">
         <label class="form-label">Tienda</label>
-        <input type="text" class="form-input" id="input-tienda" placeholder="Ej: Walmart" autocomplete="off" list="sugerencias-tienda">
+        <input type="text" class="form-input" id="input-tienda" value="${hintTienda}" placeholder="Ej: Walmart" autocomplete="off" list="sugerencias-tienda">
         <datalist id="sugerencias-tienda">
           ${tiendasUsadas.map(t => `<option value="${t}">`).join('')}
         </datalist>
@@ -774,7 +879,7 @@ async function mostrarModalCompra(itemId, nombreProducto) {
 
       <div class="form-group">
         <label class="form-label">Marca</label>
-        <input type="text" class="form-input" id="input-marca" placeholder="Ej: Lala" autocomplete="off" list="sugerencias-marca">
+        <input type="text" class="form-input" id="input-marca" value="${hintMarca}" placeholder="Ej: Lala" autocomplete="off" list="sugerencias-marca">
         <datalist id="sugerencias-marca">
           ${marcasUsadas.map(m => `<option value="${m}">`).join('')}
         </datalist>
@@ -790,7 +895,7 @@ async function mostrarModalCompra(itemId, nombreProducto) {
 
       <div class="form-group">
         <label class="form-label">Precio</label>
-        <input type="number" inputmode="decimal" pattern="[0-9]*" class="form-input input-precio" id="input-precio" placeholder="0.00" step="0.50" min="0">
+        <input type="number" inputmode="decimal" pattern="[0-9]*" class="form-input input-precio" id="input-precio" value="${hintPrecio}" placeholder="0.00" step="0.50" min="0">
       </div>
 
       <button class="btn btn-primary" style="width:100%" id="btn-guardar-compra">

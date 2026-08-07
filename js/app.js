@@ -13,6 +13,12 @@ async function navigate(page, direction = null) {
     el.classList.toggle('active', el.dataset.page === page);
   });
 
+  // Marcar/desmarcar botón de cuenta cuando se navega a config
+  const btnCuenta = document.getElementById('btn-cuenta');
+  if (btnCuenta) {
+    btnCuenta.classList.toggle('activo', page === 'config');
+  }
+
   // Animación de transición
   if (direction) {
     const enterFrom  = direction === 'left'  ? 'translateX(100%)' : 'translateX(-100%)';
@@ -98,21 +104,6 @@ window.volverAPrecios = function() {
   window.location.hash = '#precios';
 };
 
-// Mostrar fecha en el header
-function initFecha() {
-  const fechaEl = document.getElementById('header-fecha');
-  if (!fechaEl) return;
-
-  const ahora = new Date();
-  const dias = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
-  const meses = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
-
-  fechaEl.innerHTML = `
-    <div class="header-fecha-dia">${ahora.getDate()}</div>
-    <div class="header-fecha-mes">${dias[ahora.getDay()]} ${meses[ahora.getMonth()]}</div>
-  `;
-}
-
 // Inicializar ubicación en el header
 async function initUbicacion() {
   const ubicacion = await APP_DB.getUbicacion();
@@ -137,10 +128,10 @@ window.addEventListener('hashchange', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-  initFecha();
   initUbicacion();
 
-  APP_DB.detectarUbicacion().catch(() => {});
+  // detectarUbicacion() es llamada por comprar.js al renderizar,
+  // no es necesario llamarla aquí también (evita doble petición GPS/IP al inicio)
 
   if (navigator.onLine) {
     if (APP_Sync) APP_Sync.syncAutomatico();
@@ -198,8 +189,8 @@ window.compartirListaWhatsApp = async function() {
     let pendientes = [];
 
     if (codigoFamilia && navigator.onLine) {
-      const items = await APP_Sync.getListaFamiliar() || [];
-      pendientes = items.filter(i => !i.comprado);
+      const data = await APP_Sync.getListaFamiliar() || { items: [] };
+      pendientes = (data.items || []).filter(i => !i.comprado);
     } else {
       const lista = await APP_DB.getListaActiva();
       const items = await APP_DB.getItemsByLista(lista.id);
@@ -222,6 +213,58 @@ window.compartirListaWhatsApp = async function() {
     window.open(url, '_blank');
   } catch(e) {
     alert('Error al generar la lista');
+  }
+};
+
+// ── Modal de Imagen (Lightbox) ────────────────────────────────────────────────
+window.openImageModal = function(src) {
+  if (!src) return;
+  let modal = document.getElementById('image-modal');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.id = 'image-modal';
+    modal.style.cssText = `
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.85); z-index: 10000;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      opacity: 0; transition: opacity 0.2s ease;
+    `;
+    
+    const img = document.createElement('img');
+    img.id = 'image-modal-img';
+    img.style.cssText = `
+      max-width: 90vw; max-height: 80vh; object-fit: contain;
+      border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    `;
+    
+    const closeBtn = document.createElement('button');
+    closeBtn.innerHTML = '✕';
+    closeBtn.style.cssText = `
+      margin-top: 24px; width: 50px; height: 50px; border-radius: 25px;
+      background: white; color: black; border: none; font-size: 24px; font-weight: bold;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3); cursor: pointer;
+    `;
+    closeBtn.onclick = closeImageModal;
+    
+    modal.appendChild(img);
+    modal.appendChild(closeBtn);
+    modal.onclick = (e) => { if(e.target === modal) closeImageModal(); };
+    document.body.appendChild(modal);
+  }
+  
+  document.getElementById('image-modal-img').src = src;
+  modal.style.display = 'flex';
+  // Forzar reflow para animación
+  modal.offsetHeight;
+  modal.style.opacity = '1';
+};
+
+window.closeImageModal = function() {
+  const modal = document.getElementById('image-modal');
+  if (modal) {
+    modal.style.opacity = '0';
+    setTimeout(() => { modal.style.display = 'none'; }, 200);
   }
 };
 

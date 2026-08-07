@@ -1,0 +1,1292 @@
+[
+  {
+    "producto": {
+      "id": "soriana_0",
+      "nombre": "Arroz Grano Integral Valley Foods 900 g"
+    },
+    "precio": 19.3,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dwc0eb24cf/images/product/7500525502988_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/arroz-grano-integral-valley-foods-900-g/11712283.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_1",
+      "nombre": "Arroz con Tomate Knorr en Sobre 155 g"
+    },
+    "precio": 40.0,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dwaaf11016/images/product/7506306307223_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/arroz-con-tomate-knorr-en-sobre-155-g/11142087.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_2",
+      "nombre": "Arroz Verde Valle 750 gr"
+    },
+    "precio": 29.0,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dweabd3843/images/product/7501071302275_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/arroz-verde-valle-750-gr/11405578.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_3",
+      "nombre": "Arroz Extra Precíssimo 900g"
+    },
+    "precio": 14.9,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dwa719e4fc/images/product/7500525494689_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/arroz-extra-precissimo-900g/11708712.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_4",
+      "nombre": "Frijol Pinto Precíssimo 908g"
+    },
+    "precio": 20.0,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw28a804b7/images/product/7500525494726_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/frijol-pinto-precissimo-908g/11712374.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_5",
+      "nombre": "Frijol pinto Valley Foods 900 g"
+    },
+    "precio": 24.9,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw498e74e2/images/product/7500525494696_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/frijol-pinto-valley-foods-900-g/11712373.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_6",
+      "nombre": "Frijol Peruano 908g"
+    },
+    "precio": 42.9,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw603f52fc/images/product/7500525496522_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/frijol-peruano-908g/11712369.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_7",
+      "nombre": "Frijol Negro Valley Foods 900 g"
+    },
+    "precio": 22.9,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw7785f8cf/images/product/7500525496546_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/frijol-negro-valley-foods-900-g/11712370.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_8",
+      "nombre": "Frijol Negro Precíssimo 908 g"
+    },
+    "precio": 20.0,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw6efe2fd6/images/product/7500525496515_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/frijol-negro-precissimo-908-g/11708715.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_9",
+      "nombre": "Azucar Estandar Zulka 2kg"
+    },
+    "precio": 45.9,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw3ff0bacb/images/product/0661440000052_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/azucar-estandar-zulka-2kg/1929299.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_10",
+      "nombre": "Azúcar Estándar Precíssimo 2Kg"
+    },
+    "precio": 55.5,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dweed33112/images/product/7500525493590_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/azucar-estandar-precissimo-2kg/11712281.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_11",
+      "nombre": "Azúcar Estandar Zulka 900 g"
+    },
+    "precio": 28.9,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw3bccd27d/images/product/0661440001462_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/azucar-estandar-zulka-900-g/11482546.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_12",
+      "nombre": "Sustituto de Azúcar Splenda 300 sobres"
+    },
+    "precio": 215.0,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw05adf654/images/product/722776001400_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/sustituto-de-azucar-splenda-300-sobres/11903235.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_13",
+      "nombre": "Cereal Kelloggs Zucaritas 600 g"
+    },
+    "precio": 90.9,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dwa997112a/images/product/7501008057292_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/cereal-kelloggs-zucaritas-600-g/11669769.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_14",
+      "nombre": "Cereal Kelloggs Choco Krispis Original 540 g"
+    },
+    "precio": 94.5,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw3c48a8d3/images/product/7501008057032_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/cereal-kelloggs-choco-krispis-original-540-g/11670442.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_15",
+      "nombre": "Cereal Kelloggs  Extra Arándano con Almendras 420 g"
+    },
+    "precio": 103.0,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dwfaa81386/images/product/7501008001622_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/cereal-kelloggs--extra-arandano-con-almendras-420-g/11319431.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_16",
+      "nombre": "Cereal Kelloggs Corn Flakes Original 540 g"
+    },
+    "precio": 71.5,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw81e3f85e/images/product/7501008077320_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/cereal-kelloggs-corn-flakes-original-540-g/11870663.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_17",
+      "nombre": "Cereal Kelloggs Froot Loops Original 380 g"
+    },
+    "precio": 94.5,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw91f68622/images/product/7501008066386_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/cereal-kelloggs-froot-loops-original-380-g/11789502.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_18",
+      "nombre": "Atún de Agua Valley Foods 140 g"
+    },
+    "precio": 14.1,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dwb4115f77/images/product/7500525866400_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/atun-de-agua-valley-foods-140-g/11798445.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_19",
+      "nombre": "Atún de Aceite Valley Foods 140 g"
+    },
+    "precio": 14.1,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw21bb554c/images/product/7500525866417_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/atun-de-aceite-valley-foods-140-g/11798446.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_20",
+      "nombre": "Atún en Agua&nbsp;Valley Foods 140 g"
+    },
+    "precio": 19.9,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw2fdd927b/images/product/7500525500076_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/atun-en-agua-nbspvalley-foods-140-g/11703984.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_21",
+      "nombre": "Pasta Barilla spaghetti No.5 200 g"
+    },
+    "precio": 13.6,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dwe5421d2c/images/product/8076809513050_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/pasta-barilla-spaghetti-no.5-200-g/566543.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_22",
+      "nombre": "Pasta de Spaghetti La Moderna 200g"
+    },
+    "precio": 12.0,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dwf556403c/images/product/7501018314507_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/pasta-de-spaghetti-la-moderna-200g/365505.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_23",
+      "nombre": "Café Liofilizado Valley Foods Frasco 180 g"
+    },
+    "precio": 139.0,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw7cdbf1c8/images/product/7500525490827_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/cafe-liofilizado-valley-foods-frasco-180-g/11745058.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_24",
+      "nombre": "Café Liofilizado Valley Foods Frasco 90 g"
+    },
+    "precio": 101.0,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dwe2f44d1b/images/product/7500525490834_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/cafe-liofilizado-valley-foods-frasco-90-g/11745059.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_25",
+      "nombre": "Pan en Barra Blanco Bimbo Grande 620 g"
+    },
+    "precio": 55.0,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dwc0d6acdb/images/product/7500810029183_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/pan-en-barra-blanco-bimbo-grande-620-g/11772567.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_26",
+      "nombre": "Pan De Muerto Relleno 4pza"
+    },
+    "precio": 99.0,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw88bee2d4/images/product/0244530000004_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/pan-de-muerto-relleno-4pza/11659555.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_27",
+      "nombre": "Sal La Fina Yodada 1kg"
+    },
+    "precio": 29.9,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dwa19c2eaf/images/product/0034587030013_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/sal-la-fina-yodada-1kg/263479.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_28",
+      "nombre": "Sal Lafina Bote 900 Gr Yodada Flourada"
+    },
+    "precio": 38.9,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw07986252/images/product/0034587020311_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/sal-lafina-bote-900-gr-yodada-flourada/11355917.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_29",
+      "nombre": "Sal La Fina Refi Yodo/Fluor 650gr Bolsa"
+    },
+    "precio": 18.5,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw7142e05e/images/product/0034587090758_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/sal-la-fina-refi-yodo-fluor-650gr-bolsa/2095535.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_30",
+      "nombre": "Sal Sol de Mar Grano Grueso Y/F en bolsa 1 kg"
+    },
+    "precio": 15.9,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dwa27b47a7/images/product/7501118392108_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/sal-sol-de-mar-grano-grueso-y-f-en-bolsa-1-kg/1833160.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_31",
+      "nombre": "Sal Sol de Mar Grano Fino Y/F en Bolsa 1 kg"
+    },
+    "precio": 21.5,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw97e6b7bb/images/product/7501118342103_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/sal-sol-de-mar-grano-fino-y-f-en-bolsa-1-kg/1061325.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_32",
+      "nombre": "Tortilla de Maíz Blanca 1 Kg"
+    },
+    "precio": 13.9,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dweeb29265/images/product/0000004916512_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/tortilla-de-maiz-blanca-1-kg/11557167.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_33",
+      "nombre": "Tortilla de Maíz Amarilla 1 Kg"
+    },
+    "precio": 13.9,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw8cc28225/images/product/0212990000001_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/tortilla-de-maiz-amarilla-1-kg/11557286.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_34",
+      "nombre": "Tortillinas Tía Rosa 22 Piezas"
+    },
+    "precio": 33.0,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw1325dd26/images/product/7501030486664_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/tortillinas-tia-rosa-22-piezas/1696367.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_35",
+      "nombre": "Tortilla de Harina 1 kg"
+    },
+    "precio": 39.9,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw593f73ba/images/product/0261970000005_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/tortilla-de-harina-1-kg/11557200.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_36",
+      "nombre": "Tortilla para Flauta 1 Kg"
+    },
+    "precio": 22.5,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw8e62a75b/images/product/0000074471324_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/tortilla-para-flauta-1-kg/11557766.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_37",
+      "nombre": "Sardina Valley Foods en Salsa de Tomate 425 g"
+    },
+    "precio": 21.2,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw846e0219/images/product/7500525866424_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/sardina-valley-foods-en-salsa-de-tomate-425-g/11798810.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_38",
+      "nombre": "Sardina Guaymex Salsa Tomate 425g"
+    },
+    "precio": 49.9,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw2eedc33b/images/product/0731082001004_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/sardina-guaymex-salsa-tomate-425g/314434.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_39",
+      "nombre": "Sardina en Salsa de Tomate Altamar Lata 425 g"
+    },
+    "precio": 39.5,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw2f6f0258/images/product/7503006097867_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/sardina-en-salsa-de-tomate-altamar-lata-425-g/2486778.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_40",
+      "nombre": "Chorizo Fud Pavo 200 g"
+    },
+    "precio": 48.5,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw419283ba/images/product/7501040005855_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/chorizo-fud-pavo-200-g/1050636.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_41",
+      "nombre": "Botana Fritos Chorizo 38 g"
+    },
+    "precio": 8.5,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw37d2663d/images/product/7500478018932_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/botana-fritos-chorizo-38-g/11545015.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_42",
+      "nombre": "Chile Serrano Kg"
+    },
+    "precio": 49.9,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw0fe444ae/images/product/0000000001724_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/chile-serrano-kg/202.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_43",
+      "nombre": "Chile Jalapeño Cuaresmeño Kg"
+    },
+    "precio": 21.9,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dwf03db44b/images/product/0000000001649_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/chile-jalapeno-cuaresmeno-kg/196.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_44",
+      "nombre": "Chiles Jalapeños Herdez rajas en escabeche 205 g"
+    },
+    "precio": 17.3,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dwa363782e/images/product/7501003103994_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/chiles-jalapenos-herdez-rajas-en-escabeche-205-g/11635157.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_45",
+      "nombre": "Chile Arbol Granel Kg"
+    },
+    "precio": 239.0,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw24e3cd5a/images/product/0000000002257_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/chile-arbol-granel-kg/234.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_46",
+      "nombre": "Lavatrastes Axion Vinagre 900ml"
+    },
+    "precio": 45.5,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw867d4072/images/product/7509546684260_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/lavatrastes-axion-vinagre-900ml/11737114.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_47",
+      "nombre": "Vinagre Blanco La Costeña 3.5 L Botella"
+    },
+    "precio": 42.5,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw3ee6a50e/images/product/7501017002115_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/vinagre-blanco-la-costena-3.5-l-botella/1900033.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_48",
+      "nombre": "Catsup Heinz Botella 397 g"
+    },
+    "precio": 30.9,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dwb9e0aeb6/images/product/0013000001243_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/catsup-heinz-botella-397-g/249917.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_49",
+      "nombre": "Salsa de Tomate Embasa para Aderezar 1 kg"
+    },
+    "precio": 35.5,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dwdb55fc37/images/product/7501018203849_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/salsa-de-tomate-embasa-para-aderezar-1-kg/1011864.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_50",
+      "nombre": "Catsup Del Monte 370 g"
+    },
+    "precio": 22.9,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw78e868e1/images/product/0000075053895_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/catsup-del-monte-370-g/11133977.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_51",
+      "nombre": "Six Pack Leche Deslactosada Light UHT Valley Foods"
+    },
+    "precio": 146.5,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw347959a7/images/product/7500525499981_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/six-pack-leche-deslactosada-light-uht-valley-foods/11758216.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_52",
+      "nombre": "Leche entera Valley Foods 1 L"
+    },
+    "precio": 36.9,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw34fe6b20/images/product/7500525499844_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/leche-entera-valley-foods-1-l/11712182.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_53",
+      "nombre": "Leche Entera Valley Foods 1 Litro"
+    },
+    "precio": 16.1,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw7cc68c87/images/product/7500525874474_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/leche-entera-valley-foods-1-litro/11826665.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_54",
+      "nombre": "Huevo Blanco San Juan 30 Piezas"
+    },
+    "precio": 64.9,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw6d3d28cf/images/product/7503000555172_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/huevo-blanco-san-juan-30-piezas/1054247.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_55",
+      "nombre": "Huevo Blanco San Juan 12 Piezas"
+    },
+    "precio": 27.9,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw1860f47a/images/product/7503000555011_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/huevo-blanco-san-juan-12-piezas/1053256.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_56",
+      "nombre": "Queso Manchego Medias Lunas La Villita 150 g"
+    },
+    "precio": 38.5,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw4447829e/images/product/7501040084393_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/queso-manchego-medias-lunas-la-villita-150-g/11511530.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_57",
+      "nombre": "Queso Americano Valley Foods Fresh 280 g"
+    },
+    "precio": 49.0,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dwe2d0633c/images/product/7500525594280_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/queso-americano-valley-foods-fresh-280-g/11745645.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_58",
+      "nombre": "Queso Americano Precíssimo 280 g"
+    },
+    "precio": 26.9,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dwa02f8432/images/product/7500525594303_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/queso-americano-precissimo-280-g/11745847.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_59",
+      "nombre": "Queso Americano Precíssimo 140 g"
+    },
+    "precio": 20.0,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw093f709e/images/product/7500525594297_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/queso-americano-precissimo-140-g/11745646.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_60",
+      "nombre": "Crema Ácida Lala Entera 426 ml"
+    },
+    "precio": 48.0,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw1dbf3ec6/images/product/7501020561906_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/crema-acida-lala-entera-426-ml/11494189.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_61",
+      "nombre": "Media Crema Lala Entera 250 ml"
+    },
+    "precio": 22.5,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dwcf24191b/images/product/7501020515299_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/media-crema-lala-entera-250-ml/1095293.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_62",
+      "nombre": "Queso Crema Philadelphia Original 200 gr"
+    },
+    "precio": 53.5,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw5de2ed07/images/product/7622210561534_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/queso-crema-philadelphia-original-200-gr/11526545.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_63",
+      "nombre": "Crema ácida Alpura 426 ml"
+    },
+    "precio": 41.9,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw888e7d9a/images/product/501055916016_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/crema-acida-alpura-426-ml/11654240.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_64",
+      "nombre": "Crema Dental Colgate Max Clean 120 ml"
+    },
+    "precio": 32.5,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw947ffe62/images/product/7509546688817_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/crema-dental-colgate-max-clean-120-ml/11694582.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_65",
+      "nombre": "Bebida Láctea Fermentada Yakult 5 Piezas de 80 ml c/u"
+    },
+    "precio": 40.0,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dweddf744a/images/product/7501025511005_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/bebida-lactea-fermentada-yakult-5-piezas-de-80-ml-c-u/369199.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_66",
+      "nombre": "Yoghurt Bebible Yoplait Fresa y Piña Coco 6 piezas de 220 gr c/u"
+    },
+    "precio": 62.5,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw3a8d7950/images/product/7501040091278_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/yoghurt-bebible-yoplait-fresa-y-pina-coco-6-piezas-de-220-gr-c-u/1401195.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_67",
+      "nombre": "Jamón de Pavo Virginia FUD 450 g"
+    },
+    "precio": 75.9,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dwaf4f8c9c/images/product/7501040010286_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/jamon-de-pavo-virginia-fud-450-g/11477923.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_68",
+      "nombre": "Jamón Horneado Fud Especial de Pierna Kg"
+    },
+    "precio": 179.0,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dwd2ed0349/images/product/0275840000002_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/jamon-horneado-fud-especial-de-pierna-kg/11174223.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_69",
+      "nombre": "Salchicha Chimex 1.2 Kg"
+    },
+    "precio": 64.0,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw16e73db9/images/product/7501040007613_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/salchicha-chimex-1.2-kg/11136411.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_70",
+      "nombre": "Shampoo Head & Shoulders Men Old Spice 650 ml"
+    },
+    "precio": 166.0,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dwc0a7bf5f/images/product/7500435166249_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/shampoo-head-shoulders-men-old-spice-650-ml/11530595.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_71",
+      "nombre": "Shampoo Herbal Essences Granada y Proteína Vegana 600 ml"
+    },
+    "precio": 130.0,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dwcb83c638/images/product/7500435214797_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/shampoo-herbal-essences-granada-y-proteina-vegana-600-ml/11699595.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_72",
+      "nombre": "Shampoo Pantene Pro-V Bambú Nutre y Crece 750 ml"
+    },
+    "precio": 165.0,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dwaba04a0f/images/product/7500435155854_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/shampoo-pantene-pro-v-bambu-nutre-y-crece-750-ml/11533020.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_73",
+      "nombre": "Shampoo Head & Shoulders Suave Y Manejable 650 ml"
+    },
+    "precio": 166.0,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw4e79d8af/images/product/7500435162241_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/shampoo-head-shoulders-suave-y-manejable-650-ml/11530929.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_74",
+      "nombre": "Jabón en Barra Palmolive Neutro Balance Dermolimpiador 4 pzas 120 g"
+    },
+    "precio": 86.9,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw16674902/images/product/7509546683188_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/jabon-en-barra-palmolive-neutro-balance-dermolimpiador-4-pzas-120-g/11681355.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_75",
+      "nombre": "Jabón en Barra Zote Blanco 400 g"
+    },
+    "precio": 27.9,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dwf9753cc3/images/product/7501026005374_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/jabon-en-barra-zote-blanco-400-g/369227.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_76",
+      "nombre": "Jabón en Barra Zote Rosa 400 g"
+    },
+    "precio": 27.9,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw05b536da/images/product/7501026005671_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/jabon-en-barra-zote-rosa-400-g/369229.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_77",
+      "nombre": "Jabón en Barra Zote Blanco 200 g"
+    },
+    "precio": 14.9,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw9f074583/images/product/7501026005381_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/jabon-en-barra-zote-blanco-200-g/369228.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_78",
+      "nombre": "Pasta Dental Colgate Triple Acción Xtra Blancura 125 ml"
+    },
+    "precio": 24.5,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dwcce28cef/images/product/7509546056111_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/pasta-dental-colgate-triple-accion-xtra-blancura-125-ml/2381715.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_79",
+      "nombre": "Pasta Dental Colgate Máxima Protección Anticaries 160 ml"
+    },
+    "precio": 50.9,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw5eb41209/images/product/7509546669007_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/pasta-dental-colgate-maxima-proteccion-anticaries-160-ml/11544772.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_81",
+      "nombre": "Pasta Dental Colgate Triple Acción Menta Original 100 ml"
+    },
+    "precio": 44.9,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw88d010c7/images/product/7509546000343_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/pasta-dental-colgate-triple-accion-menta-original-100-ml/1025597.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_82",
+      "nombre": "Pañal Bio Baby Talla 6 XX Grande 40 pañales"
+    },
+    "precio": 265.0,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw315018c9/images/product/0013117031751_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/panal-bio-baby-talla-6-xx-grande-40-panales/11552661.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_83",
+      "nombre": "Pañal Kiddies Antifugas Talla 3 Mediano 40 pañales"
+    },
+    "precio": 173.0,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw041b2520/images/product/0013117023299_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/panal-kiddies-antifugas-talla-3-mediano-40-panales/1048889.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_84",
+      "nombre": "Detergente en Polvo Quality Day Multiusos Cítrico 900 g"
+    },
+    "precio": 29.9,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dwee950c6f/images/product/7506634921238_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/detergente-en-polvo-quality-day-multiusos-citrico-900-g/11879418.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_85",
+      "nombre": "Detergente Ropa Quality Day Color 4.65 l"
+    },
+    "precio": 125.0,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dwec2c035c/images/product/7500525930897_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/detergente-ropa-quality-day-color-4.65-l/11878227.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_86",
+      "nombre": "Cloro Precíssimo 3.8 L"
+    },
+    "precio": 39.5,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dwfa796e62/images/product/7500525502148_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/cloro-precissimo-3.8-l/11707845.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_87",
+      "nombre": "Cloro Precíssimo Aroma Floral 3.8 L"
+    },
+    "precio": 36.5,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dwe7328bde/images/product/7500525502117_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/cloro-precissimo-aroma-floral-3.8-l/11708254.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_88",
+      "nombre": "Cloro Precíssimo Aroma Lavanda 3.8 L"
+    },
+    "precio": 36.5,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dwa07e626e/images/product/7500525502124_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/cloro-precissimo-aroma-lavanda-3.8-l/11708255.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_89",
+      "nombre": "Limpiador desinfectante con cloro para mascotas Trainer's Choice 3.75 L"
+    },
+    "precio": 79.9,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dwa05f7817/images/product/7500525502230_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/limpiador-desinfectante-con-cloro-para-mascotas-trainers-choice-3.75-l/11727795.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_90",
+      "nombre": "Suavizante Flores de Primavera Quality Day 1lt"
+    },
+    "precio": 26.9,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw2ca6629b/images/product/7500525930750_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/suavizante-flores-de-primavera-quality-day-1lt/11878029.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_91",
+      "nombre": "Suavizante Frescas Violetas Quality Day 1lt"
+    },
+    "precio": 26.9,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw74c13f30/images/product/7500525930774_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/suavizante-frescas-violetas-quality-day-1lt/11878167.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_92",
+      "nombre": "Suavizante Baby Quality Day 1lt"
+    },
+    "precio": 32.5,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw45d5d56b/images/product/7500525930781_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/suavizante-baby-quality-day-1lt/11878154.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_93",
+      "nombre": "Suavizante Flores de Verano Quality Day 1lt"
+    },
+    "precio": 32.5,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dwf80f1e2e/images/product/7500525930767_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/suavizante-flores-de-verano-quality-day-1lt/11878158.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_94",
+      "nombre": "Refresco Coca Cola 4 Pack 600 ml"
+    },
+    "precio": 78.9,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw764dc0e5/images/product/7501055307043_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/refresco-coca-cola-4-pack-600-ml/1014294.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_95",
+      "nombre": "Refresco Coca Cola Original PET 12/355 ml"
+    },
+    "precio": 147.5,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dwce9440ec/images/product/7501055356188_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/refresco-coca-cola-original-pet-12-355-ml/11314202.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_96",
+      "nombre": "Refresco Coca-Cola 2 Lt Pack con 2 Piezas"
+    },
+    "precio": 81.5,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw7b625d2e/images/product/7501055302222_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/refresco-coca-cola-2-lt-pack-con-2-piezas/1118009.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_97",
+      "nombre": "Agua Natural Valley Foods 1 lt"
+    },
+    "precio": 7.1,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw5d9bbbfe/images/product/7506634936553_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/agua-natural-valley-foods-1-lt/11901113.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_98",
+      "nombre": "6 pack de Agua Mineral Peñafiel 355 ml"
+    },
+    "precio": 63.5,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw3ee3f165/images/product/7501073843066_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/6-pack-de-agua-mineral-penafiel-355-ml/11658661.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_99",
+      "nombre": "Agua Tonica Schweppes 296 ml 6 Pack"
+    },
+    "precio": 116.0,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw90ad71f7/images/product/7501073825208_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/agua-tonica-schweppes-296-ml-6-pack/1439087.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_100",
+      "nombre": "Cerveza Clara Modelo Especial 6 Pack Latas 355 ml"
+    },
+    "precio": 126.0,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw38c05f2a/images/product/7501064112546_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/cerveza-clara-modelo-especial-6-pack-latas-355-ml/1336734.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_101",
+      "nombre": "Cerveza Clara Barrilito 6 Pack Botellas 325 ml"
+    },
+    "precio": 65.9,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw62f0b3e0/images/product/7501064114359_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/cerveza-clara-barrilito-6-pack-botellas-325-ml/1114826.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_102",
+      "nombre": "Whisky Chivas Regal 12 Años 750ml"
+    },
+    "precio": 829.0,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw2f201c68/images/product/80432400395_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/whisky-chivas-regal-12-anos-750ml/3012619.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_103",
+      "nombre": "Vino Espumoso Italiano Collezione 21 Cuvée Dolce Millesimato 750ml"
+    },
+    "precio": 199.0,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dwe26a187a/images/product/8008820171520_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/vino-espumoso-italiano-collezione-21-cuvee-dolce-millesimato-750ml/11824832.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_104",
+      "nombre": "Vino Espumoso Italiano Collezione 21 Prosecco Extra Seco 750ml"
+    },
+    "precio": 199.0,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw56a8701a/images/product/8008820171544_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/vino-espumoso-italiano-collezione-21-prosecco-extra-seco-750ml/11824849.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_105",
+      "nombre": "Vino Espumoso Italiano Collezione 21 Prosecco Rosé 750ml"
+    },
+    "precio": 199.0,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dwb8237203/images/product/8008820171568_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/vino-espumoso-italiano-collezione-21-prosecco-rose-750ml/11824850.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_106",
+      "nombre": "Vino Espumoso 21 Ribolla Gialla 750 ml"
+    },
+    "precio": 199.0,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw6e5237ff/images/product/8008820171582_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/vino-espumoso-21-ribolla-gialla-750-ml/11824851.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_107",
+      "nombre": "Vino Espumoso Italiano Collezione 21 Moscato Dolce 750ml"
+    },
+    "precio": 149.0,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dwf226f5be/images/product/8008820171605_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/vino-espumoso-italiano-collezione-21-moscato-dolce-750ml/11824852.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_108",
+      "nombre": "Tequila Herradura Ultra 700 ml"
+    },
+    "precio": 969.0,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dwc6e5bbce/images/product/0744607007900_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/tequila-herradura-ultra-700-ml/11530834.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_109",
+      "nombre": "Tequila Cabrito Reposado 750 ml + 250 ml"
+    },
+    "precio": 180.0,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw0fbf1197/images/product/0749787600163_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/tequila-cabrito-reposado-750-ml-250-ml/11468782.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_110",
+      "nombre": "Mezcla de tequila New Mix Cantarito 473 ml"
+    },
+    "precio": 34.0,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dwaf8d9c56/images/product/0744607008914_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/mezcla-de-tequila-new-mix-cantarito-473-ml/11579434.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_111",
+      "nombre": "Tequila Cuervo Especial Reposado 990 ml"
+    },
+    "precio": 259.0,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dwd22d04b1/images/product/7501035010550_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/tequila-cuervo-especial-reposado-990-ml/600153.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_113",
+      "nombre": "Whisky Chivas Regal 12 años 750 ml + 2 Absolut 200 ml"
+    },
+    "precio": 969.9,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw1d1969c3/images/product/7503047936583_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/whisky-chivas-regal-12-anos-750-ml-2-absolut-200-ml/11904350.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_114",
+      "nombre": "Whisky Buchanan's Deluxe 12 años Blended Scotch 750 ml"
+    },
+    "precio": 1039.0,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dwac8ef4e2/images/product/0000050196388_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/whisky-buchanans-deluxe-12-anos-blended-scotch-750-ml/245425.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_115",
+      "nombre": "Whisky Black & White Original Blended Scotch 700ml"
+    },
+    "precio": 279.0,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw83be3ef5/images/product/50196135_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/whisky-black-white-original-blended-scotch-700ml/11102595.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_118",
+      "nombre": "Cerveza Clara Michelob Ultra 6 Pack Latas 355 ml"
+    },
+    "precio": 131.0,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dwef78dd45/images/product/7501064194504_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/cerveza-clara-michelob-ultra-6-pack-latas-355-ml/11110872.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_119",
+      "nombre": "Licor 43 Chocolate 700ml"
+    },
+    "precio": 475.0,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw79fbd8fa/images/product/8410221902915_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/licor-43-chocolate-700ml/11673331.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_120",
+      "nombre": "Licor 43 Original 700 ml"
+    },
+    "precio": 575.0,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dwbb2d324e/images/product/8410221110150_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/licor-43-original-700-ml/11533398.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_121",
+      "nombre": "Gel Dental Colgate Max Fresh 170 ml"
+    },
+    "precio": 47.9,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dwce235953/images/product/7509546694474_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/gel-dental-colgate-max-fresh-170-ml/11854119.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_122",
+      "nombre": "Blanqueador Cloralex El Rendidor Gel 2 lt"
+    },
+    "precio": 37.9,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dwaee2320d/images/product/7501025405106_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/blanqueador-cloralex-el-rendidor-gel-2-lt/1108128.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_123",
+      "nombre": "Harpic® Gel Limpiador de Inodoro 100% Removedor de Sarro 200 ml"
+    },
+    "precio": 25.5,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dwdf68d6f2/images/product/7501058716552_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/harpic-gel-limpiador-de-inodoro-100--removedor-de-sarro-200-ml/11549687.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_124",
+      "nombre": "Acondicionador Herbal Essences Granada y Proteína Vegana 600 ml"
+    },
+    "precio": 124.0,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw41a4bd45/images/product/7500435214803_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/acondicionador-herbal-essences-granada-y-proteina-vegana-600-ml/11702665.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_125",
+      "nombre": "Acondicionador Pantene Molecular 510ml"
+    },
+    "precio": 159.0,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw2f99fdd9/images/product/7500435259064_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/acondicionador-pantene-molecular-510ml/11914766.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_126",
+      "nombre": "Shampoo Palmolive Optims 2 en 1 Vital Keratina Nivel 3 Acondicionamiento Intensivo 700 ml"
+    },
+    "precio": 111.0,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw3f430f75/images/product/7509546045597_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/shampoo-palmolive-optims-2-en-1-vital-keratina-nivel-3-acondicionamiento-intensivo-700-ml/2033943.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_127",
+      "nombre": "Acondicionador L'Oréal Paris Elvive Hidra Hialurónico 680 ml"
+    },
+    "precio": 166.5,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dwd7b49aef/images/product/7509552845921_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/acondicionador-loreal-paris-elvive-hidra-hialuronico-680-ml/11566171.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_128",
+      "nombre": "Tinte Garnier Nutrisse Coloríssimos 121 Azahar"
+    },
+    "precio": 91.9,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw439387f8/images/product/7506078959934_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/tinte-garnier-nutrisse-colorissimos-121-azahar/1857204.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_129",
+      "nombre": "Tinte Garnier Nutrisse 10 Ebano Negro"
+    },
+    "precio": 91.9,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dwc8ff1b10/images/product/7501027209658_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/tinte-garnier-nutrisse-10-ebano-negro/1012535.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_130",
+      "nombre": "Tinte Garnier Nutrisse 677 Chocolate Silvia"
+    },
+    "precio": 91.9,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw8058ebd2/images/product/7506078945869_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/tinte-garnier-nutrisse-677-chocolate-silvia/1712086.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_131",
+      "nombre": "Tinte Garnier Nutrisse Coloríssimos 316 Lavanda"
+    },
+    "precio": 91.9,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dw96a511b9/images/product/7509552903690_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/tinte-garnier-nutrisse-colorissimos-316-lavanda/2386646.html"
+  },
+  {
+    "producto": {
+      "id": "soriana_132",
+      "nombre": "Tinte Garnier Nutrisse 713 Vainilla Silvia"
+    },
+    "precio": 91.9,
+    "tienda": "Soriana",
+    "imagen": "https://www.soriana.com/dw/image/v2/BGBD_PRD/on/demandware.static/-/Sites-soriana-grocery-master-catalog/default/dwe17af14b/images/product/7506078971028_A.jpg?sw=473&sh=473&sm=fit",
+    "url": "https://www.soriana.com/tinte-garnier-nutrisse-713-vainilla-silvia/2051173.html"
+  }
+]
