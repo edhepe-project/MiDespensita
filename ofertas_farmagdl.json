@@ -1,0 +1,162 @@
+[
+  {
+    "producto": {
+      "id": "farma_0",
+      "nombre": "Paracetamol/Ibuprofeno 325mg/200mg, 20 Tabletas Pharmalife."
+    },
+    "precio": 123.0,
+    "tienda": "Farmacia Guadalajara",
+    "imagen": "https://www.movil.farmaciasguadalajara.com/wcsstore/FGCAS/wcs/products/1247263_A_1280_AL.jpg?w=180&h=180",
+    "url": "https://www.farmaciasguadalajara.com/medicina/analgesicos/paracetamol-ibuprofeno-325mg-200mg--20-tabletas-pharmalife.-1247263.html"
+  },
+  {
+    "producto": {
+      "id": "farma_1",
+      "nombre": "Proxego 500mg/150mg, 16 Tabletas."
+    },
+    "precio": 340.13,
+    "tienda": "Farmacia Guadalajara",
+    "imagen": "https://www.movil.farmaciasguadalajara.com/wcsstore/FGCAS/wcs/products/1361031_A_1280_AL.jpg?w=180&h=180",
+    "url": "https://www.farmaciasguadalajara.com/medicina/analgesicos/proxego-500mg-150mg--16-tabletas.-1361031.html"
+  },
+  {
+    "producto": {
+      "id": "farma_2",
+      "nombre": "Proxego 500mg/150mg, 24 Tabletas."
+    },
+    "precio": 475.04,
+    "tienda": "Farmacia Guadalajara",
+    "imagen": "https://www.movil.farmaciasguadalajara.com/wcsstore/FGCAS/wcs/products/1361040_A_1280_AL.jpg?w=180&h=180",
+    "url": "https://www.farmaciasguadalajara.com/medicina/analgesicos/proxego-500mg-150mg--24-tabletas.-1361040.html"
+  },
+  {
+    "producto": {
+      "id": "farma_3",
+      "nombre": "Algitrin 325mg/200mg, 24 Tabletas."
+    },
+    "precio": 462.0,
+    "tienda": "Farmacia Guadalajara",
+    "imagen": "https://www.movil.farmaciasguadalajara.com/wcsstore/FGCAS/wcs/products/883905_A_1280_AL.jpg?w=180&h=180",
+    "url": "https://www.farmaciasguadalajara.com/medicina/analgesicos/algitrin-325mg-200mg--24-tabletas.-883905.html"
+  },
+  {
+    "producto": {
+      "id": "farma_4",
+      "nombre": "Acciogen 200mg/500mg,  20 Tabletas."
+    },
+    "precio": 401.0,
+    "tienda": "Farmacia Guadalajara",
+    "imagen": "https://www.movil.farmaciasguadalajara.com/wcsstore/FGCAS/wcs/products/1389068_A_1280_AL.jpg?w=180&h=180",
+    "url": "https://www.farmaciasguadalajara.com/medicina/analgesicos/acciogen-200mg-500mg---20-tabletas.-1389068.html"
+  },
+  {
+    "producto": {
+      "id": "farma_5",
+      "nombre": "Algitrin 325mg/200mg, 12 Tabletas."
+    },
+    "precio": 270.0,
+    "tienda": "Farmacia Guadalajara",
+    "imagen": "https://www.movil.farmaciasguadalajara.com/wcsstore/FGCAS/wcs/products/883891_A_1280_AL.jpg?w=180&h=180",
+    "url": "https://www.farmaciasguadalajara.com/medicina/analgesicos/algitrin-325mg-200mg--12-tabletas.-883891.html"
+  },
+  {
+    "producto": {
+      "id": "farma_6",
+      "nombre": "Ibuprofeno 600 mg, 20 Cápsulas Pharmalife."
+    },
+    "precio": 203.05,
+    "tienda": "Farmacia Guadalajara",
+    "imagen": "https://www.movil.farmaciasguadalajara.com/wcsstore/FGCAS/wcs/products/1464132_A_1280_AL.jpg?w=180&h=180",
+    "url": "https://www.farmaciasguadalajara.com/medicina/analgesicos/ibuprofeno-600-mg--20-capsulas-pharmalife.-1464132.html"
+  },
+  {
+    "producto": {
+      "id": "farma_7",
+      "nombre": "Ibuprofeno 800 mg, 20 Tabletas Pharmalife."
+    },
+    "precio": 404.93,
+    "tienda": "Farmacia Guadalajara",
+    "imagen": "https://www.movil.farmaciasguadalajara.com/wcsstore/FGCAS/wcs/products/1444980_A_1280_AL.jpg?w=180&h=180",
+    "url": "https://www.farmaciasguadalajara.com/medicina/analgesicos/ibuprofeno-800-mg--20-tabletas-pharmalife.-1444980.html"
+  },
+  {
+    "producto": {
+      "id": "farma_8",
+      "nombre": "Shampoo Secreto Herbal Anticaída y Crecimiento con Cola de Caballo y Romero, 1 l."
+    },
+    "precio": 47.0,
+    "tienda": "Farmacia Guadalajara",
+    "imagen": "https://www.movil.farmaciasguadalajara.com/wcsstore/FGCAS/wcs/products/1376411_A_1280_AL.jpg?w=180&h=180",
+    "url": "https://www.farmaciasguadalajara.com/higiene-y-belleza/shampoo/shampoo-secreto-herbal-anticaida-y-crecimiento-con-cola-de-caballo-y-romero--1-l.-1376411.html"
+  },
+  {
+    "producto": {
+      "id": "farma_9",
+      "nombre": "Shampoo Baño Botánico Anticaída, 1 l."
+    },
+    "precio": 41.0,
+    "tienda": "Farmacia Guadalajara",
+    "imagen": "https://www.movil.farmaciasguadalajara.com/wcsstore/FGCAS/wcs/products/1415786_A_1280_AL.jpg?w=180&h=180",
+    "url": "https://www.farmaciasguadalajara.com/higiene-y-belleza/shampoo/shampoo-ba%C3%B1o-botanico-anticaida--1-l.-1415786.html"
+  },
+  {
+    "producto": {
+      "id": "farma_10",
+      "nombre": "Acondicionador Secreto Herbal Crecimiento y Protección Total con Cola de Caballo y Jalea Real, 1 l."
+    },
+    "precio": 61.5,
+    "tienda": "Farmacia Guadalajara",
+    "imagen": "https://www.movil.farmaciasguadalajara.com/wcsstore/FGCAS/wcs/products/1415158_A_1280_AL.jpg?w=180&h=180",
+    "url": "https://www.farmaciasguadalajara.com/higiene-y-belleza/shampoo/acondicionador-secreto-herbal-crecimiento-y-proteccion-total-con-cola-de-caballo-y-jalea-real--1-l.-1415158.html"
+  },
+  {
+    "producto": {
+      "id": "farma_11",
+      "nombre": "Pack Shampoo Labs Incredible Minoxidil Bergamota 1 l + Shampoo Cola de Caballo Concentrado 240 ml, 2 pzas."
+    },
+    "precio": 99.0,
+    "tienda": "Farmacia Guadalajara",
+    "imagen": "https://www.movil.farmaciasguadalajara.com/wcsstore/FGCAS/wcs/products/1459651_A_1280_AL.jpg?w=180&h=180",
+    "url": "https://www.farmaciasguadalajara.com/higiene-y-belleza/shampoo/pack-shampoo-labs-incredible-minoxidil-bergamota-1-l-%2B-shampoo-cola-de-caballo-concentrado-240-ml--2-pzas.-1459651.html"
+  },
+  {
+    "producto": {
+      "id": "farma_12",
+      "nombre": "Shampoo Incredible El Original con Minoxidil, 500 ml."
+    },
+    "precio": 82.0,
+    "tienda": "Farmacia Guadalajara",
+    "imagen": "https://www.movil.farmaciasguadalajara.com/wcsstore/FGCAS/wcs/products/1365703_A_1280_AL.jpg?w=180&h=180",
+    "url": "https://www.farmaciasguadalajara.com/higiene-y-belleza/shampoo/shampoo-incredible-el-original-con-minoxidil--500-ml.-1365703.html"
+  },
+  {
+    "producto": {
+      "id": "farma_13",
+      "nombre": "Shampoo Caprice Naturals Aceite Herbal, 760 ml."
+    },
+    "precio": 78.6,
+    "tienda": "Farmacia Guadalajara",
+    "imagen": "https://www.movil.farmaciasguadalajara.com/wcsstore/FGCAS/wcs/products/1296434_A_1280_AL.jpg?w=180&h=180",
+    "url": "https://www.farmaciasguadalajara.com/higiene-y-belleza/shampoo/shampoo-caprice-naturals-aceite-herbal--760-ml.-1296434.html"
+  },
+  {
+    "producto": {
+      "id": "farma_14",
+      "nombre": "Shampoo Secreto Herbal Anticaída y Crecimiento con Cola de Caballo y Romero, 500 ml."
+    },
+    "precio": 38.5,
+    "tienda": "Farmacia Guadalajara",
+    "imagen": "https://www.movil.farmaciasguadalajara.com/wcsstore/FGCAS/wcs/products/1415166_A_1280_AL.jpg?w=180&h=180",
+    "url": "https://www.farmaciasguadalajara.com/higiene-y-belleza/shampoo/shampoo-secreto-herbal-anticaida-y-crecimiento-con-cola-de-caballo-y-romero--500-ml.-1415166.html"
+  },
+  {
+    "producto": {
+      "id": "farma_15",
+      "nombre": "Shampoo Herbal Essences Classic Smooth, 400 ml."
+    },
+    "precio": 92.0,
+    "tienda": "Farmacia Guadalajara",
+    "imagen": "https://www.movil.farmaciasguadalajara.com/wcsstore/FGCAS/wcs/products/1250035_A_1280_AL.jpg?w=180&h=180",
+    "url": "https://www.farmaciasguadalajara.com/higiene-y-belleza/shampoo/shampoo-herbal-essences-classic-smooth--400-ml.-1250035.html"
+  }
+]
