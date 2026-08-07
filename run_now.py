@@ -17,6 +17,9 @@ def run_all():
         print(f"Ejecutando {s}...")
         subprocess.run([sys.executable, s])
         
+    print("Calculando puntajes de oferta (Machine Learning)...")
+    subprocess.run([sys.executable, "ml_predict.py"])
+    
     print("Exportando tendencias...")
     db_manager.exportar_tendencias_json()
     print("Actualización de datos completa.")
