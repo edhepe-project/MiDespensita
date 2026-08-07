@@ -46,7 +46,7 @@ def run():
                 for card in cards[:8]:  # Máximo 8 por búsqueda
                     try:
                         nombre_el = card.select_one('a.link')
-                        precio_el = card.select_one('span.value[content]')
+                        precio_el = card.select_one('.sales .value[content], .sales [content]') or card.select_one('span.value[content]')
                         img_el    = card.select_one('img')
                         link_el   = nombre_el  # el link está en el mismo elemento del nombre
 
