@@ -3,6 +3,42 @@ import json
 import os
 from datetime import datetime, timedelta
 
+# ==========================================
+# LISTA MAESTRA DE BÚSQUEDAS (TODAS LAS TIENDAS)
+# ==========================================
+BUSQUEDAS = [
+    # Abarrotes Básico
+    "arroz", "frijol", "aceite", "azucar", "cereal", "galletas",
+    "atun", "pasta", "cafe", "pan", "mayonesa", "salsa", "sal",
+    "tortillas", "sardina", "chorizo", "chile", "vinagre", "ketchup",
+    "miel", "mermelada", "lentejas", "garbanzo", "consome",
+    
+    # Lácteos y Huevos
+    "leche", "huevo", "queso", "crema", "yogurt", "mantequilla", 
+    "leche evaporada", "leche condensada",
+    
+    # Carnes y Frío
+    "jamon", "salchicha", "tocino", "pollo", "carne molida",
+    
+    # Frutas y Verduras (Básicos)
+    "tomate", "cebolla", "ajo", "papa", "limon", "manzana", "platano",
+    
+    # Higiene personal
+    "shampoo", "jabon", "pasta dental", "desodorante", "pañales",
+    "papel higienico", "toallas femeninas", "crema corporal",
+    
+    # Limpieza hogar
+    "detergente", "cloro", "suavizante", "jabon lavatrastes", 
+    "limpiador pisos", "bolsas basura", "servilletas",
+    
+    # Bebidas
+    "refresco", "agua", "cerveza", "vino", "tequila", "whisky", "licor",
+    "jugo",
+    
+    # Mascotas
+    "alimento perro", "alimento gato"
+]
+
 DB_FILE = "historial.db"
 
 def init_db():

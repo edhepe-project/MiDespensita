@@ -1,1 +1,22 @@
-[]
+[
+  {
+    "producto": {
+      "id": "sams_1",
+      "nombre": "Leche Entera Lala 1L (Mock)"
+    },
+    "precio": 25.5,
+    "tienda": "Sams",
+    "imagen": "",
+    "url": "https://www.sams.com.mx"
+  },
+  {
+    "producto": {
+      "id": "sams_2",
+      "nombre": "Queso Manchego Fud 400g (Mock)"
+    },
+    "precio": 85.0,
+    "tienda": "Sams",
+    "imagen": "",
+    "url": "https://www.sams.com.mx"
+  }
+]

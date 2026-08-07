@@ -201,36 +201,6 @@
   },
   {
     "producto": {
-      "id": "bodega_3bb5ede2-4a0d-46bf-9736-68bcd20183fb",
-      "nombre": "Galletas Crackets sabor mantequilla 417 g"
-    },
-    "precio": 43.0,
-    "tienda": "Bodega Aurrerá",
-    "imagen": "https://i5.walmartimages.com.mx/mg/gm/3pp/asr/850c7559-abdc-4822-9a72-c994c40d7224.7f941098380273d04646ce0deefd11e1.jpeg?odnHeight=2000&odnWidth=2000&odnBg=ffffff",
-    "url": "https://www.bodegaaurrera.com.mx/ip/galletas-crackets-sabor-mantequilla-417-g/00750047800556"
-  },
-  {
-    "producto": {
-      "id": "bodega_6c1f5420-cfe4-4e16-8b4c-b1bc00e05d09",
-      "nombre": "Galletas Crackets mini rollos sabor mantequilla 215 g"
-    },
-    "precio": 26.0,
-    "tienda": "Bodega Aurrerá",
-    "imagen": "https://i5.walmartimages.com.mx/mg/gm/3pp/asr/26990677-956c-4af6-b3b5-117dd0e257c2.232f7e9e816b3eee979cfcd236324032.jpeg?odnHeight=2000&odnWidth=2000&odnBg=ffffff",
-    "url": "https://www.bodegaaurrera.com.mx/ip/galletas-crackets-mini-rollos-sabor-mantequilla-215-g/00750047802049"
-  },
-  {
-    "producto": {
-      "id": "bodega_bdcfb81d-20d4-4a69-82f2-c22039155497",
-      "nombre": "Galletas Saladitas 186 g"
-    },
-    "precio": 29.0,
-    "tienda": "Bodega Aurrerá",
-    "imagen": "https://i5.walmartimages.com.mx/mg/gm/3pp/asr/bd875c6b-2436-4f17-bbcf-6d1726a9431f.b1d2499a7e353c756d1585d097ec671b.jpeg?odnHeight=2000&odnWidth=2000&odnBg=ffffff",
-    "url": "https://www.bodegaaurrera.com.mx/ip/galletas-saladitas-186-g/00750100066422"
-  },
-  {
-    "producto": {
       "id": "bodega_81f25c67-d099-4917-a868-43f7ce1b3b92",
       "nombre": "Galletas Marias 720g"
     },
@@ -238,6 +208,26 @@
     "tienda": "Bodega Aurrerá",
     "imagen": "https://i5.walmartimages.com.mx/mg/gm/3pp/asr/f2c343d4-89f4-474d-8103-5ee87b08cef4.4c9340533ec43bb19c55950682c1745b.jpeg?odnHeight=2000&odnWidth=2000&odnBg=ffffff",
     "url": "https://www.bodegaaurrera.com.mx/ip/galletas-marias-720g/00750047801840"
+  },
+  {
+    "producto": {
+      "id": "bodega_f3b2fdd3-9b64-444e-b2cb-b99ca935c2ae",
+      "nombre": "Galletas Marías 3 rollos de 144 g c/u"
+    },
+    "precio": 35.0,
+    "tienda": "Bodega Aurrerá",
+    "imagen": "https://i5.walmartimages.com.mx/mg/gm/3pp/asr/13ddbf7f-b36e-4443-9874-83a38b559321.bab9938f69312a2c6b93df387bb22a41.jpeg?odnHeight=2000&odnWidth=2000&odnBg=ffffff",
+    "url": "https://www.bodegaaurrera.com.mx/ip/galletas-marias-3-rollos-de-144-g-c-u/00750100063335"
+  },
+  {
+    "producto": {
+      "id": "bodega_e1605376-5883-4e23-8445-59f01ba5b7e1",
+      "nombre": "Galletas Príncipe Marinela con relleno sabor a chocolate 252 g"
+    },
+    "precio": 35.0,
+    "tienda": "Bodega Aurrerá",
+    "imagen": "https://i5.walmartimages.com.mx/mg/gm/3pp/asr/c110f8b8-7bea-470b-a801-ab379b3a6fbc.13e5c45a1e7ad4e09d9e9fd54185eb97.jpeg?odnHeight=2000&odnWidth=2000&odnBg=ffffff",
+    "url": "https://www.bodegaaurrera.com.mx/ip/galletas-principe-marinela-con-relleno-sabor-a-chocolate-252-g/00750303467211"
   },
   {
     "producto": {
@@ -441,43 +431,23 @@
   },
   {
     "producto": {
-      "id": "bodega_8e6b219c-64f4-44dd-8bfe-30efe508eac4",
-      "nombre": "Mayonesa Hellmann's clásica 390 g"
+      "id": "bodega_a773aaf7-67e9-3cfb-9ce6-d5ef1dad6d74",
+      "nombre": "Salsa bbq Hunt´s original 550 g"
     },
-    "precio": 41.0,
+    "precio": 56.0,
     "tienda": "Bodega Aurrerá",
-    "imagen": "https://i5.walmartimages.com.mx/mg/gm/3pp/asr/18b121ee-f685-41c6-a50a-f51897e864b4.c1681f6a057ac8a6058b927dc9d84f31.jpeg?odnHeight=2000&odnWidth=2000&odnBg=ffffff",
-    "url": "https://www.bodegaaurrera.com.mx/ip/mayonesa-hellmann-s-clasica-390-g/00750100515196"
+    "imagen": "https://i5.walmartimages.com.mx/mg/gm/3pp/asr/2c324425-afaa-446e-8789-f6dfdecd277a.2bb9f16c78e038ab2441f011407c15c8.jpeg?odnHeight=2000&odnWidth=2000&odnBg=ffffff",
+    "url": "https://www.bodegaaurrera.com.mx/ip/salsa-bbq-hunt-s-original-550-g/00750100659867"
   },
   {
     "producto": {
-      "id": "bodega_4839e19a-ba54-48d9-a97c-29ff389dc019",
-      "nombre": "Aderezo de mayonesa Hellmanns clásica 750 g"
+      "id": "bodega_011345d3-eb71-3b1f-b71d-f542b14334e7",
+      "nombre": "Salsa buffalo Hunt´s wings 480 g"
     },
-    "precio": 62.0,
+    "precio": 56.0,
     "tienda": "Bodega Aurrerá",
-    "imagen": "https://i5.walmartimages.com.mx/mg/gm/3pp/asr/9b328dd3-1a70-4d25-baee-265db6fe28d6.a3eeb0ac8807102e5aed287c13a497be.jpeg?odnHeight=2000&odnWidth=2000&odnBg=ffffff",
-    "url": "https://www.bodegaaurrera.com.mx/ip/aderezo-de-mayonesa-hellmanns-clasica-750-g/00750630632104"
-  },
-  {
-    "producto": {
-      "id": "bodega_2f49f27e-3c0e-490b-a955-be70cbc21580",
-      "nombre": "Mayonesa Hellmann's clásica reducida en grasa 980 g"
-    },
-    "precio": 96.0,
-    "tienda": "Bodega Aurrerá",
-    "imagen": "https://i5.walmartimages.com.mx/mg/gm/3pp/asr/cdde042a-0a3b-4852-89aa-5d43cd8f9a19.a1480f258b9c35f173a0ad26cbc7e5ad.jpeg?odnHeight=2000&odnWidth=2000&odnBg=ffffff",
-    "url": "https://www.bodegaaurrera.com.mx/ip/mayonesa-hellmann-s-clasica-reducida-en-grasa-980-g/00750630632681"
-  },
-  {
-    "producto": {
-      "id": "bodega_ffd18042-115c-4ef9-86e3-6f95b0f68ed3",
-      "nombre": "Aderezo Hellmann's light 800 g"
-    },
-    "precio": 104.0,
-    "tienda": "Bodega Aurrerá",
-    "imagen": "https://i5.walmartimages.com.mx/mg/gm/3pp/asr/f00594d6-a1d6-482a-9398-95f911e93280.02eebae658dc6e707272a3c4545a7e1c.jpeg?odnHeight=2000&odnWidth=2000&odnBg=ffffff",
-    "url": "https://www.bodegaaurrera.com.mx/ip/aderezo-hellmann-s-light-800-g/00750100515201"
+    "imagen": "https://i5.walmartimages.com.mx/mg/gm/3pp/asr/836bc8f6-33e1-4d93-8833-3f195222b071.1ee768ab556fcb8ea4f2bce4628d64aa.jpeg?odnHeight=2000&odnWidth=2000&odnBg=ffffff",
+    "url": "https://www.bodegaaurrera.com.mx/ip/salsa-buffalo-hunt-s-wings-480-g/00750100656548"
   },
   {
     "producto": {
@@ -488,6 +458,26 @@
     "tienda": "Bodega Aurrerá",
     "imagen": "https://i5.walmartimages.com.mx/mg/gm/3pp/asr/6dcab540-5900-45ea-8e68-b54489a04278.a0c0dc9caff0796c50412a84d9762119.jpeg?odnHeight=2000&odnWidth=2000&odnBg=ffffff",
     "url": "https://www.bodegaaurrera.com.mx/ip/mayonesa-mccormick-con-limon-870-g/00750100330631"
+  },
+  {
+    "producto": {
+      "id": "bodega_f48205cf-dc91-4b7d-8cbc-9ce7cbfbe61c",
+      "nombre": "Mayonesa McCormick con limón 390 g"
+    },
+    "precio": 50.0,
+    "tienda": "Bodega Aurrerá",
+    "imagen": "https://i5.walmartimages.com.mx/mg/gm/3pp/asr/a968b03e-c994-4b08-89fd-fc505af4c81c.c2f6c65bb04ee143baefe963dd673281.jpeg?odnHeight=2000&odnWidth=2000&odnBg=ffffff",
+    "url": "https://www.bodegaaurrera.com.mx/ip/mayonesa-mccormick-con-limon-390-g/00750100334013"
+  },
+  {
+    "producto": {
+      "id": "bodega_2e5c7d09-6ac5-4150-ae4e-7b29820018a7",
+      "nombre": "Caldo de pollo Knorr en polvo 950 g"
+    },
+    "precio": 160.0,
+    "tienda": "Bodega Aurrerá",
+    "imagen": "https://i5.walmartimages.com.mx/mg/gm/3pp/asr/54e42c32-fcce-429c-a39a-3a348ff829fb.389081c0ca43e5a12520b186b6f056ac.jpeg?odnHeight=2000&odnWidth=2000&odnBg=ffffff",
+    "url": "https://www.bodegaaurrera.com.mx/ip/caldo-de-pollo-knorr-en-polvo-950-g/00750100511096"
   },
   {
     "producto": {
@@ -551,13 +541,13 @@
   },
   {
     "producto": {
-      "id": "bodega_0aa4528f-893f-3706-8e93-da95166a829d",
+      "id": "bodega_8e37eed5-42af-3583-8825-8bbbcfe5a696",
       "nombre": "Camiseta de sardina de pescador estético vintage para playa"
     },
-    "precio": 190.0,
+    "precio": 150.0,
     "tienda": "Bodega Aurrerá",
-    "imagen": "https://i5.walmartimages.com/asr/73691f2a-cf17-49ee-86f6-b9125d0bf9c6.0470dc8afdbfabd079749b566440a65e.jpeg",
-    "url": "https://www.bodegaaurrera.com.mx/ip/alimentos-envasados-y-conservas/camiseta-de-sardina-de-pescador-estetico-vintage-para-playa/00091282793332"
+    "imagen": "https://i5.walmartimages.com/asr/e14e380b-ff96-4e4c-95f3-4dd445312e4a.850849e5e95bfb7ea8bbd13ffa91f89f.jpeg",
+    "url": "https://www.bodegaaurrera.com.mx/ip/alimentos-envasados-y-conservas/camiseta-de-sardina-de-pescador-estetico-vintage-para-playa/00091282796492?athbdg=L1300"
   },
   {
     "producto": {
@@ -618,6 +608,56 @@
     "tienda": "Bodega Aurrerá",
     "imagen": "https://i5.walmartimages.com.mx/mg/gm/3pp/asr/7bbfdd04-7bda-4cbc-a32c-5051f3593fc0.768ccaafee159c54067ff170824044aa.jpeg?odnHeight=2000&odnWidth=2000&odnBg=ffffff",
     "url": "https://www.bodegaaurrera.com.mx/ip/jamon-de-pierna-zwan-premium-por-kilo/00020520500000"
+  },
+  {
+    "producto": {
+      "id": "bodega_2660df84-fa77-4e1a-9843-a8aea0e19581",
+      "nombre": "Promanuez Ate De Guayaba Con Chile 80 Gr"
+    },
+    "precio": 103.0,
+    "tienda": "Bodega Aurrerá",
+    "imagen": "https://i5.walmartimages.com/asr/e5ab04fd-7930-46b5-965d-a4d6eed75c43.22845bf1160102948ddbe5cefb42e059.jpeg",
+    "url": "https://www.bodegaaurrera.com.mx/ip/abarrotes/promanuez-ate-de-guayaba-con-chile-80-gr/00066089601287"
+  },
+  {
+    "producto": {
+      "id": "bodega_13a391d0-bb11-4adc-a614-33295c54bacd",
+      "nombre": "Chile chipotle molido Alpont Gourmet  60 g"
+    },
+    "precio": 94.0,
+    "tienda": "Bodega Aurrerá",
+    "imagen": "https://i5.walmartimages.com/asr/caef18d9-73f2-4bf5-80eb-260f1a155855.c3abc958493a3dba278d515dc2ee8ddd.jpeg",
+    "url": "https://www.bodegaaurrera.com.mx/ip/abarrotes/chile-chipotle-molido-alpont-gourmet-60-g/00750301754550"
+  },
+  {
+    "producto": {
+      "id": "bodega_8adfc516-688f-3a74-99cd-98df20864732",
+      "nombre": "Fake Chili Simulation Peppers Artificial Pepper Model for Decor 3Pcs"
+    },
+    "precio": 513.0,
+    "tienda": "Bodega Aurrerá",
+    "imagen": "https://i5.walmartimages.com/asr/d66c4ce4-ef3d-4f75-89f9-fb10d7b793a9.14f5647b4b6048f97b30d8802b2fde93.jpeg",
+    "url": "https://www.bodegaaurrera.com.mx/ip/decoracion-tapetes-y-cojines/fake-chili-simulation-peppers-artificial-pepper-model-for-decor-3pcs/00498359195958"
+  },
+  {
+    "producto": {
+      "id": "bodega_6e2be565-cc90-311e-ac7c-3322ed22c749",
+      "nombre": "Simulation Chili Model Artificial Resin Chili Peppers for Decor 20Pcs"
+    },
+    "precio": 489.0,
+    "tienda": "Bodega Aurrerá",
+    "imagen": "https://i5.walmartimages.com/asr/7ea72263-893a-42b9-95bb-b2f385e00485.89549fee721d7f001305a5c51f7b54c0.jpeg",
+    "url": "https://www.bodegaaurrera.com.mx/ip/decoracion-tapetes-y-cojines/simulation-chili-model-artificial-resin-chili-peppers-for-decor-20pcs/00004349222969"
+  },
+  {
+    "producto": {
+      "id": "bodega_9700b1a0-c335-4d7e-98e3-46ee46e07fc0",
+      "nombre": "FOLIO 27 X 34 KOENEMANN Chile"
+    },
+    "precio": 927.0,
+    "tienda": "Bodega Aurrerá",
+    "imagen": "https://i5.walmartimages.com/asr/ce479fdf-a4d4-497b-a966-5a1ce2cefaf0.8de65aa62798502ec044bd78d59229b2.jpeg",
+    "url": "https://www.bodegaaurrera.com.mx/ip/e-readers-y-accesorios/folio-27-x-34-koenemann-chile/00978374192019"
   },
   {
     "producto": {
@@ -1141,6 +1181,16 @@
   },
   {
     "producto": {
+      "id": "bodega_8127fbeb-f042-45d5-b018-2c6863a60449",
+      "nombre": "Detergente en polvo Roma multiusos biodegradable 1 kg"
+    },
+    "precio": 165.0,
+    "tienda": "Bodega Aurrerá",
+    "imagen": "https://i5.walmartimages.com/asr/3e69dcc5-ce09-405a-af28-c4e53af07245.1ffc6d146da28ee828030b8e7d344f6e.jpeg",
+    "url": "https://www.bodegaaurrera.com.mx/ip/proceso-de-lavado/detergente-en-polvo-roma-multiusos-biodegradable-1-kg/00750102600460"
+  },
+  {
+    "producto": {
       "id": "bodega_e2913e87-d707-4c86-9f64-df9d6362d91a",
       "nombre": "Jabón Zote en barra rosa 400 g"
     },
@@ -1148,16 +1198,6 @@
     "tienda": "Bodega Aurrerá",
     "imagen": "https://i5.walmartimages.com/asr/4b3a8901-74ec-4b1e-b496-fb0b17bfacc8.ef5ef82b0d1b20e6456d9484d89b8eed.jpeg",
     "url": "https://www.bodegaaurrera.com.mx/ip/proceso-de-lavado/jabon-zote-en-barra-rosa-400-g/00750102600567?athbdg=L6000"
-  },
-  {
-    "producto": {
-      "id": "bodega_20e20c62-bc43-4ff8-80e7-8c0f3dbc6af9",
-      "nombre": "Detergente en polvo Roma multiusos biodegradable 5 kg"
-    },
-    "precio": 741.0,
-    "tienda": "Bodega Aurrerá",
-    "imagen": "https://i5.walmartimages.com/asr/794a475c-2f52-41e4-9fde-a5b3f6923888.569026d789551d78d97ef974193ae32a.jpeg",
-    "url": "https://www.bodegaaurrera.com.mx/ip/proceso-de-lavado/detergente-en-polvo-roma-multiusos-biodegradable-5-kg/00750102600448?athbdg=L6000"
   },
   {
     "producto": {
@@ -1191,13 +1231,13 @@
   },
   {
     "producto": {
-      "id": "bodega_426212b9-af9e-4f4d-b9fe-5487cfedb0a4",
-      "nombre": "Destapacaños líquido Dráno max gel 946 ml"
+      "id": "bodega_770b87ea-4893-412d-8740-f53323a64e98",
+      "nombre": "Repelente de Insectos en Aerosol OFF! Family 170 gr"
     },
-    "precio": 126.0,
+    "precio": 113.0,
     "tienda": "Bodega Aurrerá",
-    "imagen": "https://i5.walmartimages.com.mx/mg/gm/3pp/asr/68327a91-4d7d-43ba-8045-186cdeda2fea.9113e04d8d26b73c5381ab083cb66323.jpeg?odnHeight=2000&odnWidth=2000&odnBg=ffffff",
-    "url": "https://www.bodegaaurrera.com.mx/ip/destapacanos-liquido-drano-max-gel-946-ml/00750103297007"
+    "imagen": "https://i5.walmartimages.com.mx/mg/gm/3pp/asr/0bdf3dd6-2aef-446b-8701-6b6708b02a20.39e1280234ef69fef42a60980aafd0fa.jpeg?odnHeight=2000&odnWidth=2000&odnBg=ffffff",
+    "url": "https://www.bodegaaurrera.com.mx/ip/repelente-de-insectos-en-aerosol-off-family-170-gr/00750103292720"
   },
   {
     "producto": {
@@ -1208,16 +1248,6 @@
     "tienda": "Bodega Aurrerá",
     "imagen": "https://i5.walmartimages.com.mx/mg/gm/3pp/asr/e6e7e3e7-2d3b-46b7-a2ee-4f2d600d5b12.c5c1ad491e11f8646646e4da7888e9ff.jpeg?odnHeight=2000&odnWidth=2000&odnBg=ffffff",
     "url": "https://www.bodegaaurrera.com.mx/ip/repelente-liquido-de-insectos-off-family-atomizador-de-177ml/00750103290185"
-  },
-  {
-    "producto": {
-      "id": "bodega_770b87ea-4893-412d-8740-f53323a64e98",
-      "nombre": "Repelente de Insectos en Aerosol OFF! Family 170 gr"
-    },
-    "precio": 113.0,
-    "tienda": "Bodega Aurrerá",
-    "imagen": "https://i5.walmartimages.com.mx/mg/gm/3pp/asr/0bdf3dd6-2aef-446b-8701-6b6708b02a20.39e1280234ef69fef42a60980aafd0fa.jpeg?odnHeight=2000&odnWidth=2000&odnBg=ffffff",
-    "url": "https://www.bodegaaurrera.com.mx/ip/repelente-de-insectos-en-aerosol-off-family-170-gr/00750103292720"
   },
   {
     "producto": {
@@ -1241,10 +1271,20 @@
   },
   {
     "producto": {
+      "id": "bodega_0d05a819-8666-41ba-8692-75e63adfd772",
+      "nombre": "Desinfectante antibacterial Lysol Crisp Linen en aerosol 354 g"
+    },
+    "precio": 130.0,
+    "tienda": "Bodega Aurrerá",
+    "imagen": "https://i5.walmartimages.com.mx/mg/gm/3pp/asr/518b784e-de8e-4cbd-a4de-4b8dbb9d1304.36f86c32c49f07932f9856b6251daae8.jpeg?odnHeight=2000&odnWidth=2000&odnBg=ffffff",
+    "url": "https://www.bodegaaurrera.com.mx/ip/desinfectante-antibacterial-lysol-crisp-linen-en-aerosol-354-g/00750105879688"
+  },
+  {
+    "producto": {
       "id": "bodega_a103c75d-54ca-408f-bc04-c6ab0d184c20",
       "nombre": "Hojas Secadoras Bounce Outdoor Fresh con Suavizante Para Ropa 160 pzas"
     },
-    "precio": 240.0,
+    "precio": 218.0,
     "tienda": "Bodega Aurrerá",
     "imagen": "https://i5.walmartimages.com/asr/898e31b1-34dd-4b55-b32a-defdb2497b65.f215be304caba9e162bd99f90967aec8.jpeg",
     "url": "https://www.bodegaaurrera.com.mx/ip/proceso-de-lavado/hojas-secadoras-bounce-outdoor-fresh-con-suavizante-para-ropa-160-pzas/00003700080168?athbdg=L1300"
@@ -1341,33 +1381,23 @@
   },
   {
     "producto": {
-      "id": "bodega_d978956a-8ad8-3c13-bbf7-db94452fe8cc",
-      "nombre": "BONAFONT NATURAL 500ML X24 MULTIPACK"
+      "id": "bodega_fc83cbe3-3bca-484f-8a39-2fb816841dc4",
+      "nombre": "Agua Epura purificada sin sodio 6 botellas de 1 l c/u"
     },
-    "precio": 95.0,
+    "precio": 41.0,
     "tienda": "Bodega Aurrerá",
-    "imagen": "https://i5.walmartimages.com.mx/mg/gm/3pp/asr/02f0bf94-0945-4166-a139-bbcdd9ccf901.59d5bdd59d4aca527ec58280daa7deb9.jpeg?odnHeight=2000&odnWidth=2000&odnBg=ffffff",
-    "url": "https://www.bodegaaurrera.com.mx/ip/bonafont-natural-500ml-x24-multipack/00075810400894"
+    "imagen": "https://i5.walmartimages.com.mx/mg/gm/3pp/asr/6d270111-ab85-42b2-b54e-8b58cb3e0fd4.26e609d214e8ce0f5eddd445638d6fa0.jpeg?odnHeight=2000&odnWidth=2000&odnBg=ffffff",
+    "url": "https://www.bodegaaurrera.com.mx/ip/agua-epura-purificada-sin-sodio-6-botellas-de-1-l-c-u/00750102200935"
   },
   {
     "producto": {
-      "id": "bodega_d4756fee-8806-41f2-a3df-2a5842fadd6e",
-      "nombre": "Agua Bonafont natural 1.5 l"
+      "id": "bodega_aba8196d-a7f6-4c76-929c-9e3269adb5de",
+      "nombre": "Agua Great Value 28 botellas de 500 ml c/u"
     },
-    "precio": 16.0,
+    "precio": 92.0,
     "tienda": "Bodega Aurrerá",
-    "imagen": "https://i5.walmartimages.com.mx/mg/gm/3pp/asr/6bdb774c-c045-4e61-b0ed-6f42b1a569fc.2ad7af3f8c3e39029bef047ed8973405.jpeg?odnHeight=2000&odnWidth=2000&odnBg=ffffff",
-    "url": "https://www.bodegaaurrera.com.mx/ip/agua-bonafont-natural-1-5-l/00075810400015"
-  },
-  {
-    "producto": {
-      "id": "bodega_885c95ce-b43f-4453-a780-fb0a60c1f019",
-      "nombre": "Agua Bonafont Natural 18 Botellas de 500 ml c/u"
-    },
-    "precio": 89.0,
-    "tienda": "Bodega Aurrerá",
-    "imagen": "https://i5.walmartimages.com.mx/mg/gm/3pp/asr/90d5341e-b0ed-4800-9240-a1fb0d4fc08d.c7a07e64ea5954e7ffe09c95490fc4a8.jpeg?odnHeight=2000&odnWidth=2000&odnBg=ffffff",
-    "url": "https://www.bodegaaurrera.com.mx/ip/agua-bonafont-natural-18-botellas-de-500-ml-c-u/00075810400776"
+    "imagen": "https://i5.walmartimages.com.mx/mg/gm/3pp/asr/560daf4c-4c9d-48c5-9b72-3feb1a636fcc.b362f2cc2d357de3c258e7b2a101aa48.jpeg?odnHeight=2000&odnWidth=2000&odnBg=ffffff",
+    "url": "https://www.bodegaaurrera.com.mx/ip/agua-great-value-28-botellas-de-500-ml-c-u/00750649500615"
   },
   {
     "producto": {
@@ -1381,13 +1411,23 @@
   },
   {
     "producto": {
-      "id": "bodega_fc83cbe3-3bca-484f-8a39-2fb816841dc4",
-      "nombre": "Agua Epura purificada sin sodio 6 botellas de 1 l c/u"
+      "id": "bodega_885c95ce-b43f-4453-a780-fb0a60c1f019",
+      "nombre": "Agua Bonafont Natural 18 Botellas de 500 ml c/u"
     },
-    "precio": 41.0,
+    "precio": 89.0,
     "tienda": "Bodega Aurrerá",
-    "imagen": "https://i5.walmartimages.com.mx/mg/gm/3pp/asr/6d270111-ab85-42b2-b54e-8b58cb3e0fd4.26e609d214e8ce0f5eddd445638d6fa0.jpeg?odnHeight=2000&odnWidth=2000&odnBg=ffffff",
-    "url": "https://www.bodegaaurrera.com.mx/ip/agua-epura-purificada-sin-sodio-6-botellas-de-1-l-c-u/00750102200935"
+    "imagen": "https://i5.walmartimages.com.mx/mg/gm/3pp/asr/90d5341e-b0ed-4800-9240-a1fb0d4fc08d.c7a07e64ea5954e7ffe09c95490fc4a8.jpeg?odnHeight=2000&odnWidth=2000&odnBg=ffffff",
+    "url": "https://www.bodegaaurrera.com.mx/ip/agua-bonafont-natural-18-botellas-de-500-ml-c-u/00075810400776"
+  },
+  {
+    "producto": {
+      "id": "bodega_e2965253-da8c-45ef-a33a-765bb5cb287c",
+      "nombre": "Agua Ciel 6 botellas de 1 l c/u"
+    },
+    "precio": 60.0,
+    "tienda": "Bodega Aurrerá",
+    "imagen": "https://i5.walmartimages.com.mx/mg/gm/3pp/asr/dc881d8c-1280-4c82-b490-eea5e1a72da2.01b8a9de0902063a2421a46f99c584e7.jpeg?odnHeight=2000&odnWidth=2000&odnBg=ffffff",
+    "url": "https://www.bodegaaurrera.com.mx/ip/agua-ciel-6-botellas-de-1-l-c-u/00750105532089"
   },
   {
     "producto": {
@@ -1591,13 +1631,73 @@
   },
   {
     "producto": {
-      "id": "bodega_ece452fb-4caf-3122-b9a9-376cb6a709a9",
-      "nombre": "Gel fijador sin fragancia 200 gr OH!GANICS"
+      "id": "bodega_65049d41-846a-4bb7-b654-598f3b292462",
+      "nombre": "Licor Hpnotiq   con Jugo de Frutas Tropicales 750 ml"
     },
-    "precio": 259.0,
+    "precio": 525.0,
     "tienda": "Bodega Aurrerá",
-    "imagen": "https://i5.walmartimages.com/asr/e4fea4dd-6670-4cf0-a8b0-4734f149e689.28eb52355c4976263cbd3676499e7d44.jpeg",
-    "url": "https://www.bodegaaurrera.com.mx/ip/cuidado-del-cabello/gel-fijador-sin-fragancia-200-gr-oh-ganics/00750230604080?athbdg=L6000"
+    "imagen": "https://i5.walmartimages.com/asr/0fc758c2-7fe4-4d7a-864e-d2353ac23cf2.74e27d1c98e4b27305e8cc291a7ee352.jpeg",
+    "url": "https://www.bodegaaurrera.com.mx/ip/licores-y-destilados/licor-hpnotiq-con-jugo-de-frutas-tropicales-750-ml/00073604001106?athbdg=L1300"
+  },
+  {
+    "producto": {
+      "id": "bodega_9f2cc47c-5111-42ca-994e-4d46f2b21f5d",
+      "nombre": "LICOR TORRES MAZAPAN 700ML"
+    },
+    "precio": 531.0,
+    "tienda": "Bodega Aurrerá",
+    "imagen": "https://i5.walmartimages.com/asr/d2df83a8-7ba7-4d27-b59e-6f1e4bab13af.5d6c21a1e6088d1dee8861af6e8dd48f.jpeg",
+    "url": "https://www.bodegaaurrera.com.mx/ip/licores-y-destilados/licor-torres-mazapan-700ml/00066453317033?athbdg=L1300"
+  },
+  {
+    "producto": {
+      "id": "bodega_3c29ab53-3d11-43ed-990e-b343d55c8099",
+      "nombre": "Pack de 12 Crema-Licor Sisi Hierbas 1 L Sisi Hierbas"
+    },
+    "precio": 4258.0,
+    "tienda": "Bodega Aurrerá",
+    "imagen": "https://i5.walmartimages.com/asr/ab1027fb-f44d-4067-bb60-73aea2e9ca63.7d4f5f021d1a384aa3a35815bd7b2e02.jpeg",
+    "url": "https://www.bodegaaurrera.com.mx/ip/cocteles/pack-de-12-crema-licor-sisi-hierbas-1-l-sisi-hierbas/00080822762518?athbdg=L1300"
+  },
+  {
+    "producto": {
+      "id": "bodega_af1c1fa4-18b2-474c-bd2c-3bf3023c8507",
+      "nombre": "Licor St Germain 750 ml St Germain 750 ml"
+    },
+    "precio": 669.0,
+    "tienda": "Bodega Aurrerá",
+    "imagen": "https://i5.walmartimages.com/asr/71b49826-8788-41da-976c-68dc1c446397.a3a7f0762ad41def99f811a96ada70ad.jpeg",
+    "url": "https://www.bodegaaurrera.com.mx/ip/licores-y-destilados/licor-st-germain-750-ml-st-germain-750-ml/09914882897802?athbdg=L1300"
+  },
+  {
+    "producto": {
+      "id": "bodega_a705014e-b66c-4ebe-9f9d-edfb611e5514",
+      "nombre": "Licor ST GERMAIN 750 ml"
+    },
+    "precio": 2944.0,
+    "tienda": "Bodega Aurrerá",
+    "imagen": "https://i5.walmartimages.com/asr/f88fa2f6-0158-4700-a20d-b0a95a8c4177.e609b6f709e0afe61e4f9510a8f6d16a.jpeg",
+    "url": "https://www.bodegaaurrera.com.mx/ip/licores-y-destilados/licor-st-germain-750-ml/00080822754123?athbdg=L1300"
+  },
+  {
+    "producto": {
+      "id": "bodega_54d15924-89e1-4e38-bf43-361566d8645e",
+      "nombre": "Gel para cabello Árbol Verde romero y sábila 250 g"
+    },
+    "precio": 89.0,
+    "tienda": "Bodega Aurrerá",
+    "imagen": "https://i5.walmartimages.com/asr/7675ee74-de66-46f9-b23f-29f262f6fbb9.5b5190a9b018bf078fed3f6f9a5e7e4c.jpeg",
+    "url": "https://www.bodegaaurrera.com.mx/ip/cuidado-del-cabello/gel-para-cabello-arbol-verde-romero-y-sabila-250-g/00750228130017"
+  },
+  {
+    "producto": {
+      "id": "bodega_1ea3f355-22c6-4c0c-a085-1d66435e7a70",
+      "nombre": "Gel para cabello L'Oréal invisi fix fijación ultra fuerte 180 g"
+    },
+    "precio": 299.0,
+    "tienda": "Bodega Aurrerá",
+    "imagen": "https://i5.walmartimages.com/asr/563be5d3-5685-462d-85ed-6292380c962b.eb529a716fe97ba428dda1e16b8ee82d.jpeg",
+    "url": "https://www.bodegaaurrera.com.mx/ip/cuidado-del-cabello/gel-para-cabello-l-oreal-invisi-fix-fijacion-ultra-fuerte-180-g/00750102723397"
   },
   {
     "producto": {
@@ -1611,16 +1711,6 @@
   },
   {
     "producto": {
-      "id": "bodega_6b20d113-b4ce-4e52-a9cd-22503e300048",
-      "nombre": "Gel para cabello Ricitos de Oro manzanilla 115 g"
-    },
-    "precio": 146.0,
-    "tienda": "Bodega Aurrerá",
-    "imagen": "https://i5.walmartimages.com/asr/7424d709-a444-4dbc-8c52-09146eb289b3.68f0059b753d10e6987deb038b8c5955.jpeg",
-    "url": "https://www.bodegaaurrera.com.mx/ip/cuidado-del-cabello/gel-para-cabello-ricitos-de-oro-manzanilla-115-g/00750102210275"
-  },
-  {
-    "producto": {
       "id": "bodega_33060d26-679e-4b8e-8560-ba5a3880ad31",
       "nombre": "Gel de peinado para hombres. Hidratante intenso. Fijación duradera. Ligero. Apto para todo tipo de cabello. 60 g. Un gel."
     },
@@ -1631,13 +1721,13 @@
   },
   {
     "producto": {
-      "id": "bodega_b5064945-ae2f-4f9e-820f-321dce4d1ca0",
-      "nombre": "Gel para el cabello Moco de Gorila Punk Indestructible 280 ml"
+      "id": "bodega_f8e87ef7-d3b4-49a0-b6b6-35001c0f278d",
+      "nombre": "Gel para el cabello Garnier Fructis Style Curl Scrunch Controlling, 200 ml"
     },
-    "precio": 319.0,
+    "precio": 889.0,
     "tienda": "Bodega Aurrerá",
-    "imagen": "https://i5.walmartimages.com/asr/db7010a5-7feb-4ec4-bb21-f6767ba0072b.ed97a8afa9712ae8d1f106c9748ddc41.jpeg",
-    "url": "https://www.bodegaaurrera.com.mx/ip/cuidado-del-cabello/gel-para-el-cabello-moco-de-gorila-punk-indestructible-280-ml/00087897100004"
+    "imagen": "https://i5.walmartimages.com/asr/111a4e2e-31d2-43a1-be1e-5e59c03188d9.d48808b3a83ec3bd58ba13cf2447ab80.jpeg",
+    "url": "https://www.bodegaaurrera.com.mx/ip/cuidado-del-cabello/gel-para-el-cabello-garnier-fructis-style-curl-scrunch-controlling-200-ml/00060308455514?athbdg=L1300"
   },
   {
     "producto": {

@@ -4,25 +4,7 @@ import time
 import db_manager
 from bs4 import BeautifulSoup
 import sys
-
-BUSQUEDAS = [
-    # Abarrotes
-    "arroz", "frijol", "aceite", "azucar", "cereal", "galletas",
-    "atun", "pasta", "cafe", "pan", "mayonesa", "salsa", "sal",
-    "tortillas", "sardina", "chorizo", "chile", "vinagre", "ketchup",
-    # Lácteos
-    "leche", "huevo", "queso", "crema", "yogurt", "mantequilla",
-    # Salchichonería
-    "jamon", "salchicha",
-    # Higiene personal
-    "shampoo", "jabon", "pasta dental", "desodorante", "pañales",
-    # Limpieza hogar
-    "papel higienico", "detergente", "cloro", "suavizante",
-    # Bebidas
-    "refresco", "agua", "cerveza", "vino", "tequila", "whisky", "licor",
-    # Cuidado cabello
-    "gel", "acondicionador", "tinte cabello"
-]
+from db_manager import BUSQUEDAS
 
 def run():
     print("Iniciando scraper de Sam's Club México con undetected-chromedriver...")
@@ -33,6 +15,9 @@ def run():
         driver = None
         try:
             options = uc.ChromeOptions()
+            options.add_argument('--disable-blink-features=AutomationControlled')
+            options.add_argument('--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36')
+            
             # Ocultar la ventana en lo posible
             driver = uc.Chrome(options=options)
             driver.set_window_size(1024, 768)

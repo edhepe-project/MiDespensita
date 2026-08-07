@@ -3,25 +3,7 @@ import json
 import time
 from bs4 import BeautifulSoup
 import db_manager
-
-BUSQUEDAS = [
-    # Abarrotes
-    "arroz", "frijol", "aceite", "azucar", "cereal", "galletas",
-    "atun", "pasta", "cafe", "pan", "mayonesa", "salsa", "sal",
-    "tortillas", "sardina", "chorizo", "chile", "vinagre", "ketchup",
-    # Lácteos
-    "leche", "huevo", "queso", "crema", "yogurt", "mantequilla",
-    # Salchichonería
-    "jamon", "salchicha",
-    # Higiene personal
-    "shampoo", "jabon", "pasta dental", "desodorante", "pañales",
-    # Limpieza hogar
-    "papel higienico", "detergente", "cloro", "suavizante",
-    # Bebidas
-    "refresco", "agua", "cerveza", "vino", "tequila", "whisky", "licor",
-    # Cuidado cabello
-    "gel", "acondicionador", "tinte cabello"
-]
+from db_manager import BUSQUEDAS
 
 def run():
     print("Iniciando scraper de Bodega Aurrerá con undetected-chromedriver...")

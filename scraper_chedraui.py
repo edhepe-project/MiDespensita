@@ -1,145 +1,137 @@
-from playwright.sync_api import sync_playwright
+import undetected_chromedriver as uc
 import json
-import db_manager
 import time
+import db_manager
+from bs4 import BeautifulSoup
+import sys
+from db_manager import BUSQUEDAS
 
 def run():
-    print("Iniciando scraper de Chedraui con Playwright...")
-    with sync_playwright() as p:
-        # Lanzar navegador
-        browser = p.chromium.launch(headless=True)
-        page = browser.new_page(
-            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
-        )
+    print("Iniciando scraper de Chedraui con undetected-chromedriver...")
+    ofertas = []
 
-        ofertas = []
+    for termino in BUSQUEDAS:
+        print(f"Buscando en Chedraui: {termino}...")
+        driver = None
+        try:
+            options = uc.ChromeOptions()
+            options.add_argument('--disable-blink-features=AutomationControlled')
+            options.add_argument('--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36')
+            driver = uc.Chrome(options=options)
+            driver.set_window_size(1280, 800)
 
-        # Interceptar respuestas de red para buscar los datos en JSON puro (GraphQL)
-        def handle_response(response):
-            if "/graphql" in response.url and response.status == 200:
+            url = f"https://www.chedraui.com.mx/busca?q={termino}"
+            driver.get(url)
+
+            # Simular comportamiento humano
+            time.sleep(4)
+            driver.execute_script("window.scrollBy(0, 600);")
+            time.sleep(2)
+            driver.execute_script("window.scrollBy(0, 600);")
+            time.sleep(2)
+
+            html = driver.page_source
+            soup = BeautifulSoup(html, 'html.parser')
+
+            # Intentar parsear JSON interno de VTEX (__STATE__)
+            state_script = soup.find('script', string=lambda s: s and '__STATE__' in s and 'Price' in s)
+            if state_script:
                 try:
-                    data = response.json()
-                    # Buscar la estructura de productos de VTEX en las respuestas GraphQL
-                    if "data" in data and "productSearch" in data["data"]:
-                        products = data["data"]["productSearch"].get("products", [])
-                        for prod in products:
-                            # Extraer datos relevantes
-                            nombre = prod.get("productName", "")
-                            items = prod.get("items", [])
-                            if not items: continue
-                            
-                            item = items[0]
-                            # Imagen
-                            imagen = ""
-                            images = item.get("images", [])
-                            if images:
-                                imagen = images[0].get("imageUrl", "")
-                            
-                            # Precio
+                    raw = state_script.string
+                    json_str = raw[raw.index('{'):raw.rindex('}') + 1]
+                    state = json.loads(json_str)
+                    for key, val in state.items():
+                        if isinstance(val, dict) and 'productName' in val:
+                            nombre = val.get('productName', '')
                             precio = 0.0
-                            sellers = item.get("sellers", [])
-                            if sellers:
-                                comm_app = sellers[0].get("commertialOffer")
-                                if comm_app:
-                                    precio = comm_app.get("Price", 0.0)
-                            
+                            # Buscar precio en claves adyacentes
+                            for k, v in state.items():
+                                if 'Price' in k and isinstance(v, dict) and v.get('sellingPrice'):
+                                    try:
+                                        precio = float(v['sellingPrice']) / 100
+                                    except:
+                                        pass
+                                    break
+                            imagen = ''
+                            for k, v in state.items():
+                                if 'Image' in k and isinstance(v, dict) and v.get('imageUrl'):
+                                    imagen = v['imageUrl']
+                                    break
                             if nombre and precio > 0:
                                 ofertas.append({
-                                    "producto": {"id": prod.get("productId", str(len(ofertas))), "nombre": nombre},
+                                    "producto": {"id": f"chedraui_{len(ofertas)}", "nombre": nombre},
                                     "precio": precio,
                                     "tienda": "Chedraui",
                                     "imagen": imagen,
-                                    "url": f"https://www.chedraui.com.mx{prod.get('linkText', '')}/p"
+                                    "url": url
                                 })
                 except Exception as e:
-                    pass
+                    print(f"  Error parseando __STATE__: {e}")
 
-        page.on("response", handle_response)
+            # Plan B: Raspar HTML visual si no hubo datos del JSON
+            if not any(o['tienda'] == 'Chedraui' for o in ofertas[-5:]):
+                cards = soup.select('.vtex-product-summary-2-x-container, [class*="productSummary"]')
+                for card in cards[:5]:
+                    try:
+                        nombre_el = card.select_one('[class*="productBrand"], [class*="nameContainer"], h2, h3')
+                        precio_el = card.select_one('[class*="sellingPrice"], [class*="Price"]')
+                        img_el = card.select_one('img')
+                        link_el = card.select_one('a')
 
-        BUSQUEDAS = [
-            # Abarrotes
-            "arroz", "frijol", "aceite", "azucar", "cereal", "galletas",
-            "atun", "pasta", "cafe", "pan", "mayonesa", "salsa", "sal",
-            "tortillas", "sardina", "chorizo", "chile", "vinagre", "ketchup",
-            # Lácteos
-            "leche", "huevo", "queso", "crema", "yogurt", "mantequilla",
-            # Salchichonería
-            "jamon", "salchicha",
-            # Higiene personal
-            "shampoo", "jabon", "pasta dental", "desodorante", "pañales",
-            # Limpieza hogar
-            "papel higienico", "detergente", "cloro", "suavizante",
-            # Bebidas
-            "refresco", "agua", "cerveza", "vino", "tequila", "whisky", "licor",
-            # Cuidado cabello
-            "gel", "acondicionador", "tinte cabello"
-        ]
-        
-        for termino in BUSQUEDAS:
-            print(f"Buscando en Chedraui: {termino}...")
-            url = f"https://www.chedraui.com.mx/busca?q={termino}" if termino != "abarrotes" else "https://www.chedraui.com.mx/supermercado/despensa"
-            
-            try:
-                page.goto(url, wait_until="domcontentloaded", timeout=45000)
-                time.sleep(5)
-            except Exception as e:
-                print(f"Aviso de timeout de página, intentando continuar: {e}")
-        
-            # Hacer scroll para cargar más productos
-            for _ in range(3):
+                        nombre = nombre_el.get_text(strip=True) if nombre_el else ''
+                        precio_txt = precio_el.get_text(strip=True) if precio_el else '0'
+                        imagen = img_el.get('src', '') if img_el else ''
+                        url_prod = 'https://www.chedraui.com.mx' + link_el.get('href', '') if link_el else url
+
+                        # Limpiar precio: quitar $ , y espacios
+                        precio = float(
+                            precio_txt.replace('$', '').replace(',', '').strip().split()[0]
+                        ) if precio_txt else 0.0
+
+                        if nombre and precio > 0:
+                            ofertas.append({
+                                "producto": {"id": f"chedraui_{len(ofertas)}", "nombre": nombre},
+                                "precio": precio,
+                                "tienda": "Chedraui",
+                                "imagen": imagen,
+                                "url": url_prod
+                            })
+                    except Exception as e:
+                        pass
+
+        except Exception as e:
+            print(f"  Error buscando {termino}: {e}")
+        finally:
+            if driver:
                 try:
-                    page.evaluate("window.scrollBy(0, 1000);")
+                    driver.quit()
                 except:
                     pass
-                time.sleep(2)
 
-            # Si el interceptor de red no capturó nada (por caché o diferente estructura),
-            # intentamos raspar el DOM visualmente como plan B
-            if len(ofertas) == 0:
-                print("No se interceptó GraphQL, extrayendo del HTML visible...")
-                cards = page.query_selector_all('.vtex-product-summary-2-x-container')
-                for i, card in enumerate(cards):
-                    nombre_el = card.query_selector('.vtex-product-summary-2-x-brandName')
-                    precio_el = card.query_selector('.vtex-product-price-1-x-sellingPriceValue')
-                    img_el = card.query_selector('.vtex-product-summary-2-x-imageNormal')
-                    link_el = card.query_selector('.vtex-product-summary-2-x-clearLink')
+        time.sleep(2)
 
-                    if nombre_el and precio_el:
-                        nombre = nombre_el.inner_text().strip()
-                        precio_str = precio_el.inner_text().strip().replace('$', '').replace(',', '')
-                        try:
-                            precio = float(precio_str)
-                        except:
-                            continue
-                        
-                        imagen = img_el.get_attribute('src') if img_el else ''
-                        url = "https://www.chedraui.com.mx" + (link_el.get_attribute('href') if link_el else '')
+    if ofertas:
+        vistos = set()
+        ofertas_unicas = []
+        for o in ofertas:
+            n = o["producto"]["nombre"].lower().strip()
+            if n not in vistos:
+                vistos.add(n)
+                ofertas_unicas.append(o)
 
-                        ofertas.append({
-                            "producto": {"id": f"chedraui_{i}", "nombre": nombre},
-                            "precio": precio,
-                            "tienda": "Chedraui",
-                            "imagen": imagen,
-                            "url": url
-                        })
-
-        browser.close()
-
-        # Guardar resultados
-        if ofertas:
-            # Eliminar duplicados por nombre
-            vistos = set()
-            ofertas_unicas = []
-            for o in ofertas:
-                if o['producto']['nombre'] not in vistos:
-                    vistos.add(o['producto']['nombre'])
-                    ofertas_unicas.append(o)
-            
-            with open("ofertas_chedraui.json", "w", encoding="utf-8") as f:
-                json.dump(ofertas_unicas, f, ensure_ascii=False, indent=2)
-            print(f"¡Éxito! Se guardaron {len(ofertas_unicas)} ofertas en ofertas_chedraui.json")
-        else:
-            print("No se encontraron ofertas. Es posible que Chedraui requiera resolver un Captcha.")
+        with open("ofertas_chedraui.json", "w", encoding="utf-8") as f:
+            json.dump(ofertas_unicas, f, ensure_ascii=False, indent=2)
+        print(f"¡Éxito! {len(ofertas_unicas)} ofertas guardadas en ofertas_chedraui.json")
+        db_manager.registrar_ofertas("Chedraui", ofertas_unicas)
+    else:
+        print("No se encontraron ofertas en Chedraui.")
+        with open("ofertas_chedraui.json", "w", encoding="utf-8") as f:
+            json.dump([], f)
 
 if __name__ == "__main__":
+    try:
+        import bs4
+    except ImportError:
+        import subprocess
+        subprocess.run([sys.executable, "-m", "pip", "install", "beautifulsoup4"], check=True)
     run()
