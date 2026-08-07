@@ -17,7 +17,7 @@ APP_Pages.tiendas = async function() {
 
   try {
     // Cargar todos los JSONs en paralelo (ahora incluye oferta_score)
-    const jsons = ['ofertas_chedraui.json', 'ofertas_walmart.json', 'ofertas_bodega.json', 'ofertas_soriana.json', 'ofertas_lacomer.json', 'ofertas_sams.json', 'ofertas_farmagdl.json'];
+    const jsons = ['ofertas_chedraui.json', 'ofertas_walmart.json', 'ofertas_bodega.json', 'ofertas_soriana.json', 'ofertas_lacomer.json', 'ofertas_sams.json', 'ofertas_farmagdl.json', 'ofertas_fahorro.json'];
     
     const results = await Promise.allSettled(
       jsons.map(file => fetch(file).then(r => r.ok ? r.json() : []))
@@ -105,6 +105,7 @@ APP_Pages.tiendas = async function() {
           <option value="Walmart">Walmart</option>
           <option value="Sams">Sam's Club</option>
           <option value="Farmacia Guadalajara">Farmacia Guadalajara</option>
+          <option value="Farmacias del Ahorro">Farmacias del Ahorro</option>
           <option value="Bodega Aurrerá">Bodega Aurrerá</option>
           <option value="Chedraui">Chedraui</option>
           <option value="Soriana">Soriana</option>

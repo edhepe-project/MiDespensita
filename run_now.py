@@ -10,7 +10,8 @@ def run_all():
         "scraper_soriana.py",
         "scraper_lacomer.py",
         "scraper_sams.py",
-        "scraper_farmagdl.py"
+        "scraper_farmagdl.py",
+        "scraper_fahorro.py"
     ]
     for s in scripts:
         print(f"Ejecutando {s}...")

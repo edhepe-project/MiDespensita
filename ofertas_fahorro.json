@@ -1,0 +1,162 @@
+[
+  {
+    "producto": {
+      "id": "fahorro_0",
+      "nombre": "Paracetamol 500 mg Oral 20 tabletas Marca del Ahorro"
+    },
+    "precio": 31.0,
+    "tienda": "Farmacias del Ahorro",
+    "imagen": "https://production-media.fahorro.com/media/catalog/product/7/5/7502223709225_1.png?optimize=medium&bg-color=255%2C255%2C255&fit=bounds&height=140&width=140&canvas=140%3A140",
+    "url": "https://www.fahorro.com/paracetamol-500-mg-oral-20-tabletas-marca-del-ahorro.html"
+  },
+  {
+    "producto": {
+      "id": "fahorro_1",
+      "nombre": "Paracetamol 100 mg Oral 30 ml Gotas Marca del Ahorro"
+    },
+    "precio": 44.5,
+    "tienda": "Farmacias del Ahorro",
+    "imagen": "https://production-media.fahorro.com/media/catalog/product/7/5/7503006569906_3.jpg?optimize=medium&bg-color=255%2C255%2C255&fit=bounds&height=140&width=140&canvas=140%3A140",
+    "url": "https://www.fahorro.com/paracetamol-100-mg-oral-30-ml-gotas-marca-del-ahorro.html"
+  },
+  {
+    "producto": {
+      "id": "fahorro_2",
+      "nombre": "Tempra Boost Adultos Paracetamol 500 mg / 65 mg caja 12 tabletas"
+    },
+    "precio": 106.0,
+    "tienda": "Farmacias del Ahorro",
+    "imagen": "https://production-media.fahorro.com/media/catalog/product/7/5/7501058715326_6.jpg?optimize=medium&bg-color=255%2C255%2C255&fit=bounds&height=140&width=140&canvas=140%3A140",
+    "url": "https://www.fahorro.com/tempra-boost-adultos-paracetamol-500-mg-65-mg-caja-12-tabletas.html"
+  },
+  {
+    "producto": {
+      "id": "fahorro_3",
+      "nombre": "Paracetamol 500 mg 3 Pack 60 tabletas Marca del Ahorro"
+    },
+    "precio": 82.0,
+    "tienda": "Farmacias del Ahorro",
+    "imagen": "https://production-media.fahorro.com/media/catalog/product/7/5/7506472803833_1_1.jpg?optimize=medium&bg-color=255%2C255%2C255&fit=bounds&height=140&width=140&canvas=140%3A140",
+    "url": "https://www.fahorro.com/paracetamol-500-mg-3-pack-60-tabletas-marca-del-ahorro.html"
+  },
+  {
+    "producto": {
+      "id": "fahorro_4",
+      "nombre": "Tempra Forte Adultos Paracetamol 650 mg caja 24 tabletas"
+    },
+    "precio": 146.0,
+    "tienda": "Farmacias del Ahorro",
+    "imagen": "https://production-media.fahorro.com/media/catalog/product/7/5/7501095452505_4.jpg?optimize=medium&bg-color=255%2C255%2C255&fit=bounds&height=140&width=140&canvas=140%3A140",
+    "url": "https://www.fahorro.com/tempra-forte-adultos-paracetamol-650-mg-caja-24-tabletas.html"
+  },
+  {
+    "producto": {
+      "id": "fahorro_5",
+      "nombre": "Paracetamol 500 mg Oral 10 tabletas Marca del Ahorro"
+    },
+    "precio": 23.0,
+    "tienda": "Farmacias del Ahorro",
+    "imagen": "https://production-media.fahorro.com/media/catalog/product/7/5/7502223704084.jpg?optimize=medium&bg-color=255%2C255%2C255&fit=bounds&height=140&width=140&canvas=140%3A140",
+    "url": "https://www.fahorro.com/paracetamol-500mg-oral-10-tabletas-marca-del-ahorro.html"
+  },
+  {
+    "producto": {
+      "id": "fahorro_6",
+      "nombre": "Amantadina/Clorfenamina/Paracetamol 24 cápsulas Marca del Ahorro"
+    },
+    "precio": 72.0,
+    "tienda": "Farmacias del Ahorro",
+    "imagen": "https://production-media.fahorro.com/media/catalog/product/7/5/7502223708167.png?optimize=medium&bg-color=255%2C255%2C255&fit=bounds&height=140&width=140&canvas=140%3A140",
+    "url": "https://www.fahorro.com/amantadina-clorfenamina-paracetamol-24-capsulas-marca-del-ahorro.html"
+  },
+  {
+    "producto": {
+      "id": "fahorro_7",
+      "nombre": "Tempra 500 mg Adultos Paracetamol caja 20 tabletas"
+    },
+    "precio": 117.0,
+    "tienda": "Farmacias del Ahorro",
+    "imagen": "https://production-media.fahorro.com/media/catalog/product/7/5/7501095452147_1_2.jpg?optimize=medium&bg-color=255%2C255%2C255&fit=bounds&height=140&width=140&canvas=140%3A140",
+    "url": "https://www.fahorro.com/tempra-500-mg-adultos-paracetamol-caja-20-tabletas.html"
+  },
+  {
+    "producto": {
+      "id": "fahorro_8",
+      "nombre": "Shampoo Palmol Opt 2 en 1 60 ml Bote"
+    },
+    "precio": 22.0,
+    "tienda": "Farmacias del Ahorro",
+    "imagen": "https://production-media.fahorro.com/media/catalog/product/7/5/7509546060712_1_1.jpg?optimize=medium&bg-color=255%2C255%2C255&fit=bounds&height=140&width=140&canvas=140%3A140",
+    "url": "https://www.fahorro.com/shampoo-palmol-opt-2-en-1-60-ml-bote.html"
+  },
+  {
+    "producto": {
+      "id": "fahorro_9",
+      "nombre": "Shampoo Acondiconador Palmolive Optims 4 Extra Intensivo 400 ml"
+    },
+    "precio": 78.0,
+    "tienda": "Farmacias del Ahorro",
+    "imagen": "https://production-media.fahorro.com/media/catalog/product/7/5/7501035919129_4.jpg?optimize=medium&bg-color=255%2C255%2C255&fit=bounds&height=140&width=140&canvas=140%3A140",
+    "url": "https://www.fahorro.com/shampoo-acondiconador-palmolive-optims-4-extra-intensivo-400-ml.html"
+  },
+  {
+    "producto": {
+      "id": "fahorro_10",
+      "nombre": "Shampoo Sedal Hidratación Anti Nudos Frambuesa y Óleos 620 ml"
+    },
+    "precio": 97.0,
+    "tienda": "Farmacias del Ahorro",
+    "imagen": "https://production-media.fahorro.com/media/catalog/product/7/5/7506306246829_1.jpg?optimize=medium&bg-color=255%2C255%2C255&fit=bounds&height=140&width=140&canvas=140%3A140",
+    "url": "https://www.fahorro.com/shampoo-sedal-hidratacion-anti-nudos-frambuesa-y-oleos-620-ml.html"
+  },
+  {
+    "producto": {
+      "id": "fahorro_11",
+      "nombre": "Permetrina 5% Shampoo Antipiojos 100 ml Marca del Ahorro"
+    },
+    "precio": 114.0,
+    "tienda": "Farmacias del Ahorro",
+    "imagen": "https://production-media.fahorro.com/media/catalog/product/7/5/7501089830173.jpg?optimize=medium&bg-color=255%2C255%2C255&fit=bounds&height=140&width=140&canvas=140%3A140",
+    "url": "https://www.fahorro.com/permetrina-5-shampoo-antipiojos-100-ml-marca-del-ahorro.html"
+  },
+  {
+    "producto": {
+      "id": "fahorro_12",
+      "nombre": "Shampoo Head & Shoulders Limpieza Renovadora 90 ml"
+    },
+    "precio": 33.0,
+    "tienda": "Farmacias del Ahorro",
+    "imagen": "https://production-media.fahorro.com/media/catalog/product/7/5/7506195148686_1.jpg?optimize=medium&bg-color=255%2C255%2C255&fit=bounds&height=140&width=140&canvas=140%3A140",
+    "url": "https://www.fahorro.com/head-shoulders-shampoo-control-caspa-limpieza-renovadora-90-ml.html"
+  },
+  {
+    "producto": {
+      "id": "fahorro_13",
+      "nombre": "Tratamiento Acondicionador Sedal Hidratación Anti Nudos Frambuesa y Óleos 620 ml"
+    },
+    "precio": 94.0,
+    "tienda": "Farmacias del Ahorro",
+    "imagen": "https://production-media.fahorro.com/media/catalog/product/7/5/7506306246874_1.jpg?optimize=medium&bg-color=255%2C255%2C255&fit=bounds&height=140&width=140&canvas=140%3A140",
+    "url": "https://www.fahorro.com/tratamiento-acondicionador-sedal-hidratacion-anti-nudos-frambuesa-y-oleos-620-ml.html"
+  },
+  {
+    "producto": {
+      "id": "fahorro_14",
+      "nombre": "Shampoo Equilibrante Pantene Pro-V Miracles Equilibrio Raíz y Puntas 300 ml"
+    },
+    "precio": 104.0,
+    "tienda": "Farmacias del Ahorro",
+    "imagen": "https://production-media.fahorro.com/media/catalog/product/7/5/7500435209649.jpg?optimize=medium&bg-color=255%2C255%2C255&fit=bounds&height=140&width=140&canvas=140%3A140",
+    "url": "https://www.fahorro.com/shampoo-equilibrante-pantene-pro-v-miracles-equilibrio-raiz-y-puntas-300-ml.html"
+  },
+  {
+    "producto": {
+      "id": "fahorro_15",
+      "nombre": "Shampoo Contra Piojos y Liendres 120 ml Marca del Ahorro"
+    },
+    "precio": 100.0,
+    "tienda": "Farmacias del Ahorro",
+    "imagen": "https://production-media.fahorro.com/media/catalog/product/7/5/7502223708181.png?optimize=medium&bg-color=255%2C255%2C255&fit=bounds&height=140&width=140&canvas=140%3A140",
+    "url": "https://www.fahorro.com/shampoo-contra-piojos-y-liendres-120-ml-marca-del-ahorro.html"
+  }
+]
