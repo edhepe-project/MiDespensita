@@ -1,202 +1,152 @@
 [
   {
     "producto": {
-      "id": "3250655",
-      "nombre": "Arroz Super Extra Chedraui 900g"
+      "id": "chedraui_0",
+      "nombre": "Super Bollos Wonder 540gSuper Bollos Wonder 540g"
     },
-    "precio": 14,
+    "precio": 67.0,
     "tienda": "Chedraui",
-    "imagen": "https://chedrauimx.vtexassets.com/arquivos/ids/74905085/7501253655175_00.jpg?v=639215713565400000",
-    "url": "https://www.chedraui.com.mxarroz-super-extra-chedraui-900g-3250655/p"
+    "imagen": "https://chedrauimx.vtexassets.com/arquivos/ids/74520013-300-300?v=639210549453530000&width=300&height=300&aspect=true",
+    "url": "https://www.chedraui.com.mx/super-bollos-wonder-540g-3017969/p"
   },
   {
     "producto": {
-      "id": "3817240",
-      "nombre": "Pan Bimbo Blanco 620g"
+      "id": "chedraui_1",
+      "nombre": "Super Crujientes Corte Recto McCain 500gSuper Crujientes Corte Recto McCain 500g"
     },
-    "precio": 54,
+    "precio": 72.0,
     "tienda": "Chedraui",
-    "imagen": "https://chedrauimx.vtexassets.com/arquivos/ids/74908072/7500810029183_00.jpg?v=639215721950100000",
-    "url": "https://www.chedraui.com.mxpan-bimbo-blanco-620g-3817240/p"
+    "imagen": "https://chedrauimx.vtexassets.com/arquivos/ids/74602171-300-300?v=639211245365700000&width=300&height=300&aspect=true",
+    "url": "https://www.chedraui.com.mx/super-crujientes-corte-recto-mccain-500g-3800275/p"
   },
   {
     "producto": {
-      "id": "3667731",
-      "nombre": "Azúcar Zulka Morena 2kg"
+      "id": "chedraui_2",
+      "nombre": "Vileda Súper Cubo Exprime FácilVileda Súper Cubo Exprime Fácil"
     },
-    "precio": 44,
+    "precio": 150.0,
     "tienda": "Chedraui",
-    "imagen": "https://chedrauimx.vtexassets.com/arquivos/ids/74887065/661440000052_00.jpg?v=639215422297830000",
-    "url": "https://www.chedraui.com.mxazucar-zulka-morena-2kg-3667731/p"
+    "imagen": "https://chedrauimx.vtexassets.com/arquivos/ids/74515312-300-300?v=639210538422100000&width=300&height=300&aspect=true",
+    "url": "https://www.chedraui.com.mx/vileda-super-cubo-exprime-facil-3050923/p"
   },
   {
     "producto": {
-      "id": "3717376",
-      "nombre": "Aceite Chedraui Mixto 800ml"
+      "id": "chedraui_3",
+      "nombre": "Súper Semillas de Chía Okko 150gSúper Semillas de Chía Okko 150g"
     },
-    "precio": 27,
+    "precio": 35.0,
     "tienda": "Chedraui",
-    "imagen": "https://chedrauimx.vtexassets.com/arquivos/ids/74907279/7501253677436_00.jpg?v=639215719434270000",
-    "url": "https://www.chedraui.com.mxaceite-chedraui-mixto-800ml-3717376/p"
+    "imagen": "https://chedrauimx.vtexassets.com/arquivos/ids/71295228-300-300?v=639168233621800000&width=300&height=300&aspect=true",
+    "url": "https://www.chedraui.com.mx/super-semillas-de-chia-okko-150g-3892031/p"
   },
   {
     "producto": {
-      "id": "3132396",
-      "nombre": "Aceite Vegetal Nutrioli Puro de Soya 850ml"
+      "id": "chedraui_4",
+      "nombre": "Super Tarro Glassia Vicrila 1LSuper Tarro Glassia Vicrila 1L"
     },
-    "precio": 42,
+    "precio": 99.0,
     "tienda": "Chedraui",
-    "imagen": "https://chedrauimx.vtexassets.com/arquivos/ids/57727648/7501039120149_00.jpg?v=638978995314100000",
-    "url": "https://www.chedraui.com.mxaceite-vegetal-nutrioli-puro-de-soya-850ml-3132396/p"
+    "imagen": "https://chedrauimx.vtexassets.com/arquivos/ids/74598393-300-300?v=639211236730270000&width=300&height=300&aspect=true",
+    "url": "https://www.chedraui.com.mx/super-tarro-glassia-vicrila-1l-3756824/p"
   },
   {
     "producto": {
-      "id": "3018151",
-      "nombre": "Tortillas de Harina Tía Rosa Paquete de 561g con 22 piezas"
+      "id": "chedraui_5",
+      "nombre": "Super Sello 700 CubasaSuper Sello 700 Cubasa"
     },
-    "precio": 33,
+    "precio": 89.0,
     "tienda": "Chedraui",
-    "imagen": "https://chedrauimx.vtexassets.com/arquivos/ids/74904665/7501030486664_00.jpg?v=639215712355170000",
-    "url": "https://www.chedraui.com.mxtortillas-de-harina-tia-rosa-paquete-de-561g-con-22-piezas-3018151/p"
+    "imagen": "https://chedrauimx.vtexassets.com/arquivos/ids/74448928-300-300?v=639209667312400000&width=300&height=300&aspect=true",
+    "url": "https://www.chedraui.com.mx/super-sello-700-cubasa-3722112/p"
   },
   {
     "producto": {
-      "id": "3008380",
-      "nombre": "Arroz Verde Valle Super Extra 900g"
+      "id": "chedraui_6",
+      "nombre": "Super Mario Mini R/Control Mario KartSuper Mario Mini R/Control Mario Kart"
     },
-    "precio": 36,
+    "precio": 1099.0,
     "tienda": "Chedraui",
-    "imagen": "https://chedrauimx.vtexassets.com/arquivos/ids/74905083/7501071301698_00.jpg?v=639215713558970000",
-    "url": "https://www.chedraui.com.mxarroz-verde-valle-super-extra-900g-3008380/p"
+    "imagen": "https://chedrauimx.vtexassets.com/arquivos/ids/73612877-300-300?v=639196759224130000&width=300&height=300&aspect=true",
+    "url": "https://www.chedraui.com.mx/super-mario-mini-rcontrol-mario-kart-3725546/p"
   },
   {
     "producto": {
-      "id": "3019960",
-      "nombre": "Medias Noches Bimbo 340g"
+      "id": "chedraui_7",
+      "nombre": "Super Clous Slime con Aromas Play DohSuper Clous Slime con Aromas Play Doh"
     },
-    "precio": 41,
+    "precio": 129.0,
     "tienda": "Chedraui",
-    "imagen": "https://chedrauimx.vtexassets.com/arquivos/ids/74904617/7501000111503_00.jpg?v=639215712227700000",
-    "url": "https://www.chedraui.com.mxmedias-noches-bimbo-340g-3019960/p"
+    "imagen": "https://chedrauimx.vtexassets.com/arquivos/ids/71299331-300-300?v=639168255047530000&width=300&height=300&aspect=true",
+    "url": "https://www.chedraui.com.mx/super-clous-slime-con-aromas-play-doh-3737960/p"
   },
   {
     "producto": {
-      "id": "3250691",
-      "nombre": "Frijol Negro Chedraui 900g"
+      "id": "chedraui_8",
+      "nombre": "Super Mario: Mario Kart: Yoshiciclo Nintendo LEGO 72031Super Mario: Mario Kart: Yoshiciclo Nintendo LEGO 72031"
     },
-    "precio": 23,
+    "precio": 319.0,
     "tienda": "Chedraui",
-    "imagen": "https://chedrauimx.vtexassets.com/arquivos/ids/74904882/7501253655182_00.jpg?v=639215713047670000",
-    "url": "https://www.chedraui.com.mxfrijol-negro-chedraui-900g-3250691/p"
+    "imagen": "https://chedrauimx.vtexassets.com/arquivos/ids/74613562-300-300?v=639211271573000000&width=300&height=300&aspect=true",
+    "url": "https://www.chedraui.com.mx/super-mario-mario-kart-yoshiciclo-nintendo-lego-72031-3860560/p"
   },
   {
     "producto": {
-      "id": "3512848",
-      "nombre": "Mayonesa Mccormick Con Limón 725g"
+      "id": "chedraui_9",
+      "nombre": "Super Mario: Mario Kart: Kart estándar Juego LEGO 72032Super Mario: Mario Kart: Kart estándar Juego LEGO 72032"
     },
-    "precio": 77,
+    "precio": 499.0,
     "tienda": "Chedraui",
-    "imagen": "https://chedrauimx.vtexassets.com/arquivos/ids/74580901/7501003313287_00.jpg?v=639211193229570000",
-    "url": "https://www.chedraui.com.mxmayonesa-mccormick-con-limon-725g-3512848/p"
+    "imagen": "https://chedrauimx.vtexassets.com/arquivos/ids/74613631-300-300?v=639211271752000000&width=300&height=300&aspect=true",
+    "url": "https://www.chedraui.com.mx/super-mario-mario-kart-kart-estandar-juego-lego-72032-3860531/p"
   },
   {
     "producto": {
-      "id": "3019897",
-      "nombre": "Spaghetti La Moderna 220g"
+      "id": "chedraui_10",
+      "nombre": "Super Blender Home Line 350W 5 Velocidades 1125Super Blender Home Line 350W 5 Velocidades 1125"
     },
-    "precio": 13,
+    "precio": 785.0,
     "tienda": "Chedraui",
-    "imagen": "https://chedrauimx.vtexassets.com/arquivos/ids/74905828/7501018314507_00.jpg?v=639215716058870000",
-    "url": "https://www.chedraui.com.mxspaghetti-la-moderna-220g-3019897/p"
+    "imagen": "https://chedrauimx.vtexassets.com/arquivos/ids/74802139-300-300?v=639213936038530000&width=300&height=300&aspect=true",
+    "url": "https://www.chedraui.com.mx/super-blender-home-line-350w-5-velocidades-1125-3875681/p"
   },
   {
     "producto": {
-      "id": "3793492",
-      "nombre": "Azúcar Chedraui Estándar 900g"
+      "id": "chedraui_11",
+      "nombre": "Super Mario Vehiculo 2.5\" Giratorio A.Super Mario Vehiculo 2.5\" Giratorio A."
     },
-    "precio": 23.99,
+    "precio": 449.0,
     "tienda": "Chedraui",
-    "imagen": "https://chedrauimx.vtexassets.com/arquivos/ids/74854018/7501253681693_00.jpg?v=639214856671530000",
-    "url": "https://www.chedraui.com.mxazucar-chedraui-estandar-900g-3793492/p"
+    "imagen": "https://chedrauimx.vtexassets.com/arquivos/ids/74959280-300-300?v=639216581114400000&width=300&height=300&aspect=true",
+    "url": "https://www.chedraui.com.mx/super-mario-vehiculo-25-giratorio-a-3725548/p"
   },
   {
     "producto": {
-      "id": "3618435",
-      "nombre": "Spaghetti Italpasta 180g"
+      "id": "chedraui_12",
+      "nombre": "Super Mario Vehículo Moneda Varios PersonajesSuper Mario Vehículo Moneda Varios Personajes"
     },
-    "precio": 7.5,
+    "precio": 199.0,
     "tienda": "Chedraui",
-    "imagen": "https://chedrauimx.vtexassets.com/arquivos/ids/74851676/7501079002856_00.jpg?v=639214850383900000",
-    "url": "https://www.chedraui.com.mxspaghetti-italpasta-180g-3618435/p"
+    "imagen": "https://chedrauimx.vtexassets.com/arquivos/ids/71297439-300-300?v=639168244819900000&width=300&height=300&aspect=true",
+    "url": "https://www.chedraui.com.mx/super-mario-vehiculo-moneda-varios-personajes-3725547/p"
   },
   {
     "producto": {
-      "id": "3801299",
-      "nombre": "Pan Bimbo Integral 620g"
+      "id": "chedraui_13",
+      "nombre": "Super Mario: Mario Kart: Bebé Mario vs. Bebé Luigi LEGO 72034Super Mario: Mario Kart: Bebé Mario vs. Bebé Luigi LEGO 72034"
     },
-    "precio": 58,
+    "precio": 749.0,
     "tienda": "Chedraui",
-    "imagen": "https://chedrauimx.vtexassets.com/arquivos/ids/74907897/7500810022061_00.jpg?v=639215721402530000",
-    "url": "https://www.chedraui.com.mxpan-bimbo-integral-620g-3801299/p"
+    "imagen": "https://chedrauimx.vtexassets.com/arquivos/ids/74613618-300-300?v=639211271712400000&width=300&height=300&aspect=true",
+    "url": "https://www.chedraui.com.mx/super-mario-mario-kart-bebe-mario-vs-bebe-luigi-lego-72034-3860529/p"
   },
   {
     "producto": {
-      "id": "3756805",
-      "nombre": "Cereal Kellogg's Zucaritas 840g"
+      "id": "chedraui_14",
+      "nombre": "Super Sello 1800 CubasaSuper Sello 1800 Cubasa"
     },
-    "precio": 112,
+    "precio": 129.0,
     "tienda": "Chedraui",
-    "imagen": "https://chedrauimx.vtexassets.com/arquivos/ids/74793096/7501008057407_00.jpg?v=639213853816570000",
-    "url": "https://www.chedraui.com.mxcereal-kelloggs-zucaritas-840g-3756805/p"
-  },
-  {
-    "producto": {
-      "id": "3821019",
-      "nombre": "Galletas Oreo de Chocolate Relleno sabor Vainilla 252g"
-    },
-    "precio": 33,
-    "tienda": "Chedraui",
-    "imagen": "https://chedrauimx.vtexassets.com/arquivos/ids/74854486/7622210575395_00.jpg?v=639214857855130000",
-    "url": "https://www.chedraui.com.mxgalletas-oreo-de-chocolate-relleno-sabor-vainilla-252g-3821019/p"
-  },
-  {
-    "producto": {
-      "id": "3152854",
-      "nombre": "Atún Dolores Aleta Amarilla en Agua 130g"
-    },
-    "precio": 20.9,
-    "tienda": "Chedraui",
-    "imagen": "https://chedrauimx.vtexassets.com/arquivos/ids/74853557/7501045403144_00.jpg?v=639214855119570000",
-    "url": "https://www.chedraui.com.mxatun-dolores-aleta-amarilla-en-agua-130g-3152854/p"
-  },
-  {
-    "producto": {
-      "id": "3793491",
-      "nombre": "Azúcar Chedraui Estándar 1.8Kg"
-    },
-    "precio": 37.8,
-    "tienda": "Chedraui",
-    "imagen": "https://chedrauimx.vtexassets.com/arquivos/ids/74854020/7501253681709_00.jpg?v=639214856678270000",
-    "url": "https://www.chedraui.com.mxazucar-chedraui-estandar-18kg-3793491/p"
-  },
-  {
-    "producto": {
-      "id": "3629454",
-      "nombre": "Mayonesa Mccormick Con Limón 507g"
-    },
-    "precio": 55,
-    "tienda": "Chedraui",
-    "imagen": "https://chedrauimx.vtexassets.com/arquivos/ids/74580916/7501003301192_00.jpg?v=639211193243330000",
-    "url": "https://www.chedraui.com.mxmayonesa-mccormick-con-limon-507g-3629454/p"
-  },
-  {
-    "producto": {
-      "id": "3431689",
-      "nombre": "Frijoles La Sierra Negros Refritos 400g"
-    },
-    "precio": 12.5,
-    "tienda": "Chedraui",
-    "imagen": "https://chedrauimx.vtexassets.com/arquivos/ids/74884519/7501052421179_00.jpg?v=639215371226430000",
-    "url": "https://www.chedraui.com.mxfrijoles-la-sierra-negros-refritos-400g-3431689/p"
+    "imagen": "https://chedrauimx.vtexassets.com/arquivos/ids/72770803-300-300?v=639186181045330000&width=300&height=300&aspect=true",
+    "url": "https://www.chedraui.com.mx/super-sello-1800-cubasa-3722114/p"
   }
 ]

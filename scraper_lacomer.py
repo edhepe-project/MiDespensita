@@ -19,7 +19,7 @@ def run():
         print(f"Buscando: {termino}...")
         try:
             # succId 287 es sucursal por defecto
-            url = f"https://lacomer-vector-test.buscador.amarello.com.mx/searchArtPrior?col=lacomer_2&npagel=5&p=1&pasilloId=false&s={termino}&succId=287"
+            url = f"https://lacomer-vector-test.buscador.amarello.com.mx/searchArtPrior?col=lacomer_2&npagel=15&p=1&pasilloId=false&s={termino}&succId=287"
             r = requests.get(url, headers=headers, timeout=10)
             
             if r.status_code == 200:

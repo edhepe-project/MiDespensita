@@ -20,7 +20,8 @@ def run():
             driver = uc.Chrome(options=options)
             driver.set_window_size(1280, 800)
 
-            url = f"https://www.chedraui.com.mx/busca?q={termino}"
+            # Nueva estructura de URL reportada por el usuario
+            url = f"https://www.chedraui.com.mx/{termino}?_q={termino}&map=ft"
             driver.get(url)
 
             # Simular comportamiento humano
@@ -71,7 +72,7 @@ def run():
             # Plan B: Raspar HTML visual si no hubo datos del JSON
             if not any(o['tienda'] == 'Chedraui' for o in ofertas[-5:]):
                 cards = soup.select('.vtex-product-summary-2-x-container, [class*="productSummary"]')
-                for card in cards[:5]:
+                for card in cards[:15]:
                     try:
                         nombre_el = card.select_one('[class*="productBrand"], [class*="nameContainer"], h2, h3')
                         precio_el = card.select_one('[class*="sellingPrice"], [class*="Price"]')

@@ -27,7 +27,7 @@ def run():
             soup = BeautifulSoup(html, "html.parser")
             cards = soup.select(".product-tile")
 
-            for i, card in enumerate(cards[:5]):
+            for i, card in enumerate(cards[:15]):
                 nombre_el = card.select_one("a.plp-link")
                 precio_el = card.select_one(".contentPrices")
                 img_el = card.select_one("img.tile-image") or card.select_one('img[src*="product"]') or card.select_one("img")

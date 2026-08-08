@@ -35,3 +35,7 @@ test_*
 # Imágenes de depuración
 *.png
 !icons/*.png
+
+# Variables de entorno (API Keys - NUNCA subir a GitHub)
+.env
+*.env

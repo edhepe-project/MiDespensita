@@ -44,7 +44,7 @@ def run():
             if not cards:
                 print(f"    No se encontraron productos para '{termino}'.")
             else:
-                for card in cards[:8]:  # Máximo 8 por búsqueda
+                for card in cards[:15]:  # Máximo 15 por búsqueda
                     try:
                         link_el   = card.select_one('a.product-item-photo')
                         precio_el = card.select_one('.price')

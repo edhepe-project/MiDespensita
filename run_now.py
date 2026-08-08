@@ -19,6 +19,9 @@ def run_all():
         
     print("Calculando puntajes de oferta (Machine Learning)...")
     subprocess.run([sys.executable, "ml_predict.py"])
+
+    print("🧠 Analizando con IA (Gemini)...")
+    subprocess.run([sys.executable, "ia_cerebro.py"])
     
     print("Exportando tendencias...")
     db_manager.exportar_tendencias_json()

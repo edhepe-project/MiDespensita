@@ -43,7 +43,7 @@ def run():
             if not cards:
                 print(f"    No se encontraron tarjetas para '{termino}'.")
             else:
-                for card in cards[:8]:  # Máximo 8 por búsqueda
+                for card in cards[:15]:  # Máximo 15 por búsqueda
                     try:
                         nombre_el = card.select_one('a.link')
                         precio_el = card.select_one('.sales .value[content], .sales [content]') or card.select_one('span.value[content]')

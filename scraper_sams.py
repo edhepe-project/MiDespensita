@@ -44,7 +44,7 @@ def run():
                     if not items:
                         items = deep_get(data, "props", "pageProps", "initialData", "data", "search", "items") or []
                         
-                    for item in items[:5]:
+                    for item in items[:15]:
                         nombre = item.get("name") or item.get("title") or ""
                         precio = (
                             deep_get(item, "priceInfo", "currentPrice", "price") or
