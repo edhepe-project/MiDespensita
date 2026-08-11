@@ -4,7 +4,7 @@
       "id": "chedraui_0",
       "nombre": "Super Bollos Wonder 540gSuper Bollos Wonder 540g"
     },
-    "precio": 67.0,
+    "precio": 75.9,
     "tienda": "Chedraui",
     "imagen": "https://chedrauimx.vtexassets.com/arquivos/ids/74520013-300-300?v=639210549453530000&width=300&height=300&aspect=true",
     "url": "https://www.chedraui.com.mx/super-bollos-wonder-540g-3017969/p"
@@ -118,35 +118,5 @@
     "tienda": "Chedraui",
     "imagen": "https://chedrauimx.vtexassets.com/arquivos/ids/74959280-300-300?v=639216581114400000&width=300&height=300&aspect=true",
     "url": "https://www.chedraui.com.mx/super-mario-vehiculo-25-giratorio-a-3725548/p"
-  },
-  {
-    "producto": {
-      "id": "chedraui_12",
-      "nombre": "Super Mario Vehículo Moneda Varios PersonajesSuper Mario Vehículo Moneda Varios Personajes"
-    },
-    "precio": 199.0,
-    "tienda": "Chedraui",
-    "imagen": "https://chedrauimx.vtexassets.com/arquivos/ids/71297439-300-300?v=639168244819900000&width=300&height=300&aspect=true",
-    "url": "https://www.chedraui.com.mx/super-mario-vehiculo-moneda-varios-personajes-3725547/p"
-  },
-  {
-    "producto": {
-      "id": "chedraui_13",
-      "nombre": "Super Mario: Mario Kart: Bebé Mario vs. Bebé Luigi LEGO 72034Super Mario: Mario Kart: Bebé Mario vs. Bebé Luigi LEGO 72034"
-    },
-    "precio": 749.0,
-    "tienda": "Chedraui",
-    "imagen": "https://chedrauimx.vtexassets.com/arquivos/ids/74613618-300-300?v=639211271712400000&width=300&height=300&aspect=true",
-    "url": "https://www.chedraui.com.mx/super-mario-mario-kart-bebe-mario-vs-bebe-luigi-lego-72034-3860529/p"
-  },
-  {
-    "producto": {
-      "id": "chedraui_14",
-      "nombre": "Super Sello 1800 CubasaSuper Sello 1800 Cubasa"
-    },
-    "precio": 129.0,
-    "tienda": "Chedraui",
-    "imagen": "https://chedrauimx.vtexassets.com/arquivos/ids/72770803-300-300?v=639186181045330000&width=300&height=300&aspect=true",
-    "url": "https://www.chedraui.com.mx/super-sello-1800-cubasa-3722114/p"
   }
 ]
