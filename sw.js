@@ -1,4 +1,4 @@
-const CACHE_NAME = 'midespensita-v12';
+const CACHE_NAME = 'midespensita-v13';
 
 // Rutas relativas para GitHub Pages
 const BASE_URL = self.location.pathname.replace(/\/[^/]*$/, '/');
@@ -50,28 +50,71 @@ self.addEventListener('activate', event => {
 
 // Fetch
 self.addEventListener('fetch', event => {
-  // No interceptar las llamadas a la API (el servidor) para que los datos siempre estén frescos
-  if (event.request.url.includes('/api/')) {
+  const url = event.request.url;
+
+  // No interceptar llamadas a la API del servidor
+  if (url.includes('/api/')) return;
+
+  // No cachear imágenes de dominios externos (Walmart, Sam's, La Comer, etc.)
+  // Estas imágenes son pesadas (~150KB c/u) y se sirven desde CDN propio de cada tienda
+  const esImagenExterna = (
+    url.includes('walmartimages.com') ||
+    url.includes('lacomer.com') ||
+    url.includes('chedraui.com') ||
+    url.includes('soriana.com') ||
+    url.includes('bodegaaurrera') ||
+    url.includes('img-proxy') ||  // proxy local de imágenes
+    (event.request.destination === 'image' && !url.includes('github.io') && !url.includes('localhost'))
+  );
+
+  if (esImagenExterna) {
+    // Las imágenes externas van directo a la red, sin pasar por el caché del SW
+    event.respondWith(fetch(event.request).catch(() => {
+      // Si falla (offline), devolver imagen transparente 1x1
+      return new Response(
+        '<svg xmlns="http://www.w3.org/2000/svg" width="1" height="1"></svg>',
+        { headers: { 'Content-Type': 'image/svg+xml' } }
+      );
+    }));
     return;
   }
 
+  // No cachear los archivos JSON de precios (se actualizan diariamente por los scrapers)
+  // El browser HTTP cache y el ?d=fecha ya manejan esto eficientemente
+  const esJsonDatos = (
+    url.includes('ofertas_') ||
+    url.includes('oferta_score') ||
+    url.includes('tendencias.json')
+  );
+
+  if (esJsonDatos) {
+    event.respondWith(fetch(event.request).catch(() =>
+      new Response('[]', { headers: { 'Content-Type': 'application/json' } })
+    ));
+    return;
+  }
+
+  // Para todo lo demás (JS, CSS, HTML, icons): Cache First
   event.respondWith(
     caches.match(event.request).then(cached => {
       return cached || fetch(event.request).then(response => {
-        const clone = response.clone();
-        caches.open(CACHE_NAME).then(cache => cache.put(event.request, clone));
+        // Solo cachear respuestas exitosas de recursos estáticos propios
+        if (response.ok && (url.includes('github.io') || url.includes('localhost'))) {
+          const clone = response.clone();
+          caches.open(CACHE_NAME).then(cache => cache.put(event.request, clone));
+        }
         return response;
       });
     }).catch(() => {
-      // Solo devolver index.html si es una peticion de navegacion (HTML)
       if (event.request.mode === 'navigate' ||
         (event.request.headers.get('accept') && event.request.headers.get('accept').includes('text/html'))) {
         return caches.match(BASE_URL + 'index.html');
       }
-      return new Response('Offline resource not available', { status: 503, statusText: 'Service Unavailable' });
+      return new Response('Offline resource not available', { status: 503 });
     })
   );
 });
+
 
 // Push Notification
 self.addEventListener('push', event => {

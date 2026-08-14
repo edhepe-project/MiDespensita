@@ -7,7 +7,8 @@ APP_Pages.predicciones = async function() {
   `;
 
   try {
-    const res = await fetch('tendencias.json?v=' + Date.now());
+    const cacheBuster = new Date().toISOString().slice(0, 10);
+    const res = await fetch(`tendencias.json?d=${cacheBuster}`);
     if (!res.ok) throw new Error("No hay historial disponible");
     const tendencias = await res.json();
     

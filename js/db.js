@@ -389,5 +389,58 @@ window.APP_DB = {
     return todasLasTiendas
       .filter(t => t && t.toLowerCase().includes(query.toLowerCase()))
       .slice(0, 5);
+  },
+
+  // ============ MANTENIMIENTO / LIMPIEZA ============
+  async limpiarDatosAntiguos() {
+    try {
+      const limite90dias = new Date();
+      limite90dias.setDate(limite90dias.getDate() - 90);
+
+      // Eliminar precios de más de 90 días
+      const preciosViejos = await db.precios.where('fecha').below(limite90dias).primaryKeys();
+      if (preciosViejos.length > 0) {
+        await db.precios.bulkDelete(preciosViejos);
+        console.log(`[DB] Limpieza: eliminados ${preciosViejos.length} registros de precios (>90 días)`);
+      }
+
+      // Eliminar compras de más de 90 días y sus detalles
+      const comprasViejas = await db.compras.where('fecha').below(limite90dias).toArray();
+      for (const compra of comprasViejas) {
+        await db.detalle_compra.where('compraId').equals(compra.id).delete();
+        await db.compras.delete(compra.id);
+      }
+      if (comprasViejas.length > 0) {
+        console.log(`[DB] Limpieza: eliminadas ${comprasViejas.length} compras (>90 días)`);
+      }
+
+      // Limpiar imagen hints de localStorage si hay más de 300 entradas
+      try {
+        const hints = JSON.parse(localStorage.getItem('midespensita_imagen_hints') || '{}');
+        const keys = Object.keys(hints);
+        if (keys.length > 300) {
+          // Conservar solo las 200 más recientes (las últimas del objeto)
+          const recientes = keys.slice(-200).reduce((acc, k) => { acc[k] = hints[k]; return acc; }, {});
+          localStorage.setItem('midespensita_imagen_hints', JSON.stringify(recientes));
+          console.log(`[DB] Limpieza: imagen hints reducidos de ${keys.length} a 200 entradas`);
+        }
+      } catch(e) {}
+
+    } catch (e) {
+      console.warn('[DB] Error en limpieza automática:', e);
+    }
   }
 };
+
+// Ejecutar limpieza en background al iniciar (silenciosamente, sin bloquear la UI)
+setTimeout(() => {
+  const ULTIMA_LIMPIEZA_KEY = 'midespensita_ultima_limpieza';
+  const ultimaLimpieza = localStorage.getItem(ULTIMA_LIMPIEZA_KEY);
+  const hoy = new Date().toISOString().slice(0, 10);
+  if (ultimaLimpieza !== hoy) {
+    window.APP_DB.limpiarDatosAntiguos().then(() => {
+      localStorage.setItem(ULTIMA_LIMPIEZA_KEY, hoy);
+    });
+  }
+}, 5000); // 5 segundos después de cargar, para no competir con la UI inicial
+
