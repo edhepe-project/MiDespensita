@@ -1,4 +1,6 @@
 const CACHE_NAME = 'midespensita-v13';
+const IMAGES_CACHE = 'midespensita-imagenes-lista-v1'; // Caché dedicado para imágenes de productos en lista
+const IMAGES_MAX = 50; // Máximo ~7 MB (50 × ~150KB)
 
 // Rutas relativas para GitHub Pages
 const BASE_URL = self.location.pathname.replace(/\/[^/]*$/, '/');
@@ -38,11 +40,15 @@ self.addEventListener('install', event => {
   );
 });
 
-// Activate
+// Activate - limpia cachés viejos EXCEPTO el de imágenes de lista
 self.addEventListener('activate', event => {
   event.waitUntil(
     caches.keys().then(keys =>
-      Promise.all(keys.filter(k => k !== CACHE_NAME).map(k => caches.delete(k)))
+      Promise.all(
+        keys
+          .filter(k => k !== CACHE_NAME && k !== IMAGES_CACHE)
+          .map(k => caches.delete(k))
+      )
     ).then(() => self.clients.claim())
   );
 });
@@ -68,14 +74,18 @@ self.addEventListener('fetch', event => {
   );
 
   if (esImagenExterna) {
-    // Las imágenes externas van directo a la red, sin pasar por el caché del SW
-    event.respondWith(fetch(event.request).catch(() => {
-      // Si falla (offline), devolver imagen transparente 1x1
-      return new Response(
-        '<svg xmlns="http://www.w3.org/2000/svg" width="1" height="1"></svg>',
-        { headers: { 'Content-Type': 'image/svg+xml' } }
-      );
-    }));
+    // Revisar primero si está en el caché de imágenes de lista del usuario
+    event.respondWith(
+      caches.open(IMAGES_CACHE).then(cache => cache.match(event.request)).then(cached => {
+        if (cached) return cached; // ← carga instantánea desde caché
+        return fetch(event.request).catch(() =>
+          new Response(
+            '<svg xmlns="http://www.w3.org/2000/svg" width="1" height="1"></svg>',
+            { headers: { 'Content-Type': 'image/svg+xml' } }
+          )
+        );
+      })
+    );
     return;
   }
 
@@ -115,6 +125,28 @@ self.addEventListener('fetch', event => {
   );
 });
 
+
+// Mensaje desde la app: cachear imagen de un producto añadido a la lista
+self.addEventListener('message', event => {
+  if (event.data?.type === 'CACHE_PRODUCT_IMAGE' && event.data.url) {
+    event.waitUntil(
+      caches.open(IMAGES_CACHE).then(async cache => {
+        const keys = await cache.keys();
+        // Respetar el límite de IMAGES_MAX entradas
+        if (keys.length >= IMAGES_MAX) {
+          // Borrar la imagen más antigua para hacer espacio
+          await cache.delete(keys[0]);
+        }
+        try {
+          const response = await fetch(event.data.url);
+          if (response.ok) {
+            await cache.put(event.data.url, response);
+          }
+        } catch(e) { /* Sin internet, se intentará la próxima vez */ }
+      })
+    );
+  }
+});
 
 // Push Notification
 self.addEventListener('push', event => {

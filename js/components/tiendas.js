@@ -454,6 +454,15 @@ async function mostrarModalCantidadTienda(nombreProd, precioRef, tiendaRef, btnO
       await APP_DB.addItem(lista.id, productoLocal.id, cantidad);
     }
 
+    // Indicarle al Service Worker que cachee la imagen de este producto
+    // (solo las imágenes de productos añadidos, no todo el catálogo)
+    if (imagenRef && 'serviceWorker' in navigator && navigator.serviceWorker.controller) {
+      navigator.serviceWorker.controller.postMessage({
+        type: 'CACHE_PRODUCT_IMAGE',
+        url: imagenRef
+      });
+    }
+
     modal.remove();
     
     if (btnOrigen) {
