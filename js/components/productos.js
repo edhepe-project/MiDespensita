@@ -119,32 +119,31 @@ function bindProductosEvents() {
   const buscarInput = document.getElementById('buscar-producto');
   const clearBtn = document.getElementById('clear-search');
 
+  let debounceTimer;
   buscarInput.addEventListener('input', (e) => {
-    // Normalizar query (quitar acentos)
     const query = e.target.value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-    
-    // Mostrar/ocultar la X
     clearBtn.style.display = query.length > 0 ? 'block' : 'none';
     
-    // Filtrar productos
-    document.querySelectorAll('.item-producto').forEach(el => {
-      // Normalizar nombre del producto
-      const nombre = el.dataset.nombre.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-      const mostrar = nombre.includes(query);
-      
-      const contenedor = el.parentElement.classList.contains('swipe-wrapper') ? el.parentElement : el;
-      contenedor.style.display = mostrar ? '' : 'none';
-    });
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(() => {
+      // Filtrar productos
+      document.querySelectorAll('.item-producto').forEach(el => {
+        const nombre = el.dataset.nombre.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        const mostrar = nombre.includes(query);
+        const contenedor = el.parentElement.classList.contains('swipe-wrapper') ? el.parentElement : el;
+        contenedor.style.display = mostrar ? '' : 'none';
+      });
 
-    // Ocultar categorías vacías
-    document.querySelectorAll('.categoria-seccion').forEach(seccion => {
-      const tieneVisibles = Array.from(seccion.querySelectorAll('.item-producto'))
-                                 .some(el => {
-                                   const contenedor = el.parentElement.classList.contains('swipe-wrapper') ? el.parentElement : el;
-                                   return contenedor.style.display !== 'none';
-                                 });
-      seccion.style.display = tieneVisibles ? '' : 'none';
-    });
+      // Ocultar categorías vacías
+      document.querySelectorAll('.categoria-seccion').forEach(seccion => {
+        const tieneVisibles = Array.from(seccion.querySelectorAll('.item-producto'))
+                                   .some(el => {
+                                     const contenedor = el.parentElement.classList.contains('swipe-wrapper') ? el.parentElement : el;
+                                     return contenedor.style.display !== 'none';
+                                   });
+        seccion.style.display = tieneVisibles ? '' : 'none';
+      });
+    }, 250); // 250ms delay
   });
 
   // Limpiar búsqueda

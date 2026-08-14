@@ -160,6 +160,13 @@ document.addEventListener('DOMContentLoaded', () => {
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('./sw.js').catch((err) => console.error("SW Error:", err));
   }
+
+  // ── Bloqueo de scroll global para modales ────────────────────────────────────
+  const observer = new MutationObserver(() => {
+    const hayModales = document.querySelectorAll('.modal-overlay').length > 0;
+    document.body.style.overflow = hayModales ? 'hidden' : '';
+  });
+  observer.observe(document.body, { childList: true });
 });
 
 // ── Banner offline ─────────────────────────────────────────────────────────────
