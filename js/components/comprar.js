@@ -80,14 +80,14 @@ async function renderListaFamiliar(container, codigo, ubicacion, dataCache = nul
     </div>
     ` : ''}
 
-    <div class="card stats-resumen">
-      <div class="stat-row">
+    <div class="card stats-resumen" style="padding: 12px 16px;">
+      <div class="stat-row" style="margin-bottom: 4px;">
         <span class="stat-label">Pendientes</span>
-        <span class="stat-value">${pendientes.length}</span>
+        <span class="stat-value" style="font-size: 20px;">${pendientes.length}</span>
       </div>
       <div class="stat-row">
         <span class="stat-label">Ya comprados</span>
-        <span class="stat-value">${comprados.length}</span>
+        <span class="stat-value" style="font-size: 20px;">${comprados.length}</span>
       </div>
     </div>
 
@@ -511,24 +511,24 @@ async function renderListaLocal(container, ubicacion) {
   }
 
   container.innerHTML = `
-    <div class="card stats-resumen">
+    <div class="card stats-resumen" style="padding: 12px 16px;">
       <div class="stat-row">
         <span class="stat-label">Gastado esta semana</span>
-        <span class="stat-value">${APP_Format.money(stats.total)}</span>
+        <span class="stat-value" style="font-size: 20px;">${APP_Format.money(stats.total)}</span>
       </div>
       ${presupuesto > 0 ? `
-      <div style="margin-top: 8px">
-        <div style="display:flex; justify-content:space-between; font-size:12px; color:var(--text-muted); margin-bottom:4px">
+      <div style="margin-top: 6px">
+        <div style="display:flex; justify-content:space-between; font-size:12px; color:rgba(255,255,255,0.9); margin-bottom:4px">
           <span>Presupuesto</span>
           <span>${APP_Format.money(stats.total)} / ${APP_Format.money(presupuesto)}</span>
         </div>
-        <div style="background:var(--surface-2); border-radius:99px; height:8px; overflow:hidden">
+        <div style="background:rgba(255,255,255,0.25); border-radius:99px; height:6px; overflow:hidden">
           <div style="width:${porcentaje}%; background:${colorBarra}; height:100%; border-radius:99px; transition:width 0.5s ease"></div>
         </div>
-        ${porcentaje >= 90 ? `<p style="font-size:11px; color:#ef4444; margin-top:4px">⚠️ ¡Casi al límite del presupuesto!</p>` : ''}
+        ${porcentaje >= 90 ? `<p style="font-size:11px; color:#fee2e2; margin-top:4px">⚠️ ¡Casi al límite del presupuesto!</p>` : ''}
       </div>
       ` : `
-      <div style="font-size:11px; color:var(--text-muted); margin-top:6px; text-align:right">
+      <div style="font-size:11px; color:rgba(255,255,255,0.9); margin-top:4px; text-align:right">
         <span onclick="window.location.hash='#config'" style="cursor:pointer; text-decoration:underline">+ Establecer presupuesto</span>
       </div>
       `}
