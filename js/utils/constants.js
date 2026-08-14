@@ -9,6 +9,7 @@ window.APP_CATEGORIAS = {
   higiene: { nombre: "Higiene Personal", icono: "🧼" },
   panaderia: { nombre: "Panadería", icono: "🍞" },
   congelados: { nombre: "Congelados", icono: "🧊" },
+  supermercados: { nombre: "Supermercados", icono: "🛒" },
   otros: { nombre: "Otros", icono: "📦" }
 };
 

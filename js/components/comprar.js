@@ -502,13 +502,7 @@ async function renderListaLocal(container, ubicacion) {
   const cacheOrigen = localStorage.getItem('precios_origen');
   if (cache) { preciosRegionales = JSON.parse(cache); origenPrecios = cacheOrigen || origenPrecios; }
 
-  // Agrupar pendientes por categoría para mostrarlos en secciones
-  const pendientesPorCat = {};
-  for (const item of pendientes) {
-    const cat = item.producto?.categoria || 'otros';
-    if (!pendientesPorCat[cat]) pendientesPorCat[cat] = [];
-    pendientesPorCat[cat].push(item);
-  }
+  // Mostrar todos los pendientes en una sola lista (sin categorías)
 
   container.innerHTML = `
     <div class="card stats-resumen" style="padding: 12px 16px;">
@@ -549,16 +543,9 @@ async function renderListaLocal(container, ubicacion) {
         display: flex; align-items: center; gap: 5px;
       ">📲 Compartir</button>
     </div>
-    ${Object.entries(pendientesPorCat).map(([cat, catItems]) => `
-      <div style="margin-bottom:4px">
-        <div style="font-size:11px; color:var(--text-muted); padding: 4px 4px 2px; font-weight:600; letter-spacing:0.5px; text-transform:uppercase">
-          ${APP_CATEGORIAS[cat]?.icono || '📦'} ${APP_CATEGORIAS[cat]?.nombre || cat}
-        </div>
-        <div class="lista-compra">
-          ${catItems.map(item => renderPendiente(item)).join('')}
-        </div>
-      </div>
-    `).join('')}
+    <div class="lista-compra" style="margin-top: 8px;">
+      ${pendientes.map(item => renderPendiente(item)).join('')}
+    </div>
     ` : comprados.length > 0 ? `
     <div class="card" style="text-align:center; padding: 24px; background: linear-gradient(135deg, #dcfce7, #f0fdf4); border: 1px solid #86efac">
       <div style="font-size:48px; margin-bottom:12px">🎉</div>
@@ -625,38 +612,53 @@ async function renderListaLocal(container, ubicacion) {
 function renderPendiente(item) {
   const cat = APP_CATEGORIAS[item.producto?.categoria] || APP_CATEGORIAS.otros;
   
-  // Leer badge de tienda guardado desde el catálogo
   const TIENDA_BADGE_COLORS = {
     'Walmart':        { color: '#0071CE', label: 'Walmart' },
     'Bodega Aurrerá': { color: '#007934', label: 'Bodega Aurrerá' },
     'Chedraui':       { color: '#EE2323', label: 'Chedraui' },
     'Soriana':        { color: '#F15A22', label: 'Soriana' },
     'La Comer':       { color: '#1A4D8F', label: 'La Comer' },
+    'Sam\'s Club':    { color: '#007DC6', label: 'Sam\'s' },
   };
+
+  const nombreKey = (item.producto?.nombre || '').toLowerCase();
   let tiendaBadgeHTML = '';
+  let imagenURL = '';
+
   try {
     const hints = JSON.parse(localStorage.getItem('midespensita_tienda_hints') || '{}');
-    const nombreKey = (item.producto?.nombre || '').toLowerCase();
-    // Buscar coincidencia exacta o parcial
-    const tiendaMatch = hints[nombreKey] || 
+    const tiendaMatch = hints[nombreKey] ||
       Object.entries(hints).find(([k]) => nombreKey.includes(k) || k.includes(nombreKey))?.[1];
     if (tiendaMatch) {
       const tb = TIENDA_BADGE_COLORS[tiendaMatch] || { color: '#555', label: tiendaMatch };
-      tiendaBadgeHTML = `<div style="position: absolute; top: 4px; left: 4px; background: ${tb.color}; color: white; padding: 2px 7px; border-radius: 8px; font-size: 10px; font-weight: 900; letter-spacing: 0.5px; box-shadow: 0 1px 3px rgba(0,0,0,0.2);">${tb.label}</div>`;
+      tiendaBadgeHTML = `<span style="display:inline-flex;align-items:center;background:${tb.color};color:white;padding:1px 8px;border-radius:20px;font-size:9px;font-weight:900;letter-spacing:0.6px;margin-bottom:4px;">${tb.label}</span>`;
     }
   } catch(e) {}
 
+  try {
+    const imgHints = JSON.parse(localStorage.getItem('midespensita_imagen_hints') || '{}');
+    imagenURL = imgHints[nombreKey] ||
+      Object.entries(imgHints).find(([k]) => nombreKey.includes(k) || k.includes(nombreKey))?.[1] || '';
+  } catch(e) {}
+
+  const iconoHTML = cat.icono;
+
   return `
-    <div class="item-compra pendiente" style="position: relative;" data-id="${item.id}" data-item-id="${item.id}" data-item-nombre="${item.producto?.nombre || 'Sin nombre'}" data-producto-id="${item.productoId}">
-      ${tiendaBadgeHTML}
+    <div class="item-compra pendiente" data-id="${item.id}" data-item-id="${item.id}" data-item-nombre="${item.producto?.nombre || 'Sin nombre'}" data-producto-id="${item.productoId}">
       <div class="item-main">
-        <div class="item-icon">${cat.icono}</div>
+        <div class="item-icon">
+          ${imagenURL
+            ? `<img src="${imagenURL}" alt="" class="item-icon-img" style="cursor:zoom-in;" onclick="event.stopPropagation();mostrarImagenZoom('${imagenURL}', '')" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><span class="item-icon-fallback" style="display:none;font-size:1.5rem;">${iconoHTML}</span>`
+            : iconoHTML
+          }
+          ${item.cantidad > 1 ? `<span class="item-qty-badge">${item.cantidad}</span>` : ''}
+        </div>
         <div class="item-info">
-          <div class="item-nombre">${item.producto?.nombre || 'Sin nombre'}</div>
+          ${tiendaBadgeHTML}
+          <div class="item-nombre line-clamp-2">${item.producto?.nombre || 'Sin nombre'}</div>
           <div class="item-detalle" id="detalle-${item.id}">Cargando precios...</div>
         </div>
       </div>
-      <div class="item-cantidad">x${item.cantidad}</div>
       <button class="btn btn-primary btn-comprar btn-sin-longpress" data-id="${item.id}" data-nombre="${item.producto?.nombre}">
         Comprar
       </button>
@@ -857,22 +859,17 @@ async function mostrarModalCompra(itemId, nombreProducto) {
   const tiendasUsadas = await APP_DB.getTiendasByProducto(item.productoId);
   const marcasUsadas = await APP_DB.getMarcasByProducto(item.productoId);
 
-  // Leer hint del catálogo (válido por 5 minutos)
+  // Leer hint del catálogo desde los diccionarios globales (sin expiración)
   let hintTienda = '', hintMarca = '', hintPrecio = '', hintPresentacion = '1';
+  const nombreKey = nombreProducto.toLowerCase();
   try {
-    const raw = localStorage.getItem('midespensita_catalogo_hint');
-    if (raw) {
-      const hint = JSON.parse(raw);
-      const esReciente = (Date.now() - (hint.ts || 0)) < 5 * 60 * 1000;
-      const nombreHint = (hint.nombre || '').toLowerCase();
-      const nombreProd = nombreProducto.toLowerCase();
-      if (esReciente && (nombreHint.includes(nombreProd) || nombreProd.includes(nombreHint))) {
-        hintTienda = hint.tienda || '';
-        hintPrecio = hint.precio ? hint.precio.toFixed(2) : '';
-        hintMarca = '';
-        localStorage.removeItem('midespensita_catalogo_hint'); // consumir el hint
-      }
-    }
+    const tiendasHints = JSON.parse(localStorage.getItem('midespensita_tienda_hints') || '{}');
+    const matchTienda = tiendasHints[nombreKey] || Object.entries(tiendasHints).find(([k]) => nombreKey.includes(k) || k.includes(nombreKey))?.[1];
+    if (matchTienda) hintTienda = matchTienda;
+
+    const preciosHints = JSON.parse(localStorage.getItem('midespensita_precio_hints') || '{}');
+    const matchPrecio = preciosHints[nombreKey] || Object.entries(preciosHints).find(([k]) => nombreKey.includes(k) || k.includes(nombreKey))?.[1];
+    if (matchPrecio) hintPrecio = parseFloat(matchPrecio).toFixed(2);
   } catch(e) {}
 
   // Si no hay hint de catálogo, usar la última compra del historial propio
@@ -984,3 +981,32 @@ async function mostrarModalCompra(itemId, nombreProducto) {
     APP_Pages.comprar();
   });
 }
+
+// =============================================
+// ZOOM DE IMAGEN DE PRODUCTO (desde lista de compra)
+// =============================================
+window.mostrarImagenZoom = function(url, nombre) {
+  const prev = document.getElementById('img-zoom-overlay');
+  if (prev) { prev.remove(); return; }
+
+  const overlay = document.createElement('div');
+  overlay.id = 'img-zoom-overlay';
+  overlay.style.cssText = 'position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,0.82);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;cursor:zoom-out;animation:fadeInOverlay 0.18s ease;';
+  overlay.innerHTML = `
+    <style>@keyframes imgZoomIn { from{transform:scale(0.7);opacity:0} to{transform:scale(1);opacity:1} }</style>
+    <button onclick="event.stopPropagation();document.getElementById('img-zoom-overlay').remove()"
+      style="position:absolute;top:20px;right:20px;width:40px;height:40px;border-radius:50%;
+             background:rgba(255,255,255,0.15);backdrop-filter:blur(8px);
+             border:2px solid rgba(255,255,255,0.3);color:white;font-size:20px;
+             display:flex;align-items:center;justify-content:center;cursor:pointer;
+             transition:background 0.2s;">✕</button>
+    <img src="${url}" alt="${nombre}"
+      style="max-width:90vw;max-height:70vh;object-fit:contain;border-radius:16px;
+             box-shadow:0 8px 40px rgba(0,0,0,0.6);
+             animation:imgZoomIn 0.22s cubic-bezier(0.34,1.56,0.64,1) forwards;">
+    ${nombre ? `<div style="color:rgba(255,255,255,0.9);font-size:13px;font-weight:600;
+                margin-top:16px;text-align:center;max-width:280px;line-height:1.4;">${nombre}</div>` : ''}
+  `;
+  overlay.addEventListener('click', () => overlay.remove());
+  document.body.appendChild(overlay);
+};

@@ -27,15 +27,21 @@ APP_Pages.config = async function() {
   container.innerHTML = `
     <button class="btn-back" onclick="history.back()">← Volver</button>
 
-    <div class="card">
-      <div class="card-header">
+    <div class="card" style="margin-bottom: 12px; padding: 12px 16px;">
+      <div class="card-header" style="margin-bottom: 0;">
         <span class="card-title">Configuración</span>
       </div>
     </div>
 
-    <div class="card">
-      <div class="card-header">
-        <span class="card-title">👤 Mi nombre</span>
+    <div style="display: flex; gap: 8px; margin-bottom: 16px; background: var(--gray-100); padding: 4px; border-radius: 12px;">
+      <button class="config-tab-btn active" data-target="tab-general" style="flex:1; padding: 10px; border-radius: 8px; border: none; background: var(--surface); color: var(--primary); font-weight: 700; font-size: 13px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); transition: all 0.2s;">Preferencias</button>
+      <button class="config-tab-btn" data-target="tab-datos" style="flex:1; padding: 10px; border-radius: 8px; border: none; background: transparent; color: var(--text-secondary); font-weight: 600; font-size: 13px; transition: all 0.2s;">Datos y Respaldo</button>
+    </div>
+
+    <div id="tab-general" class="config-tab-content">
+      <div class="card">
+        <div class="card-header">
+        <span class="card-title" style="display:flex; align-items:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:8px;color:var(--primary);"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg> Mi nombre</span>
       </div>
       <p class="text-secondary" style="margin-bottom: 12px; font-size: var(--text-sm)">
         Así aparecerás en las notificaciones familiares.
@@ -54,7 +60,7 @@ APP_Pages.config = async function() {
 
     <div class="card">
       <div class="card-header">
-        <span class="card-title">👨‍👩‍👦 Lista Familiar</span>
+        <span class="card-title" style="display:flex; align-items:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:8px;color:var(--primary);"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> Lista Familiar</span>
       </div>
 
       <div id="familia-dueno">
@@ -105,7 +111,7 @@ APP_Pages.config = async function() {
 
     <div class="card">
       <div class="card-header">
-        <span class="card-title">🔔 Notificaciones</span>
+        <span class="card-title" style="display:flex; align-items:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:8px;color:var(--primary);"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg> Notificaciones</span>
       </div>
       ${APP_Push?.esCompatible() ? `
         <p class="text-secondary" style="margin-bottom: 12px; font-size: var(--text-sm)">
@@ -131,7 +137,7 @@ APP_Pages.config = async function() {
 
     <div class="card">
       <div class="card-header">
-        <span class="card-title">💰 Presupuesto Semanal</span>
+        <span class="card-title" style="display:flex; align-items:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:8px;color:var(--primary);"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg> Presupuesto Semanal</span>
       </div>
       <p class="text-secondary" style="margin-bottom: 12px; font-size: var(--text-sm)">
         ${soloLecturaPresupuesto 
@@ -160,15 +166,18 @@ APP_Pages.config = async function() {
 
     <div class="card">
       <div class="card-header">
-        <span class="card-title">📍 Ubicación</span>
+        <span class="card-title" style="display:flex; align-items:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:8px;color:var(--primary);"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Ubicación</span>
       </div>
       <p class="text-secondary" style="margin-bottom: 12px">${ubicacion?.ciudad || 'No configurada'}</p>
       <button class="btn btn-secondary" id="btn-cambiar-ubicacion">Cambiar ciudad</button>
     </div>
 
-    <div class="card">
-      <div class="card-header">
-        <span class="card-title">📦 Datos</span>
+    </div> <!-- End tab-general -->
+
+    <div id="tab-datos" class="config-tab-content" style="display: none;">
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title" style="display:flex; align-items:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:8px;color:var(--primary);"><line x1="16.5" y1="9.4" x2="7.5" y2="4.21"></line><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg> Datos</span>
       </div>
       <div class="config-stats">
         <div class="config-stat">
@@ -184,7 +193,7 @@ APP_Pages.config = async function() {
 
     <div class="card">
       <div class="card-header">
-        <span class="card-title">📄 Generar Reporte PDF</span>
+        <span class="card-title" style="display:flex; align-items:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:8px;color:var(--primary);"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg> Generar Reporte PDF</span>
       </div>
       <p class="text-secondary" style="margin-bottom: 12px">Descarga tu lista de compras y catálogo de precios en formato PDF limpio para imprimir o compartir.</p>
       <button class="btn btn-primary" style="width:100%" id="btn-exportar-pdf">Generar PDF</button>
@@ -192,7 +201,7 @@ APP_Pages.config = async function() {
 
     <div class="card">
       <div class="card-header">
-        <span class="card-title">💾 Crear Respaldo (Backup)</span>
+        <span class="card-title" style="display:flex; align-items:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:8px;color:var(--primary);"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg> Crear Respaldo (Backup)</span>
       </div>
       <p class="text-secondary" style="margin-bottom: 12px">Guarda tus datos en formato JSON para no perderlos si cambias de equipo.</p>
       <button class="btn btn-secondary" style="width:100%" id="btn-exportar">Exportar Backup JSON</button>
@@ -200,7 +209,7 @@ APP_Pages.config = async function() {
 
     <div class="card">
       <div class="card-header">
-        <span class="card-title">📥 Restaurar Respaldo</span>
+        <span class="card-title" style="display:flex; align-items:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:8px;color:var(--primary);"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg> Restaurar Respaldo</span>
       </div>
       <p class="text-secondary" style="margin-bottom: 12px">Carga tus datos desde un archivo JSON de respaldo.</p>
       <input type="file" id="input-importar" accept=".json" style="display:none">
@@ -209,7 +218,7 @@ APP_Pages.config = async function() {
 
     <div class="card">
       <div class="card-header">
-        <span class="card-title">🗑️ Borrar datos</span>
+        <span class="card-title" style="display:flex; align-items:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:8px;color:var(--coral-600);"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg> Borrar datos</span>
       </div>
       <p class="text-secondary" style="margin-bottom: 12px">Elimina todos los datos localmente</p>
       <button class="btn btn-secondary" style="width:100%; color: var(--coral-600)" id="btn-borrar">Borrar todo</button>
@@ -217,7 +226,7 @@ APP_Pages.config = async function() {
 
     <div class="card">
       <div class="card-header">
-        <span class="card-title">ℹ️ Acerca de</span>
+        <span class="card-title" style="display:flex; align-items:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:8px;color:var(--primary);"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg> Acerca de</span>
       </div>
       <p class="text-secondary">MiDespensita v1.0</p>
       <p class="text-secondary">Tu lista de compras favorita</p>
@@ -225,6 +234,7 @@ APP_Pages.config = async function() {
         Ver en GitHub
       </a>
     </div>
+    </div> <!-- End tab-datos -->
   `;
 
 
@@ -232,6 +242,30 @@ APP_Pages.config = async function() {
 };
 
 function bindConfigEvents() {
+  // ---- PESTAÑAS ----
+  document.querySelectorAll('.config-tab-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      document.querySelectorAll('.config-tab-btn').forEach(b => {
+        b.style.background = 'transparent';
+        b.style.color = 'var(--text-secondary)';
+        b.style.fontWeight = '600';
+        b.style.boxShadow = 'none';
+        b.classList.remove('active');
+      });
+      const targetBtn = e.currentTarget;
+      targetBtn.style.background = 'var(--surface)';
+      targetBtn.style.color = 'var(--primary)';
+      targetBtn.style.fontWeight = '700';
+      targetBtn.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
+      targetBtn.classList.add('active');
+
+      document.querySelectorAll('.config-tab-content').forEach(content => {
+        content.style.display = 'none';
+      });
+      document.getElementById(targetBtn.dataset.target).style.display = 'block';
+    });
+  });
+
   // ---- NOMBRE ----
   document.getElementById('btn-guardar-nombre').addEventListener('click', () => {
     const nombre = document.getElementById('input-mi-nombre').value.trim();

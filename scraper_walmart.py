@@ -11,17 +11,17 @@ def run():
     print("Iniciando scraper de Walmart México con undetected-chromedriver...")
     ofertas = []
     
-    options = uc.ChromeOptions()
-    # options.headless = True # A veces headless falla PerimeterX, probemos con False y window size pequeña
-    # options.add_argument('--headless=new')
-    
     for termino in BUSQUEDAS:
-        print(f"Buscando: {termino}...")
+        print(f"Buscando en Walmart: {termino}...")
         driver = None
         try:
+            # Iniciar el driver fresco para CADA término (Evasión de CAPTCHA)
             options = uc.ChromeOptions()
-            # Ocultar la ventana en lo posible
-            driver = uc.Chrome(options=options)
+            options.add_argument('--disable-blink-features=AutomationControlled')
+            options.add_argument('--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36')
+            
+            # Se requiere version_main=151
+            driver = uc.Chrome(options=options, version_main=151)
             driver.set_window_size(1024, 768)
             
             url = f"https://www.walmart.com.mx/search?q={termino}"
@@ -30,7 +30,7 @@ def run():
             # Simular comportamiento humano
             time.sleep(3)
             driver.execute_script("window.scrollBy(0, 500);")
-            time.sleep(4)
+            time.sleep(3)
             
             html = driver.page_source
             soup = BeautifulSoup(html, 'html.parser')
@@ -75,10 +75,11 @@ def run():
                 except Exception as e:
                     print(f"  Error parseando JSON: {e}")
             else:
-                print(f"  No se encontró __NEXT_DATA__ para {termino}. ¿Quizás captcha?")
+                print(f"  No se encontró __NEXT_DATA__ para {termino}. CAPTCHA detectado, se intentará de nuevo en el próximo lote.")
                 
         except Exception as e:
             print(f"  Error buscando {termino}: {e}")
+            
         finally:
             if driver:
                 try:
@@ -86,7 +87,7 @@ def run():
                 except:
                     pass
         
-        # Pausa entre búsquedas
+        # Pausa breve entre ventanas
         time.sleep(2)
 
     if ofertas:

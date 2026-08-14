@@ -11,24 +11,23 @@ def run():
     ofertas = []
     
     for termino in BUSQUEDAS:
-        print(f"Buscando: {termino}...")
+        print(f"Buscando en Sam's: {termino}...")
         driver = None
         try:
             options = uc.ChromeOptions()
             options.add_argument('--disable-blink-features=AutomationControlled')
             options.add_argument('--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36')
             
-            # Ocultar la ventana en lo posible
             driver = uc.Chrome(options=options, version_main=151)
             driver.set_window_size(1024, 768)
             
-            url = f"https://www.sams.com.mx/search/Ntt={termino}"
+            url = f"https://www.sams.com.mx/search?q={termino}"
             driver.get(url)
             
             # Simular comportamiento humano
             time.sleep(3)
             driver.execute_script("window.scrollBy(0, 500);")
-            time.sleep(4)
+            time.sleep(3)
             
             html = driver.page_source
             soup = BeautifulSoup(html, 'html.parser')
@@ -77,6 +76,7 @@ def run():
                 
         except Exception as e:
             print(f"  Error buscando {termino}: {e}")
+            
         finally:
             if driver:
                 try:

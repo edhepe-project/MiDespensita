@@ -1,1 +1,282 @@
-[]
+[
+  {
+    "producto": {
+      "id": "sams_980015515",
+      "nombre": "Café Soluble Nescafé  Clásico 2 pzas de 350 g + Taza"
+    },
+    "precio": 251.65,
+    "tienda": "Sams",
+    "imagen": "https://i5.walmartimages.com.mx/samsmx/images/product-images/img_large/980015515l.jpg",
+    "url": "https://www.sams.com.mx/ip/cafe-soluble-nescafe-clasico-2-pzas-de-350-g-taza/980015515"
+  },
+  {
+    "producto": {
+      "id": "sams_000074377",
+      "nombre": "Harina para Tamal Maseca  1 kg"
+    },
+    "precio": 204.6,
+    "tienda": "Sams",
+    "imagen": "https://i5.walmartimages.com.mx/samsmx/images/product-images/img_large/000074377l.jpg",
+    "url": "https://www.sams.com.mx/ip/harina-para-tamal-maseca-1-kg/000074377"
+  },
+  {
+    "producto": {
+      "id": "sams_981004047",
+      "nombre": "Alimento en Polvo Nido FortiCrece Lata 2.88 kg"
+    },
+    "precio": 418.4,
+    "tienda": "Sams",
+    "imagen": "https://i5.walmartimages.com.mx/samsmx/images/product-images/img_large/981004047l.jpg",
+    "url": "https://www.sams.com.mx/ip/alimento-en-polvo-nido-forticrece-lata-2-88-kg/981004047"
+  },
+  {
+    "producto": {
+      "id": "sams_981007095",
+      "nombre": "Pan Tostado Member's Mark  Clásico 2 pzas de 210 g c/u"
+    },
+    "precio": 65.47,
+    "tienda": "Sams",
+    "imagen": "https://i5.walmartimages.com.mx/samsmx/images/product-images/img_large/981007095l.jpg",
+    "url": "https://www.sams.com.mx/ip/pan-tostado-member-s-mark-clasico-2-pzas-de-210-g-c-u/981007095"
+  },
+  {
+    "producto": {
+      "id": "sams_980027548",
+      "nombre": "Jarabe Sabor Maple San Andrés  5.1 kg"
+    },
+    "precio": 263.93,
+    "tienda": "Sams",
+    "imagen": "https://i5.walmartimages.com.mx/samsmx/images/product-images/img_large/980027548l.jpg",
+    "url": "https://www.sams.com.mx/ip/jarabe-sabor-maple-san-andres-5-1-kg/980027548"
+  },
+  {
+    "producto": {
+      "id": "sams_980039302",
+      "nombre": "Leche Deslactosada Sello Rojo  Light 12 pzas de 1 L c/u"
+    },
+    "precio": 292.57,
+    "tienda": "Sams",
+    "imagen": "https://i5.walmartimages.com.mx/samsmx/images/product-images/img_large/980039302l.jpg",
+    "url": "https://www.sams.com.mx/ip/leche-deslactosada-sello-rojo-light-12-pzas-de-1-l-c-u/980039302"
+  },
+  {
+    "producto": {
+      "id": "sams_000184757",
+      "nombre": "Leche Pradel Entera 12 pzas de 1 l c/u"
+    },
+    "precio": 349.86,
+    "tienda": "Sams",
+    "imagen": "https://i5.walmartimages.com.mx/samsmx/images/product-images/img_large/000184757l.jpg",
+    "url": "https://www.sams.com.mx/ip/leche-pradel-entera-12-pzas-de-1-l-c-u/000184757"
+  },
+  {
+    "producto": {
+      "id": "sams_000295574",
+      "nombre": "Harina para Tamal Maseca 1 kg"
+    },
+    "precio": 204.6,
+    "tienda": "Sams",
+    "imagen": "https://i5.walmartimages.com.mx/samsmx/images/product-images/img_large/000295574l.jpg",
+    "url": "https://www.sams.com.mx/ip/harina-para-tamal-maseca-1-kg/000295574"
+  },
+  {
+    "producto": {
+      "id": "sams_000151516",
+      "nombre": "Tostadas Luzma Horneada 3 pzas de 350 g"
+    },
+    "precio": 121.73,
+    "tienda": "Sams",
+    "imagen": "https://i5.walmartimages.com.mx/samsmx/images/product-images/img_large/000151516l.jpg",
+    "url": "https://www.sams.com.mx/ip/tostadas-luzma-horneada-3-pzas-de-350-g/000151516"
+  },
+  {
+    "producto": {
+      "id": "sams_980039303",
+      "nombre": "Leche Entera Sello Rojo  Entera 12 pzas de 1 l c/u"
+    },
+    "precio": 292.57,
+    "tienda": "Sams",
+    "imagen": "https://i5.walmartimages.com.mx/samsmx/images/product-images/img_large/980039303l.jpg",
+    "url": "https://www.sams.com.mx/ip/leche-entera-sello-rojo-entera-12-pzas-de-1-l-c-u/980039303"
+  },
+  {
+    "producto": {
+      "id": "sams_000093237",
+      "nombre": "Fritos Azteca  12 pzas de 125 g"
+    },
+    "precio": 172.89,
+    "tienda": "Sams",
+    "imagen": "https://i5.walmartimages.com.mx/samsmx/images/product-images/img_large/000093237l.jpg",
+    "url": "https://www.sams.com.mx/ip/fritos-azteca-12-pzas-de-125-g/000093237"
+  },
+  {
+    "producto": {
+      "id": "sams_000212856",
+      "nombre": "Leche Pradel Deslactosada 12 pzas de 1 l c/u"
+    },
+    "precio": 349.86,
+    "tienda": "Sams",
+    "imagen": "https://i5.walmartimages.com.mx/samsmx/images/product-images/img_large/000212856l.jpg",
+    "url": "https://www.sams.com.mx/ip/leche-pradel-deslactosada-12-pzas-de-1-l-c-u/000212856"
+  },
+  {
+    "producto": {
+      "id": "sams_000106731",
+      "nombre": "Producto Lácteo Delite  12 pzas de 1 L c/u"
+    },
+    "precio": 188.23,
+    "tienda": "Sams",
+    "imagen": "https://i5.walmartimages.com.mx/samsmx/images/product-images/img_large/000106731l.jpg",
+    "url": "https://www.sams.com.mx/ip/producto-lacteo-delite-12-pzas-de-1-l-c-u/000106731"
+  },
+  {
+    "producto": {
+      "id": "sams_980036688",
+      "nombre": "Alimento para Niños Nido Kinder 1+ 2.7 kg"
+    },
+    "precio": 383.63,
+    "tienda": "Sams",
+    "imagen": "https://i5.walmartimages.com.mx/samsmx/images/product-images/img_large/980036688l.jpg",
+    "url": "https://www.sams.com.mx/ip/alimento-para-ninos-nido-kinder-1-2-7-kg/980036688"
+  },
+  {
+    "producto": {
+      "id": "sams_000115291",
+      "nombre": "Avena Member's Mark  Old Fashioned 4 kg"
+    },
+    "precio": 112.53,
+    "tienda": "Sams",
+    "imagen": "https://i5.walmartimages.com.mx/samsmx/images/product-images/img_large/000115291l.jpg",
+    "url": "https://www.sams.com.mx/ip/avena-member-s-mark-old-fashioned-4-kg/000115291"
+  },
+  {
+    "producto": {
+      "id": "sams_981035358",
+      "nombre": "Hojuelas de Avena Quaker  de Grano Entero 2 Bolsas de 800 g c/u"
+    },
+    "precio": 132.99,
+    "tienda": "Sams",
+    "imagen": "https://i5.walmartimages.com.mx/samsmx/images/product-images/img_large/981035358l.jpg",
+    "url": "https://www.sams.com.mx/ip/hojuelas-de-avena-quaker-de-grano-entero-2-bolsas-de-800-g-c-u/981035358"
+  },
+  {
+    "producto": {
+      "id": "sams_980041551",
+      "nombre": "Granola Member's Mark  con Probioticos 1 kg"
+    },
+    "precio": 172.88,
+    "tienda": "Sams",
+    "imagen": "https://i5.walmartimages.com.mx/samsmx/images/product-images/img_large/980041551l.jpg",
+    "url": "https://www.sams.com.mx/ip/granola-member-s-mark-con-probioticos-1-kg/980041551"
+  },
+  {
+    "producto": {
+      "id": "sams_981001030",
+      "nombre": "Granola Pick-One  Sabor Cacao Café 1 kg"
+    },
+    "precio": 225.05,
+    "tienda": "Sams",
+    "imagen": "https://i5.walmartimages.com.mx/samsmx/images/product-images/img_large/981001030l.jpg",
+    "url": "https://www.sams.com.mx/ip/granola-pick-one-sabor-cacao-cafe-1-kg/981001030"
+  },
+  {
+    "producto": {
+      "id": "sams_000135298",
+      "nombre": "Cereal Granvita  Granola sin Azúcar 1.2 kg"
+    },
+    "precio": 131.96,
+    "tienda": "Sams",
+    "imagen": "https://i5.walmartimages.com.mx/samsmx/images/product-images/img_large/000135298l.jpg",
+    "url": "https://www.sams.com.mx/ip/cereal-granvita-granola-sin-azucar-1-2-kg/000135298"
+  },
+  {
+    "producto": {
+      "id": "sams_000198843",
+      "nombre": "Granola Grunny  100% Natural 2.5 kg"
+    },
+    "precio": 264.93,
+    "tienda": "Sams",
+    "imagen": "https://i5.walmartimages.com.mx/samsmx/images/product-images/img_large/000198843l.jpg",
+    "url": "https://www.sams.com.mx/ip/granola-grunny-100-natural-2-5-kg/000198843"
+  },
+  {
+    "producto": {
+      "id": "sams_981004510",
+      "nombre": "Bebida Member's Mark  Sabor Avena Sin Azúcar 6 pzas de 946 ml c/u"
+    },
+    "precio": 203.57,
+    "tienda": "Sams",
+    "imagen": "https://i5.walmartimages.com.mx/samsmx/images/product-images/img_large/981004510l.jpg",
+    "url": "https://www.sams.com.mx/ip/bebida-member-s-mark-sabor-avena-sin-azucar-6-pzas-de-946-ml-c-u/981004510"
+  },
+  {
+    "producto": {
+      "id": "sams_981036397",
+      "nombre": "Bebida con 10% Avena Oatly  Barista con 6 pzas de 1 L c/u"
+    },
+    "precio": 305.87,
+    "tienda": "Sams",
+    "imagen": "https://i5.walmartimages.com.mx/samsmx/images/product-images/img_large/981036397l.jpg",
+    "url": "https://www.sams.com.mx/ip/bebida-con-10-avena-oatly-barista-con-6-pzas-de-1-l-c-u/981036397"
+  },
+  {
+    "producto": {
+      "id": "sams_000127352",
+      "nombre": "Galletas de Avena Manasur  24 pzas de 50 g c/u"
+    },
+    "precio": 152.42,
+    "tienda": "Sams",
+    "imagen": "https://i5.walmartimages.com.mx/samsmx/images/product-images/img_large/000127352l.jpg",
+    "url": "https://www.sams.com.mx/ip/galletas-de-avena-manasur-24-pzas-de-50-g-c-u/000127352"
+  },
+  {
+    "producto": {
+      "id": "sams_000635399",
+      "nombre": "Galletas de Avena Sr. Natural  810 g"
+    },
+    "precio": 131.95,
+    "tienda": "Sams",
+    "imagen": "https://i5.walmartimages.com.mx/samsmx/images/product-images/img_large/000635399l.jpg",
+    "url": "https://www.sams.com.mx/ip/galletas-de-avena-sr-natural-810-g/000635399"
+  },
+  {
+    "producto": {
+      "id": "sams_981049456",
+      "nombre": "Harina de Avena y Plátano Kenito  para Preparar Hot Cakes 1.2 kg"
+    },
+    "precio": 280.3,
+    "tienda": "Sams",
+    "imagen": "https://i5.walmartimages.com.mx/samsmx/images/product-images/img_large/981049456l.jpg",
+    "url": "https://www.sams.com.mx/ip/harina-de-avena-y-platano-kenito-para-preparar-hot-cakes-1-2-kg/981049456"
+  },
+  {
+    "producto": {
+      "id": "sams_981042413",
+      "nombre": "Bebida Sabor Avena Member's Mark  1.89 l"
+    },
+    "precio": 65.47,
+    "tienda": "Sams",
+    "imagen": "https://i5.walmartimages.com.mx/samsmx/images/product-images/img_large/981042413l.jpg",
+    "url": "https://www.sams.com.mx/ip/bebida-sabor-avena-member-s-mark-1-89-l/981042413"
+  },
+  {
+    "producto": {
+      "id": "sams_981052851",
+      "nombre": "Avena Integral Instantánea Granvita  0% Miel-Nuez/Vainilla-Almendras/Fresas-Crema con 30 pzas"
+    },
+    "precio": 147.31,
+    "tienda": "Sams",
+    "imagen": "https://i5.walmartimages.com.mx/samsmx/images/product-images/img_large/981052851l.jpg",
+    "url": "https://www.sams.com.mx/ip/avena-integral-instantanea-granvita-0-miel-nuez-vainilla-almendras-fresas-crema-con-30-pzas/981052851"
+  },
+  {
+    "producto": {
+      "id": "sams_980015519",
+      "nombre": "Cereal de Maíz, Trigo y Avena Froot Loops Kellogg's Sabores a Frutas 790 g"
+    },
+    "precio": 127.88,
+    "tienda": "Sams",
+    "imagen": "https://i5.walmartimages.com.mx/samsmx/images/product-images/img_large/980015519l.jpg",
+    "url": "https://www.sams.com.mx/ip/cereal-de-maiz-trigo-y-avena-froot-loops-kellogg-s-sabores-a-frutas-790-g/980015519"
+  }
+]

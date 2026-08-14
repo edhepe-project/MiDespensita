@@ -3,11 +3,12 @@ APP_Pages.productos = async function() {
   const container = document.getElementById('app-content');
   const productos = await APP_DB.getAllProductos();
 
-  // Si no hay productos, cargar la lista base
-  if (productos.length === 0) {
+  // Si no se ha cargado la lista base, cargarla
+  if (!localStorage.getItem('midespensita_base_cargada')) {
     for (const item of APP_LISTA_BASE) {
       await APP_DB.addProducto({ ...item, activo: 1 });
     }
+    localStorage.setItem('midespensita_base_cargada', '1');
   }
 
   const todosProductos = await APP_DB.getAllProductos();
@@ -19,10 +20,9 @@ APP_Pages.productos = async function() {
     itemsEnLista.filter(i => !i.comprado).map(i => i.productoId)
   );
 
-  // Agrupar por categoría
+  // Agrupar por categoría (todos los productos, sin importar origen)
   const porCategoria = {};
   for (const prod of todosProductos) {
-    if (prod.origen === 'catalogo') continue; // Ocultar productos específicos del catálogo
     const cat = prod.categoria || 'otros';
     if (!porCategoria[cat]) porCategoria[cat] = [];
     porCategoria[cat].push(prod);

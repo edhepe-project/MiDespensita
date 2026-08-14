@@ -1,5 +1,5 @@
 // App main - Router
-const PAGES_ORDER = ['comprar', 'productos', 'precios'];
+const PAGES_ORDER = ['comprar', 'productos', 'precios', 'tiendas'];
 
 function getPage() {
   return (window.location.hash.slice(1) || 'comprar').split('?')[0];

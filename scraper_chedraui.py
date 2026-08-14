@@ -5,7 +5,7 @@ import db_manager
 from db_manager import BUSQUEDAS
 
 BASE_URL = "https://www.chedraui.com.mx"
-SEARCH_API = BASE_URL + "/_v/api/intelligent-search/product_search/Top"
+SEARCH_API = BASE_URL + "/api/io/_v/api/intelligent-search/product_search"
 
 HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 '

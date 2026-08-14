@@ -1,93 +1,88 @@
-import undetected_chromedriver as uc
 import json
 import time
-import re
+import requests
 import db_manager
-from bs4 import BeautifulSoup
 import sys
 from db_manager import BUSQUEDAS
 
-BASE_URL = "https://www.fahorro.com"
-SEARCH_URL = BASE_URL + "/search/result/?q={}"
-
 def run():
-    print("Iniciando scraper de Farmacias del Ahorro con undetected-chromedriver...")
+    print("Iniciando scraper de Farmacias del Ahorro (Vía API GraphQL Oculta)...")
     ofertas = []
+
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Origin': 'https://www.fahorro.com',
+        'Referer': 'https://www.fahorro.com/'
+    }
+
+    url_api = "https://www.fahorro.com/graphql"
 
     for termino in BUSQUEDAS:
         print(f"  Buscando en Fahorro: {termino}...")
-        driver = None
         try:
-            options = uc.ChromeOptions()
-            options.add_argument('--disable-blink-features=AutomationControlled')
-            options.add_argument(
-                '--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
-                'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
-            )
-            driver = uc.Chrome(options=options, version_main=151)
-            driver.set_window_size(1280, 800)
+            # Query para extraer nombre, precio, url e imagen
+            query = f"""
+            {{
+              products(search: "{termino}", pageSize: 15) {{
+                items {{
+                  name
+                  url_key
+                  image {{
+                    url
+                  }}
+                  price_range {{
+                    minimum_price {{
+                      regular_price {{
+                        value
+                      }}
+                    }}
+                  }}
+                }}
+              }}
+            }}
+            """
 
-            url = SEARCH_URL.format(termino)
-            driver.get(url)
+            response = requests.post(url_api, headers=headers, json={'query': query}, timeout=10)
+            
+            if response.status_code == 200:
+                data = response.json()
+                items = data.get('data', {}).get('products', {}).get('items', [])
+                
+                if not items:
+                    print(f"    No se encontraron productos para '{termino}'.")
+                else:
+                    for item in items:
+                        try:
+                            nombre = item.get('name', '').strip()
+                            url_key = item.get('url_key', '')
+                            img_url = item.get('image', {}).get('url', '')
+                            precio = item.get('price_range', {}).get('minimum_price', {}).get('regular_price', {}).get('value', 0.0)
 
-            # Simular comportamiento humano
-            time.sleep(5)
-            driver.execute_script("window.scrollBy(0, 600);")
-            time.sleep(2)
-            driver.execute_script("window.scrollBy(0, 800);")
-            time.sleep(2)
-
-            html = driver.page_source
-            soup = BeautifulSoup(html, 'html.parser')
-
-            cards = soup.select('li.product-item')
-            if not cards:
-                print(f"    No se encontraron productos para '{termino}'.")
+                            if nombre and precio and precio > 0:
+                                # URL directa funciona en navegador real (solo bots obtienen 403 de Imperva)
+                                url_prod = f"https://www.fahorro.com/{url_key}.html" if url_key else f"https://www.fahorro.com/search/result/?q={nombre.replace(' ', '+')}"
+                                
+                                ofertas.append({
+                                    "producto": {
+                                        "id": f"fahorro_{len(ofertas)}",
+                                        "nombre": nombre
+                                    },
+                                    "precio": float(precio),
+                                    "tienda": "Farmacias del Ahorro",
+                                    "imagen": img_url,
+                                    "url": url_prod
+                                })
+                        except Exception as e:
+                            pass
             else:
-                for card in cards[:15]:  # Máximo 15 por búsqueda
-                    try:
-                        link_el   = card.select_one('a.product-item-photo')
-                        precio_el = card.select_one('.price')
-                        img_el    = card.select_one('img.product-image-photo')
-
-                        # El nombre está en el atributo title del link o alt de img
-                        nombre = (
-                            link_el.get('title', '').strip()
-                            if link_el else
-                            (img_el.get('alt', '').strip() if img_el else '')
-                        )
-                        url_prod = link_el.get('href', url) if link_el else url
-                        imagen   = img_el.get('src', '') if img_el else ''
-
-                        # Limpiar precio: tomar solo el primer número del texto (ej. "$31.00MXN..." → 31.00)
-                        precio_txt = precio_el.get_text(strip=True) if precio_el else ''
-                        precio_match = re.search(r'[\d,]+\.?\d*', precio_txt.replace(',', ''))
-                        precio = float(precio_match.group()) if precio_match else 0.0
-
-                        if nombre and precio > 0:
-                            ofertas.append({
-                                "producto": {
-                                    "id": f"fahorro_{len(ofertas)}",
-                                    "nombre": nombre
-                                },
-                                "precio": precio,
-                                "tienda": "Farmacias del Ahorro",
-                                "imagen": imagen,
-                                "url": url_prod
-                            })
-                    except Exception as e:
-                        pass
+                print(f"    Error en la API para '{termino}': Status {response.status_code}")
 
         except Exception as e:
             print(f"    Error buscando '{termino}': {e}")
-        finally:
-            if driver:
-                try:
-                    driver.quit()
-                except:
-                    pass
-
-        time.sleep(2)
+        
+        time.sleep(1) # Pequeña pausa para no saturar la API
 
     if ofertas:
         # Eliminar duplicados por nombre
@@ -112,8 +107,8 @@ def run():
 
 if __name__ == "__main__":
     try:
-        import bs4
+        import requests
     except ImportError:
         import subprocess
-        subprocess.run([sys.executable, "-m", "pip", "install", "beautifulsoup4"], check=True)
+        subprocess.run([sys.executable, "-m", "pip", "install", "requests"], check=True)
     run()

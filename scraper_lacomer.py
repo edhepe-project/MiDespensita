@@ -1,5 +1,6 @@
 import requests
 import json
+import urllib.parse
 import db_manager
 import time
 from db_manager import BUSQUEDAS
@@ -27,24 +28,39 @@ def run():
                 res = data.get("res", [])
                 
                 for item in res:
-                    nombre = item.get("artDesCom") or item.get("artDes")
-                    precio = item.get("artPrven")
-                    # El EAN es el id, pero el artCod se usa para la imagen
-                    artEan = item.get("artEan", "")
-                    artCod = item.get("artCod", "")
+                    nombre_corto = item.get("artDesCom") or item.get("artDes") or ""
+                    nombre = nombre_corto.title().strip()
+                    marca = item.get("marDes", "").strip()
                     
-                    if nombre and precio:
+                    precio_regular = item.get("artPrven", 0)
+                    precio_oferta  = item.get("artPrlin", 0)
+                    # Usar el precio más bajo disponible (oferta si existe)
+                    precio = precio_oferta if precio_oferta and precio_oferta < precio_regular else precio_regular
+                    
+                    artEan = item.get("artEan", "")
+                    agruId = item.get("agruId", "")
+                    
+                    if nombre and precio and artEan:
                         try:
                             precio_float = float(precio)
-                            # La ruta correcta proporcionada por el usuario (sin proxy ni CF block)
-                            img = f"https://www.lacomer.com.mx/superc/img_art/{artEan}_1.jpg" if artEan else ""
+                            # Intentar URL directa (detarticulo), usar item-search como respaldo si falta agruId
+                            agruId = item.get("agruId", "")
+                            if agruId:
+                                url_prod = f"https://www.lacomer.com.mx/lacomer/#!/detarticulo/{artEan}/0/{agruId}/1///{agruId}?succId=287&succFmt=100"
+                            else:
+                                search_term = item.get("artDesCom") or nombre_corto
+                                url_prod = f"https://www.lacomer.com.mx/lacomer/#!/item-search/287/{urllib.parse.quote(search_term)}/false?p=1&t=0&succId=287&succFmt=100"
+                            
+                            # Construir URL de la imagen si hay EAN
+                            imagen = f"https://www.lacomer.com.mx/superc/img_art/{artEan}_1.jpg" if artEan else ""
                             
                             ofertas.append({
-                                "producto": {"id": f"lacomer_{len(ofertas)}", "nombre": nombre.title()},
+                                "producto": {"id": f"lacomer_{len(ofertas)}", "nombre": nombre},
                                 "precio": precio_float,
                                 "tienda": "La Comer",
-                                "imagen": img,
-                                "url": f"https://www.lacomer.com.mx/lacomer/#!/articulo/{artEan}/" if artEan else ""
+                                "marca": marca,
+                                "imagen": imagen,
+                                "url": url_prod
                             })
                         except:
                             pass

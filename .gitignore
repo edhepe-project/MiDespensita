@@ -39,3 +39,7 @@ test_*
 # Variables de entorno (API Keys - NUNCA subir a GitHub)
 .env
 *.env
+
+# Archivos temporales de parche y versiones antiguas
+patch_*.py
+scraper_*_old.py
