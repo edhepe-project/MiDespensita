@@ -354,6 +354,21 @@ async function mostrarModalCompraFamiliar(familiaId, nombreProducto, cantidad, b
   const tiendasUsadas = productoLocal ? await APP_DB.getTiendasByProducto(productoLocal.id) : [];
   const marcasUsadas  = productoLocal ? await APP_DB.getMarcasByProducto(productoLocal.id) : [];
 
+  // Obtener último precio y tienda para auto-rellenar
+  let ultimaTienda = tiendasUsadas[0] || '';
+  let ultimoPrecio = '';
+  let ultimaMarca  = marcasUsadas[0] || '';
+  let ultimaPresentacion = '1';
+  if (productoLocal) {
+    const rango = await APP_DB.getRangoPrecios(productoLocal.id);
+    if (rango?.ultimo) {
+      ultimaTienda       = rango.ultimo.tienda || ultimaTienda;
+      ultimoPrecio       = rango.ultimo.precio > 0 ? rango.ultimo.precio : '';
+      ultimaMarca        = rango.ultimo.marca  || ultimaMarca;
+      ultimaPresentacion = rango.ultimo.presentacion || '1';
+    }
+  }
+
   if (btnOrigen) { btnOrigen.textContent = '✓ Listo'; btnOrigen.disabled = false; }
 
   const modal = document.createElement('div');
@@ -370,7 +385,8 @@ async function mostrarModalCompraFamiliar(familiaId, nombreProducto, cantidad, b
       <div class="form-group">
         <label class="form-label">Tienda</label>
         <input type="text" class="form-input" id="fam-input-tienda"
-          placeholder="Ej: Walmart" autocomplete="off" list="fam-sug-tienda">
+          placeholder="Ej: Walmart" autocomplete="off" list="fam-sug-tienda"
+          value="${ultimaTienda}">
         <datalist id="fam-sug-tienda">
           ${tiendasUsadas.map(t => '<option value="' + t + '">').join('')}
         </datalist>
@@ -378,7 +394,8 @@ async function mostrarModalCompraFamiliar(familiaId, nombreProducto, cantidad, b
       <div class="form-group">
         <label class="form-label">Marca</label>
         <input type="text" class="form-input" id="fam-input-marca"
-          placeholder="Ej: Lala" autocomplete="off" list="fam-sug-marca">
+          placeholder="Ej: Lala" autocomplete="off" list="fam-sug-marca"
+          value="${ultimaMarca}">
         <datalist id="fam-sug-marca">
           ${marcasUsadas.map(m => '<option value="' + m + '">').join('')}
         </datalist>
@@ -387,14 +404,17 @@ async function mostrarModalCompraFamiliar(familiaId, nombreProducto, cantidad, b
         <label class="form-label">Presentación</label>
         <div class="input-with-unit">
           <input type="number" inputmode="decimal" class="form-input input-presentacion"
-            id="fam-input-presentacion" placeholder="1" step="0.1" min="0.1" value="1">
+            id="fam-input-presentacion" placeholder="1" step="0.1" min="0.1" value="${ultimaPresentacion}">
           <span class="input-unit">${unidad}</span>
         </div>
       </div>
       <div class="form-group">
-        <label class="form-label">Precio</label>
+        <label class="form-label">Precio
+          ${ultimoPrecio ? '<span style="font-size:10px;color:var(--text-muted);margin-left:6px;background:var(--orange-100);color:var(--orange-600);padding:1px 6px;border-radius:4px">Último: $' + ultimoPrecio + '</span>' : ''}
+        </label>
         <input type="number" inputmode="decimal" class="form-input input-precio"
-          id="fam-input-precio" placeholder="0.00" step="0.50" min="0">
+          id="fam-input-precio" placeholder="0.00" step="0.50" min="0"
+          value="${ultimoPrecio}">
       </div>
       <div style="display:flex; gap:8px; margin-top:4px">
         <button class="btn btn-secondary" style="flex:1" id="fam-btn-sin-precio">Sin precio</button>
@@ -838,7 +858,7 @@ async function mostrarModalCompra(itemId, nombreProducto) {
   const marcasUsadas = await APP_DB.getMarcasByProducto(item.productoId);
 
   // Leer hint del catálogo (válido por 5 minutos)
-  let hintTienda = '', hintMarca = '', hintPrecio = '';
+  let hintTienda = '', hintMarca = '', hintPrecio = '', hintPresentacion = '1';
   try {
     const raw = localStorage.getItem('midespensita_catalogo_hint');
     if (raw) {
@@ -849,12 +869,24 @@ async function mostrarModalCompra(itemId, nombreProducto) {
       if (esReciente && (nombreHint.includes(nombreProd) || nombreProd.includes(nombreHint))) {
         hintTienda = hint.tienda || '';
         hintPrecio = hint.precio ? hint.precio.toFixed(2) : '';
-        // Extraer marca: primera palabra del nombre del hint como aproximación
         hintMarca = '';
         localStorage.removeItem('midespensita_catalogo_hint'); // consumir el hint
       }
     }
   } catch(e) {}
+
+  // Si no hay hint de catálogo, usar la última compra del historial propio
+  if (!hintTienda && !hintPrecio) {
+    try {
+      const rango = await APP_DB.getRangoPrecios(item.productoId);
+      if (rango?.ultimo) {
+        hintTienda       = rango.ultimo.tienda       || '';
+        hintPrecio       = rango.ultimo.precio > 0   ? rango.ultimo.precio.toString() : '';
+        hintMarca        = rango.ultimo.marca        || '';
+        hintPresentacion = rango.ultimo.presentacion || '1';
+      }
+    } catch(e) {}
+  }
 
   const modal = document.createElement('div');
   modal.className = 'modal-overlay';
