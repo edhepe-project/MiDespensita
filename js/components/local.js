@@ -42,6 +42,7 @@ window.APP_Local = {
     const hoy    = this._labelDia(0);
     const ayer   = this._labelDia(1);
     const grupos = { hoy: [], ayer: [] };
+    this._grupos = grupos; // Guardar referencia para el lightbox
 
     for (const p of posts) {
       const dias = this._diasDesde(p.fecha_guardado);
@@ -204,7 +205,30 @@ window.APP_Local = {
           cursor: pointer;
           backdrop-filter: blur(6px);
           -webkit-backdrop-filter: blur(6px);
+          z-index: 10;
         }
+        .lb-nav {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 44px;
+          height: 44px;
+          border-radius: 50%;
+          background: rgba(255,255,255,0.1);
+          color: white;
+          font-size: 24px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          border: none;
+          backdrop-filter: blur(4px);
+          z-index: 10;
+          opacity: 0.7;
+        }
+        .lb-nav:hover { opacity: 1; background: rgba(255,255,255,0.2); }
+        #lb-prev { left: 16px; }
+        #lb-next { right: 16px; }
         #lb-caption {
           position: absolute;
           bottom: 20px;
@@ -213,6 +237,7 @@ window.APP_Local = {
           color: rgba(255,255,255,0.75);
           font-size: 13px;
           padding: 0 20px;
+          z-index: 10;
         }
         #lb-fb-link {
           position: absolute;
@@ -253,9 +278,10 @@ window.APP_Local = {
   },
 
   _groupHTML(titulo, id, posts) {
+    const grupoKey = id === 'grupo-hoy' ? 'hoy' : 'ayer';
     const slides = posts.map((p, i) => {
       const imgClickHandler = p.imagen_url
-        ? `onclick="APP_Local.openLightbox('${p.imagen_url.replace(/'/g, "\\'")}','${this._esc(p.tienda).replace(/'/g, "\\'")}','${(p.post_url||p.pagina_facebook||'').replace(/'/g, "\\'")}')" style="cursor:pointer;"`
+        ? `onclick="APP_Local.openLightbox('${grupoKey}', ${i})" style="cursor:pointer;"`
         : '';
 
       const imgHTML = p.imagen_url
@@ -400,7 +426,12 @@ window.APP_Local = {
     return (str || '').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
   },
 
-  openLightbox(imgUrl, caption, postUrl) {
+  openLightbox(grupoKey, startIndex) {
+    const posts = this._grupos && this._grupos[grupoKey] ? this._grupos[grupoKey] : [];
+    if (!posts || posts.length === 0) return;
+
+    let currentIndex = startIndex;
+
     // Eliminar lightbox previo
     const existing = document.getElementById('local-lightbox');
     if (existing) existing.remove();
@@ -408,18 +439,57 @@ window.APP_Local = {
     const lb = document.createElement('div');
     lb.id = 'local-lightbox';
 
-    const fbLink = postUrl && postUrl.startsWith('http')
-      ? `<a id="lb-fb-link" href="${postUrl}" target="_blank" rel="noopener">Ver publicación en Facebook ↗</a>`
-      : '';
-
     lb.innerHTML = `
       <button id="lb-close" title="Cerrar">✕</button>
-      <img id="lb-img" src="${imgUrl}" alt="${caption}">
-      ${fbLink}
-      <div id="lb-caption">${caption}</div>
+      <button id="lb-prev" class="lb-nav" style="display:none;">❮</button>
+      <button id="lb-next" class="lb-nav" style="display:none;">❯</button>
+      <img id="lb-img" src="" alt="">
+      <a id="lb-fb-link" href="#" target="_blank" rel="noopener">Ver publicación en Facebook ↗</a>
+      <div id="lb-caption"></div>
     `;
 
     document.body.appendChild(lb);
+
+    const imgEl = document.getElementById('lb-img');
+    const captionEl = document.getElementById('lb-caption');
+    const fbLinkEl = document.getElementById('lb-fb-link');
+    const btnPrev = document.getElementById('lb-prev');
+    const btnNext = document.getElementById('lb-next');
+    let zoomed = false;
+
+    const updateView = () => {
+      const p = posts[currentIndex];
+      imgEl.src = p.imagen_url;
+      imgEl.alt = p.tienda;
+      captionEl.textContent = `🏪 ${p.tienda} (${currentIndex + 1} de ${posts.length})`;
+      
+      const postUrl = p.post_url || p.pagina_facebook;
+      if (postUrl && postUrl.startsWith('http')) {
+        fbLinkEl.href = postUrl;
+        fbLinkEl.style.display = 'block';
+      } else {
+        fbLinkEl.style.display = 'none';
+      }
+
+      btnPrev.style.display = posts.length > 1 ? 'flex' : 'none';
+      btnNext.style.display = posts.length > 1 ? 'flex' : 'none';
+      
+      // Reset zoom al cambiar de foto
+      if (zoomed) {
+        zoomed = false;
+        imgEl.style.transform = 'scale(1)';
+        imgEl.classList.remove('zoomed');
+      }
+    };
+
+    updateView();
+
+    // Navegación
+    const goPrev = (e) => { if(e) e.stopPropagation(); currentIndex = (currentIndex - 1 + posts.length) % posts.length; updateView(); };
+    const goNext = (e) => { if(e) e.stopPropagation(); currentIndex = (currentIndex + 1) % posts.length; updateView(); };
+
+    btnPrev.addEventListener('click', goPrev);
+    btnNext.addEventListener('click', goNext);
 
     // Cerrar al hacer clic en fondo o botón X
     lb.addEventListener('click', e => {
@@ -427,24 +497,41 @@ window.APP_Local = {
     });
 
     // Doble toque / doble clic para zoom
-    const img = lb.querySelector('#lb-img');
-    let zoomed = false;
-    img.addEventListener('dblclick', () => {
+    imgEl.addEventListener('dblclick', (e) => {
+      e.stopPropagation();
       zoomed = !zoomed;
-      img.style.transform = zoomed ? 'scale(2)' : 'scale(1)';
-      img.classList.toggle('zoomed', zoomed);
+      imgEl.style.transform = zoomed ? 'scale(2)' : 'scale(1)';
+      imgEl.classList.toggle('zoomed', zoomed);
     });
 
-    // Swipe hacia abajo para cerrar
-    let startY = 0;
-    lb.addEventListener('touchstart', e => { startY = e.touches[0].clientY; }, { passive: true });
+    // Gestos táctiles (Swipe)
+    let startX = 0, startY = 0;
+    lb.addEventListener('touchstart', e => { 
+      startX = e.touches[0].clientX; 
+      startY = e.touches[0].clientY; 
+    }, { passive: true });
+    
     lb.addEventListener('touchend', e => {
+      if (zoomed) return; // Si hay zoom, no cambiar de slide
+      const dx = e.changedTouches[0].clientX - startX;
       const dy = e.changedTouches[0].clientY - startY;
-      if (dy > 80) lb.remove();
+      
+      if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) {
+        // Swipe horizontal
+        if (dx < 0) goNext();
+        else goPrev();
+      } else if (dy > 80 && Math.abs(dy) > Math.abs(dx)) {
+        // Swipe abajo para cerrar
+        lb.remove();
+      }
     }, { passive: true });
 
-    // Tecla ESC
-    const onKey = e => { if (e.key === 'Escape') { lb.remove(); document.removeEventListener('keydown', onKey); } };
+    // Teclas
+    const onKey = e => { 
+      if (e.key === 'Escape') { lb.remove(); document.removeEventListener('keydown', onKey); }
+      else if (e.key === 'ArrowRight' && !zoomed) goNext();
+      else if (e.key === 'ArrowLeft' && !zoomed) goPrev();
+    };
     document.addEventListener('keydown', onKey);
   }
 };
