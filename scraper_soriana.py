@@ -1,4 +1,4 @@
-import undetected_chromedriver as uc
+﻿import undetected_chromedriver as uc
 import json
 import db_manager
 import time
@@ -142,3 +142,8 @@ def run():
 
 if __name__ == "__main__":
     run()
+
+# --- Auto git push cuando se ejecuta individualmente ---
+import db_manager as _dm
+_dm.git_push_datos("soriana")
+

@@ -1,4 +1,4 @@
-import requests
+﻿import requests
 import json
 import urllib.parse
 import db_manager
@@ -90,3 +90,4 @@ def run():
 
 if __name__ == "__main__":
     run()
+

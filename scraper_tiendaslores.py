@@ -1,4 +1,4 @@
-"""
+﻿"""
 scraper_tiendaslores.py
 Scraper de Tiendas Lores via WooCommerce Store API publica.
 No requiere Selenium ni login. Extrae productos en oferta con precios e imagenes.
@@ -196,3 +196,8 @@ def run():
 
 if __name__ == "__main__":
     run()
+
+# --- Auto git push cuando se ejecuta individualmente ---
+import db_manager as _dm
+_dm.git_push_datos("tiendaslores")
+

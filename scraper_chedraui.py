@@ -1,4 +1,4 @@
-import requests
+﻿import requests
 import json
 import time
 import db_manager
@@ -117,3 +117,8 @@ def run():
 
 if __name__ == "__main__":
     run()
+
+# --- Auto git push cuando se ejecuta individualmente ---
+import db_manager as _dm
+_dm.git_push_datos("chedraui")
+

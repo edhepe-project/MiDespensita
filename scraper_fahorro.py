@@ -1,4 +1,4 @@
-import json
+﻿import json
 import time
 import requests
 import db_manager
@@ -112,3 +112,4 @@ if __name__ == "__main__":
         import subprocess
         subprocess.run([sys.executable, "-m", "pip", "install", "requests"], check=True)
     run()
+

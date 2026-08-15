@@ -230,6 +230,32 @@ def exportar_tendencias_json():
         
     print(f"DB Export: tendencias.json generado exitosamente con {len(tendencias)} productos históricos.")
 
+
+def git_push_datos(nombre_scraper="scraper"):
+    """
+    Hace git add, commit y push de todos los archivos de datos.
+    Llamar al final de cada scraper para subir datos a GitHub automaticamente.
+    """
+    import subprocess
+    import sys
+    from datetime import datetime
+    
+    fecha = datetime.now().strftime("%Y-%m-%d %H:%M")
+    try:
+        subprocess.run(["git", "add", "."], check=True, capture_output=True)
+        result = subprocess.run(
+            ["git", "commit", "-m", f"update: {nombre_scraper} {fecha}"],
+            capture_output=True, text=True
+        )
+        if result.returncode == 0:
+            subprocess.run(["git", "push"], check=True, capture_output=True)
+            print(f"[Git] Datos subidos a GitHub correctamente.")
+        else:
+            # Sin cambios que commitear — no es error
+            print(f"[Git] Sin cambios nuevos que subir.")
+    except Exception as e:
+        print(f"[Git] Error al subir: {e}")
+
 if __name__ == "__main__":
     init_db()
     exportar_tendencias_json()

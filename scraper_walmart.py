@@ -1,4 +1,4 @@
-import undetected_chromedriver as uc
+﻿import undetected_chromedriver as uc
 import json
 import time
 import re
@@ -170,3 +170,4 @@ if __name__ == "__main__":
         subprocess.run([sys.executable, "-m", "pip", "install", "beautifulsoup4"], check=True)
         
     run()
+

@@ -1,4 +1,4 @@
-import undetected_chromedriver as uc
+﻿import undetected_chromedriver as uc
 import json
 import time
 from bs4 import BeautifulSoup
@@ -161,3 +161,8 @@ def deep_get(d, *keys):
 
 if __name__ == "__main__":
     run()
+
+# --- Auto git push cuando se ejecuta individualmente ---
+import db_manager as _dm
+_dm.git_push_datos("bodega")
+
