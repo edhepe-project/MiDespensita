@@ -101,44 +101,93 @@ APP_Pages.tiendas = async function() {
   window._catalogoPagina = 0;         // Página actual para carga infinita
 
   container.innerHTML = `
-    <!-- BARRA DE BÚSQUEDA STICKY (mismo patrón que productos.js) -->
-    <div id="tiendas-search-card" style="position: sticky; top: 60px; z-index: 40; background: var(--background); padding: 10px 0 6px 0; transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); margin-bottom: 8px;">
-      <div style="position: relative;">
-        <input type="text" class="form-input" id="buscar-catalogo" placeholder="Buscar en todas las tiendas..." style="padding-right: 38px; width: 100%; box-sizing: border-box;">
-        <span id="clear-buscar-catalogo" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); color: var(--text-muted); cursor: pointer; display: none; padding: 5px; font-weight: bold; font-size: 16px; user-select: none;">✕</span>
+    <!-- TABS: Nacional / Local -->
+    <div id="tiendas-tabs" style="display:flex;gap:0;background:var(--surface);border-radius:14px;border:1px solid var(--border);padding:4px;margin-bottom:14px;">
+      <button id="tab-nacional" onclick="switchTiendasTab('nacional')"
+        style="flex:1;padding:9px 0;border:none;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;transition:background 0.2s,color 0.2s;background:var(--primary);color:#fff;">
+        🏬 Nacional
+      </button>
+      <button id="tab-local" onclick="switchTiendasTab('local')"
+        style="flex:1;padding:9px 0;border:none;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;transition:background 0.2s,color 0.2s;background:transparent;color:var(--text-secondary);">
+        📍 Local
+      </button>
+    </div>
+
+    <!-- CONTENIDO NACIONAL -->
+    <div id="tiendas-nacional-content">
+      <!-- BARRA DE BÚSQUEDA STICKY (mismo patrón que productos.js) -->
+      <div id="tiendas-search-card" style="position: sticky; top: 60px; z-index: 40; background: var(--background); padding: 10px 0 6px 0; transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); margin-bottom: 8px;">
+        <div style="position: relative;">
+          <input type="text" class="form-input" id="buscar-catalogo" placeholder="Buscar en todas las tiendas..." style="padding-right: 38px; width: 100%; box-sizing: border-box;">
+          <span id="clear-buscar-catalogo" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); color: var(--text-muted); cursor: pointer; display: none; padding: 5px; font-weight: bold; font-size: 16px; user-select: none;">✕</span>
+        </div>
+      </div>
+
+      <!-- FILTROS -->
+      <div style="padding: 0 0 10px 0;">
+        <div style="font-size: 12px; color: var(--text-secondary); margin-bottom: 10px; text-align: right;">
+          Última actualización: ${updateDate}
+        </div>
+        <div style="display: flex; gap: 8px;">
+          <select id="filtro-tienda" style="flex: 1; padding: 10px; border-radius: var(--radius-md); border: 1px solid var(--border); background: var(--surface); color: var(--text); font-size: 14px;">
+            <option value="todas">Todas las Tiendas</option>
+            <option value="Walmart">Walmart</option>
+            <option value="Sams">Sam's Club</option>
+            <option value="Farmacia Guadalajara">Farmacia Guadalajara</option>
+            <option value="Farmacias del Ahorro">Farmacias del Ahorro</option>
+            <option value="Bodega Aurrerá">Bodega Aurrerá</option>
+            <option value="Chedraui">Chedraui</option>
+            <option value="Soriana">Soriana</option>
+            <option value="La Comer">La Comer</option>
+          </select>
+          <select id="filtro-orden" style="flex: 1; padding: 10px; border-radius: var(--radius-md); border: 1px solid var(--border); background: var(--surface); color: var(--text); font-size: 14px;">
+            <option value="relevancia">Relevancia / IA</option>
+            <option value="precio_menor">Menor Precio</option>
+            <option value="precio_mayor">Mayor Precio</option>
+            <option value="az">A-Z</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Contenedor Grid 2 Columnas -->
+      <div id="catalogo-productos" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; padding-bottom: 40px; margin-top: 4px;">
       </div>
     </div>
 
-    <!-- FILTROS -->
-    <div style="padding: 0 0 10px 0;">
-      <div style="font-size: 12px; color: var(--text-secondary); margin-bottom: 10px; text-align: right;">
-        Última actualización: ${updateDate}
-      </div>
-      <div style="display: flex; gap: 8px;">
-        <select id="filtro-tienda" style="flex: 1; padding: 10px; border-radius: var(--radius-md); border: 1px solid var(--border); background: var(--surface); color: var(--text); font-size: 14px;">
-          <option value="todas">Todas las Tiendas</option>
-          <option value="Walmart">Walmart</option>
-          <option value="Sams">Sam's Club</option>
-          <option value="Farmacia Guadalajara">Farmacia Guadalajara</option>
-          <option value="Farmacias del Ahorro">Farmacias del Ahorro</option>
-          <option value="Bodega Aurrerá">Bodega Aurrerá</option>
-          <option value="Chedraui">Chedraui</option>
-          <option value="Soriana">Soriana</option>
-          <option value="La Comer">La Comer</option>
-        </select>
-        <select id="filtro-orden" style="flex: 1; padding: 10px; border-radius: var(--radius-md); border: 1px solid var(--border); background: var(--surface); color: var(--text); font-size: 14px;">
-          <option value="relevancia">Relevancia / IA</option>
-          <option value="precio_menor">Menor Precio</option>
-          <option value="precio_mayor">Mayor Precio</option>
-          <option value="az">A-Z</option>
-        </select>
-      </div>
-    </div>
-
-    <!-- Contenedor Grid 2 Columnas -->
-    <div id="catalogo-productos" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; padding-bottom: 40px; margin-top: 4px;">
+    <!-- CONTENIDO LOCAL (oculto inicialmente) -->
+    <div id="tiendas-local-content" style="display:none;">
     </div>
   `;
+
+  // Función global para cambiar entre tabs
+  window.switchTiendasTab = function(tab) {
+    const nacional = document.getElementById('tiendas-nacional-content');
+    const local    = document.getElementById('tiendas-local-content');
+    const btnNac   = document.getElementById('tab-nacional');
+    const btnLoc   = document.getElementById('tab-local');
+    if (!nacional || !local) return;
+
+    if (tab === 'nacional') {
+      nacional.style.display = 'block';
+      local.style.display    = 'none';
+      btnNac.style.background = 'var(--primary)';
+      btnNac.style.color      = '#fff';
+      btnLoc.style.background = 'transparent';
+      btnLoc.style.color      = 'var(--text-secondary)';
+    } else {
+      nacional.style.display = 'none';
+      local.style.display    = 'block';
+      btnNac.style.background = 'transparent';
+      btnNac.style.color      = 'var(--text-secondary)';
+      btnLoc.style.background = 'var(--primary)';
+      btnLoc.style.color      = '#fff';
+      // Cargar contenido Local la primera vez
+      if (!local.dataset.loaded) {
+        local.dataset.loaded = '1';
+        APP_Local.load(local);
+      }
+    }
+  };
 
   bindTiendasEvents();
   renderCatalogoFiltrado(); // Renderizar la primera página
