@@ -43,7 +43,13 @@ def run():
                     action.click_and_hold(captcha).perform()
                     time.sleep(12)
                     action.release().perform()
-                    time.sleep(5)
+                    
+                    # Esperar a que PerimeterX valide y recargar la página del producto perdido
+                    print("Validando CAPTCHA... recargando búsqueda.")
+                    time.sleep(6)
+                    driver.execute_script(f"window.location.href = '{url}';")
+                    time.sleep(4)
+                    
                 except Exception as e:
                     print(f"No se pudo auto-resolver: {e}")
             
