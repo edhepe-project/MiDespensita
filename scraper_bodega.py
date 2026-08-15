@@ -2,6 +2,8 @@ import undetected_chromedriver as uc
 import json
 import time
 import random
+import tempfile
+import os
 from bs4 import BeautifulSoup
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
@@ -20,6 +22,9 @@ def run():
         try:
             options = uc.ChromeOptions()
             options.add_argument('--disable-blink-features=AutomationControlled')
+            # Perfil temporal unico en cada reinicio → sesion 100% nueva para PerimeterX
+            tmp_profile = tempfile.mkdtemp(prefix="bodega_session_")
+            options.add_argument(f'--user-data-dir={tmp_profile}')
 
             driver = uc.Chrome(options=options, version_main=db_manager.get_chrome_major_version())
             driver.set_window_size(1280, 900)

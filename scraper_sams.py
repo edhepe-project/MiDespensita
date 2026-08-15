@@ -3,6 +3,8 @@ import json
 import time
 import random
 import sys
+import tempfile
+import os
 from bs4 import BeautifulSoup
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
@@ -21,6 +23,8 @@ def run():
         try:
             options = uc.ChromeOptions()
             options.add_argument('--disable-blink-features=AutomationControlled')
+            tmp_profile = tempfile.mkdtemp(prefix="sams_session_")
+            options.add_argument(f'--user-data-dir={tmp_profile}')
 
             driver = uc.Chrome(options=options, version_main=db_manager.get_chrome_major_version())
             driver.set_window_size(1280, 900)
