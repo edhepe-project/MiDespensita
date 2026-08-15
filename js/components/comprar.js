@@ -400,21 +400,23 @@ async function mostrarModalCompraFamiliar(familiaId, nombreProducto, cantidad, b
           ${marcasUsadas.map(m => '<option value="' + m + '">').join('')}
         </datalist>
       </div>
-      <div class="form-group">
-        <label class="form-label">Presentación</label>
-        <div class="input-with-unit">
-          <input type="number" inputmode="decimal" class="form-input input-presentacion"
-            id="fam-input-presentacion" placeholder="1" step="0.1" min="0.1" value="${ultimaPresentacion}">
-          <span class="input-unit">${unidad}</span>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px;">
+        <div class="form-group" style="margin-bottom:0">
+          <label class="form-label">Presentación</label>
+          <div class="input-with-unit">
+            <input type="number" inputmode="decimal" class="form-input input-presentacion"
+              id="fam-input-presentacion" placeholder="1" step="0.1" min="0.1" value="${ultimaPresentacion}">
+            <span class="input-unit">${unidad}</span>
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <label class="form-label">Precio
-          ${ultimoPrecio ? '<span style="font-size:10px;color:var(--text-muted);margin-left:6px;background:var(--orange-100);color:var(--orange-600);padding:1px 6px;border-radius:4px">Último: $' + ultimoPrecio + '</span>' : ''}
-        </label>
-        <input type="number" inputmode="decimal" class="form-input input-precio"
-          id="fam-input-precio" placeholder="0.00" step="0.50" min="0"
-          value="${ultimoPrecio}">
+        <div class="form-group" style="margin-bottom:0">
+          <label class="form-label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Precio
+            ${ultimoPrecio ? '<span style="font-size:10px;color:var(--text-muted);margin-left:4px;background:var(--orange-100);color:var(--orange-600);padding:1px 4px;border-radius:4px">Último: $' + ultimoPrecio + '</span>' : ''}
+          </label>
+          <input type="number" inputmode="decimal" class="form-input input-precio"
+            id="fam-input-precio" placeholder="0.00" step="0.50" min="0"
+            value="${ultimoPrecio}">
+        </div>
       </div>
       <div style="display:flex; gap:8px; margin-top:4px">
         <button class="btn btn-secondary" style="flex:1" id="fam-btn-sin-precio">Sin precio</button>
@@ -914,17 +916,18 @@ async function mostrarModalCompra(itemId, nombreProducto) {
         </datalist>
       </div>
 
-      <div class="form-group">
-        <label class="form-label">Presentación</label>
-        <div class="input-with-unit">
-          <input type="number" inputmode="decimal" pattern="[0-9]*" class="form-input input-presentacion" id="input-presentacion" placeholder="1" step="0.1" min="0.1" value="1">
-          <span class="input-unit">${unidad}</span>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px;">
+        <div class="form-group" style="margin-bottom:0">
+          <label class="form-label">Presentación</label>
+          <div class="input-with-unit">
+            <input type="number" inputmode="decimal" pattern="[0-9]*" class="form-input input-presentacion" id="input-presentacion" placeholder="1" step="0.1" min="0.1" value="1">
+            <span class="input-unit">${unidad}</span>
+          </div>
         </div>
-      </div>
-
-      <div class="form-group">
-        <label class="form-label">Precio</label>
-        <input type="number" inputmode="decimal" pattern="[0-9]*" class="form-input input-precio" id="input-precio" value="${hintPrecio}" placeholder="0.00" step="0.50" min="0">
+        <div class="form-group" style="margin-bottom:0">
+          <label class="form-label">Precio</label>
+          <input type="number" inputmode="decimal" pattern="[0-9]*" class="form-input input-precio" id="input-precio" value="${hintPrecio}" placeholder="0.00" step="0.50" min="0">
+        </div>
       </div>
 
       <button class="btn btn-primary" style="width:100%" id="btn-guardar-compra">
