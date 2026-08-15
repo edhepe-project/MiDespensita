@@ -255,7 +255,7 @@ window.APP_Local = {
   _groupHTML(titulo, id, posts) {
     const slides = posts.map((p, i) => {
       const imgClickHandler = p.imagen_url
-        ? `onclick="APP_Local.openLightbox('${p.imagen_url.replace(/'/g, "\\'")}',' ${this._esc(p.tienda)}','${(p.post_url||p.pagina_facebook||'').replace(/'/g, "\\'")}')" style="cursor:pointer;"`
+        ? `onclick="APP_Local.openLightbox('${p.imagen_url.replace(/'/g, "\\'")}','${this._esc(p.tienda).replace(/'/g, "\\'")}','${(p.post_url||p.pagina_facebook||'').replace(/'/g, "\\'")}')" style="cursor:pointer;"`
         : '';
 
       const imgHTML = p.imagen_url

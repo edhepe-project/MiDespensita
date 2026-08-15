@@ -43,3 +43,11 @@ test_*
 # Archivos temporales de parche y versiones antiguas
 patch_*.py
 scraper_*_old.py
+
+# Credenciales de Facebook y datos locales
+scraper_facebook_local.py
+ofertas_local_facebook.json
+*.json
+
+# Perfil de Chrome del scraper (contiene cookies de sesión — NO subir)
+fb_profile/
