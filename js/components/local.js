@@ -26,7 +26,7 @@ window.APP_Local = {
 
     if (!posts) {
       try {
-        const res = await fetch(`ofertas_local_facebook.json?t=${Date.now()}`);
+        const res = await fetch(`/api/local?t=${Date.now()}`);
         posts = res.ok ? await res.json() : [];
       } catch (e) {
         posts = [];
@@ -38,20 +38,18 @@ window.APP_Local = {
   },
 
   render(container, posts) {
-    // ── Agrupar por día ──────────────────────────────────────
-    const hoy    = this._labelDia(0);
-    const ayer   = this._labelDia(1);
-    const grupos = { hoy: [], ayer: [] };
-    this._grupos = grupos; // Guardar referencia para el lightbox
-
+    // ── Agrupar por tienda ───────────────────────────────────
+    const tiendaMap = {};
     for (const p of posts) {
-      const dias = this._diasDesde(p.fecha_guardado);
-      if (dias === 0)      grupos.hoy.push(p);
-      else if (dias === 1) grupos.ayer.push(p);
-      // Ignorar posts de más de 48h (el backend ya los borra, pero por si acaso)
+      const key = p.tienda || 'Desconocida';
+      if (!tiendaMap[key]) tiendaMap[key] = [];
+      tiendaMap[key].push(p);
     }
+    // Convertir a array ordenado
+    const grupos = Object.entries(tiendaMap).map(([nombre, items]) => ({ nombre, items }));
+    this._grupos = tiendaMap; // Guardar referencia para el lightbox
 
-    const hayDatos = grupos.hoy.length > 0 || grupos.ayer.length > 0;
+    const hayDatos = grupos.length > 0;
 
     container.innerHTML = `
       <style>
@@ -266,19 +264,24 @@ window.APP_Local = {
 
       ${!hayDatos ? this._emptyHTML() : ''}
 
-      ${grupos.hoy.length > 0 ? this._groupHTML('📅 Hoy', 'grupo-hoy', grupos.hoy) : ''}
-      ${grupos.ayer.length > 0 ? this._groupHTML('🕐 Ayer', 'grupo-ayer', grupos.ayer) : ''}
+      ${grupos.map(g => {
+        const id = 'grupo-' + g.nombre.replace(/[^a-zA-Z0-9]/g, '_');
+        return this._groupHTML('🏪 ' + g.nombre, id, g.items);
+      }).join('')}
 
       <div style="height: 40px;"></div>
     `;
 
     // ── Inicializar carruseles ────────────────────────────────
-    if (grupos.hoy.length  > 0) this._initCarousel('grupo-hoy',  grupos.hoy.length);
-    if (grupos.ayer.length > 0) this._initCarousel('grupo-ayer', grupos.ayer.length);
+    grupos.forEach(g => {
+      const id = 'grupo-' + g.nombre.replace(/[^a-zA-Z0-9]/g, '_');
+      if (g.items.length > 0) this._initCarousel(id, g.items.length);
+    });
   },
 
   _groupHTML(titulo, id, posts) {
-    const grupoKey = id === 'grupo-hoy' ? 'hoy' : 'ayer';
+    // grupoKey es el nombre de la tienda para indexar en this._grupos
+    const grupoKey = posts[0]?.tienda || id;
     const slides = posts.map((p, i) => {
       const imgClickHandler = p.imagen_url
         ? `onclick="APP_Local.openLightbox('${grupoKey}', ${i})" style="cursor:pointer;"`
