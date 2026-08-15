@@ -1,2680 +1,3829 @@
 [
   {
-    "producto": "Blanqueador Cloralex 950 ml",
+    "producto": {
+      "id": "lores_blanqueador-cloralex-950-ml",
+      "nombre": "Blanqueador Cloralex 950 ml"
+    },
     "precio": 13.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/BLA0178.webp",
     "url": "https://tiendaslores.com/producto/blanqueador-cloralex-950-ml/"
   },
   {
-    "producto": "Jamón de pavo Americano Fud 1 kg",
+    "producto": {
+      "id": "lores_jamon-de-pavo-americano-fud-1-kg-2",
+      "nombre": "Jamón de pavo Americano Fud 1 kg"
+    },
     "precio": 111.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/264.webp",
     "url": "https://tiendaslores.com/producto/jamon-de-pavo-americano-fud-1-kg-2/"
   },
   {
-    "producto": "Aceite comestible Patrona 1.5 l",
+    "producto": {
+      "id": "lores_aceite-comestible-patrona-1-5-l",
+      "nombre": "Aceite comestible Patrona 1.5 l"
+    },
     "precio": 55.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/ACE0105.webp",
     "url": "https://tiendaslores.com/producto/aceite-comestible-patrona-1-5-l/"
   },
   {
-    "producto": "Tomate saladet 1 kg",
+    "producto": {
+      "id": "lores_tomate-saladet-1-kg",
+      "nombre": "Tomate saladet 1 kg"
+    },
     "precio": 13.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/FYV0014.webp",
     "url": "https://tiendaslores.com/producto/tomate-saladet-1-kg/"
   },
   {
-    "producto": "Aguacate 1 kg",
+    "producto": {
+      "id": "lores_aguacate-1-kg",
+      "nombre": "Aguacate 1 kg"
+    },
     "precio": 53.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/FYV0001.webp",
     "url": "https://tiendaslores.com/producto/aguacate-1-kg/"
   },
   {
-    "producto": "Cilantro 1 rollo",
+    "producto": {
+      "id": "lores_cilantro-1-rollo",
+      "nombre": "Cilantro 1 rollo"
+    },
     "precio": 6.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/FYV0035.webp",
     "url": "https://tiendaslores.com/producto/cilantro-1-rollo/"
   },
   {
-    "producto": "Lechuga larga 1 pza.",
+    "producto": {
+      "id": "lores_lechuga-larga-1-pza",
+      "nombre": "Lechuga larga 1 pza."
+    },
     "precio": 16.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/FYV0025.webp",
     "url": "https://tiendaslores.com/producto/lechuga-larga-1-pza/"
   },
   {
-    "producto": "Arroz Doña Chabe 900 g",
+    "producto": {
+      "id": "lores_arroz-dona-chabe-900-g",
+      "nombre": "Arroz Doña Chabe 900 g"
+    },
     "precio": 15.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/ARR0048.webp",
     "url": "https://tiendaslores.com/producto/arroz-dona-chabe-900-g/"
   },
   {
-    "producto": "Salsa chipotle San Marcos 215 g",
+    "producto": {
+      "id": "lores_salsa-chipotle-san-marcos-215-g",
+      "nombre": "Salsa chipotle San Marcos 215 g"
+    },
     "precio": 13.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/SAL1632.webp",
     "url": "https://tiendaslores.com/producto/salsa-chipotle-san-marcos-215-g/"
   },
   {
-    "producto": "Margarina sin sal La Villita 90 g",
+    "producto": {
+      "id": "lores_margarina-sin-sal-la-villita-90-g",
+      "nombre": "Margarina sin sal La Villita 90 g"
+    },
     "precio": 10.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/8214.webp",
     "url": "https://tiendaslores.com/producto/margarina-sin-sal-la-villita-90-g/"
   },
   {
-    "producto": "Aceite vegetal Negrita 800 ml",
+    "producto": {
+      "id": "lores_aceite-vegetal-negrita-800-ml",
+      "nombre": "Aceite vegetal Negrita 800 ml"
+    },
     "precio": 29.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/ACE0011.webp",
     "url": "https://tiendaslores.com/producto/aceite-vegetal-negrita-800-ml/"
   },
   {
-    "producto": "Frijoles negros refritos en bolsa La Sierra 430 g",
+    "producto": {
+      "id": "lores_frijoles-negros-refritos-en-bolsa-la-sierra-430-g",
+      "nombre": "Frijoles negros refritos en bolsa La Sierra 430 g"
+    },
     "precio": 12.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/FRI0881.webp",
     "url": "https://tiendaslores.com/producto/frijoles-negros-refritos-en-bolsa-la-sierra-430-g/"
   },
   {
-    "producto": "Salchicha de pavo Frankfurt Chimex 1 kg",
+    "producto": {
+      "id": "lores_salchicha-de-pavo-frankfurt-chimex-1-kg",
+      "nombre": "Salchicha de pavo Frankfurt Chimex 1 kg"
+    },
     "precio": 58.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2026/03/2410.webp",
     "url": "https://tiendaslores.com/producto/salchicha-de-pavo-frankfurt-chimex-1-kg/"
   },
   {
-    "producto": "Jamón de pierna Chimex 225 g",
+    "producto": {
+      "id": "lores_jamon-de-pierna-chimex-225-g",
+      "nombre": "Jamón de pierna Chimex 225 g"
+    },
     "precio": 31.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/697.webp",
     "url": "https://tiendaslores.com/producto/jamon-de-pierna-chimex-225-g/"
   },
   {
-    "producto": "Yoghurt bebible fresa Yoplait 220 g",
+    "producto": {
+      "id": "lores_yoghurt-bebible-fresa-yoplait-220-g",
+      "nombre": "Yoghurt bebible fresa Yoplait 220 g"
+    },
     "precio": 10.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/9140.webp",
     "url": "https://tiendaslores.com/producto/yoghurt-bebible-fresa-yoplait-220-g/"
   },
   {
-    "producto": "Queso manchego Fud 180 g",
+    "producto": {
+      "id": "lores_queso-manchego-fud-180-g",
+      "nombre": "Queso manchego Fud 180 g"
+    },
     "precio": 37.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/8381.webp",
     "url": "https://tiendaslores.com/producto/queso-manchego-fud-180-g/"
   },
   {
-    "producto": "Salchicha de pavo Chimex 640 g",
+    "producto": {
+      "id": "lores_salchicha-de-pavo-chimex-640-g",
+      "nombre": "Salchicha de pavo Chimex 640 g"
+    },
     "precio": 32.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/993.webp",
     "url": "https://tiendaslores.com/producto/salchicha-de-pavo-chimex-640-g/"
   },
   {
-    "producto": "Jamón cocido Viva 1 kg",
+    "producto": {
+      "id": "lores_jamon-cocido-viva-1-kg",
+      "nombre": "Jamón cocido Viva 1 kg"
+    },
     "precio": 86.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/104.webp",
     "url": "https://tiendaslores.com/producto/jamon-cocido-viva-1-kg/"
   },
   {
-    "producto": "Blanqueador Cloralex 2 l",
+    "producto": {
+      "id": "lores_blanqueador-cloralex-2-l",
+      "nombre": "Blanqueador Cloralex 2 l"
+    },
     "precio": 27.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/BLA0174.webp",
     "url": "https://tiendaslores.com/producto/blanqueador-cloralex-2-l/"
   },
   {
-    "producto": "Jamón pavo y cerdo americano Fud 196 g",
+    "producto": {
+      "id": "lores_jamon-pavo-y-cerdo-americano-fud-196-g",
+      "nombre": "Jamón pavo y cerdo americano Fud 196 g"
+    },
     "precio": 29.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/2354.webp",
     "url": "https://tiendaslores.com/producto/jamon-pavo-y-cerdo-americano-fud-196-g/"
   },
   {
-    "producto": "Papel higiénico rendimax 320 hjs Pétalo 320 h.",
+    "producto": {
+      "id": "lores_papel-higienico-rendimax-320-hjs-petalo-320-h",
+      "nombre": "Papel higiénico rendimax 320 hjs Pétalo 320 h."
+    },
     "precio": 83.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/PAP1407.webp",
     "url": "https://tiendaslores.com/producto/papel-higienico-rendimax-320-hjs-petalo-320-h/"
   },
   {
-    "producto": "Chile poblano 1 kg",
+    "producto": {
+      "id": "lores_chile-poblano-1-kg",
+      "nombre": "Chile poblano 1 kg"
+    },
     "precio": 27.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/FYV0018.webp",
     "url": "https://tiendaslores.com/producto/chile-poblano-1-kg/"
   },
   {
-    "producto": "Lechuga romana 1 pza.",
+    "producto": {
+      "id": "lores_lechuga-romana-1-pza",
+      "nombre": "Lechuga romana 1 pza."
+    },
     "precio": 12.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/FYV0026.webp",
     "url": "https://tiendaslores.com/producto/lechuga-romana-1-pza/"
   },
   {
-    "producto": "Zanahoria 1 kg",
+    "producto": {
+      "id": "lores_zanahoria-1-kg",
+      "nombre": "Zanahoria 1 kg"
+    },
     "precio": 13.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/FYV0012.webp",
     "url": "https://tiendaslores.com/producto/zanahoria-1-kg/"
   },
   {
-    "producto": "Cebolla blanca 1 kg",
+    "producto": {
+      "id": "lores_cebolla-blanca-1-kg",
+      "nombre": "Cebolla blanca 1 kg"
+    },
     "precio": 28.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/FYV0005.webp",
     "url": "https://tiendaslores.com/producto/cebolla-blanca-1-kg/"
   },
   {
-    "producto": "Horchata de arroz Deliciosa 1.890 l",
+    "producto": {
+      "id": "lores_horchata-de-arroz-deliciosa-1-890-l",
+      "nombre": "Horchata de arroz Deliciosa 1.890 l"
+    },
     "precio": 111.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2025/05/HOR0351.webp",
     "url": "https://tiendaslores.com/producto/horchata-de-arroz-deliciosa-1-890-l/"
   },
   {
-    "producto": "Horchata de coco Deliciosa 1.890 l",
+    "producto": {
+      "id": "lores_horchata-de-coco-deliciosa-1-890-l",
+      "nombre": "Horchata de coco Deliciosa 1.890 l"
+    },
     "precio": 111.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2026/08/HOR0352.webp",
     "url": "https://tiendaslores.com/producto/horchata-de-coco-deliciosa-1-890-l/"
   },
   {
-    "producto": "Limpiador líquido floral Flash 500 ml variedad de aromas",
+    "producto": {
+      "id": "lores_limpiador-liquido-floral-flash-500-ml",
+      "nombre": "Limpiador líquido floral Flash 500 ml variedad de aromas"
+    },
     "precio": 9.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/LIM1236.webp",
     "url": "https://tiendaslores.com/producto/limpiador-liquido-floral-flash-500-ml/"
   },
   {
-    "producto": "Fideo #2 La Moderna 200 g",
+    "producto": {
+      "id": "lores_fideo-2-la-moderna-200-g",
+      "nombre": "Fideo #2 La Moderna 200 g"
+    },
     "precio": 7.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/PAS1453.webp",
     "url": "https://tiendaslores.com/producto/fideo-2-la-moderna-200-g/"
   },
   {
-    "producto": "Arroz Bueno 900 g",
+    "producto": {
+      "id": "lores_arroz-bueno-900-g",
+      "nombre": "Arroz Bueno 900 g"
+    },
     "precio": 19.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/ARR0053.webp",
     "url": "https://tiendaslores.com/producto/arroz-bueno-900-g/"
   },
   {
-    "producto": "Mayonesa McCormick 190 g",
+    "producto": {
+      "id": "lores_mayonesa-mccormick-190-g",
+      "nombre": "Mayonesa McCormick 190 g"
+    },
     "precio": 23.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/MAY1288.webp",
     "url": "https://tiendaslores.com/producto/mayonesa-mccormick-190-g/"
   },
   {
-    "producto": "Queso americano La Villita 175 g",
+    "producto": {
+      "id": "lores_queso-americano-la-villita-175-g",
+      "nombre": "Queso americano La Villita 175 g"
+    },
     "precio": 23.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/8147.webp",
     "url": "https://tiendaslores.com/producto/queso-americano-la-villita-175-g/"
   },
   {
-    "producto": "Chuleta ahumada Chimex 1 kg",
+    "producto": {
+      "id": "lores_chuleta-ahumada-chimex-1-kg",
+      "nombre": "Chuleta ahumada Chimex 1 kg"
+    },
     "precio": 150.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/810.webp",
     "url": "https://tiendaslores.com/producto/chuleta-ahumada-chimex-1-kg/"
   },
   {
-    "producto": "Salchicha de pavo Fud 266 g",
+    "producto": {
+      "id": "lores_salchicha-de-pavo-fud-266-g",
+      "nombre": "Salchicha de pavo Fud 266 g"
+    },
     "precio": 22.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/976.webp",
     "url": "https://tiendaslores.com/producto/salchicha-de-pavo-fud-266-g/"
   },
   {
-    "producto": "Salchirica especial Iberomex 1 kg",
+    "producto": {
+      "id": "lores_salchirica-especial-iberomex-1-kg",
+      "nombre": "Salchirica especial Iberomex 1 kg"
+    },
     "precio": 46.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/515.webp",
     "url": "https://tiendaslores.com/producto/salchirica-especial-iberomex-1-kg/"
   },
   {
-    "producto": "Yoghurt batido griego natural Yoplait 120 g",
+    "producto": {
+      "id": "lores_yoghurt-batido-griego-natural-yoplait-120-g",
+      "nombre": "Yoghurt batido griego natural Yoplait 120 g"
+    },
     "precio": 12.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/9810.webp",
     "url": "https://tiendaslores.com/producto/yoghurt-batido-griego-natural-yoplait-120-g/"
   },
   {
-    "producto": "Flan vainilla Yoplait 100 g",
+    "producto": {
+      "id": "lores_flan-vainilla-yoplait-100-g",
+      "nombre": "Flan vainilla Yoplait 100 g"
+    },
     "precio": 6.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/9709.webp",
     "url": "https://tiendaslores.com/producto/flan-vainilla-yoplait-100-g/"
   },
   {
-    "producto": "Manzana golden granel 1 kg",
+    "producto": {
+      "id": "lores_manzana-golden-granel-1-kg",
+      "nombre": "Manzana golden granel 1 kg"
+    },
     "precio": 50.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/FYV0055.webp",
     "url": "https://tiendaslores.com/producto/manzana-golden-granel-1-kg/"
   },
   {
-    "producto": "Ajo grande 1 kg",
+    "producto": {
+      "id": "lores_ajo-grande-1-kg",
+      "nombre": "Ajo grande 1 kg"
+    },
     "precio": 66.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/FYV0002.webp",
     "url": "https://tiendaslores.com/producto/ajo-grande-1-kg/"
   },
   {
-    "producto": "Espinacas 1 pza.",
+    "producto": {
+      "id": "lores_espinacas-1-pza",
+      "nombre": "Espinacas 1 pza."
+    },
     "precio": 6.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/FYV0034.webp",
     "url": "https://tiendaslores.com/producto/espinacas-1-pza/"
   },
   {
-    "producto": "Queso fundido americano Franja 180 g",
+    "producto": {
+      "id": "lores_queso-fundido-americano-franja-180-g",
+      "nombre": "Queso fundido americano Franja 180 g"
+    },
     "precio": 17.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2026/07/10948.webp",
     "url": "https://tiendaslores.com/producto/queso-fundido-americano-franja-180-g/"
   },
   {
-    "producto": "Salchicha frankfurt ahumada Fud 290 g",
+    "producto": {
+      "id": "lores_salchicha-frankfurt-ahumada-fud-290-g",
+      "nombre": "Salchicha frankfurt ahumada Fud 290 g"
+    },
     "precio": 39.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2026/07/2404.webp",
     "url": "https://tiendaslores.com/producto/salchicha-frankfurt-ahumada-fud-290-g/"
   },
   {
-    "producto": "Yoghurt batido fresa Yoplait 125 g",
+    "producto": {
+      "id": "lores_yoghurt-batido-fresa-yoplait-125-g",
+      "nombre": "Yoghurt batido fresa Yoplait 125 g"
+    },
     "precio": 6.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/9074.webp",
     "url": "https://tiendaslores.com/producto/yoghurt-batido-fresa-yoplait-125-g/"
   },
   {
-    "producto": "Jamón de pavo Virginia Fud 290 g",
+    "producto": {
+      "id": "lores_jamon-de-pavo-virginia-fud-290-g",
+      "nombre": "Jamón de pavo Virginia Fud 290 g"
+    },
     "precio": 51.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/583.webp",
     "url": "https://tiendaslores.com/producto/jamon-de-pavo-virginia-fud-290-g/"
   },
   {
-    "producto": "Jamón tradicional de pavo Chimex 1 kg",
+    "producto": {
+      "id": "lores_jamon-tradicional-de-pavo-chimex-1-kg",
+      "nombre": "Jamón tradicional de pavo Chimex 1 kg"
+    },
     "precio": 103.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/167.webp",
     "url": "https://tiendaslores.com/producto/jamon-tradicional-de-pavo-chimex-1-kg/"
   },
   {
-    "producto": "Fresca primavera Suavitel 1 l",
+    "producto": {
+      "id": "lores_fresca-primavera-suavitel-1-l",
+      "nombre": "Fresca primavera Suavitel 1 l"
+    },
     "precio": 29.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/SUA1825.webp",
     "url": "https://tiendaslores.com/producto/fresca-primavera-suavitel-1-l/"
   },
   {
-    "producto": "Detergente en polvo Ace 900 g",
+    "producto": {
+      "id": "lores_detergente-en-polvo-ace-900-g",
+      "nombre": "Detergente en polvo Ace 900 g"
+    },
     "precio": 29.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/DET0688.webp",
     "url": "https://tiendaslores.com/producto/detergente-en-polvo-ace-900-g/"
   },
   {
-    "producto": "Papel higiénico 6 rollos Vogue 600 h.",
+    "producto": {
+      "id": "lores_papel-higienico-6-rollos-vogue-600-h",
+      "nombre": "Papel higiénico 6 rollos Vogue 600 h."
+    },
     "precio": 50.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/PAP3890.webp",
     "url": "https://tiendaslores.com/producto/papel-higienico-6-rollos-vogue-600-h/"
   },
   {
-    "producto": "Jamón de pavo americano 196 g",
+    "producto": {
+      "id": "lores_jamon-de-pavo-americano-196-g",
+      "nombre": "Jamón de pavo americano 196 g"
+    },
     "precio": 30.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2025/11/2364.png",
     "url": "https://tiendaslores.com/producto/jamon-de-pavo-americano-196-g/"
   },
   {
-    "producto": "Calabacita larga 1 kg",
+    "producto": {
+      "id": "lores_calabacita-larga-1-kg",
+      "nombre": "Calabacita larga 1 kg"
+    },
     "precio": 18.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/FYV0003.webp",
     "url": "https://tiendaslores.com/producto/calabacita-larga-1-kg/"
   },
   {
-    "producto": "Chayote 1 kg",
+    "producto": {
+      "id": "lores_chayote-1-kg",
+      "nombre": "Chayote 1 kg"
+    },
     "precio": 10.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/FYV0008.webp",
     "url": "https://tiendaslores.com/producto/chayote-1-kg/"
   },
   {
-    "producto": "Cebollitas cambray 1 pza.",
+    "producto": {
+      "id": "lores_cebollitas-cambray-1-pza",
+      "nombre": "Cebollitas cambray 1 pza."
+    },
     "precio": 9.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/FYV0007.webp",
     "url": "https://tiendaslores.com/producto/cebollitas-cambray-1-pza/"
   },
   {
-    "producto": "Marianitas de coco La Moderna 185 g",
+    "producto": {
+      "id": "lores_marianitas-de-coco-la-moderna-185-g",
+      "nombre": "Marianitas de coco La Moderna 185 g"
+    },
     "precio": 10.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/GAL2093.webp",
     "url": "https://tiendaslores.com/producto/marianitas-de-coco-la-moderna-185-g/"
   },
   {
-    "producto": "Lenteja Bueno  500 g",
+    "producto": {
+      "id": "lores_lenteja-bueno-500-g",
+      "nombre": "Lenteja Bueno  500 g"
+    },
     "precio": 14.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/LEN0032.webp",
     "url": "https://tiendaslores.com/producto/lenteja-bueno-500-g/"
   },
   {
-    "producto": "Frijol San Luis Bueno 900 g",
+    "producto": {
+      "id": "lores_frijol-san-luis-bueno-900-g",
+      "nombre": "Frijol San Luis Bueno 900 g"
+    },
     "precio": 20.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/FRI0052.webp",
     "url": "https://tiendaslores.com/producto/frijol-san-luis-bueno-900-g/"
   },
   {
-    "producto": "Chiles en rajas San Marcos 215 g",
+    "producto": {
+      "id": "lores_chiles-en-rajas-san-marcos-215-g",
+      "nombre": "Chiles en rajas San Marcos 215 g"
+    },
     "precio": 11.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/CHI0332.webp",
     "url": "https://tiendaslores.com/producto/chiles-en-rajas-san-marcos-215-g/"
   },
   {
-    "producto": "Suavizante de telas Carisma 1 l",
+    "producto": {
+      "id": "lores_suavizante-de-telas-carisma-1-l",
+      "nombre": "Suavizante de telas Carisma 1 l"
+    },
     "precio": 29.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2026/07/SUA0147.webp",
     "url": "https://tiendaslores.com/producto/suavizante-de-telas-carisma-1-l/"
   },
   {
-    "producto": "Jamón virginia de pavo Fud 1 kg",
+    "producto": {
+      "id": "lores_jamon-virginia-de-pavo-fud-1-kg",
+      "nombre": "Jamón virginia de pavo Fud 1 kg"
+    },
     "precio": 145.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/582.webp",
     "url": "https://tiendaslores.com/producto/jamon-virginia-de-pavo-fud-1-kg/"
   },
   {
-    "producto": "Queso americano Fud 180 g",
+    "producto": {
+      "id": "lores_queso-americano-fud-180-g",
+      "nombre": "Queso americano Fud 180 g"
+    },
     "precio": 38.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/8380.webp",
     "url": "https://tiendaslores.com/producto/queso-americano-fud-180-g/"
   },
   {
-    "producto": "Yoghurt bebible durazno Yoplait 220 g",
+    "producto": {
+      "id": "lores_yoghurt-bebible-durazno-yoplait-220-g",
+      "nombre": "Yoghurt bebible durazno Yoplait 220 g"
+    },
     "precio": 10.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/9122.webp",
     "url": "https://tiendaslores.com/producto/yoghurt-bebible-durazno-yoplait-220-g/"
   },
   {
-    "producto": "Salchirica de pavo Iberomex 1 kg",
+    "producto": {
+      "id": "lores_salchirica-de-pavo-iberomex-1-kg",
+      "nombre": "Salchirica de pavo Iberomex 1 kg"
+    },
     "precio": 54.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/862.webp",
     "url": "https://tiendaslores.com/producto/salchirica-de-pavo-iberomex-1-kg/"
   },
   {
-    "producto": "Salchica para asar Chimex 800 g",
+    "producto": {
+      "id": "lores_salchica-para-asar-chimex-800-g",
+      "nombre": "Salchica para asar Chimex 800 g"
+    },
     "precio": 74.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/307.webp",
     "url": "https://tiendaslores.com/producto/salchica-para-asar-chimex-800-g/"
   },
   {
-    "producto": "Salchicha tipo viena Fud 266 g",
+    "producto": {
+      "id": "lores_salchicha-tipo-viena-fud-266-g",
+      "nombre": "Salchicha tipo viena Fud 266 g"
+    },
     "precio": 24.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/975.webp",
     "url": "https://tiendaslores.com/producto/salchicha-tipo-viena-fud-266-g/"
   },
   {
-    "producto": "Queso americano sandwichero Franja 1 kg",
+    "producto": {
+      "id": "lores_queso-americano-sandwichero-franja-1-kg",
+      "nombre": "Queso americano sandwichero Franja 1 kg"
+    },
     "precio": 68.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2025/06/10889.png",
     "url": "https://tiendaslores.com/producto/queso-americano-sandwichero-franja-1-kg/"
   },
   {
-    "producto": "Lechuga italiana 1 pza.",
+    "producto": {
+      "id": "lores_lechuga-italiana-1-pza",
+      "nombre": "Lechuga italiana 1 pza."
+    },
     "precio": 12.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/FYV0027.webp",
     "url": "https://tiendaslores.com/producto/lechuga-italiana-1-pza/"
   },
   {
-    "producto": "Yoghurt bebible piña coco Yoplait 220 g",
+    "producto": {
+      "id": "lores_yoghurt-bebible-pina-coco-yoplait-220-g",
+      "nombre": "Yoghurt bebible piña coco Yoplait 220 g"
+    },
     "precio": 10.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/9123.webp",
     "url": "https://tiendaslores.com/producto/yoghurt-bebible-pina-coco-yoplait-220-g/"
   },
   {
-    "producto": "Blanqueador Clarasol 1.85 l",
+    "producto": {
+      "id": "lores_blanqueador-clarasol-1-85-l",
+      "nombre": "Blanqueador Clarasol 1.85 l"
+    },
     "precio": 18.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/BLA0167.webp",
     "url": "https://tiendaslores.com/producto/blanqueador-clarasol-1-85-l/"
   },
   {
-    "producto": "Foco led A19 15w Aksi",
+    "producto": {
+      "id": "lores_foco-led-a19-15w-aksi",
+      "nombre": "Foco led A19 15w Aksi"
+    },
     "precio": 16.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2026/07/FOC0499.webp",
     "url": "https://tiendaslores.com/producto/foco-led-a19-15w-aksi/"
   },
   {
-    "producto": "Papaya 1 kg",
+    "producto": {
+      "id": "lores_papaya-1-kg",
+      "nombre": "Papaya 1 kg"
+    },
     "precio": 23.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/FYV0066.webp",
     "url": "https://tiendaslores.com/producto/papaya-1-kg/"
   },
   {
-    "producto": "Chile jalapeño 1 kg",
+    "producto": {
+      "id": "lores_chile-jalapeno-1-kg",
+      "nombre": "Chile jalapeño 1 kg"
+    },
     "precio": 15.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/FYV0017.webp",
     "url": "https://tiendaslores.com/producto/chile-jalapeno-1-kg/"
   },
   {
-    "producto": "Papel higiénico 4 rollos Vogue 600 h.",
+    "producto": {
+      "id": "lores_papel-higienico-4-rollos-manzanilla-vogue-600-h",
+      "nombre": "Papel higiénico 4 rollos Vogue 600 h."
+    },
     "precio": 31.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/PAP1422.webp",
     "url": "https://tiendaslores.com/producto/papel-higienico-4-rollos-manzanilla-vogue-600-h/"
   },
   {
-    "producto": "Foco led tipo T luz blanca alta potencia Aksi",
+    "producto": {
+      "id": "lores_foco-led-tipo-t-luz-blanca-alta-potencia-aksi",
+      "nombre": "Foco led tipo T luz blanca alta potencia Aksi"
+    },
     "precio": 30.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2026/07/FOC3242.webp",
     "url": "https://tiendaslores.com/producto/foco-led-tipo-t-luz-blanca-alta-potencia-aksi/"
   },
   {
-    "producto": "Pancrema Gamesa 151 g",
+    "producto": {
+      "id": "lores_pancrema-gamesa-151-g",
+      "nombre": "Pancrema Gamesa 151 g"
+    },
     "precio": 10.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/GAL0945.webp",
     "url": "https://tiendaslores.com/producto/pancrema-gamesa-151-g/"
   },
   {
-    "producto": "Moñito La Moderna 200 g",
+    "producto": {
+      "id": "lores_monito-la-moderna-200-g",
+      "nombre": "Moñito La Moderna 200 g"
+    },
     "precio": 7.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/PAS1457.webp",
     "url": "https://tiendaslores.com/producto/monito-la-moderna-200-g/"
   },
   {
-    "producto": "Azúcar Bueno 900 g",
+    "producto": {
+      "id": "lores_azucar-bueno-900-g",
+      "nombre": "Azúcar Bueno 900 g"
+    },
     "precio": 22.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/AZU0054.webp",
     "url": "https://tiendaslores.com/producto/azucar-bueno-900-g/"
   },
   {
-    "producto": "Sal Oso Blanco 1 kg",
+    "producto": {
+      "id": "lores_sal-oso-blanco-1-kg",
+      "nombre": "Sal Oso Blanco 1 kg"
+    },
     "precio": 12.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/SAL1605.webp",
     "url": "https://tiendaslores.com/producto/sal-oso-blanco-1-kg/"
   },
   {
-    "producto": "Queso panela Fud 200 g",
+    "producto": {
+      "id": "lores_queso-panela-fud-200-g",
+      "nombre": "Queso panela Fud 200 g"
+    },
     "precio": 40.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/8371.webp",
     "url": "https://tiendaslores.com/producto/queso-panela-fud-200-g/"
   },
   {
-    "producto": "Salchicha con pavo Fud 1 kg",
+    "producto": {
+      "id": "lores_salchicha-con-pavo-fud-1-kg",
+      "nombre": "Salchicha con pavo Fud 1 kg"
+    },
     "precio": 61.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/2781.webp",
     "url": "https://tiendaslores.com/producto/salchicha-con-pavo-fud-1-kg/"
   },
   {
-    "producto": "Jamón Espaldilla Chimex 1 kg",
+    "producto": {
+      "id": "lores_jamon-espaldilla-chimex-1-kg",
+      "nombre": "Jamón Espaldilla Chimex 1 kg"
+    },
     "precio": 76.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/122.webp",
     "url": "https://tiendaslores.com/producto/jamon-espaldilla-chimex-1-kg/"
   },
   {
-    "producto": "Jamón de pierna Fud 250 g",
+    "producto": {
+      "id": "lores_jamon-de-pierna-fud-250-g",
+      "nombre": "Jamón de pierna Fud 250 g"
+    },
     "precio": 35.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2026/06/2446.webp",
     "url": "https://tiendaslores.com/producto/jamon-de-pierna-fud-250-g/"
   },
   {
-    "producto": "Lavatraste líquido limón Axión 900 ml",
+    "producto": {
+      "id": "lores_lavatraste-liquido-limon-axion-900-ml",
+      "nombre": "Lavatraste líquido limón Axión 900 ml"
+    },
     "precio": 38.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/LAV1181.webp",
     "url": "https://tiendaslores.com/producto/lavatraste-liquido-limon-axion-900-ml/"
   },
   {
-    "producto": "Detergente en polvo Arcoiris 800 g",
+    "producto": {
+      "id": "lores_detergente-en-polvo-arcoiris-800-g",
+      "nombre": "Detergente en polvo Arcoiris 800 g"
+    },
     "precio": 18.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/DET0694.webp",
     "url": "https://tiendaslores.com/producto/detergente-en-polvo-arcoiris-800-g/"
   },
   {
-    "producto": "Detergente en polvo Roma 1 kg",
+    "producto": {
+      "id": "lores_detergente-en-polvo-roma-1-kg",
+      "nombre": "Detergente en polvo Roma 1 kg"
+    },
     "precio": 39.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/DET0125.webp",
     "url": "https://tiendaslores.com/producto/detergente-en-polvo-roma-1-kg/"
   },
   {
-    "producto": "Chile serrano 1 kg",
+    "producto": {
+      "id": "lores_chile-serrano-1-kg",
+      "nombre": "Chile serrano 1 kg"
+    },
     "precio": 18.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/FYV0022.webp",
     "url": "https://tiendaslores.com/producto/chile-serrano-1-kg/"
   },
   {
-    "producto": "Papa blanca 1 kg",
+    "producto": {
+      "id": "lores_papa-blanca-1-kg",
+      "nombre": "Papa blanca 1 kg"
+    },
     "precio": 42.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/FYV0009.webp",
     "url": "https://tiendaslores.com/producto/papa-blanca-1-kg/"
   },
   {
-    "producto": "Pepino 1 kg",
+    "producto": {
+      "id": "lores_pepino-1-kg",
+      "nombre": "Pepino 1 kg"
+    },
     "precio": 17.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/FYV0041.webp",
     "url": "https://tiendaslores.com/producto/pepino-1-kg/"
   },
   {
-    "producto": "Papel higiénico 4 rollos ultra resistente Pétalo 400 h.",
+    "producto": {
+      "id": "lores_papel-higienico-4-rollos-ultra-resistente-petalo-400-h",
+      "nombre": "Papel higiénico 4 rollos ultra resistente Pétalo 400 h."
+    },
     "precio": 27.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/PAP1410.webp",
     "url": "https://tiendaslores.com/producto/papel-higienico-4-rollos-ultra-resistente-petalo-400-h/"
   },
   {
-    "producto": "Mayonesa jugo de limones McCormick 390 g",
+    "producto": {
+      "id": "lores_mayonesa-jugo-de-limones-mccormick-390-g",
+      "nombre": "Mayonesa jugo de limones McCormick 390 g"
+    },
     "precio": 42.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/MAY1290.webp",
     "url": "https://tiendaslores.com/producto/mayonesa-jugo-de-limones-mccormick-390-g/"
   },
   {
-    "producto": "Caracol #2 La Moderna 200 g",
+    "producto": {
+      "id": "lores_caracol-2-la-moderna-200-g",
+      "nombre": "Caracol #2 La Moderna 200 g"
+    },
     "precio": 7.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/PAS1447.webp",
     "url": "https://tiendaslores.com/producto/caracol-2-la-moderna-200-g/"
   },
   {
-    "producto": "Aceite vegetal Hysa 800 ml",
+    "producto": {
+      "id": "lores_aceite-vegetal-hysa-800-ml",
+      "nombre": "Aceite vegetal Hysa 800 ml"
+    },
     "precio": 38.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/ACE0008.webp",
     "url": "https://tiendaslores.com/producto/aceite-vegetal-hysa-800-ml/"
   },
   {
-    "producto": "Queso crema Philadelphia 180 g",
+    "producto": {
+      "id": "lores_queso-crema-philadelphia-180-g",
+      "nombre": "Queso crema Philadelphia 180 g"
+    },
     "precio": 39.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/8602.webp",
     "url": "https://tiendaslores.com/producto/queso-crema-philadelphia-180-g/"
   },
   {
-    "producto": "Jamón de pierna Fud 1 kg",
+    "producto": {
+      "id": "lores_jamon-de-pierna-fud-1-kg",
+      "nombre": "Jamón de pierna Fud 1 kg"
+    },
     "precio": 117.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/164.webp",
     "url": "https://tiendaslores.com/producto/jamon-de-pierna-fud-1-kg/"
   },
   {
-    "producto": "Salchicha de pavo Chimex 400 g",
+    "producto": {
+      "id": "lores_salchicha-de-pavo-chimex-400-g",
+      "nombre": "Salchicha de pavo Chimex 400 g"
+    },
     "precio": 23.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/992.webp",
     "url": "https://tiendaslores.com/producto/salchicha-de-pavo-chimex-400-g/"
   },
   {
-    "producto": "Salchicha viena Viva 1 kg",
+    "producto": {
+      "id": "lores_salchicha-viena-viva-1-kg",
+      "nombre": "Salchicha viena Viva 1 kg"
+    },
     "precio": 50.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/415.webp",
     "url": "https://tiendaslores.com/producto/salchicha-viena-viva-1-kg/"
   },
   {
-    "producto": "Lavatraste líquido limón Axión 400 ml",
+    "producto": {
+      "id": "lores_lavatraste-liquido-limon-axion-400-ml",
+      "nombre": "Lavatraste líquido limón Axión 400 ml"
+    },
     "precio": 18.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/LAV1182.webp",
     "url": "https://tiendaslores.com/producto/lavatraste-liquido-limon-axion-400-ml/"
   },
   {
-    "producto": "Papel higiénico 4 rollos manzanilla Vogue 400 h.",
+    "producto": {
+      "id": "lores_papel-higienico-4-rollos-manzanilla-vogue-400-h",
+      "nombre": "Papel higiénico 4 rollos manzanilla Vogue 400 h."
+    },
     "precio": 23.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/PAP1421.webp",
     "url": "https://tiendaslores.com/producto/papel-higienico-4-rollos-manzanilla-vogue-400-h/"
   },
   {
-    "producto": "Whisky scotch etiqueta roja Johnnie Walker 700 ml",
+    "producto": {
+      "id": "lores_whisky-scotch-etiqueta-roja-johnnie-walker-700-ml",
+      "nombre": "Whisky scotch etiqueta roja Johnnie Walker 700 ml"
+    },
     "precio": 269.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/WHI2051.webp",
     "url": "https://tiendaslores.com/producto/whisky-scotch-etiqueta-roja-johnnie-walker-700-ml/"
   },
   {
-    "producto": "Yoghurt batido griego fresa Yoplait 120 g",
+    "producto": {
+      "id": "lores_yoghurt-batido-griego-fresa-yoplait-120-g",
+      "nombre": "Yoghurt batido griego fresa Yoplait 120 g"
+    },
     "precio": 12.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2025/05/9811.webp",
     "url": "https://tiendaslores.com/producto/yoghurt-batido-griego-fresa-yoplait-120-g/"
   },
   {
-    "producto": "Aceite de soya Purela 800 ml",
+    "producto": {
+      "id": "lores_aceite-de-soya-purela-800-ml",
+      "nombre": "Aceite de soya Purela 800 ml"
+    },
     "precio": 27.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/ACE2484.webp",
     "url": "https://tiendaslores.com/producto/aceite-de-soya-purela-800-ml/"
   },
   {
-    "producto": "Sopa camarón limón- habanero Maruchan 64 g",
+    "producto": {
+      "id": "lores_sopa-camaron-limon-habanero-maruchan-64-g",
+      "nombre": "Sopa camarón limón- habanero Maruchan 64 g"
+    },
     "precio": 12.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/SOP1755.webp",
     "url": "https://tiendaslores.com/producto/sopa-camaron-limon-habanero-maruchan-64-g/"
   },
   {
-    "producto": "Salsas Picantes picante Valentina 250 ml",
+    "producto": {
+      "id": "lores_salsas-picantes-picante-valentina-250-ml",
+      "nombre": "Salsas Picantes picante Valentina 250 ml"
+    },
     "precio": 11.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2025/05/SAL2597.webp",
     "url": "https://tiendaslores.com/producto/salsas-picantes-picante-valentina-250-ml/"
   },
   {
-    "producto": "Frijol Nayarit Las Ollitas 750 g",
+    "producto": {
+      "id": "lores_frijol-nayarit-las-ollitas-750-g",
+      "nombre": "Frijol Nayarit Las Ollitas 750 g"
+    },
     "precio": 18.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/FRI0035.webp",
     "url": "https://tiendaslores.com/producto/frijol-nayarit-las-ollitas-750-g/"
   },
   {
-    "producto": "Salsas Picantes salsa tipo chamoy Mega 500 ml",
+    "producto": {
+      "id": "lores_salsas-picantes-salsa-tipo-chamoy-mega-500-ml",
+      "nombre": "Salsas Picantes salsa tipo chamoy Mega 500 ml"
+    },
     "precio": 19.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2025/05/SAL3084.webp",
     "url": "https://tiendaslores.com/producto/salsas-picantes-salsa-tipo-chamoy-mega-500-ml/"
   },
   {
-    "producto": "Queso manchego La Villita 173 g",
+    "producto": {
+      "id": "lores_queso-manchego-la-villita-173-g",
+      "nombre": "Queso manchego La Villita 173 g"
+    },
     "precio": 26.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/8199.webp",
     "url": "https://tiendaslores.com/producto/queso-manchego-la-villita-173-g/"
   },
   {
-    "producto": "Mayonesa Mccormick 1.4 kg",
+    "producto": {
+      "id": "lores_mayonesa-y-aderezo-mayonesa-jugo-de-limones-mccormick-1-4-kg",
+      "nombre": "Mayonesa Mccormick 1.4 kg"
+    },
     "precio": 126.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/MAY1286.webp",
     "url": "https://tiendaslores.com/producto/mayonesa-y-aderezo-mayonesa-jugo-de-limones-mccormick-1-4-kg/"
   },
   {
-    "producto": "Lavatraste en polvo limón Axión 500 g",
+    "producto": {
+      "id": "lores_lavatraste-en-polvo-limon-axion-500-g",
+      "nombre": "Lavatraste en polvo limón Axión 500 g"
+    },
     "precio": 24.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/LAV1172.webp",
     "url": "https://tiendaslores.com/producto/lavatraste-en-polvo-limon-axion-500-g/"
   },
   {
-    "producto": "Tomate verde 1 kg",
+    "producto": {
+      "id": "lores_tomate-verde-1-kg",
+      "nombre": "Tomate verde 1 kg"
+    },
     "precio": 17.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/FYV0013.webp",
     "url": "https://tiendaslores.com/producto/tomate-verde-1-kg/"
   },
   {
-    "producto": "Marianitas de nuez La Moderna 185 g",
+    "producto": {
+      "id": "lores_marianitas-de-nuez-la-moderna-185-g",
+      "nombre": "Marianitas de nuez La Moderna 185 g"
+    },
     "precio": 10.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/GAL0960.webp",
     "url": "https://tiendaslores.com/producto/marianitas-de-nuez-la-moderna-185-g/"
   },
   {
-    "producto": "Jugo de arándano Único 960 ml varierdad de sabores",
+    "producto": {
+      "id": "lores_jugo-de-arandano-unico-960-ml",
+      "nombre": "Jugo de arándano Único 960 ml varierdad de sabores"
+    },
     "precio": 35.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/JUG5702.webp",
     "url": "https://tiendaslores.com/producto/jugo-de-arandano-unico-960-ml/"
   },
   {
-    "producto": "Papas con sal Chidas 85 g",
+    "producto": {
+      "id": "lores_papas-con-sal-chidas-85-g",
+      "nombre": "Papas con sal Chidas 85 g"
+    },
     "precio": 13.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/BOT5767.webp",
     "url": "https://tiendaslores.com/producto/papas-con-sal-chidas-85-g/"
   },
   {
-    "producto": "Atún en agua El Dorado 130 g",
+    "producto": {
+      "id": "lores_atun-en-agua-el-dorado-130-g",
+      "nombre": "Atún en agua El Dorado 130 g"
+    },
     "precio": 11.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/PES1475.webp",
     "url": "https://tiendaslores.com/producto/atun-en-agua-el-dorado-130-g/"
   },
   {
-    "producto": "Media crema San Marcos 250 ml",
+    "producto": {
+      "id": "lores_media-crema-san-marcos-250-ml",
+      "nombre": "Media crema San Marcos 250 ml"
+    },
     "precio": 13.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/MED1301.webp",
     "url": "https://tiendaslores.com/producto/media-crema-san-marcos-250-ml/"
   },
   {
-    "producto": "Desodorante mujer roll-on frescura suave Obao 65 g",
+    "producto": {
+      "id": "lores_desodorante-mujer-roll-on-frescura-suave-obao-65-g",
+      "nombre": "Desodorante mujer roll-on frescura suave Obao 65 g"
+    },
     "precio": 24.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2026/06/DES0616.webp",
     "url": "https://tiendaslores.com/producto/desodorante-mujer-roll-on-frescura-suave-obao-65-g/"
   },
   {
-    "producto": "Desodorante antitranspirante hombre gen cool wave Gillette 82 g",
+    "producto": {
+      "id": "lores_desodorante-antitranspirante-hombre-gen-cool-wave-gillette-82-g",
+      "nombre": "Desodorante antitranspirante hombre gen cool wave Gillette 82 g"
+    },
     "precio": 65.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2026/06/DES0570.webp",
     "url": "https://tiendaslores.com/producto/desodorante-antitranspirante-hombre-gen-cool-wave-gillette-82-g/"
   },
   {
-    "producto": "Lavatraste en polvo limón Axión 720 g",
+    "producto": {
+      "id": "lores_lavatraste-en-polvo-limon-axion-720-g",
+      "nombre": "Lavatraste en polvo limón Axión 720 g"
+    },
     "precio": 29.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/LAV1173.webp",
     "url": "https://tiendaslores.com/producto/lavatraste-en-polvo-limon-axion-720-g/"
   },
   {
-    "producto": "Blanqueador Clarasol 1 l",
+    "producto": {
+      "id": "lores_blanqueador-clarasol-1-l",
+      "nombre": "Blanqueador Clarasol 1 l"
+    },
     "precio": 9.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/BLA0166.webp",
     "url": "https://tiendaslores.com/producto/blanqueador-clarasol-1-l/"
   },
   {
-    "producto": "Papel higiénico Regio 600 h.",
+    "producto": {
+      "id": "lores_papel-higienico-regio-600-h",
+      "nombre": "Papel higiénico Regio 600 h."
+    },
     "precio": 36.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/PAP2878.webp",
     "url": "https://tiendaslores.com/producto/papel-higienico-regio-600-h/"
   },
   {
-    "producto": "Whisky scotch Passport 700 ml",
+    "producto": {
+      "id": "lores_whisky-scotch-passport-700-ml",
+      "nombre": "Whisky scotch Passport 700 ml"
+    },
     "precio": 135.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2025/05/WHI2053.webp",
     "url": "https://tiendaslores.com/producto/whisky-scotch-passport-700-ml/"
   },
   {
-    "producto": "Queso brick Philadelphia 120 g",
+    "producto": {
+      "id": "lores_queso-brick-philadelphia-120-g",
+      "nombre": "Queso brick Philadelphia 120 g"
+    },
     "precio": 24.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/430580.webp",
     "url": "https://tiendaslores.com/producto/queso-brick-philadelphia-120-g/"
   },
   {
-    "producto": "Salsa picante Valentina 370 ml",
+    "producto": {
+      "id": "lores_salsa-picante-valentina-370-ml",
+      "nombre": "Salsa picante Valentina 370 ml"
+    },
     "precio": 16.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/SAL1636.webp",
     "url": "https://tiendaslores.com/producto/salsa-picante-valentina-370-ml/"
   },
   {
-    "producto": "Cacahuate enchilado Frithesa 300 g",
+    "producto": {
+      "id": "lores_cacahuate-enchilado-frithesa-300-g",
+      "nombre": "Cacahuate enchilado Frithesa 300 g"
+    },
     "precio": 30.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2026/06/DUL0188.webp",
     "url": "https://tiendaslores.com/producto/cacahuate-enchilado-frithesa-300-g/"
   },
   {
-    "producto": "Jugo todos los sabores Jumex 960 ml",
+    "producto": {
+      "id": "lores_jugos-sabor-durazno-jumex-960-ml",
+      "nombre": "Jugo todos los sabores Jumex 960 ml"
+    },
     "precio": 24.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/JUG1127.webp",
     "url": "https://tiendaslores.com/producto/jugos-sabor-durazno-jumex-960-ml/"
   },
   {
-    "producto": "Media crema Más Nutre 250 ml",
+    "producto": {
+      "id": "lores_media-crema-mas-nutre-250-ml",
+      "nombre": "Media crema Más Nutre 250 ml"
+    },
     "precio": 8.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/MED3263.webp",
     "url": "https://tiendaslores.com/producto/media-crema-mas-nutre-250-ml/"
   },
   {
-    "producto": "Frijoles negros refritos en lata La Sierra 440 g",
+    "producto": {
+      "id": "lores_frijoles-negros-refritos-en-lata-la-sierra-440-g",
+      "nombre": "Frijoles negros refritos en lata La Sierra 440 g"
+    },
     "precio": 11.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/FRI0882.webp",
     "url": "https://tiendaslores.com/producto/frijoles-negros-refritos-en-lata-la-sierra-440-g/"
   },
   {
-    "producto": "Salsas Picantes salsa tipo chamoy Mega 1 l",
+    "producto": {
+      "id": "lores_salsas-picantes-salsa-tipo-chamoy-mega-1-l",
+      "nombre": "Salsas Picantes salsa tipo chamoy Mega 1 l"
+    },
     "precio": 28.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2025/05/SAL1631.webp",
     "url": "https://tiendaslores.com/producto/salsas-picantes-salsa-tipo-chamoy-mega-1-l/"
   },
   {
-    "producto": "Salsas picante La Botanera 370 ml",
+    "producto": {
+      "id": "lores_salsas-picantes-picante-la-botanera-370-ml",
+      "nombre": "Salsas picante La Botanera 370 ml"
+    },
     "precio": 11.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2025/05/SAL2650.webp",
     "url": "https://tiendaslores.com/producto/salsas-picantes-picante-la-botanera-370-ml/"
   },
   {
-    "producto": "Fideo #1 La Moderna 200 g",
+    "producto": {
+      "id": "lores_fideo-1-la-moderna-200-g",
+      "nombre": "Fideo #1 La Moderna 200 g"
+    },
     "precio": 7.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/PAS1452.webp",
     "url": "https://tiendaslores.com/producto/fideo-1-la-moderna-200-g/"
   },
   {
-    "producto": "Bebible piña Yoplait 330 g",
+    "producto": {
+      "id": "lores_bebible-pina-yoplait-330-g",
+      "nombre": "Bebible piña Yoplait 330 g"
+    },
     "precio": 15.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/9111.webp",
     "url": "https://tiendaslores.com/producto/bebible-pina-yoplait-330-g/"
   },
   {
-    "producto": "Detergente en polvo Blanca Nieves 1 kg",
+    "producto": {
+      "id": "lores_detergente-en-polvo-blanca-nieves-1-kg",
+      "nombre": "Detergente en polvo Blanca Nieves 1 kg"
+    },
     "precio": 38.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2026/01/DET0116.webp",
     "url": "https://tiendaslores.com/producto/detergente-en-polvo-blanca-nieves-1-kg/"
   },
   {
-    "producto": "Calabacita redonda 1 kg",
+    "producto": {
+      "id": "lores_calabacita-redonda-1-kg",
+      "nombre": "Calabacita redonda 1 kg"
+    },
     "precio": 11.0,
     "tienda": "Tiendas Lores",
     "imagen": "",
     "url": "https://tiendaslores.com/producto/calabacita-redonda-1-kg/"
   },
   {
-    "producto": "Papel higiénico premium Máxima 400 h.",
+    "producto": {
+      "id": "lores_papel-higienico-premium-maxima-400-h",
+      "nombre": "Papel higiénico premium Máxima 400 h."
+    },
     "precio": 21.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/PAP1406.webp",
     "url": "https://tiendaslores.com/producto/papel-higienico-premium-maxima-400-h/"
   },
   {
-    "producto": "Yoghurt batido natural Yoplait 900 g",
+    "producto": {
+      "id": "lores_yoghurt-batido-natural-yoplait-1-kg",
+      "nombre": "Yoghurt batido natural Yoplait 900 g"
+    },
     "precio": 36.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/7599.webp",
     "url": "https://tiendaslores.com/producto/yoghurt-batido-natural-yoplait-1-kg/"
   },
   {
-    "producto": "Leche condensada Pronto 380 g",
+    "producto": {
+      "id": "lores_leche-condensada-pronto-380-g",
+      "nombre": "Leche condensada Pronto 380 g"
+    },
     "precio": 17.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/LEC5730.webp",
     "url": "https://tiendaslores.com/producto/leche-condensada-pronto-380-g/"
   },
   {
-    "producto": "Spaghetti La Moderna 200 g",
+    "producto": {
+      "id": "lores_spaghetti-la-moderna-200-g",
+      "nombre": "Spaghetti La Moderna 200 g"
+    },
     "precio": 6.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/PAS1458.webp",
     "url": "https://tiendaslores.com/producto/spaghetti-la-moderna-200-g/"
   },
   {
-    "producto": "Aceite de soya Nutrioli  800 ml",
+    "producto": {
+      "id": "lores_aceite-de-soya-nutrioli-800-ml",
+      "nombre": "Aceite de soya Nutrioli  800 ml"
+    },
     "precio": 33.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/ACE0012.webp",
     "url": "https://tiendaslores.com/producto/aceite-de-soya-nutrioli-800-ml/"
   },
   {
-    "producto": "Atún en aceite El Dorado 130 g",
+    "producto": {
+      "id": "lores_atun-en-aceite-el-dorado-130-g",
+      "nombre": "Atún en aceite El Dorado 130 g"
+    },
     "precio": 11.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/PES1474.webp",
     "url": "https://tiendaslores.com/producto/atun-en-aceite-el-dorado-130-g/"
   },
   {
-    "producto": "Detergente en polvo Ariel 850 g",
+    "producto": {
+      "id": "lores_detergente-en-polvo-ariel-850-g",
+      "nombre": "Detergente en polvo Ariel 850 g"
+    },
     "precio": 33.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/DET0696.webp",
     "url": "https://tiendaslores.com/producto/detergente-en-polvo-ariel-850-g/"
   },
   {
-    "producto": "Brócoli 1 kg",
+    "producto": {
+      "id": "lores_brocoli-1-kg",
+      "nombre": "Brócoli 1 kg"
+    },
     "precio": 20.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/FYV0045.webp",
     "url": "https://tiendaslores.com/producto/brocoli-1-kg/"
   },
   {
-    "producto": "Galletas Marías Gamesa 170 g",
+    "producto": {
+      "id": "lores_galletas-marias-gamesa-170-g",
+      "nombre": "Galletas Marías Gamesa 170 g"
+    },
     "precio": 12.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/GAL0942.webp",
     "url": "https://tiendaslores.com/producto/galletas-marias-gamesa-170-g/"
   },
   {
-    "producto": "Detergente en polvo Foca 1 kg",
+    "producto": {
+      "id": "lores_detergente-en-polvo-foca-1-kg",
+      "nombre": "Detergente en polvo Foca 1 kg"
+    },
     "precio": 40.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/DET0120.webp",
     "url": "https://tiendaslores.com/producto/detergente-en-polvo-foca-1-kg/"
   },
   {
-    "producto": "Desodorante mujer roll-on aclarado natural Nivea 50 ml",
+    "producto": {
+      "id": "lores_desodorante-mujer-roll-on-aclarado-natural-nivea-50-ml",
+      "nombre": "Desodorante mujer roll-on aclarado natural Nivea 50 ml"
+    },
     "precio": 34.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2026/05/DES0595.webp",
     "url": "https://tiendaslores.com/producto/desodorante-mujer-roll-on-aclarado-natural-nivea-50-ml/"
   },
   {
-    "producto": "Antitranspirante hombre gel power Gillette",
+    "producto": {
+      "id": "lores_antitranspirante-hombre-gel-power-gillette",
+      "nombre": "Antitranspirante hombre gel power Gillette"
+    },
     "precio": 63.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2026/05/DES0571.webp",
     "url": "https://tiendaslores.com/producto/antitranspirante-hombre-gel-power-gillette/"
   },
   {
-    "producto": "Bebida alcohólica preparada durazno 330 ml",
+    "producto": {
+      "id": "lores_bebida-alcoholica-preparada-durazno-330-ml",
+      "nombre": "Bebida alcohólica preparada durazno 330 ml"
+    },
     "precio": 20.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2026/05/TPV2824.webp",
     "url": "https://tiendaslores.com/producto/bebida-alcoholica-preparada-durazno-330-ml/"
   },
   {
-    "producto": "Blanqueador Clorox 930 ml",
+    "producto": {
+      "id": "lores_blanqueador-clorox-930-ml",
+      "nombre": "Blanqueador Clorox 930 ml"
+    },
     "precio": 12.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/BLA0190.webp",
     "url": "https://tiendaslores.com/producto/blanqueador-clorox-930-ml/"
   },
   {
-    "producto": "Aceite comestible Patrona 1 l",
+    "producto": {
+      "id": "lores_aceite-comestible-patrona-1-l",
+      "nombre": "Aceite comestible Patrona 1 l"
+    },
     "precio": 36.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/ACE0103.webp",
     "url": "https://tiendaslores.com/producto/aceite-comestible-patrona-1-l/"
   },
   {
-    "producto": "Desodorante roll on hombre oceánico Obao 65 g",
+    "producto": {
+      "id": "lores_desodorante-roll-on-hombre-oceanico-obao-65-g",
+      "nombre": "Desodorante roll on hombre oceánico Obao 65 g"
+    },
     "precio": 28.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2026/05/DES0610.webp",
     "url": "https://tiendaslores.com/producto/desodorante-roll-on-hombre-oceanico-obao-65-g/"
   },
   {
-    "producto": "Margarina con sal La Villita 90 g",
+    "producto": {
+      "id": "lores_margarina-con-sal-la-villita-90-g",
+      "nombre": "Margarina con sal La Villita 90 g"
+    },
     "precio": 10.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/8213.webp",
     "url": "https://tiendaslores.com/producto/margarina-con-sal-la-villita-90-g/"
   },
   {
-    "producto": "Desodorante roll on mujer piel delicada Obao 65 g",
+    "producto": {
+      "id": "lores_desodorante-roll-on-mujer-piel-delicada-obao-65-g",
+      "nombre": "Desodorante roll on mujer piel delicada Obao 65 g"
+    },
     "precio": 24.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2026/05/DES0620.webp",
     "url": "https://tiendaslores.com/producto/desodorante-roll-on-mujer-piel-delicada-obao-65-g/"
   },
   {
-    "producto": "Atún en aceite Nair 120 g",
+    "producto": {
+      "id": "lores_atun-en-aceite-nair-120-g",
+      "nombre": "Atún en aceite Nair 120 g"
+    },
     "precio": 11.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/PES1483.webp",
     "url": "https://tiendaslores.com/producto/atun-en-aceite-nair-120-g/"
   },
   {
-    "producto": "Desodorante hombre roll-on Active Obao 65 g",
+    "producto": {
+      "id": "lores_desodorante-hombre-roll-on-active-obao-65-g",
+      "nombre": "Desodorante hombre roll-on Active Obao 65 g"
+    },
     "precio": 28.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2026/05/DES0606.webp",
     "url": "https://tiendaslores.com/producto/desodorante-hombre-roll-on-active-obao-65-g/"
   },
   {
-    "producto": "Huevo El Calvario 18 pzas.",
+    "producto": {
+      "id": "lores_huevo-el-calvario-18-pzas",
+      "nombre": "Huevo El Calvario 18 pzas."
+    },
     "precio": 37.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2026/05/HUE0066.webp",
     "url": "https://tiendaslores.com/producto/huevo-el-calvario-18-pzas/"
   },
   {
-    "producto": "Limpiador líquido todos los aromas Poett 900 ml",
+    "producto": {
+      "id": "lores_alegra-tu-dia-poett-900-ml",
+      "nombre": "Limpiador líquido todos los aromas Poett 900 ml"
+    },
     "precio": 17.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/LIM2372.webp",
     "url": "https://tiendaslores.com/producto/alegra-tu-dia-poett-900-ml/"
   },
   {
-    "producto": "Papel higiénico 4 rollos Regio 400 h.",
+    "producto": {
+      "id": "lores_papel-higienico-4-rollos-regio-400-h",
+      "nombre": "Papel higiénico 4 rollos Regio 400 h."
+    },
     "precio": 27.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/PAP1414.webp",
     "url": "https://tiendaslores.com/producto/papel-higienico-4-rollos-regio-400-h/"
   },
   {
-    "producto": "Huevo El Calvario 30 pzas.",
+    "producto": {
+      "id": "lores_huevo-el-calvario-30-pzas",
+      "nombre": "Huevo El Calvario 30 pzas."
+    },
     "precio": 62.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2026/05/HUE0065.webp",
     "url": "https://tiendaslores.com/producto/huevo-el-calvario-30-pzas/"
   },
   {
-    "producto": "Frescura primaveral Ensueño 850 ml",
+    "producto": {
+      "id": "lores_frescura-primaveral-ensueno-850-ml",
+      "nombre": "Frescura primaveral Ensueño 850 ml"
+    },
     "precio": 18.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/SUA1810.webp",
     "url": "https://tiendaslores.com/producto/frescura-primaveral-ensueno-850-ml/"
   },
   {
-    "producto": "Salchicha para asar con queso Chimex 800 g",
+    "producto": {
+      "id": "lores_salchicha-para-asar-con-queso-chimex-800-g",
+      "nombre": "Salchicha para asar con queso Chimex 800 g"
+    },
     "precio": 79.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2025/05/405.webp",
     "url": "https://tiendaslores.com/producto/salchicha-para-asar-con-queso-chimex-800-g/"
   },
   {
-    "producto": "Frijol San Luis Bueno 810 g",
+    "producto": {
+      "id": "lores_frijol-san-luis-bueno-810-g",
+      "nombre": "Frijol San Luis Bueno 810 g"
+    },
     "precio": 19.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2026/05/FRI5778.webp",
     "url": "https://tiendaslores.com/producto/frijol-san-luis-bueno-810-g/"
   },
   {
-    "producto": "Vino tinto riunite lambrusco Riunite 750 ml",
+    "producto": {
+      "id": "lores_vino-tinto-riunite-lambrusco-riunite-750-ml",
+      "nombre": "Vino tinto riunite lambrusco Riunite 750 ml"
+    },
     "precio": 129.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2025/05/VIN2042.webp",
     "url": "https://tiendaslores.com/producto/vino-tinto-riunite-lambrusco-riunite-750-ml/"
   },
   {
-    "producto": "Vino tinto afrutado espumoso Cu4Tro Soles 700 ml",
+    "producto": {
+      "id": "lores_vino-tinto-afrutado-espumoso-cu4tro-soles-700-ml",
+      "nombre": "Vino tinto afrutado espumoso Cu4Tro Soles 700 ml"
+    },
     "precio": 118.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2026/05/VIN2041.webp",
     "url": "https://tiendaslores.com/producto/vino-tinto-afrutado-espumoso-cu4tro-soles-700-ml/"
   },
   {
-    "producto": "Crema todas las especialidades Sedal 300 ml",
+    "producto": {
+      "id": "lores_crema-antiesponge-sedal-300-ml",
+      "nombre": "Crema todas las especialidades Sedal 300 ml"
+    },
     "precio": 45.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/CRE0409.webp",
     "url": "https://tiendaslores.com/producto/crema-antiesponge-sedal-300-ml/"
   },
   {
-    "producto": "Bebida yellow energy moras Volt 473 ml",
+    "producto": {
+      "id": "lores_bebida-yellow-energy-moras-volt-473-ml",
+      "nombre": "Bebida yellow energy moras Volt 473 ml"
+    },
     "precio": 16.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2026/04/BEB0627.webp",
     "url": "https://tiendaslores.com/producto/bebida-yellow-energy-moras-volt-473-ml/"
   },
   {
-    "producto": "Leche evaporada líquida Carnation 360 g",
+    "producto": {
+      "id": "lores_leche-evaporada-liquida-carnation-360-g",
+      "nombre": "Leche evaporada líquida Carnation 360 g"
+    },
     "precio": 18.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/LEC1198.webp",
     "url": "https://tiendaslores.com/producto/leche-evaporada-liquida-carnation-360-g/"
   },
   {
-    "producto": "Blanqueador Clarasol 3.785 l",
+    "producto": {
+      "id": "lores_blanqueador-clarasol-3-785-l",
+      "nombre": "Blanqueador Clarasol 3.785 l"
+    },
     "precio": 37.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/BLA0168.webp",
     "url": "https://tiendaslores.com/producto/blanqueador-clarasol-3-785-l/"
   },
   {
-    "producto": "Queso americano gouda Fud 140 g",
+    "producto": {
+      "id": "lores_queso-americano-gouda-fud-140-g",
+      "nombre": "Queso americano gouda Fud 140 g"
+    },
     "precio": 29.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2026/04/8351.webp",
     "url": "https://tiendaslores.com/producto/queso-americano-gouda-fud-140-g/"
   },
   {
-    "producto": "Bebida pet blue Volt 400 ml",
+    "producto": {
+      "id": "lores_bebida-pet-blue-volt-400-ml",
+      "nombre": "Bebida pet blue Volt 400 ml"
+    },
     "precio": 11.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2026/04/VOL3916.webp",
     "url": "https://tiendaslores.com/producto/bebida-pet-blue-volt-400-ml/"
   },
   {
-    "producto": "Acelgas 1 pza.",
+    "producto": {
+      "id": "lores_acelgas-1-pza",
+      "nombre": "Acelgas 1 pza."
+    },
     "precio": 5.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/FYV0033.webp",
     "url": "https://tiendaslores.com/producto/acelgas-1-pza/"
   },
   {
-    "producto": "Naranja 1 kg",
+    "producto": {
+      "id": "lores_naranja-1-kg",
+      "nombre": "Naranja 1 kg"
+    },
     "precio": 18.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/FYV0079.webp",
     "url": "https://tiendaslores.com/producto/naranja-1-kg/"
   },
   {
-    "producto": "Desodorante en aerosol para mujer Rexona 150 ml",
+    "producto": {
+      "id": "lores_desodorante-en-aerosol-para-mujer-rexona-150-ml",
+      "nombre": "Desodorante en aerosol para mujer Rexona 150 ml"
+    },
     "precio": 50.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2026/04/DES0642.webp",
     "url": "https://tiendaslores.com/producto/desodorante-en-aerosol-para-mujer-rexona-150-ml/"
   },
   {
-    "producto": "Bebida hidratante adulto 8iones Suerox 630 ml &#8220;Todos los sabores&#8221;",
+    "producto": {
+      "id": "lores_bebida-hidratante-adulto-8iones-coco-suerox-630-ml",
+      "nombre": "Bebida hidratante adulto 8iones Suerox 630 ml &#8220;Todos los sabores&#8221;"
+    },
     "precio": 15.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/BEB4885.webp",
     "url": "https://tiendaslores.com/producto/bebida-hidratante-adulto-8iones-coco-suerox-630-ml/"
   },
   {
-    "producto": "Pancrema Gamesa 106 g",
+    "producto": {
+      "id": "lores_pancrema-gamesa-106-g",
+      "nombre": "Pancrema Gamesa 106 g"
+    },
     "precio": 10.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/GAL0944.webp",
     "url": "https://tiendaslores.com/producto/pancrema-gamesa-106-g/"
   },
   {
-    "producto": "Desodorante para hombre fresh Old Spice 150 ml",
+    "producto": {
+      "id": "lores_desodorante-para-hombre-fresh-old-spice-150-ml",
+      "nombre": "Desodorante para hombre fresh Old Spice 150 ml"
+    },
     "precio": 61.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2026/04/DES0625.webp",
     "url": "https://tiendaslores.com/producto/desodorante-para-hombre-fresh-old-spice-150-ml/"
   },
   {
-    "producto": "Arroz Jb 1 kg",
+    "producto": {
+      "id": "lores_arroz-jb-1-kg",
+      "nombre": "Arroz Jb 1 kg"
+    },
     "precio": 20.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/ARR0027.webp",
     "url": "https://tiendaslores.com/producto/arroz-jb-1-kg/"
   },
   {
-    "producto": "Frijol Nayarit Jb 900 g",
+    "producto": {
+      "id": "lores_frijol-nayarit-jb-900-g",
+      "nombre": "Frijol Nayarit Jb 900 g"
+    },
     "precio": 22.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/FRI0064.webp",
     "url": "https://tiendaslores.com/producto/frijol-nayarit-jb-900-g/"
   },
   {
-    "producto": "Jamón americano Fud 1 kg",
+    "producto": {
+      "id": "lores_jamon-americano-fud-1-kg",
+      "nombre": "Jamón americano Fud 1 kg"
+    },
     "precio": 105.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/108.webp",
     "url": "https://tiendaslores.com/producto/jamon-americano-fud-1-kg/"
   },
   {
-    "producto": "Jamón pavo y cerdo Virginia Fud 290 g",
+    "producto": {
+      "id": "lores_jamon-pavo-y-cerdo-virginia-fud-290-g",
+      "nombre": "Jamón pavo y cerdo Virginia Fud 290 g"
+    },
     "precio": 47.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/474.webp",
     "url": "https://tiendaslores.com/producto/jamon-pavo-y-cerdo-virginia-fud-290-g/"
   },
   {
-    "producto": "Salchicha de pavo Fud 500 g",
+    "producto": {
+      "id": "lores_salchicha-de-pavo-fud-500-g",
+      "nombre": "Salchicha de pavo Fud 500 g"
+    },
     "precio": 49.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/341.webp",
     "url": "https://tiendaslores.com/producto/salchicha-de-pavo-fud-500-g/"
   },
   {
-    "producto": "Salchicha hotdog Viva 1 kg",
+    "producto": {
+      "id": "lores_salchicha-hotdog-viva-1-kg",
+      "nombre": "Salchicha hotdog Viva 1 kg"
+    },
     "precio": 51.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/342.webp",
     "url": "https://tiendaslores.com/producto/salchicha-hotdog-viva-1-kg/"
   },
   {
-    "producto": "Piñata mágica Sonrix 1.4 kg",
+    "producto": {
+      "id": "lores_pinata-magica-sonrix-1-4-kg",
+      "nombre": "Piñata mágica Sonrix 1.4 kg"
+    },
     "precio": 158.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2026/04/CAR6578.webp",
     "url": "https://tiendaslores.com/producto/pinata-magica-sonrix-1-4-kg/"
   },
   {
-    "producto": "Horchata de arroz Delicia 960 ml",
+    "producto": {
+      "id": "lores_horchata-de-arroz-delicia-960-ml",
+      "nombre": "Horchata de arroz Delicia 960 ml"
+    },
     "precio": 63.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2026/04/CON0363.webp",
     "url": "https://tiendaslores.com/producto/horchata-de-arroz-delicia-960-ml/"
   },
   {
-    "producto": "Desodorante en aerosol mujer sexy bouquet Rezona 150 ml",
+    "producto": {
+      "id": "lores_desodorante-en-aerosol-mujer-sexy-bouquet-rezona-150-ml",
+      "nombre": "Desodorante en aerosol mujer sexy bouquet Rezona 150 ml"
+    },
     "precio": 51.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2026/04/DES0643.webp",
     "url": "https://tiendaslores.com/producto/desodorante-en-aerosol-mujer-sexy-bouquet-rezona-150-ml/"
   },
   {
-    "producto": "Desodorante en aerosol hombre dark tempetation Axe 150 ml",
+    "producto": {
+      "id": "lores_desodorante-en-aerosol-hombre-dark-tempetation-axe-150-ml",
+      "nombre": "Desodorante en aerosol hombre dark tempetation Axe 150 ml"
+    },
     "precio": 51.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2026/04/DES0542.webp",
     "url": "https://tiendaslores.com/producto/desodorante-en-aerosol-hombre-dark-tempetation-axe-150-ml/"
   },
   {
-    "producto": "Uva verde 1 kg",
+    "producto": {
+      "id": "lores_uva-verde-1-kg",
+      "nombre": "Uva verde 1 kg"
+    },
     "precio": 126.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/FYV0065.webp",
     "url": "https://tiendaslores.com/producto/uva-verde-1-kg/"
   },
   {
-    "producto": "Bebida hidratante naranja Enerplex 600 ml variedad de sabores",
+    "producto": {
+      "id": "lores_bebida-hidratante-naranja-enerplex-600-ml",
+      "nombre": "Bebida hidratante naranja Enerplex 600 ml variedad de sabores"
+    },
     "precio": 14.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2025/05/BEB0155.webp",
     "url": "https://tiendaslores.com/producto/bebida-hidratante-naranja-enerplex-600-ml/"
   },
   {
-    "producto": "Frescura azul Ensueño 850 ml",
+    "producto": {
+      "id": "lores_frescura-azul-ensueno-850-ml",
+      "nombre": "Frescura azul Ensueño 850 ml"
+    },
     "precio": 19.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2025/05/SUA2672.webp",
     "url": "https://tiendaslores.com/producto/frescura-azul-ensueno-850-ml/"
   },
   {
-    "producto": "Limpiador líquido Pinol 500 ml",
+    "producto": {
+      "id": "lores_limpiador-liquido-pinol-500-ml",
+      "nombre": "Limpiador líquido Pinol 500 ml"
+    },
     "precio": 14.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/LIM1251.webp",
     "url": "https://tiendaslores.com/producto/limpiador-liquido-pinol-500-ml/"
   },
   {
-    "producto": "Cereal choco krispis Kellogg&#8217;s 540 g",
+    "producto": {
+      "id": "lores_cereal-choco-krispis-kelloggs-540-g",
+      "nombre": "Cereal choco krispis Kellogg&#8217;s 540 g"
+    },
     "precio": 63.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/CER0265.webp",
     "url": "https://tiendaslores.com/producto/cereal-choco-krispis-kelloggs-540-g/"
   },
   {
-    "producto": "Lavatraste líquido limón Axión 1.4 l",
+    "producto": {
+      "id": "lores_lavatraste-liquido-limon-axion-1-4-l",
+      "nombre": "Lavatraste líquido limón Axión 1.4 l"
+    },
     "precio": 46.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/LAV4633.webp",
     "url": "https://tiendaslores.com/producto/lavatraste-liquido-limon-axion-1-4-l/"
   },
   {
-    "producto": "Flan vainilla 4 pza Yoplait 400 g",
+    "producto": {
+      "id": "lores_flan-vainilla-4-pza-yoplait-400-g",
+      "nombre": "Flan vainilla 4 pza Yoplait 400 g"
+    },
     "precio": 26.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/9705.webp",
     "url": "https://tiendaslores.com/producto/flan-vainilla-4-pza-yoplait-400-g/"
   },
   {
-    "producto": "Bebida citrus punch Tampico 2 l",
+    "producto": {
+      "id": "lores_bebida-citrus-punch-tampico-2-l",
+      "nombre": "Bebida citrus punch Tampico 2 l"
+    },
     "precio": 26.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2026/04/BEB6263.webp",
     "url": "https://tiendaslores.com/producto/bebida-citrus-punch-tampico-2-l/"
   },
   {
-    "producto": "Concentrado de arroz Flor de Tabasco 1 l",
+    "producto": {
+      "id": "lores_concentrado-de-arroz-flor-de-tabasco-1-l",
+      "nombre": "Concentrado de arroz Flor de Tabasco 1 l"
+    },
     "precio": 45.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2026/04/CON5183.webp",
     "url": "https://tiendaslores.com/producto/concentrado-de-arroz-flor-de-tabasco-1-l/"
   },
   {
-    "producto": "Mayonesa Mccormick 2.8 kg",
+    "producto": {
+      "id": "lores_mayonesa-y-aderezo-mayonesa-jugo-de-limones-mccormick-2-8-kg",
+      "nombre": "Mayonesa Mccormick 2.8 kg"
+    },
     "precio": 217.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2025/05/MAY1289.webp",
     "url": "https://tiendaslores.com/producto/mayonesa-y-aderezo-mayonesa-jugo-de-limones-mccormick-2-8-kg/"
   },
   {
-    "producto": "Limpiador aroma floral Pinol 828 ml",
+    "producto": {
+      "id": "lores_limpiador-aroma-floral-pinol-828-ml",
+      "nombre": "Limpiador aroma floral Pinol 828 ml"
+    },
     "precio": 19.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/LIM1245.webp",
     "url": "https://tiendaslores.com/producto/limpiador-aroma-floral-pinol-828-ml/"
   },
   {
-    "producto": "Papel higiénico 4 rollos Premier 400 h.",
+    "producto": {
+      "id": "lores_papel-higienico-4-rollos-premier-400-h",
+      "nombre": "Papel higiénico 4 rollos Premier 400 h."
+    },
     "precio": 23.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/PAP1411.webp",
     "url": "https://tiendaslores.com/producto/papel-higienico-4-rollos-premier-400-h/"
   },
   {
-    "producto": "Suavizante turquesa Ensueño 1 l",
+    "producto": {
+      "id": "lores_suavizante-turquesa-ensueno-1-l",
+      "nombre": "Suavizante turquesa Ensueño 1 l"
+    },
     "precio": 18.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2026/01/SUA5193.webp",
     "url": "https://tiendaslores.com/producto/suavizante-turquesa-ensueno-1-l/"
   },
   {
-    "producto": "Bebida hidratante variedad de sabores 1 l",
+    "producto": {
+      "id": "lores_bebida-hidratante-ponche-de-frutas-electrolit-1-l",
+      "nombre": "Bebida hidratante variedad de sabores 1 l"
+    },
     "precio": 26.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/BEB5700.webp",
     "url": "https://tiendaslores.com/producto/bebida-hidratante-ponche-de-frutas-electrolit-1-l/"
   },
   {
-    "producto": "Salchicha estilo viena de pavo Iberomex 800 g",
+    "producto": {
+      "id": "lores_salchicha-estilo-viena-de-pavo-iberomex-800-g",
+      "nombre": "Salchicha estilo viena de pavo Iberomex 800 g"
+    },
     "precio": 43.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/887.webp",
     "url": "https://tiendaslores.com/producto/salchicha-estilo-viena-de-pavo-iberomex-800-g/"
   },
   {
-    "producto": "Papel higiénico gigante 4 rollos Vogue 800 h.",
+    "producto": {
+      "id": "lores_papel-higienico-gigante-4-rollos-vogue-800-h",
+      "nombre": "Papel higiénico gigante 4 rollos Vogue 800 h."
+    },
     "precio": 45.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/PAP5331.webp",
     "url": "https://tiendaslores.com/producto/papel-higienico-gigante-4-rollos-vogue-800-h/"
   },
   {
-    "producto": "Polegía sin cloro Princesa 200 g",
+    "producto": {
+      "id": "lores_polegia-sin-cloro-princesa-200-g",
+      "nombre": "Polegía sin cloro Princesa 200 g"
+    },
     "precio": 5.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2026/01/DET5663.webp",
     "url": "https://tiendaslores.com/producto/polegia-sin-cloro-princesa-200-g/"
   },
   {
-    "producto": "Concentrado coco Princesa 960 ml",
+    "producto": {
+      "id": "lores_concentrado-coco-princesa-960-ml",
+      "nombre": "Concentrado coco Princesa 960 ml"
+    },
     "precio": 58.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2025/05/CON0373.webp",
     "url": "https://tiendaslores.com/producto/concentrado-coco-princesa-960-ml/"
   },
   {
-    "producto": "Horchata de arroz Deliciosa 700 ml",
+    "producto": {
+      "id": "lores_horchata-de-arroz-deliciosa-700-ml",
+      "nombre": "Horchata de arroz Deliciosa 700 ml"
+    },
     "precio": 39.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/HOR0346.webp",
     "url": "https://tiendaslores.com/producto/horchata-de-arroz-deliciosa-700-ml/"
   },
   {
-    "producto": "Bebida hidratante uva Solural 500 ml variedad de sabores",
+    "producto": {
+      "id": "lores_bebida-hidratante-uva-solural-500-ml",
+      "nombre": "Bebida hidratante uva Solural 500 ml variedad de sabores"
+    },
     "precio": 12.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2025/06/BEB5740.webp",
     "url": "https://tiendaslores.com/producto/bebida-hidratante-uva-solural-500-ml/"
   },
   {
-    "producto": "Bebida hidratante coco Solural 500 ml variedad de sabores",
+    "producto": {
+      "id": "lores_bebida-hidratante-coco-solural-500-ml",
+      "nombre": "Bebida hidratante coco Solural 500 ml variedad de sabores"
+    },
     "precio": 15.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/BEB5738.webp",
     "url": "https://tiendaslores.com/producto/bebida-hidratante-coco-solural-500-ml/"
   },
   {
-    "producto": "Yoghurt batido fresa Yoplait 900 g",
+    "producto": {
+      "id": "lores_yoghurt-batido-fresa-yoplait-900-g",
+      "nombre": "Yoghurt batido fresa Yoplait 900 g"
+    },
     "precio": 36.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/7575.webp",
     "url": "https://tiendaslores.com/producto/yoghurt-batido-fresa-yoplait-900-g/"
   },
   {
-    "producto": "Frijoles negros refritos en bolsa Isadora 430 g",
+    "producto": {
+      "id": "lores_frijoles-negros-refritos-en-bolsa-isadora-430-g",
+      "nombre": "Frijoles negros refritos en bolsa Isadora 430 g"
+    },
     "precio": 14.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/FRI0872.webp",
     "url": "https://tiendaslores.com/producto/frijoles-negros-refritos-en-bolsa-isadora-430-g/"
   },
   {
-    "producto": "Sal en bolsa La Fina 1 kg",
+    "producto": {
+      "id": "lores_sal-en-bolsa-la-fina-1-kg",
+      "nombre": "Sal en bolsa La Fina 1 kg"
+    },
     "precio": 61.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/SAL1602.webp",
     "url": "https://tiendaslores.com/producto/sal-en-bolsa-la-fina-1-kg/"
   },
   {
-    "producto": "Horchata de coco Deliciosa 700 ml",
+    "producto": {
+      "id": "lores_horchata-de-coco-deliciosa-700-ml",
+      "nombre": "Horchata de coco Deliciosa 700 ml"
+    },
     "precio": 39.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/HOR0350.webp",
     "url": "https://tiendaslores.com/producto/horchata-de-coco-deliciosa-700-ml/"
   },
   {
-    "producto": "Bebida citrus punch Tampico 600 ml",
+    "producto": {
+      "id": "lores_bebida-citrus-punch-tampico-600-ml",
+      "nombre": "Bebida citrus punch Tampico 600 ml"
+    },
     "precio": 10.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2026/03/BEB6262.webp",
     "url": "https://tiendaslores.com/producto/bebida-citrus-punch-tampico-600-ml/"
   },
   {
-    "producto": "Cero enjuague frescura Primaveral Ensueño 850 ml",
+    "producto": {
+      "id": "lores_cero-enjuague-frescura-primaveral-ensueno-850-ml",
+      "nombre": "Cero enjuague frescura Primaveral Ensueño 850 ml"
+    },
     "precio": 19.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/SUA1812.webp",
     "url": "https://tiendaslores.com/producto/cero-enjuague-frescura-primaveral-ensueno-850-ml/"
   },
   {
-    "producto": "Fresca primavera Suavitel 850 ml",
+    "producto": {
+      "id": "lores_fresca-primavera-suavitel-850-ml",
+      "nombre": "Fresca primavera Suavitel 850 ml"
+    },
     "precio": 23.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/SUA1827.webp",
     "url": "https://tiendaslores.com/producto/fresca-primavera-suavitel-850-ml/"
   },
   {
-    "producto": "Aceite vegetal Capullo 840 ml",
+    "producto": {
+      "id": "lores_aceite-vegetal-capullo-840-ml",
+      "nombre": "Aceite vegetal Capullo 840 ml"
+    },
     "precio": 41.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/ACE0002.webp",
     "url": "https://tiendaslores.com/producto/aceite-vegetal-capullo-840-ml/"
   },
   {
-    "producto": "Mayonesa Mccormick 725 g",
+    "producto": {
+      "id": "lores_mayonesa-jugo-de-limones-mccormick-725-g",
+      "nombre": "Mayonesa Mccormick 725 g"
+    },
     "precio": 64.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/MAY1291.webp",
     "url": "https://tiendaslores.com/producto/mayonesa-jugo-de-limones-mccormick-725-g/"
   },
   {
-    "producto": "Chiles jalapeños San Marcos 215 g",
+    "producto": {
+      "id": "lores_chiles-jalapenos-san-marcos-215-g",
+      "nombre": "Chiles jalapeños San Marcos 215 g"
+    },
     "precio": 11.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/CHI0326.webp",
     "url": "https://tiendaslores.com/producto/chiles-jalapenos-san-marcos-215-g/"
   },
   {
-    "producto": "Bebida hidratante todos los sabores Electrolit 625 ml",
+    "producto": {
+      "id": "lores_bebida-hidratante-uva-electrolit-625-ml",
+      "nombre": "Bebida hidratante todos los sabores Electrolit 625 ml"
+    },
     "precio": 19.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/BEB0154.webp",
     "url": "https://tiendaslores.com/producto/bebida-hidratante-uva-electrolit-625-ml/"
   },
   {
-    "producto": "Atún en aceite El Dorado 285 g",
+    "producto": {
+      "id": "lores_atun-en-aceite-el-dorado-285-g",
+      "nombre": "Atún en aceite El Dorado 285 g"
+    },
     "precio": 21.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2025/05/PES2262.webp",
     "url": "https://tiendaslores.com/producto/atun-en-aceite-el-dorado-285-g/"
   },
   {
-    "producto": "Rocío de violetas Ensueño 850 ml",
+    "producto": {
+      "id": "lores_rocio-de-violetas-ensueno-850-ml",
+      "nombre": "Rocío de violetas Ensueño 850 ml"
+    },
     "precio": 19.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/SUA1820.webp",
     "url": "https://tiendaslores.com/producto/rocio-de-violetas-ensueno-850-ml/"
   },
   {
-    "producto": "Bebida hidratante mora Sporade 625 ml",
+    "producto": {
+      "id": "lores_bebida-hidratante-mora-sporade-625-ml",
+      "nombre": "Bebida hidratante mora Sporade 625 ml"
+    },
     "precio": 13.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2026/03/BEB4935.webp",
     "url": "https://tiendaslores.com/producto/bebida-hidratante-mora-sporade-625-ml/"
   },
   {
-    "producto": "Papel higiénico color 4 rollos Elite 287 h.",
+    "producto": {
+      "id": "lores_papel-higienico-color-4-rollos-elite-287-h",
+      "nombre": "Papel higiénico color 4 rollos Elite 287 h."
+    },
     "precio": 19.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/PAP1401.webp",
     "url": "https://tiendaslores.com/producto/papel-higienico-color-4-rollos-elite-287-h/"
   },
   {
-    "producto": "Chiles chipotles adobados La Costeña 220 g",
+    "producto": {
+      "id": "lores_chiles-chipotles-adobados-la-costena-220-g",
+      "nombre": "Chiles chipotles adobados La Costeña 220 g"
+    },
     "precio": 24.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2025/05/CHI0299.webp",
     "url": "https://tiendaslores.com/producto/chiles-chipotles-adobados-la-costena-220-g/"
   },
   {
-    "producto": "Bebida hidratante ponche de frutas Sporade 625 ml",
+    "producto": {
+      "id": "lores_bebida-hidratante-ponche-de-frutas-sporade-625-ml",
+      "nombre": "Bebida hidratante ponche de frutas Sporade 625 ml"
+    },
     "precio": 13.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2026/03/BEB4933.webp",
     "url": "https://tiendaslores.com/producto/bebida-hidratante-ponche-de-frutas-sporade-625-ml/"
   },
   {
-    "producto": "Jabón de lavanderia rosa Princesa 400 g",
+    "producto": {
+      "id": "lores_jabon-de-lavanderia-rosa-princesa-400-g",
+      "nombre": "Jabón de lavanderia rosa Princesa 400 g"
+    },
     "precio": 15.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2025/05/JAB1049.webp",
     "url": "https://tiendaslores.com/producto/jabon-de-lavanderia-rosa-princesa-400-g/"
   },
   {
-    "producto": "Sardina en salsa de tomate Guaymex 425 g",
+    "producto": {
+      "id": "lores_sardina-en-salsa-de-tomate-guaymex-425-g",
+      "nombre": "Sardina en salsa de tomate Guaymex 425 g"
+    },
     "precio": 40.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/PES1476.webp",
     "url": "https://tiendaslores.com/producto/sardina-en-salsa-de-tomate-guaymex-425-g/"
   },
   {
-    "producto": "Queso untable Philadelphia 150 g",
+    "producto": {
+      "id": "lores_queso-untable-philadelphia-150-g",
+      "nombre": "Queso untable Philadelphia 150 g"
+    },
     "precio": 33.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2026/03/8699.webp",
     "url": "https://tiendaslores.com/producto/queso-untable-philadelphia-150-g/"
   },
   {
-    "producto": "Concentrado arroz Princesa 960 ml",
+    "producto": {
+      "id": "lores_concentrado-arroz-princesa-960-ml",
+      "nombre": "Concentrado arroz Princesa 960 ml"
+    },
     "precio": 48.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/CON0370.webp",
     "url": "https://tiendaslores.com/producto/concentrado-arroz-princesa-960-ml/"
   },
   {
-    "producto": "Chiles rajas San Marcos 820 g",
+    "producto": {
+      "id": "lores_chiles-rajas-san-marcos-820-g",
+      "nombre": "Chiles rajas San Marcos 820 g"
+    },
     "precio": 33.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2025/05/CHI0334.webp",
     "url": "https://tiendaslores.com/producto/chiles-rajas-san-marcos-820-g/"
   },
   {
-    "producto": "Yoghurt bebible manzana Yoplait 242 g",
+    "producto": {
+      "id": "lores_yoghurt-bebible-manzana-yoplait-242-g",
+      "nombre": "Yoghurt bebible manzana Yoplait 242 g"
+    },
     "precio": 11.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/9222.webp",
     "url": "https://tiendaslores.com/producto/yoghurt-bebible-manzana-yoplait-242-g/"
   },
   {
-    "producto": "Mayonesa La Costeña 385 g",
+    "producto": {
+      "id": "lores_mayonesa-la-costena-385-g",
+      "nombre": "Mayonesa La Costeña 385 g"
+    },
     "precio": 32.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/MAY1281.webp",
     "url": "https://tiendaslores.com/producto/mayonesa-la-costena-385-g/"
   },
   {
-    "producto": "Soleada primavera Princesa 750 ml",
+    "producto": {
+      "id": "lores_soleada-primavera-princesa-750-ml",
+      "nombre": "Soleada primavera Princesa 750 ml"
+    },
     "precio": 19.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2026/03/SUA5088.webp",
     "url": "https://tiendaslores.com/producto/soleada-primavera-princesa-750-ml/"
   },
   {
-    "producto": "Amanecer mediterráneo Princesa 750 ml",
+    "producto": {
+      "id": "lores_amanecer-mediterraneo-princesa-750-ml",
+      "nombre": "Amanecer mediterráneo Princesa 750 ml"
+    },
     "precio": 19.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2026/03/SUA5086.webp",
     "url": "https://tiendaslores.com/producto/amanecer-mediterraneo-princesa-750-ml/"
   },
   {
-    "producto": "Atún en aceite Dolores 133 g",
+    "producto": {
+      "id": "lores_atun-en-aceite-dolores-133-g",
+      "nombre": "Atún en aceite Dolores 133 g"
+    },
     "precio": 19.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/PES1470.webp",
     "url": "https://tiendaslores.com/producto/atun-en-aceite-dolores-133-g/"
   },
   {
-    "producto": "Pastilla sanitaria lavanda c/gancho Flash 72 g",
+    "producto": {
+      "id": "lores_pastilla-sanitaria-lavanda-c-gancho-flash-72-g",
+      "nombre": "Pastilla sanitaria lavanda c/gancho Flash 72 g"
+    },
     "precio": 13.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2025/05/DES0673.webp",
     "url": "https://tiendaslores.com/producto/pastilla-sanitaria-lavanda-c-gancho-flash-72-g/"
   },
   {
-    "producto": "Sardina en salsa de tomate Corina 425 g",
+    "producto": {
+      "id": "lores_sardina-en-salsa-de-tomate-corina-425-g",
+      "nombre": "Sardina en salsa de tomate Corina 425 g"
+    },
     "precio": 29.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2026/03/PES0625.webp",
     "url": "https://tiendaslores.com/producto/sardina-en-salsa-de-tomate-corina-425-g/"
   },
   {
-    "producto": "Queso gouda Franja 1 kg",
+    "producto": {
+      "id": "lores_queso-gouda-franja-1-kg",
+      "nombre": "Queso gouda Franja 1 kg"
+    },
     "precio": 157.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/10924.webp",
     "url": "https://tiendaslores.com/producto/queso-gouda-franja-1-kg/"
   },
   {
-    "producto": "Galleta pancrema Cuétara 150 g",
+    "producto": {
+      "id": "lores_galleta-pancrema-cuetara-150-g",
+      "nombre": "Galleta pancrema Cuétara 150 g"
+    },
     "precio": 11.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/GAL5732.webp",
     "url": "https://tiendaslores.com/producto/galleta-pancrema-cuetara-150-g/"
   },
   {
-    "producto": "Limpiador líquido Pinol 828 ml",
+    "producto": {
+      "id": "lores_limpiador-liquido-pinol-828-ml",
+      "nombre": "Limpiador líquido Pinol 828 ml"
+    },
     "precio": 21.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/LIM1252.webp",
     "url": "https://tiendaslores.com/producto/limpiador-liquido-pinol-828-ml/"
   },
   {
-    "producto": "Galletas saladitas Gamesa 186 g",
+    "producto": {
+      "id": "lores_galletas-saladitas-gamesa-186-g",
+      "nombre": "Galletas saladitas Gamesa 186 g"
+    },
     "precio": 17.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/GAL0949.webp",
     "url": "https://tiendaslores.com/producto/galletas-saladitas-gamesa-186-g/"
   },
   {
-    "producto": "Frijol pinto Bueno 900 g",
+    "producto": {
+      "id": "lores_frijol-pinto-bueno-900-g",
+      "nombre": "Frijol pinto Bueno 900 g"
+    },
     "precio": 26.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2025/05/FRI0030.webp",
     "url": "https://tiendaslores.com/producto/frijol-pinto-bueno-900-g/"
   },
   {
-    "producto": "Salchicha hot dog Fud 1 kg",
+    "producto": {
+      "id": "lores_salchicha-hot-dog-fud-1-kg",
+      "nombre": "Salchicha hot dog Fud 1 kg"
+    },
     "precio": 73.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/306.webp",
     "url": "https://tiendaslores.com/producto/salchicha-hot-dog-fud-1-kg/"
   },
   {
-    "producto": "Bebida energizante Nitro Red 473 ml",
+    "producto": {
+      "id": "lores_bebida-energizante-nitro-red-473-ml",
+      "nombre": "Bebida energizante Nitro Red 473 ml"
+    },
     "precio": 15.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2026/03/BEB0099.webp",
     "url": "https://tiendaslores.com/producto/bebida-energizante-nitro-red-473-ml/"
   },
   {
-    "producto": "Detergente en polvo aroma floral multiusos Lariansa 1 kg",
+    "producto": {
+      "id": "lores_detergente-en-polvo-aroma-floral-multiusos-lariansa-1-kg",
+      "nombre": "Detergente en polvo aroma floral multiusos Lariansa 1 kg"
+    },
     "precio": 23.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/DET2916.webp",
     "url": "https://tiendaslores.com/producto/detergente-en-polvo-aroma-floral-multiusos-lariansa-1-kg/"
   },
   {
-    "producto": "Detergente en polvo explosión de frescura Espumil 1 kg",
+    "producto": {
+      "id": "lores_detergente-en-polvo-explosion-de-frescura-espumil-1-kg",
+      "nombre": "Detergente en polvo explosión de frescura Espumil 1 kg"
+    },
     "precio": 32.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2025/05/DET2723.webp",
     "url": "https://tiendaslores.com/producto/detergente-en-polvo-explosion-de-frescura-espumil-1-kg/"
   },
   {
-    "producto": "Mayonesa jugo de limones McCormick 105 g",
+    "producto": {
+      "id": "lores_mayonesa-jugo-de-limones-mccormick-105-g",
+      "nombre": "Mayonesa jugo de limones McCormick 105 g"
+    },
     "precio": 15.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/MAY1287.webp",
     "url": "https://tiendaslores.com/producto/mayonesa-jugo-de-limones-mccormick-105-g/"
   },
   {
-    "producto": "Jabón de lavandería azul Princesa 350 g",
+    "producto": {
+      "id": "lores_jabon-de-lavanderia-azul-princesa-350-g",
+      "nombre": "Jabón de lavandería azul Princesa 350 g"
+    },
     "precio": 13.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/JAB1048.webp",
     "url": "https://tiendaslores.com/producto/jabon-de-lavanderia-azul-princesa-350-g/"
   },
   {
-    "producto": "Lavatraste limón Klinpiax 1 kg",
+    "producto": {
+      "id": "lores_lavatraste-limon-klinpiax-1-kg-2",
+      "nombre": "Lavatraste limón Klinpiax 1 kg"
+    },
     "precio": 27.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2025/07/LAV1170.webp",
     "url": "https://tiendaslores.com/producto/lavatraste-limon-klinpiax-1-kg-2/"
   },
   {
-    "producto": "Garbanzo Bueno 500 g",
+    "producto": {
+      "id": "lores_garbanzo-bueno-500-g",
+      "nombre": "Garbanzo Bueno 500 g"
+    },
     "precio": 21.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2025/05/GAR0047.webp",
     "url": "https://tiendaslores.com/producto/garbanzo-bueno-500-g/"
   },
   {
-    "producto": "Limpiador líquido Pinol 1.8 l",
+    "producto": {
+      "id": "lores_limpiador-liquido-pinol-1-8-l",
+      "nombre": "Limpiador líquido Pinol 1.8 l"
+    },
     "precio": 48.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/LIM1248.webp",
     "url": "https://tiendaslores.com/producto/limpiador-liquido-pinol-1-8-l/"
   },
   {
-    "producto": "Atún en agua Nair 120 g",
+    "producto": {
+      "id": "lores_atun-en-agua-nair-120-g",
+      "nombre": "Atún en agua Nair 120 g"
+    },
     "precio": 10.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/PES1484.webp",
     "url": "https://tiendaslores.com/producto/atun-en-agua-nair-120-g/"
   },
   {
-    "producto": "Atún en agua El Dorado 285 g",
+    "producto": {
+      "id": "lores_atun-en-agua-el-dorado-285-g",
+      "nombre": "Atún en agua El Dorado 285 g"
+    },
     "precio": 21.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/PES2263.webp",
     "url": "https://tiendaslores.com/producto/atun-en-agua-el-dorado-285-g/"
   },
   {
-    "producto": "Detergente en polvo floral Espumil 1 kg",
+    "producto": {
+      "id": "lores_detergente-en-polvo-floral-espumil-1-kg",
+      "nombre": "Detergente en polvo floral Espumil 1 kg"
+    },
     "precio": 32.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/DET0707.webp",
     "url": "https://tiendaslores.com/producto/detergente-en-polvo-floral-espumil-1-kg/"
   },
   {
-    "producto": "Chiles en rajas San Marcos 380 g",
+    "producto": {
+      "id": "lores_chiles-en-rajas-san-marcos-380-g",
+      "nombre": "Chiles en rajas San Marcos 380 g"
+    },
     "precio": 23.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/CHI0333.webp",
     "url": "https://tiendaslores.com/producto/chiles-en-rajas-san-marcos-380-g/"
   },
   {
-    "producto": "Galletas saladitas Gamesa 140 g",
+    "producto": {
+      "id": "lores_galletas-saladitas-gamesa-137-g",
+      "nombre": "Galletas saladitas Gamesa 140 g"
+    },
     "precio": 17.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2025/05/GAL3536.webp",
     "url": "https://tiendaslores.com/producto/galletas-saladitas-gamesa-137-g/"
   },
   {
-    "producto": "Frijol Michigan Bueno 900 g",
+    "producto": {
+      "id": "lores_frijol-michigan-bueno-900-g",
+      "nombre": "Frijol Michigan Bueno 900 g"
+    },
     "precio": 23.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/FRI0043.webp",
     "url": "https://tiendaslores.com/producto/frijol-michigan-bueno-900-g/"
   },
   {
-    "producto": "Jabón de lavanderia primavera fragante Espumil 350 g",
+    "producto": {
+      "id": "lores_jabon-de-lavanderia-primavera-fragante-espumil-350-g",
+      "nombre": "Jabón de lavanderia primavera fragante Espumil 350 g"
+    },
     "precio": 17.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/JAB2256.webp",
     "url": "https://tiendaslores.com/producto/jabon-de-lavanderia-primavera-fragante-espumil-350-g/"
   },
   {
-    "producto": "Chocolate collection T7 Ferrero 77 g",
+    "producto": {
+      "id": "lores_chocolate-collection-t7-ferrero-77-g",
+      "nombre": "Chocolate collection T7 Ferrero 77 g"
+    },
     "precio": 90.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2026/02/CHO0268.webp",
     "url": "https://tiendaslores.com/producto/chocolate-collection-t7-ferrero-77-g/"
   },
   {
-    "producto": "Fresca lavanda Fabuloso 1 l",
+    "producto": {
+      "id": "lores_fresca-lavanda-fabuloso-1-l",
+      "nombre": "Fresca lavanda Fabuloso 1 l"
+    },
     "precio": 23.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/LIM1221.webp",
     "url": "https://tiendaslores.com/producto/fresca-lavanda-fabuloso-1-l/"
   },
   {
-    "producto": "Papel higiénico 4 rollos Suavel 325 h.",
+    "producto": {
+      "id": "lores_papel-higienico-4-rollos-suavel-325-h",
+      "nombre": "Papel higiénico 4 rollos Suavel 325 h."
+    },
     "precio": 23.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/PAP1419.webp",
     "url": "https://tiendaslores.com/producto/papel-higienico-4-rollos-suavel-325-h/"
   },
   {
-    "producto": "Chocolate collection T32 Ferrero 359 g",
+    "producto": {
+      "id": "lores_chocolate-collection-t32-ferrero-359-g",
+      "nombre": "Chocolate collection T32 Ferrero 359 g"
+    },
     "precio": 367.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2026/02/CHO3197.webp",
     "url": "https://tiendaslores.com/producto/chocolate-collection-t32-ferrero-359-g/"
   },
   {
-    "producto": "Galletas Crackets Gamesa 135 g",
+    "producto": {
+      "id": "lores_galletas-crackets-gamesa-135-g",
+      "nombre": "Galletas Crackets Gamesa 135 g"
+    },
     "precio": 14.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/GAL0933.webp",
     "url": "https://tiendaslores.com/producto/galletas-crackets-gamesa-135-g/"
   },
   {
-    "producto": "Maíz palomero Bueno  500 g",
+    "producto": {
+      "id": "lores_maiz-palomero-bueno-500-g",
+      "nombre": "Maíz palomero Bueno  500 g"
+    },
     "precio": 11.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/MAI0044.webp",
     "url": "https://tiendaslores.com/producto/maiz-palomero-bueno-500-g/"
   },
   {
-    "producto": "Chocolate Ferrero Rocher 162 g",
+    "producto": {
+      "id": "lores_chocolate-ferrero-rocher-162-g",
+      "nombre": "Chocolate Ferrero Rocher 162 g"
+    },
     "precio": 187.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2025/12/CHO3198.webp",
     "url": "https://tiendaslores.com/producto/chocolate-ferrero-rocher-162-g/"
   },
   {
-    "producto": "Frijoles negros refritos el lata La Costeña 580 g",
+    "producto": {
+      "id": "lores_frijoles-negros-refritos-el-lata-la-costena-580-g",
+      "nombre": "Frijoles negros refritos el lata La Costeña 580 g"
+    },
     "precio": 14.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/FRI0879.webp",
     "url": "https://tiendaslores.com/producto/frijoles-negros-refritos-el-lata-la-costena-580-g/"
   },
   {
-    "producto": "Pay de queso 2 pack 200 g Yoplait",
+    "producto": {
+      "id": "lores_pay-de-queso-2-pack-200-g-yoplait",
+      "nombre": "Pay de queso 2 pack 200 g Yoplait"
+    },
     "precio": 26.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/9859.webp",
     "url": "https://tiendaslores.com/producto/pay-de-queso-2-pack-200-g-yoplait/"
   },
   {
-    "producto": "Bebida predator Amper 473 ml",
+    "producto": {
+      "id": "lores_bebida-predator-amper-473-ml",
+      "nombre": "Bebida predator Amper 473 ml"
+    },
     "precio": 15.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2025/05/BEB2487.webp",
     "url": "https://tiendaslores.com/producto/bebida-predator-amper-473-ml/"
   },
   {
-    "producto": "Frijol bayo Bueno 900 g",
+    "producto": {
+      "id": "lores_frijol-bayo-bueno-900-g",
+      "nombre": "Frijol bayo Bueno 900 g"
+    },
     "precio": 26.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/FRI0033.webp",
     "url": "https://tiendaslores.com/producto/frijol-bayo-bueno-900-g/"
   },
   {
-    "producto": "Crema de avellanas Nutella 350 g",
+    "producto": {
+      "id": "lores_crema-de-avellanas-nutella",
+      "nombre": "Crema de avellanas Nutella 350 g"
+    },
     "precio": 91.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2025/12/CRE0270.webp",
     "url": "https://tiendaslores.com/producto/crema-de-avellanas-nutella/"
   },
   {
-    "producto": "Detergente suavidad con jazmín 1-2-3  800 g",
+    "producto": {
+      "id": "lores_detergente-suavidad-con-jazmin-1-2-3-800-g",
+      "nombre": "Detergente suavidad con jazmín 1-2-3  800 g"
+    },
     "precio": 20.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/DET0677.webp",
     "url": "https://tiendaslores.com/producto/detergente-suavidad-con-jazmin-1-2-3-800-g/"
   },
   {
-    "producto": "Leche condensada La Lechera 100 g",
+    "producto": {
+      "id": "lores_leche-condensada-la-lechera-100-g",
+      "nombre": "Leche condensada La Lechera 100 g"
+    },
     "precio": 11.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2025/05/LEC1194.webp",
     "url": "https://tiendaslores.com/producto/leche-condensada-la-lechera-100-g/"
   },
   {
-    "producto": "Queso manchego medias lunas La Villita 150 g",
+    "producto": {
+      "id": "lores_queso-manchego-medias-lunas-la-villita-150-g",
+      "nombre": "Queso manchego medias lunas La Villita 150 g"
+    },
     "precio": 26.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/8439.webp",
     "url": "https://tiendaslores.com/producto/queso-manchego-medias-lunas-la-villita-150-g/"
   },
   {
-    "producto": "Papel higiénico 4 rollos Big Roll 400 h.",
+    "producto": {
+      "id": "lores_papel-higienico-4-rollos-big-roll-400-h",
+      "nombre": "Papel higiénico 4 rollos Big Roll 400 h."
+    },
     "precio": 25.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/PAP1400.webp",
     "url": "https://tiendaslores.com/producto/papel-higienico-4-rollos-big-roll-400-h/"
   },
   {
-    "producto": "Desechables servilleta Lys 125 pzas.",
+    "producto": {
+      "id": "lores_desechables-servilleta-lys-125-pzas",
+      "nombre": "Desechables servilleta Lys 125 pzas."
+    },
     "precio": 14.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2025/05/DES0503.webp",
     "url": "https://tiendaslores.com/producto/desechables-servilleta-lys-125-pzas/"
   },
   {
-    "producto": "Quedo gouda La Villita 1 kg",
+    "producto": {
+      "id": "lores_quedo-gouda-la-villita-1-kg",
+      "nombre": "Quedo gouda La Villita 1 kg"
+    },
     "precio": 185.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/8004.webp",
     "url": "https://tiendaslores.com/producto/quedo-gouda-la-villita-1-kg/"
   },
   {
-    "producto": "Desechables servilleta Lys 500 pzas.",
+    "producto": {
+      "id": "lores_desechables-servilleta-lys-500-pzas",
+      "nombre": "Desechables servilleta Lys 500 pzas."
+    },
     "precio": 49.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2025/05/DES0505.webp",
     "url": "https://tiendaslores.com/producto/desechables-servilleta-lys-500-pzas/"
   },
   {
-    "producto": "Suavizante aroma bebé Princesa 750 ml",
+    "producto": {
+      "id": "lores_suavizante-aroma-bebe-princesa-750-ml",
+      "nombre": "Suavizante aroma bebé Princesa 750 ml"
+    },
     "precio": 19.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2026/01/SUA5085.webp",
     "url": "https://tiendaslores.com/producto/suavizante-aroma-bebe-princesa-750-ml/"
   },
   {
-    "producto": "Queso manchego La Villita 1 kg",
+    "producto": {
+      "id": "lores_queso-manchego-la-villita-1-kg",
+      "nombre": "Queso manchego La Villita 1 kg"
+    },
     "precio": 207.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2025/05/8125.webp",
     "url": "https://tiendaslores.com/producto/queso-manchego-la-villita-1-kg/"
   },
   {
-    "producto": "Jabón de lavanderia blanco Princesa 400 g",
+    "producto": {
+      "id": "lores_jabon-de-lavanderia-blanco-princesa-400-g",
+      "nombre": "Jabón de lavanderia blanco Princesa 400 g"
+    },
     "precio": 15.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2025/05/JAB3528.webp",
     "url": "https://tiendaslores.com/producto/jabon-de-lavanderia-blanco-princesa-400-g/"
   },
   {
-    "producto": "Leche Evaporada líquida light Carnation 360 g",
+    "producto": {
+      "id": "lores_leche-evaporada-liquida-light-carnation-360-g",
+      "nombre": "Leche Evaporada líquida light Carnation 360 g"
+    },
     "precio": 23.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2025/05/LEC1201.webp",
     "url": "https://tiendaslores.com/producto/leche-evaporada-liquida-light-carnation-360-g/"
   },
   {
-    "producto": "Papel higiénico 4 rollos Elite 200 h.",
+    "producto": {
+      "id": "lores_papel-higienico-4-rollos-elite-200-h",
+      "nombre": "Papel higiénico 4 rollos Elite 200 h."
+    },
     "precio": 50.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/PAP2189.webp",
     "url": "https://tiendaslores.com/producto/papel-higienico-4-rollos-elite-200-h/"
   },
   {
-    "producto": "Papel aluminio Casty 7 mt",
+    "producto": {
+      "id": "lores_papel-aluminio-casty-7-mt",
+      "nombre": "Papel aluminio Casty 7 mt"
+    },
     "precio": 8.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2026/01/ALU0107.webp",
     "url": "https://tiendaslores.com/producto/papel-aluminio-casty-7-mt/"
   },
   {
-    "producto": "Desechables servilleta Delsey 450 pzas.",
+    "producto": {
+      "id": "lores_desechables-servilleta-delsey-450-pzas",
+      "nombre": "Desechables servilleta Delsey 450 pzas."
+    },
     "precio": 45.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/DES0487.webp",
     "url": "https://tiendaslores.com/producto/desechables-servilleta-delsey-450-pzas/"
   },
   {
-    "producto": "Media crema Nestlé 225 g",
+    "producto": {
+      "id": "lores_media-crema-nestle-225-g",
+      "nombre": "Media crema Nestlé 225 g"
+    },
     "precio": 18.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/MED1299.webp",
     "url": "https://tiendaslores.com/producto/media-crema-nestle-225-g/"
   },
   {
-    "producto": "Media crema Lala 480 ml",
+    "producto": {
+      "id": "lores_media-crema-lala-480-ml",
+      "nombre": "Media crema Lala 480 ml"
+    },
     "precio": 27.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/MED0014.webp",
     "url": "https://tiendaslores.com/producto/media-crema-lala-480-ml/"
   },
   {
-    "producto": "Jamón cocido Chimex 396 g",
+    "producto": {
+      "id": "lores_jamon-cocido-chimex-396-g",
+      "nombre": "Jamón cocido Chimex 396 g"
+    },
     "precio": 35.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/214.webp",
     "url": "https://tiendaslores.com/producto/jamon-cocido-chimex-396-g/"
   },
   {
-    "producto": "Refresco de cola 1 l Pepsi 2.5 l",
+    "producto": {
+      "id": "lores_refresco-de-cola-1-l-pepsi-2-5-l",
+      "nombre": "Refresco de cola 1 l Pepsi 2.5 l"
+    },
     "precio": 39.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/PEP4256.webp",
     "url": "https://tiendaslores.com/producto/refresco-de-cola-1-l-pepsi-2-5-l/"
   },
   {
-    "producto": "Agua Epura 5 lt",
+    "producto": {
+      "id": "lores_agua-epura-5-lt",
+      "nombre": "Agua Epura 5 lt"
+    },
     "precio": 27.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2026/01/PEP4334.webp",
     "url": "https://tiendaslores.com/producto/agua-epura-5-lt/"
   },
   {
-    "producto": "Refresco de cola Pepsi 1.5 l",
+    "producto": {
+      "id": "lores_refresco-de-cola-pepsi-1-5-l",
+      "nombre": "Refresco de cola Pepsi 1.5 l"
+    },
     "precio": 31.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2025/09/PEP4253.webp",
     "url": "https://tiendaslores.com/producto/refresco-de-cola-pepsi-1-5-l/"
   },
   {
-    "producto": "Bebida hidratante todos los sabores Gatorade 1 l",
+    "producto": {
+      "id": "lores_bebida-hidratante-todos-los-sabores-gatorade-1l",
+      "nombre": "Bebida hidratante todos los sabores Gatorade 1 l"
+    },
     "precio": 30.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2025/06/PEP4295.webp",
     "url": "https://tiendaslores.com/producto/bebida-hidratante-todos-los-sabores-gatorade-1l/"
   },
   {
-    "producto": "Chocolate de mesa Abuelita 540 g",
+    "producto": {
+      "id": "lores_chocolate-de-mesa-abuelita-540-g",
+      "nombre": "Chocolate de mesa Abuelita 540 g"
+    },
     "precio": 108.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/CHO0337.webp",
     "url": "https://tiendaslores.com/producto/chocolate-de-mesa-abuelita-540-g/"
   },
   {
-    "producto": "Lavatraste líquido limón Salvo 900 ml",
+    "producto": {
+      "id": "lores_lavatraste-liquido-limon-salvo-900-ml",
+      "nombre": "Lavatraste líquido limón Salvo 900 ml"
+    },
     "precio": 45.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/LAV1186.webp",
     "url": "https://tiendaslores.com/producto/lavatraste-liquido-limon-salvo-900-ml/"
   },
   {
-    "producto": "Lavatraste líquido limón Axión 220 ml",
+    "producto": {
+      "id": "lores_lavatraste-liquido-limon-axion-220-ml",
+      "nombre": "Lavatraste líquido limón Axión 220 ml"
+    },
     "precio": 12.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/LAV4707.webp",
     "url": "https://tiendaslores.com/producto/lavatraste-liquido-limon-axion-220-ml/"
   },
   {
-    "producto": "Café clásico soluble Nescafe 42 g",
+    "producto": {
+      "id": "lores_cafe-clasico-soluble-nescafe-42-g",
+      "nombre": "Café clásico soluble Nescafe 42 g"
+    },
     "precio": 39.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/CAF0215.webp",
     "url": "https://tiendaslores.com/producto/cafe-clasico-soluble-nescafe-42-g/"
   },
   {
-    "producto": "Pera mantequilla 1 kg",
+    "producto": {
+      "id": "lores_pera-mantequilla-1-kg",
+      "nombre": "Pera mantequilla 1 kg"
+    },
     "precio": 47.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/FYV0092.webp",
     "url": "https://tiendaslores.com/producto/pera-mantequilla-1-kg/"
   },
   {
-    "producto": "Queso amarillo Castell 1 kg",
+    "producto": {
+      "id": "lores_queso-amarillo-castell-1-kg",
+      "nombre": "Queso amarillo Castell 1 kg"
+    },
     "precio": 11.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2025/12/SCQ3004.webp",
     "url": "https://tiendaslores.com/producto/queso-amarillo-castell-1-kg/"
   },
   {
-    "producto": "Piña rebanada en almíbar Clemente Jacques 800 g",
+    "producto": {
+      "id": "lores_pina-rebanada-en-almibar-clemente-jacques-800-g",
+      "nombre": "Piña rebanada en almíbar Clemente Jacques 800 g"
+    },
     "precio": 59.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/FRU5559.webp",
     "url": "https://tiendaslores.com/producto/pina-rebanada-en-almibar-clemente-jacques-800-g/"
   },
   {
-    "producto": "Chocolate Ferreo Rocher 200 g",
+    "producto": {
+      "id": "lores_chocolate-ferreo-rocher-200-g",
+      "nombre": "Chocolate Ferreo Rocher 200 g"
+    },
     "precio": 154.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2025/12/CHO0266.webp",
     "url": "https://tiendaslores.com/producto/chocolate-ferreo-rocher-200-g/"
   },
   {
-    "producto": "Duraznos en mitades La Costeña 820 g",
+    "producto": {
+      "id": "lores_duraznos-en-mitades-la-costena-820-g",
+      "nombre": "Duraznos en mitades La Costeña 820 g"
+    },
     "precio": 50.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/FRU0890.webp",
     "url": "https://tiendaslores.com/producto/duraznos-en-mitades-la-costena-820-g/"
   },
   {
-    "producto": "Desechables servitoalla 250 hd Pétalo 250 h.",
+    "producto": {
+      "id": "lores_desechables-servitoalla-250-hd-petalo-250-h",
+      "nombre": "Desechables servitoalla 250 hd Pétalo 250 h."
+    },
     "precio": 24.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/DES4907.webp",
     "url": "https://tiendaslores.com/producto/desechables-servitoalla-250-hd-petalo-250-h/"
   },
   {
-    "producto": "Chocolate campana Ferrero Rocher 200 g",
+    "producto": {
+      "id": "lores_chocolate-campana-ferrero-rocher-200-g",
+      "nombre": "Chocolate campana Ferrero Rocher 200 g"
+    },
     "precio": 183.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2025/12/CHO3190.webp",
     "url": "https://tiendaslores.com/producto/chocolate-campana-ferrero-rocher-200-g/"
   },
   {
-    "producto": "Whisky scotch etiqueta negra Johnnie Walker 750 ml",
+    "producto": {
+      "id": "lores_whisky-scotch-etiqueta-negra-johnnie-walker-750-ml",
+      "nombre": "Whisky scotch etiqueta negra Johnnie Walker 750 ml"
+    },
     "precio": 845.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2025/05/WHI2052.webp",
     "url": "https://tiendaslores.com/producto/whisky-scotch-etiqueta-negra-johnnie-walker-750-ml/"
   },
   {
-    "producto": "Tocino Holandés San Carlos 1 kg",
+    "producto": {
+      "id": "lores_tocino-holandes-san-carlos-1-kg",
+      "nombre": "Tocino Holandés San Carlos 1 kg"
+    },
     "precio": 85.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2025/12/SCT2998.webp",
     "url": "https://tiendaslores.com/producto/tocino-holandes-san-carlos-1-kg/"
   },
   {
-    "producto": "Vodka regular Absolut 750 ml",
+    "producto": {
+      "id": "lores_vodka-regular-absolut-750-ml",
+      "nombre": "Vodka regular Absolut 750 ml"
+    },
     "precio": 181.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2025/05/VOD2044.webp",
     "url": "https://tiendaslores.com/producto/vodka-regular-absolut-750-ml/"
   },
   {
-    "producto": "Tequila reposado Cabrito 750 ml",
+    "producto": {
+      "id": "lores_tequila-reposado-cabrito-750-ml",
+      "nombre": "Tequila reposado Cabrito 750 ml"
+    },
     "precio": 148.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2025/05/TEQ2034.webp",
     "url": "https://tiendaslores.com/producto/tequila-reposado-cabrito-750-ml/"
   },
   {
-    "producto": "Whisky Black White 700 ml",
+    "producto": {
+      "id": "lores_whisky-black-white-700-ml",
+      "nombre": "Whisky Black White 700 ml"
+    },
     "precio": 195.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/WHI2048.webp",
     "url": "https://tiendaslores.com/producto/whisky-black-white-700-ml/"
   },
   {
-    "producto": "Coctel de frutas La Costeña 850 g",
+    "producto": {
+      "id": "lores_coctel-de-frutas-la-costena-850-g",
+      "nombre": "Coctel de frutas La Costeña 850 g"
+    },
     "precio": 63.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/FRU0889.webp",
     "url": "https://tiendaslores.com/producto/coctel-de-frutas-la-costena-850-g/"
   },
   {
-    "producto": "Spaghetti Italpasta 200 g",
+    "producto": {
+      "id": "lores_spaghetti-italpasta-200-g",
+      "nombre": "Spaghetti Italpasta 200 g"
+    },
     "precio": 6.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/PAS1438.webp",
     "url": "https://tiendaslores.com/producto/spaghetti-italpasta-200-g/"
   },
   {
-    "producto": "Leche condensada La Lechera 375 g",
+    "producto": {
+      "id": "lores_leche-condensada-la-lechera-375-g",
+      "nombre": "Leche condensada La Lechera 375 g"
+    },
     "precio": 26.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/LEC1195.webp",
     "url": "https://tiendaslores.com/producto/leche-condensada-la-lechera-375-g/"
   },
   {
-    "producto": "Media crema Delite  245 ml",
+    "producto": {
+      "id": "lores_media-crema-delite-245-ml",
+      "nombre": "Media crema Delite  245 ml"
+    },
     "precio": 8.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/MED1296.webp",
     "url": "https://tiendaslores.com/producto/media-crema-delite-245-ml/"
   },
   {
-    "producto": "Desechables servilleta Delsey 220 pzas.",
+    "producto": {
+      "id": "lores_desechables-servilleta-delsey-220-pzas",
+      "nombre": "Desechables servilleta Delsey 220 pzas."
+    },
     "precio": 20.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2025/05/DES0486.webp",
     "url": "https://tiendaslores.com/producto/desechables-servilleta-delsey-220-pzas/"
   },
   {
-    "producto": "Maíz pozolero en salmuera Perla 1 kg",
+    "producto": {
+      "id": "lores_maiz-pozolero-en-salmuera-perla-1-kg",
+      "nombre": "Maíz pozolero en salmuera Perla 1 kg"
+    },
     "precio": 26.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/SCM3022.webp",
     "url": "https://tiendaslores.com/producto/maiz-pozolero-en-salmuera-perla-1-kg/"
   },
   {
-    "producto": "Tequila 70 añejo Don Julio 700 ml",
+    "producto": {
+      "id": "lores_tequila-70-anejo-don-julio-700-ml",
+      "nombre": "Tequila 70 añejo Don Julio 700 ml"
+    },
     "precio": 880.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2025/05/TEQ2580.webp",
     "url": "https://tiendaslores.com/producto/tequila-70-anejo-don-julio-700-ml/"
   },
   {
-    "producto": "Rompope  Santa Clara 1 l",
+    "producto": {
+      "id": "lores_rompope-santa-clara-1-l",
+      "nombre": "Rompope  Santa Clara 1 l"
+    },
     "precio": 139.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2025/05/ROM2024.webp",
     "url": "https://tiendaslores.com/producto/rompope-santa-clara-1-l/"
   },
   {
-    "producto": "Sidra ambar Valle Redondo 700 ml",
+    "producto": {
+      "id": "lores_sidra-ambar-valle-redondo-700-ml",
+      "nombre": "Sidra ambar Valle Redondo 700 ml"
+    },
     "precio": 82.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/TPS2787.webp",
     "url": "https://tiendaslores.com/producto/sidra-ambar-valle-redondo-700-ml/"
   },
   {
-    "producto": "Duraznos en mitades Don Agustín 820 g",
+    "producto": {
+      "id": "lores_duraznos-en-mitades-don-agustin-820-g",
+      "nombre": "Duraznos en mitades Don Agustín 820 g"
+    },
     "precio": 35.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/FRU0884.webp",
     "url": "https://tiendaslores.com/producto/duraznos-en-mitades-don-agustin-820-g/"
   },
   {
-    "producto": "Coctel de frutas Máxima 820 g",
+    "producto": {
+      "id": "lores_coctel-de-frutas-maxima-820-g",
+      "nombre": "Coctel de frutas Máxima 820 g"
+    },
     "precio": 56.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/FRU2823.webp",
     "url": "https://tiendaslores.com/producto/coctel-de-frutas-maxima-820-g/"
   },
   {
-    "producto": "Salchicha de pavo Hot dog Fud 500 g",
+    "producto": {
+      "id": "lores_salchicha-de-pavo-hot-dog-fud-500-g",
+      "nombre": "Salchicha de pavo Hot dog Fud 500 g"
+    },
     "precio": 48.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/983.webp",
     "url": "https://tiendaslores.com/producto/salchicha-de-pavo-hot-dog-fud-500-g/"
   },
   {
-    "producto": "Margarina Iberia 225 g",
+    "producto": {
+      "id": "lores_margarina-iberia-225-g",
+      "nombre": "Margarina Iberia 225 g"
+    },
     "precio": 33.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2025/12/SCM3010.webp",
     "url": "https://tiendaslores.com/producto/margarina-iberia-225-g/"
   },
   {
-    "producto": "Margarina Iberia 90 g",
+    "producto": {
+      "id": "lores_margarina-iberia-90-g",
+      "nombre": "Margarina Iberia 90 g"
+    },
     "precio": 13.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2025/12/SCM3009.webp",
     "url": "https://tiendaslores.com/producto/margarina-iberia-90-g/"
   },
   {
-    "producto": "Piña rebanada en almíbar La Merced 850 g",
+    "producto": {
+      "id": "lores_pina-rebanada-en-almibar-la-merced-850-g",
+      "nombre": "Piña rebanada en almíbar La Merced 850 g"
+    },
     "precio": 60.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2025/12/FRU6288.webp",
     "url": "https://tiendaslores.com/producto/pina-rebanada-en-almibar-la-merced-850-g/"
   },
   {
-    "producto": "Crema de avellanas Nutella 200 g",
+    "producto": {
+      "id": "lores_crema-de-avellanas-nutella-200-g",
+      "nombre": "Crema de avellanas Nutella 200 g"
+    },
     "precio": 54.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2025/12/CRE0345.webp",
     "url": "https://tiendaslores.com/producto/crema-de-avellanas-nutella-200-g/"
   },
   {
-    "producto": "Maíz pozolero alto vacío Perla 1 kg",
+    "producto": {
+      "id": "lores_maiz-pozolero-alto-vacio-perla-1-kg",
+      "nombre": "Maíz pozolero alto vacío Perla 1 kg"
+    },
     "precio": 33.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/SCM3023.webp",
     "url": "https://tiendaslores.com/producto/maiz-pozolero-alto-vacio-perla-1-kg/"
   },
   {
-    "producto": "Tequila especial reposado Jose Cuervo 695 ml",
+    "producto": {
+      "id": "lores_tequila-especial-reposado-jose-cuervo-695-ml",
+      "nombre": "Tequila especial reposado Jose Cuervo 695 ml"
+    },
     "precio": 158.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2025/05/TEQ2179.webp",
     "url": "https://tiendaslores.com/producto/tequila-especial-reposado-jose-cuervo-695-ml/"
   },
   {
-    "producto": "Bebida alcohólica preparada durazno Boones 750 ml",
+    "producto": {
+      "id": "lores_bebida-alcoholica-preparada-durazno-boones-750-ml",
+      "nombre": "Bebida alcohólica preparada durazno Boones 750 ml"
+    },
     "precio": 72.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/BEB1998.webp",
     "url": "https://tiendaslores.com/producto/bebida-alcoholica-preparada-durazno-boones-750-ml/"
   },
   {
-    "producto": "Sidra rosada Valle Redondo 700 ml",
+    "producto": {
+      "id": "lores_sidra-rosada-valle-redondo-700-ml",
+      "nombre": "Sidra rosada Valle Redondo 700 ml"
+    },
     "precio": 82.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/TPS2788.webp",
     "url": "https://tiendaslores.com/producto/sidra-rosada-valle-redondo-700-ml/"
   },
   {
-    "producto": "Yoghurt batido fresa Yoplait 442 g",
+    "producto": {
+      "id": "lores_yoghurt-batido-fresa-yoplait-442-g",
+      "nombre": "Yoghurt batido fresa Yoplait 442 g"
+    },
     "precio": 21.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/9095.webp",
     "url": "https://tiendaslores.com/producto/yoghurt-batido-fresa-yoplait-442-g/"
   },
   {
-    "producto": "Harina de trigo San Blas 1 kg",
+    "producto": {
+      "id": "lores_harina-de-trigo-san-blas-1-kg",
+      "nombre": "Harina de trigo San Blas 1 kg"
+    },
     "precio": 14.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/HAR0989.webp",
     "url": "https://tiendaslores.com/producto/harina-de-trigo-san-blas-1-kg/"
   },
   {
-    "producto": "Chocolate de mesa Ideal 270 g",
+    "producto": {
+      "id": "lores_chocolate-de-mesa-el-ideal-270-g",
+      "nombre": "Chocolate de mesa Ideal 270 g"
+    },
     "precio": 42.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/CHO6177.webp",
     "url": "https://tiendaslores.com/producto/chocolate-de-mesa-el-ideal-270-g/"
   },
   {
-    "producto": "Chocolate Ferrero Rocher 125 g",
+    "producto": {
+      "id": "lores_chocolate-ferrero-rocher-125-g",
+      "nombre": "Chocolate Ferrero Rocher 125 g"
+    },
     "precio": 106.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2025/12/CHO0648.webp",
     "url": "https://tiendaslores.com/producto/chocolate-ferrero-rocher-125-g/"
   },
   {
-    "producto": "Yoghurt bebible durazno Yoplait 330 g",
+    "producto": {
+      "id": "lores_yoghurt-bebible-durazno-yoplait-330-g",
+      "nombre": "Yoghurt bebible durazno Yoplait 330 g"
+    },
     "precio": 14.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/9261.webp",
     "url": "https://tiendaslores.com/producto/yoghurt-bebible-durazno-yoplait-330-g/"
   },
   {
-    "producto": "Detergente multipoder Maestro Limpio 1 kg",
+    "producto": {
+      "id": "lores_detergente-multipoder-maestro-limpio-1-kg",
+      "nombre": "Detergente multipoder Maestro Limpio 1 kg"
+    },
     "precio": 25.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/DET0711.webp",
     "url": "https://tiendaslores.com/producto/detergente-multipoder-maestro-limpio-1-kg/"
   },
   {
-    "producto": "Avena Bueno 1 kg",
+    "producto": {
+      "id": "lores_avenas-y-granolas-avena-bueno-1-kg",
+      "nombre": "Avena Bueno 1 kg"
+    },
     "precio": 27.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/AVE0055.webp",
     "url": "https://tiendaslores.com/producto/avenas-y-granolas-avena-bueno-1-kg/"
   },
   {
-    "producto": "Chocolate de mesa Ideal 180 g",
+    "producto": {
+      "id": "lores_chocolate-de-mesa-ideal-180-g",
+      "nombre": "Chocolate de mesa Ideal 180 g"
+    },
     "precio": 23.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/CHO0688.webp",
     "url": "https://tiendaslores.com/producto/chocolate-de-mesa-ideal-180-g/"
   },
   {
-    "producto": "Yoghurt bebible fresa Yoplait 330 g",
+    "producto": {
+      "id": "lores_yoghurt-bebible-fresa-yoplait-330-g",
+      "nombre": "Yoghurt bebible fresa Yoplait 330 g"
+    },
     "precio": 15.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/9112.webp",
     "url": "https://tiendaslores.com/producto/yoghurt-bebible-fresa-yoplait-330-g/"
   },
   {
-    "producto": "Chocolate para mesa Palencia 160 g",
+    "producto": {
+      "id": "lores_chocolate-para-mesa-palencia-160-g",
+      "nombre": "Chocolate para mesa Palencia 160 g"
+    },
     "precio": 18.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/CHO4866.webp",
     "url": "https://tiendaslores.com/producto/chocolate-para-mesa-palencia-160-g/"
   },
   {
-    "producto": "Chocolate de mesa Ideal 160 g",
+    "producto": {
+      "id": "lores_chocolate-de-mesa-ideal-160-g",
+      "nombre": "Chocolate de mesa Ideal 160 g"
+    },
     "precio": 24.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/CHO0385.webp",
     "url": "https://tiendaslores.com/producto/chocolate-de-mesa-ideal-160-g/"
   },
   {
-    "producto": "Galletas María Cuétara 160 g",
+    "producto": {
+      "id": "lores_galletas-maria-cuetara-160-g",
+      "nombre": "Galletas María Cuétara 160 g"
+    },
     "precio": 10.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/GAL0901.webp",
     "url": "https://tiendaslores.com/producto/galletas-maria-cuetara-160-g/"
   },
   {
-    "producto": "Chocolate de mesa Palencia 540 g",
+    "producto": {
+      "id": "lores_chocolate-de-mesa-palencia-540-g",
+      "nombre": "Chocolate de mesa Palencia 540 g"
+    },
     "precio": 64.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/CHO0403.webp",
     "url": "https://tiendaslores.com/producto/chocolate-de-mesa-palencia-540-g/"
   },
   {
-    "producto": "Chocolate de mesa redondo Ideal 540 g",
+    "producto": {
+      "id": "lores_chocolate-de-mesa-redondo-ideal-540-g",
+      "nombre": "Chocolate de mesa redondo Ideal 540 g"
+    },
     "precio": 74.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/CHO0394.webp",
     "url": "https://tiendaslores.com/producto/chocolate-de-mesa-redondo-ideal-540-g/"
   },
   {
-    "producto": "Cereal Zucaritas Kellogg&#8217;s 600 g",
+    "producto": {
+      "id": "lores_cereal-zucaritas-kelloggs-600-g",
+      "nombre": "Cereal Zucaritas Kellogg&#8217;s 600 g"
+    },
     "precio": 64.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/CER0279.webp",
     "url": "https://tiendaslores.com/producto/cereal-zucaritas-kelloggs-600-g/"
   },
   {
-    "producto": "Blanqueador  Clorox 1.89 l",
+    "producto": {
+      "id": "lores_blanqueador-clorox-1-89-l",
+      "nombre": "Blanqueador  Clorox 1.89 l"
+    },
     "precio": 20.0,
     "tienda": "Tiendas Lores",
     "imagen": "",
     "url": "https://tiendaslores.com/producto/blanqueador-clorox-1-89-l/"
   },
   {
-    "producto": "Chocolate de mesa Choco Palencia 180 g",
+    "producto": {
+      "id": "lores_chocolate-de-mesa-choco-palencia-180-g",
+      "nombre": "Chocolate de mesa Choco Palencia 180 g"
+    },
     "precio": 21.0,
     "tienda": "Tiendas Lores",
     "imagen": "",
     "url": "https://tiendaslores.com/producto/chocolate-de-mesa-choco-palencia-180-g/"
   },
   {
-    "producto": "Blanqueador Clarasol 500 ml",
+    "producto": {
+      "id": "lores_blanqueador-clarasol-500-ml",
+      "nombre": "Blanqueador Clarasol 500 ml"
+    },
     "precio": 5.0,
     "tienda": "Tiendas Lores",
     "imagen": "",
     "url": "https://tiendaslores.com/producto/blanqueador-clarasol-500-ml/"
   },
   {
-    "producto": "Fresca blancura led detergente 1-2-3  800 g",
+    "producto": {
+      "id": "lores_fresca-blancura-led-detergente-1-2-3-800-g",
+      "nombre": "Fresca blancura led detergente 1-2-3  800 g"
+    },
     "precio": 17.5,
     "tienda": "Tiendas Lores",
     "imagen": "",
     "url": "https://tiendaslores.com/producto/fresca-blancura-led-detergente-1-2-3-800-g/"
   },
   {
-    "producto": "Chocolate de mesa Choco Palencia 270 g",
+    "producto": {
+      "id": "lores_chocolate-de-mesa-palencia-270-g",
+      "nombre": "Chocolate de mesa Choco Palencia 270 g"
+    },
     "precio": 36.0,
     "tienda": "Tiendas Lores",
     "imagen": "",
     "url": "https://tiendaslores.com/producto/chocolate-de-mesa-palencia-270-g/"
   },
   {
-    "producto": "Café clásico puro soluble Nescafe 120 g",
+    "producto": {
+      "id": "lores_cafeclasico-puro-soluble-nescafe-120-g",
+      "nombre": "Café clásico puro soluble Nescafe 120 g"
+    },
     "precio": 90.5,
     "tienda": "Tiendas Lores",
     "imagen": "",
     "url": "https://tiendaslores.com/producto/cafeclasico-puro-soluble-nescafe-120-g/"
   },
   {
-    "producto": "5 en 1 amanecer libre enjuague Downy 730 ml",
+    "producto": {
+      "id": "lores_5-en-1-amanecer-libre-enjuague-downy-730-ml",
+      "nombre": "5 en 1 amanecer libre enjuague Downy 730 ml"
+    },
     "precio": 24.0,
     "tienda": "Tiendas Lores",
     "imagen": "",
     "url": "https://tiendaslores.com/producto/5-en-1-amanecer-libre-enjuague-downy-730-ml/"
   },
   {
-    "producto": "Detergente naturals sábila Ace 800 g",
+    "producto": {
+      "id": "lores_detergente-naturals-sabila-ace-800-g",
+      "nombre": "Detergente naturals sábila Ace 800 g"
+    },
     "precio": 28.5,
     "tienda": "Tiendas Lores",
     "imagen": "",
     "url": "https://tiendaslores.com/producto/detergente-naturals-sabila-ace-800-g/"
   },
   {
-    "producto": "Café mezclado soluble Dolca 80 g",
+    "producto": {
+      "id": "lores_cafe-mezclado-soluble-dolca-80-g",
+      "nombre": "Café mezclado soluble Dolca 80 g"
+    },
     "precio": 60.5,
     "tienda": "Tiendas Lores",
     "imagen": "",
     "url": "https://tiendaslores.com/producto/cafe-mezclado-soluble-dolca-80-g/"
   },
   {
-    "producto": "Café mezclado soluble Dolca 46 g",
+    "producto": {
+      "id": "lores_cafe-mezclado-soluble-dolca-46-g",
+      "nombre": "Café mezclado soluble Dolca 46 g"
+    },
     "precio": 31.0,
     "tienda": "Tiendas Lores",
     "imagen": "",
     "url": "https://tiendaslores.com/producto/cafe-mezclado-soluble-dolca-46-g/"
   },
   {
-    "producto": "Aceite mixto Patrona 5 l",
+    "producto": {
+      "id": "lores_aceite-mixto-patrona-5-l",
+      "nombre": "Aceite mixto Patrona 5 l"
+    },
     "precio": 178.5,
     "tienda": "Tiendas Lores",
     "imagen": "",
     "url": "https://tiendaslores.com/producto/aceite-mixto-patrona-5-l/"
   },
   {
-    "producto": "Leche sin lactosa regular Lala 100 1 l",
+    "producto": {
+      "id": "lores_leche-sin-lactosa-regular-lala-100-1-l",
+      "nombre": "Leche sin lactosa regular Lala 100 1 l"
+    },
     "precio": 35.5,
     "tienda": "Tiendas Lores",
     "imagen": "",
     "url": "https://tiendaslores.com/producto/leche-sin-lactosa-regular-lala-100-1-l/"
   },
   {
-    "producto": "Galletas costalito del horno Mac&#8217;Ma&#8217; 500 g",
+    "producto": {
+      "id": "lores_galletas-costalito-del-horno-macma-500-g",
+      "nombre": "Galletas costalito del horno Mac&#8217;Ma&#8217; 500 g"
+    },
     "precio": 84.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2025/09/GAL5592.png",
     "url": "https://tiendaslores.com/producto/galletas-costalito-del-horno-macma-500-g/"
   },
   {
-    "producto": "Aceite de canola Canoil 946 g",
+    "producto": {
+      "id": "lores_aceite-de-canola-canoli-946-g",
+      "nombre": "Aceite de canola Canoil 946 g"
+    },
     "precio": 34.0,
     "tienda": "Tiendas Lores",
     "imagen": "",
     "url": "https://tiendaslores.com/producto/aceite-de-canola-canoli-946-g/"
   },
   {
-    "producto": "Jamón pavo y cerdo americano Fud 170 g",
+    "producto": {
+      "id": "lores_jamon-pavo-y-cerdo-americano-fud-170-g",
+      "nombre": "Jamón pavo y cerdo americano Fud 170 g"
+    },
     "precio": 26.5,
     "tienda": "Tiendas Lores",
     "imagen": "",
     "url": "https://tiendaslores.com/producto/jamon-pavo-y-cerdo-americano-fud-170-g/"
   },
   {
-    "producto": "Cuaderno profesional Swingmix 100h",
+    "producto": {
+      "id": "lores_cuaderno-profesional-swingmix-100h",
+      "nombre": "Cuaderno profesional Swingmix 100h"
+    },
     "precio": 20.5,
     "tienda": "Tiendas Lores",
     "imagen": "",
     "url": "https://tiendaslores.com/producto/cuaderno-profesional-swingmix-100h/"
   },
   {
-    "producto": "Cuaderno profesional cosido rayas Smarty100h",
+    "producto": {
+      "id": "lores_cuaderno-profesional-cosido-rayas-smarty100h",
+      "nombre": "Cuaderno profesional cosido rayas Smarty100h"
+    },
     "precio": 41.0,
     "tienda": "Tiendas Lores",
     "imagen": "",
     "url": "https://tiendaslores.com/producto/cuaderno-profesional-cosido-rayas-smarty100h/"
   },
   {
-    "producto": "Melón 1 pza.",
+    "producto": {
+      "id": "lores_melon-1-pza",
+      "nombre": "Melón 1 pza."
+    },
     "precio": 37.0,
     "tienda": "Tiendas Lores",
     "imagen": "",
     "url": "https://tiendaslores.com/producto/melon-1-pza/"
   },
   {
-    "producto": "Cuaderno colors profesional rayas Swingbook 100h",
+    "producto": {
+      "id": "lores_cuaderno-colors-profesional-rayas-swingbook-100h",
+      "nombre": "Cuaderno colors profesional rayas Swingbook 100h"
+    },
     "precio": 20.5,
     "tienda": "Tiendas Lores",
     "imagen": "",
     "url": "https://tiendaslores.com/producto/cuaderno-colors-profesional-rayas-swingbook-100h/"
   },
   {
-    "producto": "Lápiz con goma nº2 Smart plus 4 pzas.",
+    "producto": {
+      "id": "lores_lapiz-con-goma-no2-smart-plus-4-pzas",
+      "nombre": "Lápiz con goma nº2 Smart plus 4 pzas."
+    },
     "precio": 12.5,
     "tienda": "Tiendas Lores",
     "imagen": "",
     "url": "https://tiendaslores.com/producto/lapiz-con-goma-no2-smart-plus-4-pzas/"
   },
   {
-    "producto": "Bolígrafo punto mediano colores surtidos blíster dura+ Bic 4 pza.",
+    "producto": {
+      "id": "lores_boligrafo-punto-mediano-colores-surtidos-blister-dura-bic-4-pza",
+      "nombre": "Bolígrafo punto mediano colores surtidos blíster dura+ Bic 4 pza."
+    },
     "precio": 20.0,
     "tienda": "Tiendas Lores",
     "imagen": "",
     "url": "https://tiendaslores.com/producto/boligrafo-punto-mediano-colores-surtidos-blister-dura-bic-4-pza/"
   },
   {
-    "producto": "Cereal corn flakes Kellogg&#8217;s 370 g",
+    "producto": {
+      "id": "lores_cereal-corn-flakes-kelloggs-370-g",
+      "nombre": "Cereal corn flakes Kellogg&#8217;s 370 g"
+    },
     "precio": 33.0,
     "tienda": "Tiendas Lores",
     "imagen": "",
     "url": "https://tiendaslores.com/producto/cereal-corn-flakes-kelloggs-370-g/"
   },
   {
-    "producto": "Jamaica Bueno 200 g",
+    "producto": {
+      "id": "lores_jamaica-jamaica-bueno-200-g",
+      "nombre": "Jamaica Bueno 200 g"
+    },
     "precio": 34.0,
     "tienda": "Tiendas Lores",
     "imagen": "",
     "url": "https://tiendaslores.com/producto/jamaica-jamaica-bueno-200-g/"
   },
   {
-    "producto": "Jamón de pavo americano Fud 170 g",
+    "producto": {
+      "id": "lores_jamon-de-pavo-americano-fud-170-g",
+      "nombre": "Jamón de pavo americano Fud 170 g"
+    },
     "precio": 36.5,
     "tienda": "Tiendas Lores",
     "imagen": "",
     "url": "https://tiendaslores.com/producto/jamon-de-pavo-americano-fud-170-g/"
   },
   {
-    "producto": "Frijoles negros refritos La Sierra 440 g",
+    "producto": {
+      "id": "lores_frijoles-negros-refritos-la-sierra",
+      "nombre": "Frijoles negros refritos La Sierra 440 g"
+    },
     "precio": 10.5,
     "tienda": "Tiendas Lores",
     "imagen": "",
     "url": "https://tiendaslores.com/producto/frijoles-negros-refritos-la-sierra/"
   },
   {
-    "producto": "Yoghurt bebible durazno Yoplait 220 g",
+    "producto": {
+      "id": "lores_yoghurt-bebible-durazno-yoplait-220-g-2",
+      "nombre": "Yoghurt bebible durazno Yoplait 220 g"
+    },
     "precio": 10.0,
     "tienda": "Tiendas Lores",
     "imagen": "",
     "url": "https://tiendaslores.com/producto/yoghurt-bebible-durazno-yoplait-220-g-2/"
   },
   {
-    "producto": "Jabón de lavandería Clarin 350 g",
+    "producto": {
+      "id": "lores_jabon-de-lavanderia-clarin-350-g",
+      "nombre": "Jabón de lavandería Clarin 350 g"
+    },
     "precio": 12.0,
     "tienda": "Tiendas Lores",
     "imagen": "",
     "url": "https://tiendaslores.com/producto/jabon-de-lavanderia-clarin-350-g/"
   },
   {
-    "producto": "Blanqueador Cloraluz 900 ml",
+    "producto": {
+      "id": "lores_blanqueador-cloraluz-900-ml",
+      "nombre": "Blanqueador Cloraluz 900 ml"
+    },
     "precio": 9.5,
     "tienda": "Tiendas Lores",
     "imagen": "",
     "url": "https://tiendaslores.com/producto/blanqueador-cloraluz-900-ml/"
   },
   {
-    "producto": "Media crema Lala 250 ml",
+    "producto": {
+      "id": "lores_media-crema-lala-250-ml",
+      "nombre": "Media crema Lala 250 ml"
+    },
     "precio": 14.0,
     "tienda": "Tiendas Lores",
     "imagen": "",
     "url": "https://tiendaslores.com/producto/media-crema-lala-250-ml/"
   },
   {
-    "producto": "Chipotles adobados San Marcos 215 g",
+    "producto": {
+      "id": "lores_chipotles-adobados-san-marcos-215-g",
+      "nombre": "Chipotles adobados San Marcos 215 g"
+    },
     "precio": 22.0,
     "tienda": "Tiendas Lores",
     "imagen": "",
     "url": "https://tiendaslores.com/producto/chipotles-adobados-san-marcos-215-g/"
   },
   {
-    "producto": "Limpiador líquido todos los aromas",
+    "producto": {
+      "id": "lores_limpiador-liquido-brisa-marina-flash-1-l",
+      "nombre": "Limpiador líquido todos los aromas"
+    },
     "precio": 13.5,
     "tienda": "Tiendas Lores",
     "imagen": "",
     "url": "https://tiendaslores.com/producto/limpiador-liquido-brisa-marina-flash-1-l/"
   },
   {
-    "producto": "Limpiador líquido todos los aromas Fabuloso 1 l",
+    "producto": {
+      "id": "lores_alternativa-al-cloro-fabuloso-1-l",
+      "nombre": "Limpiador líquido todos los aromas Fabuloso 1 l"
+    },
     "precio": 24.5,
     "tienda": "Tiendas Lores",
     "imagen": "",
     "url": "https://tiendaslores.com/producto/alternativa-al-cloro-fabuloso-1-l/"
   },
   {
-    "producto": "Leche semi San Marcos 1 l",
+    "producto": {
+      "id": "lores_leche-semi-san-marcos-1-l",
+      "nombre": "Leche semi San Marcos 1 l"
+    },
     "precio": 21.5,
     "tienda": "Tiendas Lores",
     "imagen": "",
     "url": "https://tiendaslores.com/producto/leche-semi-san-marcos-1-l/"
   },
   {
-    "producto": "Alimento Líquido 3 nueces Soy Vita 960 ml",
+    "producto": {
+      "id": "lores_alimento-liquido-3-nueces-soy-vita-960-ml",
+      "nombre": "Alimento Líquido 3 nueces Soy Vita 960 ml"
+    },
     "precio": 36.0,
     "tienda": "Tiendas Lores",
     "imagen": "",
     "url": "https://tiendaslores.com/producto/alimento-liquido-3-nueces-soy-vita-960-ml/"
   },
   {
-    "producto": "Leche condensada Corina 375 g",
+    "producto": {
+      "id": "lores_leche-condensada-corina-375-g",
+      "nombre": "Leche condensada Corina 375 g"
+    },
     "precio": 20.0,
     "tienda": "Tiendas Lores",
     "imagen": "",
     "url": "https://tiendaslores.com/producto/leche-condensada-corina-375-g/"
   },
   {
-    "producto": "Licuado fresas naturales Yoplait 470 g",
+    "producto": {
+      "id": "lores_licuado-fresas-naturales-yoplait-470-g",
+      "nombre": "Licuado fresas naturales Yoplait 470 g"
+    },
     "precio": 18.0,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2022/12/9757.webp",
     "url": "https://tiendaslores.com/producto/licuado-fresas-naturales-yoplait-470-g/"
   },
   {
-    "producto": "Limpiador líquido fresca lavanda Fabuloso 500 ml &#8220;Todos los aromas&#8221;",
+    "producto": {
+      "id": "lores_limpiador-liquido-fresca-lavanda-fabuloso-500-ml",
+      "nombre": "Limpiador líquido fresca lavanda Fabuloso 500 ml &#8220;Todos los aromas&#8221;"
+    },
     "precio": 15.5,
     "tienda": "Tiendas Lores",
     "imagen": "",
     "url": "https://tiendaslores.com/producto/limpiador-liquido-fresca-lavanda-fabuloso-500-ml/"
   },
   {
-    "producto": "Crema rizos definidos Sedal 300 ml",
+    "producto": {
+      "id": "lores_crema-rizos-definidos-sedal-300-ml",
+      "nombre": "Crema rizos definidos Sedal 300 ml"
+    },
     "precio": 50.0,
     "tienda": "Tiendas Lores",
     "imagen": "",
     "url": "https://tiendaslores.com/producto/crema-rizos-definidos-sedal-300-ml/"
   },
   {
-    "producto": "Fórmula láctea combinada Delite  1 l",
+    "producto": {
+      "id": "lores_formula-lactea-combinada-delite-1-l",
+      "nombre": "Fórmula láctea combinada Delite  1 l"
+    },
     "precio": 13.5,
     "tienda": "Tiendas Lores",
     "imagen": "",
     "url": "https://tiendaslores.com/producto/formula-lactea-combinada-delite-1-l/"
   },
   {
-    "producto": "Bebida hidratante sabor Naranja Sporade 625 ml",
+    "producto": {
+      "id": "lores_bebida-hidratante-sabor-naranja-sporade-625-ml",
+      "nombre": "Bebida hidratante sabor Naranja Sporade 625 ml"
+    },
     "precio": 14.0,
     "tienda": "Tiendas Lores",
     "imagen": "",
     "url": "https://tiendaslores.com/producto/bebida-hidratante-sabor-naranja-sporade-625-ml/"
   },
   {
-    "producto": "Refresco de toronja Sprite 3 l",
+    "producto": {
+      "id": "lores_refresco-de-toronja-sprite-3-l",
+      "nombre": "Refresco de toronja Sprite 3 l"
+    },
     "precio": 39.0,
     "tienda": "Tiendas Lores",
     "imagen": "",
     "url": "https://tiendaslores.com/producto/refresco-de-toronja-sprite-3-l/"
   },
   {
-    "producto": "Refresco sabor manzana durazno Mundet 2 l",
+    "producto": {
+      "id": "lores_refresco-sabor-manzana-durazno-mundet-2-l",
+      "nombre": "Refresco sabor manzana durazno Mundet 2 l"
+    },
     "precio": 21.5,
     "tienda": "Tiendas Lores",
     "imagen": "",
     "url": "https://tiendaslores.com/producto/refresco-sabor-manzana-durazno-mundet-2-l/"
   },
   {
-    "producto": "Leche chocolate Nutrileche 190 ml",
+    "producto": {
+      "id": "lores_leche-chocolate-nutrileche-190-ml",
+      "nombre": "Leche chocolate Nutrileche 190 ml"
+    },
     "precio": 5.5,
     "tienda": "Tiendas Lores",
     "imagen": "",
     "url": "https://tiendaslores.com/producto/leche-chocolate-nutrileche-190-ml/"
   },
   {
-    "producto": "Alimento Líquido coco Soy Vita 960 ml",
+    "producto": {
+      "id": "lores_alimento-liquido-coco-soy-vita-960-ml",
+      "nombre": "Alimento Líquido coco Soy Vita 960 ml"
+    },
     "precio": 36.0,
     "tienda": "Tiendas Lores",
     "imagen": "",
     "url": "https://tiendaslores.com/producto/alimento-liquido-coco-soy-vita-960-ml/"
   },
   {
-    "producto": "Alimento líquido almendras Soy Vita 960 ml",
+    "producto": {
+      "id": "lores_alimento-liquido-almendras-soy-vita-960-ml",
+      "nombre": "Alimento líquido almendras Soy Vita 960 ml"
+    },
     "precio": 36.0,
     "tienda": "Tiendas Lores",
     "imagen": "",
     "url": "https://tiendaslores.com/producto/alimento-liquido-almendras-soy-vita-960-ml/"
   },
   {
-    "producto": "Chipotles adobados San Marcos 100 g",
+    "producto": {
+      "id": "lores_chipotles-adobados-san-marcos-100-g",
+      "nombre": "Chipotles adobados San Marcos 100 g"
+    },
     "precio": 13.0,
     "tienda": "Tiendas Lores",
     "imagen": "",
     "url": "https://tiendaslores.com/producto/chipotles-adobados-san-marcos-100-g/"
   },
   {
-    "producto": "Concentrado coco Princesa 500 ml",
+    "producto": {
+      "id": "lores_concentrado-coco-princesa-500-ml",
+      "nombre": "Concentrado coco Princesa 500 ml"
+    },
     "precio": 32.5,
     "tienda": "Tiendas Lores",
     "imagen": "https://tiendaslores.com/wp-content/uploads/2025/05/CON0372.webp",

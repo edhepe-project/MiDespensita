@@ -1,4 +1,4 @@
-﻿"""
+"""
 scraper_tiendaslores.py
 Scraper de Tiendas Lores via WooCommerce Store API publica.
 No requiere Selenium ni login. Extrae productos en oferta con precios e imagenes.
@@ -178,7 +178,10 @@ def run():
     # para que aparezca en las busquedas de precios de la app
     nacionales = [
         {
-            "producto": p["nombre"],
+            "producto": {
+                "id": f"lores_{p['url'].split('/')[-2] if p['url'] and p['url'].endswith('/') else p['nombre'][:15].replace(' ','_').lower()}",
+                "nombre": p["nombre"]
+            },
             "precio":   p["precio"],
             "tienda":   p["tienda"],
             "imagen":   p["imagen_url"],
