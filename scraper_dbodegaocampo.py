@@ -29,7 +29,7 @@ PAGINAS = [
     },
 ]
 
-MAX_POSTS_POR_PAGINA = 20  # Cuántos posts revisar por página
+MAX_POSTS_POR_PAGINA = 25  # Cuántos posts revisar por página
 HORAS_MAXIMO = 48          # Solo publicaciones de las últimas 48 horas
 # ──────────────────────────────────────────────────────────────────────────────
 
