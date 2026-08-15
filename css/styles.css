@@ -748,7 +748,7 @@ body {
   align-items: flex-end;
   justify-content: center;
   z-index: 200;
-  padding: var(--space-5);
+  padding: var(--space-5) var(--space-5) 0 var(--space-5);
 }
 
 .modal-content {
@@ -758,6 +758,7 @@ body {
   max-height: 85vh;
   border-radius: var(--radius-xl) var(--radius-xl) 0 0;
   padding: var(--space-6);
+  padding-bottom: calc(var(--space-6) + env(safe-area-inset-bottom, 16px));
   overflow-y: auto;
   animation: slideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
@@ -817,7 +818,7 @@ body {
 }
 
 .modal-compact {
-  max-height: 70vh;
+  max-height: 90vh;
   overflow-y: auto;
 }
 
