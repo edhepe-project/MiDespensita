@@ -33,25 +33,38 @@ def run():
             # Revisar si cayó en CAPTCHA
             time.sleep(4)
             if "blocked" in driver.current_url:
-                print("\n🚨 ¡CAPTCHA DETECTADO EN SAM'S CLUB! 🚨")
-                print("El sistema anti-bots de PerimeterX está bloqueando el acceso.")
-                print("Por favor:")
-                print("1. Ve a la ventana de Chrome que se abrió.")
-                print("2. Mantén presionado el botón hasta que se valide.")
-                print("3. Regresa a esta consola y presiona ENTER.")
-                
+                print("\n🚨 CAPTCHA DETECTADO. Intentando auto-resolución avanzada (Jitter)...")
                 try:
-                    import winsound
-                    winsound.Beep(1000, 1000)  # Frecuencia 1000Hz, 1 segundo
-                except:
-                    pass
+                    import random
+                    from selenium.webdriver.common.action_chains import ActionChains
+                    from selenium.webdriver.common.by import By
                     
-                input("\n👉 Presiona ENTER aquí DESPUÉS de haber resuelto el CAPTCHA... ")
-                
-                # Recargar la página después de que el usuario resolvió el CAPTCHA
-                print("Continuando... recargando búsqueda.")
-                driver.execute_script(f"window.location.href = '{url}';")
-                time.sleep(4)
+                    captcha = driver.find_element(By.ID, "px-captcha")
+                    
+                    # 1. Movimiento inicial descentrado
+                    action = ActionChains(driver)
+                    action.move_to_element_with_offset(captcha, random.randint(-15, 15), random.randint(-5, 5))
+                    action.pause(random.uniform(0.7, 1.5))
+                    action.click_and_hold()
+                    action.perform()
+                    
+                    # 2. Mantener presionado con "temblor" (Jitter) humano por 12-13 segundos
+                    print("  Manteniendo presionado como humano...")
+                    for _ in range(15):
+                        jitter = ActionChains(driver)
+                        jitter.move_by_offset(random.randint(-2, 2), random.randint(-2, 2))
+                        jitter.pause(random.uniform(0.5, 1.1))
+                        jitter.perform()
+                        
+                    # 3. Soltar
+                    ActionChains(driver).release().perform()
+                    
+                    print("  Validando CAPTCHA... recargando búsqueda.")
+                    time.sleep(6)
+                    driver.execute_script(f"window.location.href = '{url}';")
+                    time.sleep(4)
+                except Exception as e:
+                    print(f"  Error en auto-resolución: {e}")
             
             driver.execute_script("window.scrollBy(0, 600);")
             time.sleep(3)
