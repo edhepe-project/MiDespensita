@@ -32,7 +32,7 @@ def run():
             # Revisar si cayó en CAPTCHA
             time.sleep(4)
             if "blocked" in driver.current_url or "Verifica tu identidad" in driver.page_source:
-                print("\n🚨 CAPTCHA DETECTADO. Intentando auto-resolución avanzada (Jitter)...")
+                print("\n🚨 CAPTCHA DETECTADO. Intentando auto-resolución hiper-aleatoria (Jitter)...")
                 try:
                     import random
                     from selenium.webdriver.common.action_chains import ActionChains
@@ -40,28 +40,37 @@ def run():
                     
                     captcha = driver.find_element(By.ID, "px-captcha")
                     
-                    # 1. Movimiento inicial descentrado
+                    # 1. Movimiento inicial descentrado y pausa aleatoria antes de clickear
+                    time.sleep(random.uniform(1.0, 3.0))
                     action = ActionChains(driver)
-                    action.move_to_element_with_offset(captcha, random.randint(-15, 15), random.randint(-5, 5))
-                    action.pause(random.uniform(0.7, 1.5))
+                    # Offset inicial completamente aleatorio
+                    action.move_to_element_with_offset(captcha, random.randint(-20, 20), random.randint(-8, 8))
+                    action.pause(random.uniform(0.5, 1.8))
                     action.click_and_hold()
                     action.perform()
                     
-                    # 2. Mantener presionado con "temblor" (Jitter) humano por 12-13 segundos
-                    print("  Manteniendo presionado como humano...")
-                    for _ in range(15):
+                    # 2. Mantener presionado con patrón aleatorio (Jitter)
+                    print("  Manteniendo presionado con patrón orgánico...")
+                    
+                    # Número aleatorio de temblores y duración variable para despistar a la IA
+                    num_jitters = random.randint(12, 22)
+                    for _ in range(num_jitters):
                         jitter = ActionChains(driver)
-                        jitter.move_by_offset(random.randint(-2, 2), random.randint(-2, 2))
-                        jitter.pause(random.uniform(0.5, 1.1))
+                        # Movimientos más caóticos, a veces no se mueve (0)
+                        jitter.move_by_offset(random.randint(-3, 3), random.randint(-3, 3))
+                        # Pausas caóticas entre cada pequeño temblor
+                        jitter.pause(random.uniform(0.3, 1.2))
                         jitter.perform()
                         
-                    # 3. Soltar
+                    # 3. Soltar (con una pequeña pausa extra a veces)
+                    if random.random() > 0.5:
+                        time.sleep(random.uniform(0.2, 0.8))
                     ActionChains(driver).release().perform()
                     
                     print("  Validando CAPTCHA... recargando búsqueda.")
-                    time.sleep(6)
+                    time.sleep(random.uniform(5.5, 7.5))
                     driver.execute_script(f"window.location.href = '{url}';")
-                    time.sleep(4)
+                    time.sleep(random.uniform(3.5, 5.0))
                 except Exception as e:
                     print(f"  Error en auto-resolución: {e}")
             
