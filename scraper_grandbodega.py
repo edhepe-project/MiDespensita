@@ -1,8 +1,8 @@
-"""
+﻿"""
 scraper_facebook_local.py
-Scraper de publicaciones con fotos de páginas locales de Facebook.
-Usa login real para evadir detección. Solo extrae posts con imagen
-publicados en las últimas 48 horas.
+Scraper de publicaciones con fotos de pÃ¡ginas locales de Facebook.
+Usa login real para evadir detecciÃ³n. Solo extrae posts con imagen
+publicados en las Ãºltimas 48 horas.
 """
 
 import undetected_chromedriver as uc
@@ -18,7 +18,7 @@ import sqlite3
 from datetime import datetime, timedelta
 import db_manager
 
-# ─── CONFIGURACIÓN ────────────────────────────────────────────────────────────
+# â”€â”€â”€ CONFIGURACIÃ“N â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 FB_EMAIL    = "apps.edhepe@gmail.com"
 FB_PASSWORD = "Paraiso#35"
 
@@ -27,13 +27,13 @@ PAGINAS = [
         "nombre": "Gran D'Bodega",
         "url": "https://www.facebook.com/GranDbodega",
     },
-    # Puedes agregar más páginas aquí:
+    # Puedes agregar mÃ¡s pÃ¡ginas aquÃ­:
     # {"nombre": "Otra Tienda", "url": "https://www.facebook.com/OtraPagina"},
 ]
 
-MAX_POSTS_POR_PAGINA = 20  # Cuántos posts revisar por página
-HORAS_MAXIMO = 48          # Solo publicaciones de las últimas 48 horas
-# ──────────────────────────────────────────────────────────────────────────────
+MAX_POSTS_POR_PAGINA = 20  # CuÃ¡ntos posts revisar por pÃ¡gina
+HORAS_MAXIMO = 48          # Solo publicaciones de las Ãºltimas 48 horas
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 
 # Carpeta donde se guardan las cookies del scraper (persistente entre ejecuciones)
@@ -43,7 +43,7 @@ def iniciar_driver():
     """
     Inicia Edge con un perfil DEDICADO al scraper.
     Las cookies de Facebook se guardan entre ejecuciones en fb_profile/.
-    Usa Edge (ya instalado y funcional) con selenium estándar.
+    Usa Edge (ya instalado y funcional) con selenium estÃ¡ndar.
     """
     from selenium import webdriver
     from selenium.webdriver.edge.options import Options as EdgeOptions
@@ -76,7 +76,7 @@ def escribir_lento(element, texto):
 
 def login(driver, email, password):
     """Hace login en Facebook simulando comportamiento humano."""
-    print("Iniciando sesión en Facebook...")
+    print("Iniciando sesiÃ³n en Facebook...")
     driver.get("https://www.facebook.com/login")
     time.sleep(random.uniform(4, 6))  # Esperar carga completa
 
@@ -87,14 +87,14 @@ def login(driver, email, password):
     escribir_lento(campo_email, email)
     time.sleep(random.uniform(0.8, 1.5))
 
-    # Contraseña
+    # ContraseÃ±a
     campo_pass = WebDriverWait(driver, 10).until(
         EC.presence_of_element_located((By.NAME, "pass"))
     )
     escribir_lento(campo_pass, password)
     time.sleep(random.uniform(0.8, 1.5))
 
-    # Clic en "Iniciar sesión" — múltiples selectores de fallback
+    # Clic en "Iniciar sesiÃ³n" â€” mÃºltiples selectores de fallback
     boton = None
     selectores = [
         (By.ID, "loginbutton"),
@@ -108,7 +108,7 @@ def login(driver, email, password):
         try:
             boton = driver.find_element(metodo, selector)
             if boton.is_displayed():
-                print(f"  Botón de login encontrado con: {selector}")
+                print(f"  BotÃ³n de login encontrado con: {selector}")
                 break
         except:
             boton = None
@@ -117,7 +117,7 @@ def login(driver, email, password):
     if boton is None:
         # Guardar screenshot para debug
         driver.save_screenshot("debug_fb_login.png")
-        raise Exception("No se encontró el botón de login. Se guardó debug_fb_login.png para revisar.")
+        raise Exception("No se encontrÃ³ el botÃ³n de login. Se guardÃ³ debug_fb_login.png para revisar.")
 
     ActionChains(driver)\
         .move_to_element(boton)\
@@ -125,19 +125,19 @@ def login(driver, email, password):
         .click()\
         .perform()
 
-    print("Esperando carga después del login...")
+    print("Esperando carga despuÃ©s del login...")
     time.sleep(random.uniform(8, 12))
-    print("✅ Login completado.")
+    print("âœ… Login completado.")
 
 
 def extraer_posts_con_imagen(driver, nombre_tienda, url_pagina):
     """
-    Extrae imágenes directamente navegando en el visor de fotos de Facebook.
+    Extrae imÃ¡genes directamente navegando en el visor de fotos de Facebook.
     Abre la primera foto y simula presionar la flecha derecha para avanzar,
-    capturando la imagen de alta resolución hasta un máximo de 20 fotos.
+    capturando la imagen de alta resoluciÃ³n hasta un mÃ¡ximo de 20 fotos.
     """
     url_fotos = url_pagina.rstrip('/') + '/photos'
-    print(f"\nNavegando a galería de fotos: {nombre_tienda}")
+    print(f"\nNavegando a galerÃ­a de fotos: {nombre_tienda}")
     print(f"  URL: {url_fotos}")
     driver.get(url_fotos)
     time.sleep(random.uniform(4, 6))
@@ -145,7 +145,7 @@ def extraer_posts_con_imagen(driver, nombre_tienda, url_pagina):
     posts_encontrados = []
     
     soup = BeautifulSoup(driver.page_source, "html.parser")
-    # Encontrar la primera imagen de la cuadrícula
+    # Encontrar la primera imagen de la cuadrÃ­cula
     imgs = soup.find_all("img", {"class": lambda c: c and "x1exxf4d" in c})
     
     first_link = None
@@ -156,7 +156,7 @@ def extraer_posts_con_imagen(driver, nombre_tienda, url_pagina):
             break
 
     if not first_link:
-        print("  ⚠️ No se encontró ninguna foto para abrir.")
+        print("  âš ï¸ No se encontrÃ³ ninguna foto para abrir.")
         return posts_encontrados
 
     try:
@@ -175,7 +175,7 @@ def extraer_posts_con_imagen(driver, nombre_tienda, url_pagina):
         for i in range(MAX_POSTS_POR_PAGINA):
             soup_foto = BeautifulSoup(driver.page_source, "html.parser")
             
-            # Buscar la imagen principal en alta resolución
+            # Buscar la imagen principal en alta resoluciÃ³n
             img_alta = soup_foto.find("img", {"data-visualcompletion": "media-vc-image"})
             
             if img_alta:
@@ -186,7 +186,7 @@ def extraer_posts_con_imagen(driver, nombre_tienda, url_pagina):
                 if imagen_url == ultima_url:
                     intentos_sin_cambio += 1
                     if intentos_sin_cambio > 3:
-                        print("  ⚠️ La imagen no cambió. Terminando.")
+                        print("  âš ï¸ La imagen no cambiÃ³. Terminando.")
                         break
                 else:
                     intentos_sin_cambio = 0
@@ -205,18 +205,18 @@ def extraer_posts_con_imagen(driver, nombre_tienda, url_pagina):
 
                         if not any(p["imagen_url"] == imagen_url for p in posts_encontrados):
                             posts_encontrados.append(entrada)
-                            print(f"  📸 Imagen [{len(posts_encontrados)}] extraída: {imagen_url[:50]}...")
+                            print(f"  ðŸ“¸ Imagen [{len(posts_encontrados)}] extraÃ­da: {imagen_url[:50]}...")
             else:
-                print("  ⏳ No se encontró la imagen en el visor.")
+                print("  â³ No se encontrÃ³ la imagen en el visor.")
 
             # Simular presionar la flecha derecha para ir a la siguiente foto
             driver.find_element(By.TAG_NAME, "body").send_keys(Keys.RIGHT)
             time.sleep(random.uniform(1.0, 2.0))
 
     except Exception as e:
-        print(f"  ❌ Error navegando en las fotos: {e}")
+        print(f"  âŒ Error navegando en las fotos: {e}")
 
-    print(f"  → {len(posts_encontrados)} fotos extraídas mediante navegación interactiva de {nombre_tienda}.")
+    print(f"  â†’ {len(posts_encontrados)} fotos extraÃ­das mediante navegaciÃ³n interactiva de {nombre_tienda}.")
     return posts_encontrados
 
 
@@ -258,7 +258,7 @@ def guardar_en_db(posts):
         except Exception as e:
             print(f"  Error al guardar: {e}")
 
-    # Limpiar posts de más de 48 horas
+    # Limpiar posts de mÃ¡s de 48 horas
     hace_48h = (datetime.now() - timedelta(hours=48)).isoformat()
     cur.execute("DELETE FROM local_ofertas WHERE fecha_guardado < ?", (hace_48h,))
     eliminados = cur.rowcount
@@ -266,13 +266,13 @@ def guardar_en_db(posts):
     con.commit()
     con.close()
 
-    print(f"\n✅ BD actualizada: {insertados} nuevos posts guardados, {eliminados} posts vencidos eliminados.")
+    print(f"\nâœ… BD actualizada: {insertados} nuevos posts guardados, {eliminados} posts vencidos eliminados.")
 
 
 def run():
-    """Función principal que corre el scraper completo."""
+    """FunciÃ³n principal que corre el scraper completo."""
     print("=" * 60)
-    print("  SCRAPER FACEBOOK LOCAL — Gran D'Bodega")
+    print("  SCRAPER FACEBOOK LOCAL â€” Gran D'Bodega")
     print("=" * 60)
 
     driver = None
@@ -281,30 +281,30 @@ def run():
     try:
         driver = iniciar_driver()
         
-        # Ir a Facebook y verificar si ya hay sesión activa
+        # Ir a Facebook y verificar si ya hay sesiÃ³n activa
         driver.get("https://www.facebook.com/")
         time.sleep(5)
         
         if "login" in driver.current_url or "checkpoint" in driver.current_url:
-            # Primera vez — pedir al usuario que se loguee manualmente
+            # Primera vez â€” pedir al usuario que se loguee manualmente
             print("\n" + "="*60)
-            print("  PRIMERA VEZ — SE NECESITA LOGIN MANUAL")
+            print("  PRIMERA VEZ â€” SE NECESITA LOGIN MANUAL")
             print("="*60)
-            print("El navegador está abierto en la página de Facebook.")
+            print("El navegador estÃ¡ abierto en la pÃ¡gina de Facebook.")
             print("Por favor:")
-            print("  1. Inicia sesión manualmente en la ventana de Chrome")
-            print("  2. Una vez que veas tu feed de Facebook, regresa aquí")
+            print("  1. Inicia sesiÃ³n manualmente en la ventana de Chrome")
+            print("  2. Una vez que veas tu feed de Facebook, regresa aquÃ­")
             print("  3. Presiona ENTER para continuar")
-            print("(Las cookies se guardarán y la próxima vez será automático)")
+            print("(Las cookies se guardarÃ¡n y la prÃ³xima vez serÃ¡ automÃ¡tico)")
             print("="*60)
-            input("\n👉 Presiona ENTER cuando hayas iniciado sesión en Facebook...")
+            input("\nðŸ‘‰ Presiona ENTER cuando hayas iniciado sesiÃ³n en Facebook...")
             
             # Verificar que el login fue exitoso
             if "login" in driver.current_url:
-                raise Exception("No se detectó sesión activa después del login manual.")
-            print("✅ Login manual completado. Las cookies han sido guardadas.")
+                raise Exception("No se detectÃ³ sesiÃ³n activa despuÃ©s del login manual.")
+            print("âœ… Login manual completado. Las cookies han sido guardadas.")
         else:
-            print("✅ Sesión de Facebook detectada automáticamente. Continuando...")
+            print("âœ… SesiÃ³n de Facebook detectada automÃ¡ticamente. Continuando...")
 
         for pagina in PAGINAS:
             posts = extraer_posts_con_imagen(
@@ -315,7 +315,7 @@ def run():
             todos_los_posts.extend(posts)
 
     except Exception as e:
-        print(f"\n❌ Error general: {e}")
+        print(f"\nâŒ Error general: {e}")
     finally:
         if driver:
             driver.quit()
@@ -323,7 +323,7 @@ def run():
     # Guardar en archivo JSON de prueba
     with open("ofertas_local_facebook.json", "w", encoding="utf-8") as f:
         json.dump(todos_los_posts, f, ensure_ascii=False, indent=2)
-    print(f"\n📄 JSON guardado: ofertas_local_facebook.json ({len(todos_los_posts)} posts)")
+    print(f"\nðŸ“„ JSON guardado: ofertas_local_facebook.json ({len(todos_los_posts)} posts)")
 
     # Guardar en BD
     guardar_en_db(todos_los_posts)
