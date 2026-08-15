@@ -11,7 +11,9 @@ def run_all():
         "scraper_lacomer.py",
         "scraper_sams.py",
         "scraper_farmagdl.py",
-        "scraper_fahorro.py"
+        "scraper_fahorro.py",
+        "scraper_grandbodega.py",
+        "scraper_dbodegaocampo.py"
     ]
     for s in scripts:
         print(f"Ejecutando {s}...")
