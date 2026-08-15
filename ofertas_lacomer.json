@@ -2444,17 +2444,6 @@
   {
     "producto": {
       "id": "lacomer_228",
-      "nombre": "Piñas En Almibar La Costeña Trocitos 800 Grs"
-    },
-    "precio": 72.0,
-    "tienda": "La Comer",
-    "marca": "La Costeña",
-    "imagen": "https://www.lacomer.com.mx/superc/img_art/7501017003396_1.jpg",
-    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/7501017003396/0/58/1///58?succId=287&succFmt=100"
-  },
-  {
-    "producto": {
-      "id": "lacomer_229",
       "nombre": "Piñas En Almibar Golden Hills En Trozos Lata 800 Grs"
     },
     "precio": 66.9,
@@ -2462,6 +2451,17 @@
     "marca": "Golden Hills",
     "imagen": "https://www.lacomer.com.mx/superc/img_art/7506409015544_1.jpg",
     "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/7506409015544/0/58/1///58?succId=287&succFmt=100"
+  },
+  {
+    "producto": {
+      "id": "lacomer_229",
+      "nombre": "Piñas En Almibar La Costeña Trocitos 800 Grs"
+    },
+    "precio": 72.0,
+    "tienda": "La Comer",
+    "marca": "La Costeña",
+    "imagen": "https://www.lacomer.com.mx/superc/img_art/7501017003396_1.jpg",
+    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/7501017003396/0/58/1///58?succId=287&succFmt=100"
   },
   {
     "producto": {
@@ -2510,17 +2510,6 @@
   {
     "producto": {
       "id": "lacomer_234",
-      "nombre": "Piña En Su Jugo Trocitos Dole 567 Grs"
-    },
-    "precio": 69.5,
-    "tienda": "La Comer",
-    "marca": "Dole",
-    "imagen": "https://www.lacomer.com.mx/superc/img_art/38900005139_1.jpg",
-    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/38900005139/0/58/1///58?succId=287&succFmt=100"
-  },
-  {
-    "producto": {
-      "id": "lacomer_235",
       "nombre": "Piña En Trozos Dole Lata 567 Grs"
     },
     "precio": 78.9,
@@ -2528,6 +2517,17 @@
     "marca": "Dole",
     "imagen": "https://www.lacomer.com.mx/superc/img_art/38900004620_1.jpg",
     "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/38900004620/0/58/1///58?succId=287&succFmt=100"
+  },
+  {
+    "producto": {
+      "id": "lacomer_235",
+      "nombre": "Piña En Su Jugo Trocitos Dole 567 Grs"
+    },
+    "precio": 69.5,
+    "tienda": "La Comer",
+    "marca": "Dole",
+    "imagen": "https://www.lacomer.com.mx/superc/img_art/38900005139_1.jpg",
+    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/38900005139/0/58/1///58?succId=287&succFmt=100"
   },
   {
     "producto": {
@@ -4732,17 +4732,6 @@
   {
     "producto": {
       "id": "lacomer_451",
-      "nombre": "Te Varios Celestial Seasonings 20 Grs"
-    },
-    "precio": 99.5,
-    "tienda": "La Comer",
-    "marca": "Celestial Seasonings",
-    "imagen": "https://www.lacomer.com.mx/superc/img_art/70734052439_1.jpg",
-    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/70734052439/0/656/1///656?succId=287&succFmt=100"
-  },
-  {
-    "producto": {
-      "id": "lacomer_452",
       "nombre": "Yerba Mate Tereré Rosamonte Empaque 500 Grs"
     },
     "precio": 116.0,
@@ -4753,40 +4742,18 @@
   },
   {
     "producto": {
+      "id": "lacomer_452",
+      "nombre": "Te Varios Celestial Seasonings 20 Grs"
+    },
+    "precio": 99.5,
+    "tienda": "La Comer",
+    "marca": "Celestial Seasonings",
+    "imagen": "https://www.lacomer.com.mx/superc/img_art/70734052439_1.jpg",
+    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/70734052439/0/656/1///656?succId=287&succFmt=100"
+  },
+  {
+    "producto": {
       "id": "lacomer_453",
-      "nombre": "Te Pura Jengibre Limon Cuida Te 30 Grs"
-    },
-    "precio": 91.0,
-    "tienda": "La Comer",
-    "marca": "Cuida Te",
-    "imagen": "https://www.lacomer.com.mx/superc/img_art/8435336229320_1.jpg",
-    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/8435336229320/0/656/1///656?succId=287&succFmt=100"
-  },
-  {
-    "producto": {
-      "id": "lacomer_454",
-      "nombre": "Té De Hoja De Aguacate Con Hierbabuena Olew Caja 30 Grs"
-    },
-    "precio": 47.0,
-    "tienda": "La Comer",
-    "marca": "Olew",
-    "imagen": "https://www.lacomer.com.mx/superc/img_art/7503027758877_1.jpg",
-    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/7503027758877/0/656/1///656?succId=287&succFmt=100"
-  },
-  {
-    "producto": {
-      "id": "lacomer_455",
-      "nombre": "Té Respiración Profunda Yogi Tea Organico Caja 32 Grs"
-    },
-    "precio": 148.0,
-    "tienda": "La Comer",
-    "marca": "Yogi Tea",
-    "imagen": "https://www.lacomer.com.mx/superc/img_art/76950450042_1.jpg",
-    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/76950450042/0/517/1///517?succId=287&succFmt=100"
-  },
-  {
-    "producto": {
-      "id": "lacomer_456",
       "nombre": "Te Oregon Chai Original Oregon Chai 278 Grs"
     },
     "precio": 232.0,
@@ -4797,7 +4764,18 @@
   },
   {
     "producto": {
-      "id": "lacomer_457",
+      "id": "lacomer_454",
+      "nombre": "Te Pura Jengibre Limon Cuida Te 30 Grs"
+    },
+    "precio": 91.0,
+    "tienda": "La Comer",
+    "marca": "Cuida Te",
+    "imagen": "https://www.lacomer.com.mx/superc/img_art/8435336229320_1.jpg",
+    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/8435336229320/0/656/1///656?succId=287&succFmt=100"
+  },
+  {
+    "producto": {
+      "id": "lacomer_455",
       "nombre": "Te Bebe Saroso Caja 30 Pza"
     },
     "precio": 29.5,
@@ -4808,29 +4786,40 @@
   },
   {
     "producto": {
-      "id": "lacomer_458",
-      "nombre": "Te Refreshing Triple Mint Alessa Caja 40 Grs"
+      "id": "lacomer_456",
+      "nombre": "Infusion Detox Pompadour 20 Bolsitas 40 G Caja 40 Grs"
     },
-    "precio": 63.0,
+    "precio": 99.0,
     "tienda": "La Comer",
-    "marca": "Alessa",
-    "imagen": "https://www.lacomer.com.mx/superc/img_art/7502254493025_1.jpg",
-    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/7502254493025/0/61/1///61?succId=287&succFmt=100"
+    "marca": "Pompadour",
+    "imagen": "https://www.lacomer.com.mx/superc/img_art/8412900401177_1.jpg",
+    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/8412900401177/0/61/1///61?succId=287&succFmt=100"
+  },
+  {
+    "producto": {
+      "id": "lacomer_457",
+      "nombre": "Té De Hoja De Aguacate Con Hierbabuena Olew Caja 30 Grs"
+    },
+    "precio": 47.0,
+    "tienda": "La Comer",
+    "marca": "Olew",
+    "imagen": "https://www.lacomer.com.mx/superc/img_art/7503027758877_1.jpg",
+    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/7503027758877/0/656/1///656?succId=287&succFmt=100"
+  },
+  {
+    "producto": {
+      "id": "lacomer_458",
+      "nombre": "Te Pura Magreb Cuida Te 30 Grs"
+    },
+    "precio": 64.02,
+    "tienda": "La Comer",
+    "marca": "Cuida Te",
+    "imagen": "https://www.lacomer.com.mx/superc/img_art/8435336229146_1.jpg",
+    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/8435336229146/0/656/1///656?succId=287&succFmt=100"
   },
   {
     "producto": {
       "id": "lacomer_459",
-      "nombre": "Te Verde Y Mathca Heath And Heather Organico Caja 20 Grs"
-    },
-    "precio": 85.0,
-    "tienda": "La Comer",
-    "marca": "Heath And Heather",
-    "imagen": "https://www.lacomer.com.mx/superc/img_art/5060123609660_1.jpg",
-    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/5060123609660/0/517/1///517?succId=287&succFmt=100"
-  },
-  {
-    "producto": {
-      "id": "lacomer_460",
       "nombre": "Te Sleepy Time Celestial Seasonings 20 Grs"
     },
     "precio": 99.5,
@@ -4841,7 +4830,29 @@
   },
   {
     "producto": {
+      "id": "lacomer_460",
+      "nombre": "Te Frutas Con Especias London Fruit And Herb 40 Grs"
+    },
+    "precio": 82.0,
+    "tienda": "La Comer",
+    "marca": "London Fruit And Herb",
+    "imagen": "https://www.lacomer.com.mx/superc/img_art/5060123607970_1.jpg",
+    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/5060123607970/0/656/1///656?succId=287&succFmt=100"
+  },
+  {
+    "producto": {
       "id": "lacomer_461",
+      "nombre": "Gintonic Shangai Cuida Te 36 Grs"
+    },
+    "precio": 91.0,
+    "tienda": "La Comer",
+    "marca": "Cuida Te",
+    "imagen": "https://www.lacomer.com.mx/superc/img_art/8435336244033_1.jpg",
+    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/8435336244033/0/656/1///656?succId=287&succFmt=100"
+  },
+  {
+    "producto": {
+      "id": "lacomer_462",
       "nombre": "Té De Hoja De Aguacate Con Limon Olew Caja 30 Grs"
     },
     "precio": 47.0,
@@ -4852,7 +4863,7 @@
   },
   {
     "producto": {
-      "id": "lacomer_462",
+      "id": "lacomer_463",
       "nombre": "Té De Hoja De Aguacate Con Manzanilla Olew Caja 30 Grs"
     },
     "precio": 47.0,
@@ -4860,17 +4871,6 @@
     "marca": "Olew",
     "imagen": "https://www.lacomer.com.mx/superc/img_art/7503027758884_1.jpg",
     "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/7503027758884/0/656/1///656?succId=287&succFmt=100"
-  },
-  {
-    "producto": {
-      "id": "lacomer_463",
-      "nombre": "Te Manzanilla Vitte Caja 30 Grs"
-    },
-    "precio": 21.0,
-    "tienda": "La Comer",
-    "marca": "Vitte",
-    "imagen": "https://www.lacomer.com.mx/superc/img_art/7501430020338_1.jpg",
-    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/7501430020338/0/61/1///61?succId=287&succFmt=100"
   },
   {
     "producto": {
@@ -6855,17 +6855,6 @@
   {
     "producto": {
       "id": "lacomer_657",
-      "nombre": "Huevo Blanco San Juan Caja 12 Pza"
-    },
-    "precio": 28.05,
-    "tienda": "La Comer",
-    "marca": "San Juan",
-    "imagen": "https://www.lacomer.com.mx/superc/img_art/7503000555011_1.jpg",
-    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/7503000555011/0/1188/1///1188?succId=287&succFmt=100"
-  },
-  {
-    "producto": {
-      "id": "lacomer_658",
       "nombre": "Huevo Blanco Orgánico Cresta Libre Carton 12 Pza"
     },
     "precio": 81.5,
@@ -6876,7 +6865,7 @@
   },
   {
     "producto": {
-      "id": "lacomer_659",
+      "id": "lacomer_658",
       "nombre": "Huevo Blanco San Juan Caja 18 Pza"
     },
     "precio": 43.05,
@@ -6884,6 +6873,17 @@
     "marca": "San Juan",
     "imagen": "https://www.lacomer.com.mx/superc/img_art/7503000555097_1.jpg",
     "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/7503000555097/0/1188/1///1188?succId=287&succFmt=100"
+  },
+  {
+    "producto": {
+      "id": "lacomer_659",
+      "nombre": "Huevo Blanco Libre Pastoreo Nutri Granja Caja 6 Pza"
+    },
+    "precio": 42.0,
+    "tienda": "La Comer",
+    "marca": "Nutri Granja",
+    "imagen": "https://www.lacomer.com.mx/superc/img_art/7500462841744_1.jpg",
+    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/7500462841744/0/1187/1///1187?succId=287&succFmt=100"
   },
   {
     "producto": {
@@ -8527,6 +8527,61 @@
   {
     "producto": {
       "id": "lacomer_810",
+      "nombre": "Papa Amarilla Chica 1 Kg"
+    },
+    "precio": 59.9,
+    "tienda": "La Comer",
+    "marca": "",
+    "imagen": "https://www.lacomer.com.mx/superc/img_art/4565_1.jpg",
+    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/4565/0/19/1///19?succId=287&succFmt=100"
+  },
+  {
+    "producto": {
+      "id": "lacomer_811",
+      "nombre": "Papa Cambray 1 Kg"
+    },
+    "precio": 59.9,
+    "tienda": "La Comer",
+    "marca": "",
+    "imagen": "https://www.lacomer.com.mx/superc/img_art/4589_1.jpg",
+    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/4589/0/19/1///19?succId=287&succFmt=100"
+  },
+  {
+    "producto": {
+      "id": "lacomer_812",
+      "nombre": "Papa Blanca Malla 1 Pza"
+    },
+    "precio": 69.9,
+    "tienda": "La Comer",
+    "marca": "",
+    "imagen": "https://www.lacomer.com.mx/superc/img_art/15110_1.jpg",
+    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/15110/0/19/1///19?succId=287&succFmt=100"
+  },
+  {
+    "producto": {
+      "id": "lacomer_813",
+      "nombre": "Papa Blanca 1 Kg"
+    },
+    "precio": 50.9,
+    "tienda": "La Comer",
+    "marca": "",
+    "imagen": "https://www.lacomer.com.mx/superc/img_art/4572_1.jpg",
+    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/4572/0/19/1///19?succId=287&succFmt=100"
+  },
+  {
+    "producto": {
+      "id": "lacomer_814",
+      "nombre": "Papa Russet Imp. 1 Kg"
+    },
+    "precio": 39.9,
+    "tienda": "La Comer",
+    "marca": "",
+    "imagen": "https://www.lacomer.com.mx/superc/img_art/11341_1.jpg",
+    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/11341/0/19/1///19?succId=287&succFmt=100"
+  },
+  {
+    "producto": {
+      "id": "lacomer_815",
       "nombre": "Papas Fritas Original Sal Ruffles Sabritas 120 Grs"
     },
     "precio": 41.2,
@@ -8537,29 +8592,29 @@
   },
   {
     "producto": {
-      "id": "lacomer_811",
-      "nombre": "Papas Fritas Original Sal Sabritas 57 Grs"
+      "id": "lacomer_816",
+      "nombre": "Papas Crema Y Cebolla Stax Sabritas 155.90 Grs"
     },
-    "precio": 24.7,
+    "precio": 60.0,
     "tienda": "La Comer",
     "marca": "Sabritas",
-    "imagen": "https://www.lacomer.com.mx/superc/img_art/7501011167438_1.jpg",
-    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/7501011167438/0/493/1///493?succId=287&succFmt=100"
+    "imagen": "https://www.lacomer.com.mx/superc/img_art/7501011121997_1.jpg",
+    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/7501011121997/0/493/1///493?succId=287&succFmt=100"
   },
   {
     "producto": {
-      "id": "lacomer_812",
-      "nombre": "Papas Fritas Cremas Y Especias  Sabritas 40 Grs"
+      "id": "lacomer_817",
+      "nombre": "Papas De Vegetales The Daily Crave Sin Gluten- Vegano- Kosher Bolsa 170 Grs"
     },
-    "precio": 15.0,
+    "precio": 99.0,
     "tienda": "La Comer",
-    "marca": "Sabritas",
-    "imagen": "https://www.lacomer.com.mx/superc/img_art/7500478037773_1.jpg",
-    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/7500478037773/0/493/1///493?succId=287&succFmt=100"
+    "marca": "The Daily Crave",
+    "imagen": "https://www.lacomer.com.mx/superc/img_art/858641003009_1.jpg",
+    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/858641003009/0/656/1///656?succId=287&succFmt=100"
   },
   {
     "producto": {
-      "id": "lacomer_813",
+      "id": "lacomer_818",
       "nombre": "Papas Fritas Original Sal  Sabritas 159 Grs"
     },
     "precio": 61.0,
@@ -8570,7 +8625,29 @@
   },
   {
     "producto": {
-      "id": "lacomer_814",
+      "id": "lacomer_819",
+      "nombre": "Papa Rostizada 1 Kg."
+    },
+    "precio": 125.0,
+    "tienda": "La Comer",
+    "marca": "",
+    "imagen": "https://www.lacomer.com.mx/superc/img_art/2655365000004_1.jpg",
+    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/2655365000004/0/1276/1///1276?succId=287&succFmt=100"
+  },
+  {
+    "producto": {
+      "id": "lacomer_820",
+      "nombre": "Papalo 1 Pza"
+    },
+    "precio": 17.1,
+    "tienda": "La Comer",
+    "marca": "",
+    "imagen": "https://www.lacomer.com.mx/superc/img_art/34777_1.jpg",
+    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/34777/0/17/1///17?succId=287&succFmt=100"
+  },
+  {
+    "producto": {
+      "id": "lacomer_821",
       "nombre": "Papas Fritas Receta Crujiente Con Salsas Sabritas 160 Grs"
     },
     "precio": 60.6,
@@ -8581,84 +8658,29 @@
   },
   {
     "producto": {
-      "id": "lacomer_815",
-      "nombre": "Papas Fritas Original Sal Sabritas Pa Todos 240 Grs"
-    },
-    "precio": 81.6,
-    "tienda": "La Comer",
-    "marca": "Sabritas",
-    "imagen": "https://www.lacomer.com.mx/superc/img_art/7500478034277_1.jpg",
-    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/7500478034277/0/493/1///493?succId=287&succFmt=100"
-  },
-  {
-    "producto": {
-      "id": "lacomer_816",
-      "nombre": "Papas Fritas Receta Crujiente Sal Sabritas 240 Grs"
-    },
-    "precio": 81.6,
-    "tienda": "La Comer",
-    "marca": "Sabritas",
-    "imagen": "https://www.lacomer.com.mx/superc/img_art/7500478036455_1.jpg",
-    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/7500478036455/0/493/1///493?succId=287&succFmt=100"
-  },
-  {
-    "producto": {
-      "id": "lacomer_817",
-      "nombre": "Papas Fritas Receta Crujiente Sal Sabritas 160 Grs"
-    },
-    "precio": 58.6,
-    "tienda": "La Comer",
-    "marca": "Sabritas",
-    "imagen": "https://www.lacomer.com.mx/superc/img_art/7501011143241_1.jpg",
-    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/7501011143241/0/493/1///493?succId=287&succFmt=100"
-  },
-  {
-    "producto": {
-      "id": "lacomer_818",
-      "nombre": "Papas Fritas Adobadas Sabritas 105 Grs"
-    },
-    "precio": 41.4,
-    "tienda": "La Comer",
-    "marca": "Sabritas",
-    "imagen": "https://www.lacomer.com.mx/superc/img_art/7501011167667_1.jpg",
-    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/7501011167667/0/493/1///493?succId=287&succFmt=100"
-  },
-  {
-    "producto": {
-      "id": "lacomer_819",
-      "nombre": "Papas Fritas Original Sal Sabritas 105 Grs"
-    },
-    "precio": 41.4,
-    "tienda": "La Comer",
-    "marca": "Sabritas",
-    "imagen": "https://www.lacomer.com.mx/superc/img_art/7501011167650_1.jpg",
-    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/7501011167650/0/493/1///493?succId=287&succFmt=100"
-  },
-  {
-    "producto": {
-      "id": "lacomer_820",
-      "nombre": "Papas Fritas Crema Y Especias Sabritas 160 Grs"
-    },
-    "precio": 53.4,
-    "tienda": "La Comer",
-    "marca": "Sabritas",
-    "imagen": "https://www.lacomer.com.mx/superc/img_art/7501011115590_1.jpg",
-    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/7501011115590/0/493/1///493?succId=287&succFmt=100"
-  },
-  {
-    "producto": {
-      "id": "lacomer_821",
-      "nombre": "Papas Fritas Queso Ruffles Sabritas 120 Grs"
-    },
-    "precio": 41.2,
-    "tienda": "La Comer",
-    "marca": "Sabritas",
-    "imagen": "https://www.lacomer.com.mx/superc/img_art/7501011167674_1.jpg",
-    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/7501011167674/0/493/1///493?succId=287&succFmt=100"
-  },
-  {
-    "producto": {
       "id": "lacomer_822",
+      "nombre": "Papas Fritas Original Sal Sabritas 57 Grs"
+    },
+    "precio": 24.7,
+    "tienda": "La Comer",
+    "marca": "Sabritas",
+    "imagen": "https://www.lacomer.com.mx/superc/img_art/7501011167438_1.jpg",
+    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/7501011167438/0/493/1///493?succId=287&succFmt=100"
+  },
+  {
+    "producto": {
+      "id": "lacomer_823",
+      "nombre": "Papa Yellow 1.5 Lb Little Potato Co 680 Grs"
+    },
+    "precio": 98.5,
+    "tienda": "La Comer",
+    "marca": "Little Potato Co",
+    "imagen": "https://www.lacomer.com.mx/superc/img_art/629307123344_1.jpg",
+    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/629307123344/0/19/1///19?succId=287&succFmt=100"
+  },
+  {
+    "producto": {
+      "id": "lacomer_824",
       "nombre": "Papas Fritas Sabor Crema Y Especias Chips Barcel 150 Grs"
     },
     "precio": 59.0,
@@ -8666,28 +8688,6 @@
     "marca": "Barcel",
     "imagen": "https://www.lacomer.com.mx/superc/img_art/7500810039175_1.jpg",
     "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/7500810039175/0/493/1///493?succId=287&succFmt=100"
-  },
-  {
-    "producto": {
-      "id": "lacomer_823",
-      "nombre": "Papas Fritas Sal Pap'S Totis 170 Grs"
-    },
-    "precio": 46.5,
-    "tienda": "La Comer",
-    "marca": "Totis",
-    "imagen": "https://www.lacomer.com.mx/superc/img_art/7500366000629_1.jpg",
-    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/7500366000629/0/493/1///493?succId=287&succFmt=100"
-  },
-  {
-    "producto": {
-      "id": "lacomer_824",
-      "nombre": "Papas Fritas Con Chile Dulce Real 150 Grs"
-    },
-    "precio": 89.0,
-    "tienda": "La Comer",
-    "marca": "Real",
-    "imagen": "https://www.lacomer.com.mx/superc/img_art/5035336004083_1.jpg",
-    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/5035336004083/0/656/1///656?succId=287&succFmt=100"
   },
   {
     "producto": {
@@ -11145,17 +11145,6 @@
   {
     "producto": {
       "id": "lacomer_1057",
-      "nombre": "Jabon Liquido Corporal Bodycology Cherry Blossom 473 Ml"
-    },
-    "precio": 113.0,
-    "tienda": "La Comer",
-    "marca": "Bodycology",
-    "imagen": "https://www.lacomer.com.mx/superc/img_art/885645050951_1.jpg",
-    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/885645050951/0/920/1///920?succId=287&succFmt=100"
-  },
-  {
-    "producto": {
-      "id": "lacomer_1058",
       "nombre": "Gel De Baño Daise 265 Ml Daise 265 Ml"
     },
     "precio": 162.0,
@@ -11166,7 +11155,7 @@
   },
   {
     "producto": {
-      "id": "lacomer_1059",
+      "id": "lacomer_1058",
       "nombre": "Bomba Para Regadera Peace Samala 40 Grs"
     },
     "precio": 95.3,
@@ -11177,7 +11166,7 @@
   },
   {
     "producto": {
-      "id": "lacomer_1060",
+      "id": "lacomer_1059",
       "nombre": "Crema Corporal Bodycology Scarlet Kiss 237 Ml"
     },
     "precio": 113.0,
@@ -11188,7 +11177,7 @@
   },
   {
     "producto": {
-      "id": "lacomer_1061",
+      "id": "lacomer_1060",
       "nombre": "Sales De Baño Dr. Teal'S Minerales Regenerativos 1.36 Kg"
     },
     "precio": 153.0,
@@ -11199,7 +11188,7 @@
   },
   {
     "producto": {
-      "id": "lacomer_1062",
+      "id": "lacomer_1061",
       "nombre": "Crema Corporal Ylux Lavanda 250 Grs"
     },
     "precio": 230.0,
@@ -11210,7 +11199,7 @@
   },
   {
     "producto": {
-      "id": "lacomer_1063",
+      "id": "lacomer_1062",
       "nombre": "Jabon En Barra Artesanal Ylux Menta 100 Grs"
     },
     "precio": 59.0,
@@ -11221,7 +11210,7 @@
   },
   {
     "producto": {
-      "id": "lacomer_1064",
+      "id": "lacomer_1063",
       "nombre": "Crema Corporal Ylux Coco 250 Grs"
     },
     "precio": 230.0,
@@ -11229,6 +11218,17 @@
     "marca": "Ylux",
     "imagen": "https://www.lacomer.com.mx/superc/img_art/4973513135834_1.jpg",
     "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/4973513135834/0/912/1///912?succId=287&succFmt=100"
+  },
+  {
+    "producto": {
+      "id": "lacomer_1064",
+      "nombre": "Jabon En Barra Artesanal Ylux Rosas 100 Grs"
+    },
+    "precio": 59.0,
+    "tienda": "La Comer",
+    "marca": "Ylux",
+    "imagen": "https://www.lacomer.com.mx/superc/img_art/4973513134738_1.jpg",
+    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/4973513134738/0/920/1///920?succId=287&succFmt=100"
   },
   {
     "producto": {
@@ -14340,8 +14340,8 @@
     "precio": 20.0,
     "tienda": "La Comer",
     "marca": "Cloralex",
-    "imagen": "https://www.lacomer.com.mx/superc/img_art/7501025405090_1.jpg",
-    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/7501025405090/0/96/1///96?succId=287&succFmt=100"
+    "imagen": "https://www.lacomer.com.mx/superc/img_art/7501025401801_1.jpg",
+    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/7501025401801/0/96/1///96?succId=287&succFmt=100"
   },
   {
     "producto": {
@@ -14351,8 +14351,8 @@
     "precio": 29.0,
     "tienda": "La Comer",
     "marca": "Cloralex",
-    "imagen": "https://www.lacomer.com.mx/superc/img_art/7501025405212_1.jpg",
-    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/7501025405212/0/96/1///96?succId=287&succFmt=100"
+    "imagen": "https://www.lacomer.com.mx/superc/img_art/7501025401795_1.jpg",
+    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/7501025401795/0/96/1///96?succId=287&succFmt=100"
   },
   {
     "producto": {
@@ -14807,7 +14807,7 @@
   },
   {
     "producto": {
-      "id": "lacomer_1412",
+      "id": "lacomer_1413",
       "nombre": "Limpiador Pisos De Madera Alex 750 Ml"
     },
     "precio": 116.5,
@@ -16491,6 +16491,39 @@
   {
     "producto": {
       "id": "lacomer_1575",
+      "nombre": "Juguete Para Bebés Estuche De Animalitos Little People Fisher Price 1 Pza"
+    },
+    "precio": 699.0,
+    "tienda": "La Comer",
+    "marca": "Fisher Price",
+    "imagen": "https://www.lacomer.com.mx/superc/img_art/194735210978_1.jpg",
+    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/194735210978/0/1225/1///1225?succId=287&succFmt=100"
+  },
+  {
+    "producto": {
+      "id": "lacomer_1576",
+      "nombre": "Juguete Para Bebés Silla Aprendizaje Musical Fisher Price 1 Pza"
+    },
+    "precio": 1199.2,
+    "tienda": "La Comer",
+    "marca": "Fisher Price",
+    "imagen": "https://www.lacomer.com.mx/superc/img_art/194735253142_1.jpg",
+    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/194735253142/0/1225/1///1225?succId=287&succFmt=100"
+  },
+  {
+    "producto": {
+      "id": "lacomer_1577",
+      "nombre": "Juguete Para Bebés Camión De Carga Fisher Price Jjm76 1 Pza"
+    },
+    "precio": 629.0,
+    "tienda": "La Comer",
+    "marca": "Fisher Price",
+    "imagen": "https://www.lacomer.com.mx/superc/img_art/194735339624_1.jpg",
+    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/194735339624/0/1225/1///1225?succId=287&succFmt=100"
+  },
+  {
+    "producto": {
+      "id": "lacomer_1578",
       "nombre": "Piscina Para Bebes Caticornio 58438Np Intex 1 Pza"
     },
     "precio": 398.0,
@@ -16501,62 +16534,62 @@
   },
   {
     "producto": {
-      "id": "lacomer_1577",
-      "nombre": "Muñeco De Peluche Bebe Disney 1 Pza"
-    },
-    "precio": 125.93,
-    "tienda": "La Comer",
-    "marca": "Disney",
-    "imagen": "https://www.lacomer.com.mx/superc/img_art/7500247580851_1.jpg",
-    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/7500247580851/0/1233/1///1233?succId=287&succFmt=100"
-  },
-  {
-    "producto": {
-      "id": "lacomer_1578",
-      "nombre": "Bañera Para Bebe Rosa Prinsel Milán 1 Pza"
-    },
-    "precio": 2399.0,
-    "tienda": "La Comer",
-    "marca": "Prinsel",
-    "imagen": "https://www.lacomer.com.mx/superc/img_art/7501036973946_1.jpg",
-    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/7501036973946/0/1144/1///1144?succId=287&succFmt=100"
-  },
-  {
-    "producto": {
       "id": "lacomer_1579",
-      "nombre": "Bañera Bebe Milan Rosa Prinsel 7382 1 Pza"
+      "nombre": "Juguete Para Bebés Changuito Musical Fisher Price Jff02 1 Pza"
     },
-    "precio": 2349.0,
+    "precio": 749.0,
     "tienda": "La Comer",
-    "marca": "Prinsel",
-    "imagen": "https://www.lacomer.com.mx/superc/img_art/7501036997010_1.jpg",
-    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/7501036997010/0/1144/1///1144?succId=287&succFmt=100"
-  },
-  {
-    "producto": {
-      "id": "lacomer_1580",
-      "nombre": "Cereal Con Leche Para Niños Nestle 1 Kg"
-    },
-    "precio": 210.0,
-    "tienda": "La Comer",
-    "marca": "Nestle",
-    "imagen": "https://www.lacomer.com.mx/superc/img_art/7613287014962_1.jpg",
-    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/7613287014962/0/134/1///134?succId=287&succFmt=100"
+    "marca": "Fisher Price",
+    "imagen": "https://www.lacomer.com.mx/superc/img_art/194735294749_1.jpg",
+    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/194735294749/0/1225/1///1225?succId=287&succFmt=100"
   },
   {
     "producto": {
       "id": "lacomer_1581",
-      "nombre": "Shampoo Bebe Original Johnsons 100 Ml"
+      "nombre": "Banquito Bebe  Fun Kids Princesas 1 Pza"
     },
-    "precio": 47.0,
+    "precio": 299.0,
     "tienda": "La Comer",
-    "marca": "Johnsons",
-    "imagen": "https://www.lacomer.com.mx/superc/img_art/7702031291534_1.jpg",
-    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/7702031291534/0/131/1///131?succId=287&succFmt=100"
+    "marca": "Fun Kids",
+    "imagen": "https://www.lacomer.com.mx/superc/img_art/7502295951300_1.jpg",
+    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/7502295951300/0/1260/1///1260?succId=287&succFmt=100"
   },
   {
     "producto": {
       "id": "lacomer_1582",
+      "nombre": "Andadera Bebe Musicarl Niña Rosa Infanti 23Xlxb104Grl 1 Pza"
+    },
+    "precio": 879.0,
+    "tienda": "La Comer",
+    "marca": "Infanti",
+    "imagen": "https://www.lacomer.com.mx/superc/img_art/7501118167720_1.jpg",
+    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/7501118167720/0/1146/1///1146?succId=287&succFmt=100"
+  },
+  {
+    "producto": {
+      "id": "lacomer_1583",
+      "nombre": "Andadera Con Llantas De Silicon Bebe 232Pw1357Pgry Infanti 1 Pza"
+    },
+    "precio": 1269.0,
+    "tienda": "La Comer",
+    "marca": "Infanti",
+    "imagen": "https://www.lacomer.com.mx/superc/img_art/7503056320779_1.jpg",
+    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/7503056320779/0/1146/1///1146?succId=287&succFmt=100"
+  },
+  {
+    "producto": {
+      "id": "lacomer_1584",
+      "nombre": "Chupon Bebe Infanti 23E20928 3 Pza"
+    },
+    "precio": 89.0,
+    "tienda": "La Comer",
+    "marca": "Infanti",
+    "imagen": "https://www.lacomer.com.mx/superc/img_art/7501118120244_1.jpg",
+    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/7501118120244/0/1146/1///1146?succId=287&succFmt=100"
+  },
+  {
+    "producto": {
+      "id": "lacomer_1585",
       "nombre": "Formula Cont E1 0-6M Supreme Pro 1.2K Nan Nestle 1.2 Kg"
     },
     "precio": 810.0,
@@ -16564,39 +16597,6 @@
     "marca": "Nestle",
     "imagen": "https://www.lacomer.com.mx/superc/img_art/7506475102599_1.jpg",
     "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/7506475102599/0/1472/1///1472?succId=287&succFmt=100"
-  },
-  {
-    "producto": {
-      "id": "lacomer_1583",
-      "nombre": "Protector Solar Para Bebe Mustela 40 Ml"
-    },
-    "precio": 379.0,
-    "tienda": "La Comer",
-    "marca": "Mustela",
-    "imagen": "https://www.lacomer.com.mx/superc/img_art/3504105036768_1.jpg",
-    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/3504105036768/0/131/1///131?succId=287&succFmt=100"
-  },
-  {
-    "producto": {
-      "id": "lacomer_1584",
-      "nombre": "Crema Bebe Hidratacion Relajante Baby Dove 400 Ml"
-    },
-    "precio": 154.0,
-    "tienda": "La Comer",
-    "marca": "Baby Dove",
-    "imagen": "https://www.lacomer.com.mx/superc/img_art/8717163858219_1.jpg",
-    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/8717163858219/0/131/1///131?succId=287&succFmt=100"
-  },
-  {
-    "producto": {
-      "id": "lacomer_1585",
-      "nombre": "Formula Cont E1 0-6M Optimal Pro 800G Nan Nestle 800 Grs"
-    },
-    "precio": 414.0,
-    "tienda": "La Comer",
-    "marca": "Nestle",
-    "imagen": "https://www.lacomer.com.mx/superc/img_art/7501058623317_1.jpg",
-    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/7501058623317/0/1472/1///1472?succId=287&succFmt=100"
   },
   {
     "producto": {
@@ -16612,28 +16612,6 @@
   {
     "producto": {
       "id": "lacomer_1587",
-      "nombre": "Andadera Bebe Musicarl Niña Rosa Infanti 23Xlxb104Grl 1 Pza"
-    },
-    "precio": 879.0,
-    "tienda": "La Comer",
-    "marca": "Infanti",
-    "imagen": "https://www.lacomer.com.mx/superc/img_art/7501118167720_1.jpg",
-    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/7501118167720/0/1146/1///1146?succId=287&succFmt=100"
-  },
-  {
-    "producto": {
-      "id": "lacomer_1588",
-      "nombre": "Shampoo Bebe Original Johnsons 200 Ml"
-    },
-    "precio": 94.0,
-    "tienda": "La Comer",
-    "marca": "Johnsons",
-    "imagen": "https://www.lacomer.com.mx/superc/img_art/7702031291565_1.jpg",
-    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/7702031291565/0/131/1///131?succId=287&succFmt=100"
-  },
-  {
-    "producto": {
-      "id": "lacomer_1589",
       "nombre": "Formula Cont E1 0-6M Optimal Pro 1.2K Nan Nestle 1.2 Kg"
     },
     "precio": 575.0,
@@ -16641,6 +16619,17 @@
     "marca": "Nestle",
     "imagen": "https://www.lacomer.com.mx/superc/img_art/7501058623256_1.jpg",
     "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/7501058623256/0/1472/1///1472?succId=287&succFmt=100"
+  },
+  {
+    "producto": {
+      "id": "lacomer_1588",
+      "nombre": "Pack Juguete Sorpresa Bebe  Zuru 2 Pza"
+    },
+    "precio": 558.0,
+    "tienda": "La Comer",
+    "marca": "Zuru",
+    "imagen": "https://www.lacomer.com.mx/superc/img_art/193052092557_1.jpg",
+    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/193052092557/0/1220/1///1220?succId=287&succFmt=100"
   },
   {
     "producto": {
@@ -17238,6 +17227,17 @@
   },
   {
     "producto": {
+      "id": "lacomer_1648",
+      "nombre": "Formula Cont E1 0-6M Optimal Pro 800G Nan Nestle 800 Grs"
+    },
+    "precio": 414.0,
+    "tienda": "La Comer",
+    "marca": "Nestle",
+    "imagen": "https://www.lacomer.com.mx/superc/img_art/7501058623317_1.jpg",
+    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/7501058623317/0/1472/1///1472?succId=287&succFmt=100"
+  },
+  {
+    "producto": {
       "id": "lacomer_1649",
       "nombre": "Formula Infantil Enfamil Premium 1 Mead Johnson 800 Grs"
     },
@@ -17433,6 +17433,17 @@
     "marca": "Nestum",
     "imagen": "https://www.lacomer.com.mx/superc/img_art/8445291681309_1.jpg",
     "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/8445291681309/0/134/1///134?succId=287&succFmt=100"
+  },
+  {
+    "producto": {
+      "id": "lacomer_1667",
+      "nombre": "Cereal Con Leche Para Niños Nestle 1 Kg"
+    },
+    "precio": 210.0,
+    "tienda": "La Comer",
+    "marca": "Nestle",
+    "imagen": "https://www.lacomer.com.mx/superc/img_art/7613287014962_1.jpg",
+    "url": "https://www.lacomer.com.mx/lacomer/#!/detarticulo/7613287014962/0/134/1///134?succId=287&succFmt=100"
   },
   {
     "producto": {
