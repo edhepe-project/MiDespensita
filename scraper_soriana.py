@@ -9,17 +9,47 @@ def run():
     print("Iniciando scraper de Soriana con undetected-chromedriver...")
     ofertas = []
 
-    for termino in BUSQUEDAS:
-        print(f"Buscando: {termino}...")
-        driver = None
-        try:
-            options = uc.ChromeOptions()
-            driver = uc.Chrome(options=options, version_main=db_manager.get_chrome_major_version())
-            driver.set_window_size(1280, 900)
+    driver = None
+    try:
+        options = uc.ChromeOptions()
+        # Sin incognito para guardar reputación de sesión
+        options.add_argument('--disable-blink-features=AutomationControlled')
+        driver = uc.Chrome(options=options, version_main=db_manager.get_chrome_major_version())
+        driver.set_window_size(1280, 900)
+
+        # Evasión avanzada: visitar home primero para obtener cookies reales
+        print("Obteniendo cookies iniciales de Soriana...")
+        driver.get("https://www.soriana.com/")
+        time.sleep(4)
+
+        for termino in BUSQUEDAS:
+            print(f"Buscando en Soriana: {termino}...")
 
             url = f"https://www.soriana.com/buscar?q={termino}"
-            driver.get(url)
+            driver.execute_script(f"window.location.href = '{url}';")
+
+            # Revisar si cayó en CAPTCHA
             time.sleep(4)
+            if "blocked" in driver.current_url or "Verifica tu identidad" in driver.page_source:
+                print("CAPTCHA detectado. Intentando auto-resolver (mantener presionado)...")
+                try:
+                    from selenium.webdriver.common.action_chains import ActionChains
+                    from selenium.webdriver.common.by import By
+                    captcha = driver.find_element(By.ID, "px-captcha")
+                    action = ActionChains(driver)
+                    action.click_and_hold(captcha).perform()
+                    time.sleep(12)
+                    action.release().perform()
+
+                    # Esperar a que PerimeterX valide y recargar la página del producto perdido
+                    print("Validando CAPTCHA... recargando búsqueda.")
+                    time.sleep(6)
+                    driver.execute_script(f"window.location.href = '{url}';")
+                    time.sleep(4)
+
+                except Exception as e:
+                    print(f"No se pudo auto-resolver: {e}")
+
             driver.execute_script("window.scrollBy(0, 800);")
             time.sleep(3)
 
@@ -49,29 +79,26 @@ def run():
 
                     if nombre and precio > 0:
                         ofertas.append({
-                            "producto": {"id": f"soriana_{len(ofertas)}", "nombre": nombre},
-                            "precio": precio,
-                            "tienda": "Soriana",
-                            "imagen": imagen,
-                            "url": href or url
+                            'tienda': "soriana",
+                            'producto': nombre.strip(),
+                            'precio': precio,
+                            'imagen': imagen,
+                            'termino_busqueda': termino
                         })
 
-        except Exception as e:
-            print(f"  Error buscando {termino}: {e}")
-        finally:
-            if driver:
-                try:
-                    driver.quit()
-                except:
-                    pass
+            time.sleep(2)  # Pausa entre búsquedas
 
-        time.sleep(2)
+    except Exception as e:
+        print(f"Error general en scraper_soriana: {e}")
+    finally:
+        if driver:
+            driver.quit()
 
     if ofertas:
         vistos = set()
         ofertas_unicas = []
         for o in ofertas:
-            n = o["producto"]["nombre"].lower().strip()
+            n = o["producto"].lower().strip()
             if n not in vistos:
                 vistos.add(n)
                 ofertas_unicas.append(o)
@@ -79,9 +106,9 @@ def run():
         with open("ofertas_soriana.json", "w", encoding="utf-8") as f:
             json.dump(ofertas_unicas, f, ensure_ascii=False, indent=2)
         print(f"¡Éxito! {len(ofertas_unicas)} ofertas guardadas en ofertas_soriana.json")
-        db_manager.registrar_ofertas("Soriana", ofertas_unicas)
+        db_manager.guardar_ofertas(ofertas_unicas)
     else:
-        print("No se encontraron ofertas en Soriana.")
+        print("❌ Soriana: No se encontraron ofertas.")
         with open("ofertas_soriana.json", "w", encoding="utf-8") as f:
             json.dump([], f)
 
