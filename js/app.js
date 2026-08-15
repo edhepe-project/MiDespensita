@@ -156,6 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window._lastPage = getPage();
   navigate(getPage());
   initPageSwipe();
+  initPwaInstallPrompt();
 
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('./sw.js').catch((err) => console.error("SW Error:", err));
@@ -275,3 +276,73 @@ window.closeImageModal = function() {
   }
 };
 
+// ── PWA Install Prompt ────────────────────────────────────────────────────────
+function initPwaInstallPrompt() {
+  let deferredPrompt;
+
+  // Si ya se instaló antes o el usuario lo descartó, no molestar más
+  if (localStorage.getItem('pwa_prompt_dismissed') === 'true') return;
+
+  window.addEventListener('beforeinstallprompt', (e) => {
+    // Evitar que el mini-infobar de Chrome (nativo) aparezca
+    e.preventDefault();
+    // Guardar el evento para dispararlo luego cuando el usuario acepte
+    deferredPrompt = e;
+
+    // Solo mostrar si no existe ya el modal
+    if (document.getElementById('pwa-install-modal')) return;
+
+    // Pequeño retraso de 2.5s para que el usuario primero vea la app antes del modal
+    setTimeout(() => {
+      // Doble check por si navegó rápido
+      if (document.getElementById('pwa-install-modal')) return;
+
+      const modal = document.createElement('div');
+      modal.id = 'pwa-install-modal';
+      modal.className = 'modal-overlay';
+      modal.innerHTML = `
+        <div class="modal-content" style="max-height: auto; text-align: center;">
+          <div style="background: var(--coral-100); width: 64px; height: 64px; border-radius: 20px; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--coral-600)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+          </div>
+          <h3 style="margin-bottom: 8px; font-size: 1.25rem;">Instala MiDespensita</h3>
+          <p style="color: var(--text-secondary); margin-bottom: 24px; font-size: 0.95rem;">Agrega la app a tu pantalla de inicio para acceso rápido, guardar datos sin internet y una experiencia completa.</p>
+          <div style="display: flex; gap: 12px;">
+            <button class="btn btn-secondary" style="flex:1" id="pwa-btn-cancel">Ahora no</button>
+            <button class="btn btn-primary" style="flex:1" id="pwa-btn-install">Instalar App</button>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(modal);
+
+      modal.querySelector('#pwa-btn-cancel').addEventListener('click', () => {
+        modal.remove();
+        // Guardamos que lo canceló para no volver a insistir en futuras visitas
+        localStorage.setItem('pwa_prompt_dismissed', 'true');
+      });
+
+      modal.querySelector('#pwa-btn-install').addEventListener('click', async () => {
+        modal.remove();
+        if (deferredPrompt) {
+          deferredPrompt.prompt();
+          const { outcome } = await deferredPrompt.userChoice;
+          if (outcome !== 'accepted') {
+            localStorage.setItem('pwa_prompt_dismissed', 'true');
+          }
+          deferredPrompt = null;
+        }
+      });
+    }, 2500); 
+  });
+
+  window.addEventListener('appinstalled', () => {
+    // Si la instala, ocultar el modal por si seguía abierto
+    const modal = document.getElementById('pwa-install-modal');
+    if (modal) modal.remove();
+    console.log('App instalada con éxito');
+  });
+}
