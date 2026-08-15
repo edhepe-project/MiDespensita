@@ -169,7 +169,13 @@ APP_Pages.config = async function() {
         <span class="card-title" style="display:flex; align-items:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:8px;color:var(--primary);"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Ubicación</span>
       </div>
       <p class="text-secondary" style="margin-bottom: 12px">${ubicacion?.ciudad || 'No configurada'}</p>
-      <button class="btn btn-secondary" id="btn-cambiar-ubicacion">Cambiar ciudad</button>
+      <div style="display: flex; gap: 8px;">
+        <button class="btn btn-secondary" style="flex:1" id="btn-cambiar-ubicacion">Cambiar ciudad</button>
+        <button class="btn btn-primary" style="flex:1" id="btn-sincronizar-ubicacion">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px; vertical-align: middle;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+          Sincronizar
+        </button>
+      </div>
     </div>
 
     </div> <!-- End tab-general -->
@@ -436,13 +442,35 @@ function bindConfigEvents() {
 
   // ---- UBICACIÓN ----
 
-  document.getElementById('btn-cambiar-ubicacion').addEventListener('click', async () => {
+  document.getElementById('btn-cambiar-ubicacion')?.addEventListener('click', async () => {
     const ciudad = prompt('¿En qué ciudad estás?');
     if (ciudad && ciudad.trim()) {
       await APP_DB.setUbicacion(ciudad.trim(), '');
       document.getElementById('ubicacion-header').textContent = ciudad.trim();
       APP_Pages.config();
     }
+  });
+
+  document.getElementById('btn-sincronizar-ubicacion')?.addEventListener('click', async () => {
+    const btn = document.getElementById('btn-sincronizar-ubicacion');
+    const txtOrig = btn.innerHTML;
+    btn.innerHTML = 'Detectando...';
+    btn.disabled = true;
+    
+    try {
+      const u = await APP_DB.detectarAutomaticamente();
+      if (u && u.ciudad && u.ciudad !== 'Desconocida') {
+        document.getElementById('ubicacion-header').textContent = u.ciudad;
+        APP_Pages.config();
+      } else {
+        alert('No se pudo detectar automáticamente. Revisa tus permisos de ubicación o ingresa la ciudad manualmente.');
+      }
+    } catch(e) {
+      alert('No se pudo detectar automáticamente. Revisa tus permisos de ubicación.');
+    }
+    
+    btn.innerHTML = txtOrig;
+    btn.disabled = false;
   });
 
   // Generar PDF
