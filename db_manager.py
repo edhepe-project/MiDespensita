@@ -3,6 +3,15 @@ import json
 import os
 from datetime import datetime, timedelta
 
+def get_chrome_major_version():
+    try:
+        import winreg
+        key = winreg.OpenKey(winreg.HKEY_CURRENT_USER, r"Software\Google\Chrome\BLBeacon")
+        version, _ = winreg.QueryValueEx(key, "version")
+        return int(version.split('.')[0])
+    except:
+        return 151 # Default to 151 if fails
+
 # ==========================================
 # LISTA MAESTRA DE BÚSQUEDAS (TODAS LAS TIENDAS)
 # Estructura: categoría + productos específicos

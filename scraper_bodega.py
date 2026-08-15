@@ -15,7 +15,7 @@ def run():
         try:
             options = uc.ChromeOptions()
             # Ocultar la ventana en lo posible
-            driver = uc.Chrome(options=options)
+            driver = uc.Chrome(options=options, version_main=db_manager.get_chrome_major_version())
             driver.set_window_size(1024, 768)
             
             url = f"https://www.bodegaaurrera.com.mx/search?q={termino}"

@@ -18,7 +18,7 @@ def run():
             options.add_argument('--disable-blink-features=AutomationControlled')
             options.add_argument('--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36')
             
-            driver = uc.Chrome(options=options, version_main=151)
+            driver = uc.Chrome(options=options, version_main=db_manager.get_chrome_major_version())
             driver.set_window_size(1024, 768)
             
             url = f"https://www.sams.com.mx/search?q={termino}"

@@ -14,7 +14,7 @@ def run():
         driver = None
         try:
             options = uc.ChromeOptions()
-            driver = uc.Chrome(options=options)
+            driver = uc.Chrome(options=options, version_main=db_manager.get_chrome_major_version())
             driver.set_window_size(1280, 900)
 
             url = f"https://www.soriana.com/buscar?q={termino}"
