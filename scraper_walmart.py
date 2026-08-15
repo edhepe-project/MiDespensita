@@ -109,6 +109,11 @@ def run():
                                 deep_get(item, "imageInfo", "thumbnailUrl") or
                                 item.get("thumbnail") or item.get("imageUrl") or ""
                             )
+                            item_url = item.get("canonicalUrl") or item.get("seoUrl") or ""
+                            if item_url and item_url.startswith("/"):
+                                prod_url = "https://www.walmart.com.mx" + item_url
+                            else:
+                                prod_url = f"https://www.walmart.com.mx/search?q={termino}"
 
                             try:
                                 precio = float(str(precio).replace("$", "").replace(",", "").strip())
@@ -124,6 +129,7 @@ def run():
                                     },
                                     'precio': precio,
                                     'imagen': imagen,
+                                    'url': prod_url,
                                     'termino_busqueda': termino
                                 })
                         print(f"  ✅ Se extrajeron productos de {termino} exitosamente.")
