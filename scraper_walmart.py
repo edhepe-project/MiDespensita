@@ -11,22 +11,26 @@ def run():
     print("Iniciando scraper de Walmart México con undetected-chromedriver...")
     ofertas = []
     
-    driver = None
-    try:
-        options = uc.ChromeOptions()
-        # Sin incognito para guardar reputación de sesión
-        options.add_argument('--disable-blink-features=AutomationControlled')
-        
-        driver = uc.Chrome(options=options, version_main=db_manager.get_chrome_major_version())
-        driver.set_window_size(1280, 900)
-        
-        # Evasión avanzada para Walmart (PerimeterX)
-        print("Obteniendo cookies iniciales de Walmart...")
-        driver.get("https://www.walmart.com.mx/")
-        time.sleep(4)
-        
-        for termino in BUSQUEDAS:
-            print(f"Buscando en Walmart: {termino}...")
+    terminos_pendientes = BUSQUEDAS.copy()
+    intentos_actuales = 0
+    
+    while terminos_pendientes:
+        termino = terminos_pendientes[0]
+        driver = None
+        try:
+            options = uc.ChromeOptions()
+            options.add_argument('--disable-blink-features=AutomationControlled')
+            
+            driver = uc.Chrome(options=options, version_main=db_manager.get_chrome_major_version())
+            driver.set_window_size(1280, 900)
+            
+            print("Obteniendo cookies iniciales...")
+            driver.get("https://www.walmart.com.mx/" if "scraper_walmart.py" == "scraper_walmart.py" else "https://www.sams.com.mx/")
+            time.sleep(4)
+            
+            while terminos_pendientes:
+                termino = terminos_pendientes[0]
+                print(f"Buscando: {termino} (Intento {intentos_actuales+1})...")
             
             url = f"https://www.walmart.com.mx/search?q={termino}"
             driver.execute_script(f"window.location.href = '{url}';")
@@ -77,9 +81,13 @@ def run():
                     print(f"  Error en auto-resolución: {e}")
             
             driver.execute_script("window.scrollBy(0, 600);")
-            time.sleep(3)
+            time.sleep(4)
             
             html = driver.page_source
+            if "blocked" in driver.current_url or "Verifica tu identidad" in html:
+                print("  🚨 CAPTCHA PERSISTENTE. Reiniciando navegador completamente...")
+                break
+                
             soup = BeautifulSoup(html, 'html.parser')
             script = soup.find('script', id='__NEXT_DATA__')
             
@@ -119,18 +127,33 @@ def run():
                                 'termino_busqueda': termino
                             })
                     print(f"  ✅ Se extrajeron productos de {termino} exitosamente.")
+                    terminos_pendientes.pop(0)
+                    intentos_actuales = 0
                 except json.JSONDecodeError:
-                    pass
+                    terminos_pendientes.pop(0)
+                    intentos_actuales = 0
             else:
                 print(f"  No se encontró __NEXT_DATA__ para {termino}.")
+                intentos_actuales += 1
+                if intentos_actuales > 3:
+                    print(f"  ❌ Se superaron los reintentos para {termino}. Saltando al siguiente...")
+                    terminos_pendientes.pop(0)
+                    intentos_actuales = 0
+                else:
+                    print("  🔄 Posible bloqueo invisible, reiniciando navegador...")
+                break
                 
             time.sleep(2) # Pausa entre búsquedas
             
-    except Exception as e:
-        print(f"Error general en scraper_walmart: {e}")
-    finally:
-        if driver:
-            driver.quit()
+        except Exception as e:
+            print(f"Error general: {e}")
+            time.sleep(5)
+        finally:
+            if driver:
+                try:
+                    driver.quit()
+                except:
+                    pass
 
     if ofertas:
         vistos = set()
@@ -170,4 +193,5 @@ if __name__ == "__main__":
         subprocess.run([sys.executable, "-m", "pip", "install", "beautifulsoup4"], check=True)
         
     run()
+
 
