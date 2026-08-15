@@ -163,6 +163,67 @@ window.APP_Local = {
           opacity: 0.85;
         }
         .btn-ver-pub:active { opacity: 0.5; }
+        /* Lightbox */
+        #local-lightbox {
+          position: fixed;
+          inset: 0;
+          z-index: 9999;
+          background: rgba(0,0,0,0.96);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          animation: lbFadeIn 0.2s ease;
+        }
+        @keyframes lbFadeIn { from{opacity:0} to{opacity:1} }
+        #local-lightbox img {
+          max-width: 100vw;
+          max-height: 88vh;
+          object-fit: contain;
+          border-radius: 4px;
+          touch-action: pinch-zoom;
+          transition: transform 0.15s ease;
+          cursor: zoom-in;
+        }
+        #local-lightbox img.zoomed { cursor: zoom-out; }
+        #lb-close {
+          position: absolute;
+          top: 16px;
+          right: 16px;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          background: rgba(255,255,255,0.15);
+          border: none;
+          color: #fff;
+          font-size: 20px;
+          font-weight: bold;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          backdrop-filter: blur(6px);
+          -webkit-backdrop-filter: blur(6px);
+        }
+        #lb-caption {
+          position: absolute;
+          bottom: 20px;
+          left: 0; right: 0;
+          text-align: center;
+          color: rgba(255,255,255,0.75);
+          font-size: 13px;
+          padding: 0 20px;
+        }
+        #lb-fb-link {
+          position: absolute;
+          bottom: 44px;
+          left: 0; right: 0;
+          text-align: center;
+          color: var(--primary);
+          font-size: 12px;
+          font-weight: 600;
+          text-decoration: none;
+        }
         /* Estado vacío */
         .local-empty {
           display: flex;
@@ -193,12 +254,15 @@ window.APP_Local = {
 
   _groupHTML(titulo, id, posts) {
     const slides = posts.map((p, i) => {
+      const imgClickHandler = p.imagen_url
+        ? `onclick="APP_Local.openLightbox('${p.imagen_url.replace(/'/g, "\\'")}',' ${this._esc(p.tienda)}','${(p.post_url||p.pagina_facebook||'').replace(/'/g, "\\'")}')" style="cursor:pointer;"`
+        : '';
+
       const imgHTML = p.imagen_url
-        ? `<img src="${p.imagen_url}" alt="Oferta ${p.tienda}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'local-slide-no-img\\'>🏪</div>'">`
+        ? `<img src="${p.imagen_url}" alt="Oferta ${p.tienda}" loading="lazy" ${imgClickHandler} onerror="this.parentElement.innerHTML='<div class=\\'local-slide-no-img\\'>🏪</div>'">`
         : `<div class="local-slide-no-img">🏪</div>`;
 
       const tiempo = this._formatTiempo(p.fecha_guardado);
-      const postHref = p.post_url && p.post_url.startsWith('http') ? p.post_url : p.pagina_facebook;
 
       return `
         <div class="local-slide" data-idx="${i}">
@@ -334,5 +398,53 @@ window.APP_Local = {
 
   _esc(str) {
     return (str || '').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  },
+
+  openLightbox(imgUrl, caption, postUrl) {
+    // Eliminar lightbox previo
+    const existing = document.getElementById('local-lightbox');
+    if (existing) existing.remove();
+
+    const lb = document.createElement('div');
+    lb.id = 'local-lightbox';
+
+    const fbLink = postUrl && postUrl.startsWith('http')
+      ? `<a id="lb-fb-link" href="${postUrl}" target="_blank" rel="noopener">Ver publicación en Facebook ↗</a>`
+      : '';
+
+    lb.innerHTML = `
+      <button id="lb-close" title="Cerrar">✕</button>
+      <img id="lb-img" src="${imgUrl}" alt="${caption}">
+      ${fbLink}
+      <div id="lb-caption">${caption}</div>
+    `;
+
+    document.body.appendChild(lb);
+
+    // Cerrar al hacer clic en fondo o botón X
+    lb.addEventListener('click', e => {
+      if (e.target === lb || e.target.id === 'lb-close') lb.remove();
+    });
+
+    // Doble toque / doble clic para zoom
+    const img = lb.querySelector('#lb-img');
+    let zoomed = false;
+    img.addEventListener('dblclick', () => {
+      zoomed = !zoomed;
+      img.style.transform = zoomed ? 'scale(2)' : 'scale(1)';
+      img.classList.toggle('zoomed', zoomed);
+    });
+
+    // Swipe hacia abajo para cerrar
+    let startY = 0;
+    lb.addEventListener('touchstart', e => { startY = e.touches[0].clientY; }, { passive: true });
+    lb.addEventListener('touchend', e => {
+      const dy = e.changedTouches[0].clientY - startY;
+      if (dy > 80) lb.remove();
+    }, { passive: true });
+
+    // Tecla ESC
+    const onKey = e => { if (e.key === 'Escape') { lb.remove(); document.removeEventListener('keydown', onKey); } };
+    document.addEventListener('keydown', onKey);
   }
 };
