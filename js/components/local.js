@@ -280,21 +280,17 @@ window.APP_Local = {
   },
 
   _groupHTML(titulo, id, posts) {
-    // grupoKey es el nombre de la tienda para indexar en this._grupos
-    const grupoKey = posts[0]?.tienda || id;
     const slides = posts.map((p, i) => {
-      const imgClickHandler = p.imagen_url
-        ? `onclick="APP_Local.openLightbox('${grupoKey}', ${i})" style="cursor:pointer;"`
-        : '';
-
+      // Usamos data-attributes en lugar de onclick inline para evitar problemas
+      // con apóstrofes u otros caracteres especiales en los nombres de tienda
       const imgHTML = p.imagen_url
-        ? `<img src="${p.imagen_url}" alt="Oferta ${p.tienda}" loading="lazy" ${imgClickHandler} onerror="this.parentElement.innerHTML='<div class=\\'local-slide-no-img\\'>🏪</div>'">`
+        ? `<img src="${p.imagen_url}" alt="Oferta ${this._esc(p.tienda)}" loading="lazy" style="cursor:pointer;" onerror="this.parentElement.innerHTML='<div class=\\'local-slide-no-img\\'>🏪</div>'">`
         : `<div class="local-slide-no-img">🏪</div>`;
 
       const tiempo = this._formatTiempo(p.fecha_guardado);
 
       return `
-        <div class="local-slide" data-idx="${i}">
+        <div class="local-slide" data-idx="${i}" data-tienda="${this._esc(p.tienda)}">
           ${imgHTML}
           <div class="badge-tienda">🏪 ${this._esc(p.tienda)}</div>
           <div class="badge-tiempo">🕐 ${tiempo}</div>
@@ -323,8 +319,6 @@ window.APP_Local = {
   },
 
   _initCarousel(id, total) {
-    if (total <= 1) return;
-
     const track = document.getElementById(`${id}-track`);
     const dotsContainer = document.getElementById(`${id}-dots`);
     const link = document.getElementById(`${id}-link`);
@@ -335,7 +329,6 @@ window.APP_Local = {
     let current = 0;
     let startX = 0, startY = 0, isDragging = false, moved = false;
 
-    // Reconstruimos los posts del DOM para el link
     const slides = track.querySelectorAll('.local-slide');
 
     const goTo = (idx) => {
@@ -343,28 +336,30 @@ window.APP_Local = {
       current = idx;
       track.style.transform = `translateX(-${current * 100}%)`;
 
-      // Actualizar dots
       if (dotsContainer) {
         dotsContainer.querySelectorAll('.local-dot').forEach((d, i) => {
           d.classList.toggle('active', i === current);
         });
       }
 
-      // Actualizar link
       if (link) {
-        const slide = slides[current];
-        // Buscamos el href en el data original via índice
         link.href = link.getAttribute('data-href-' + current) || link.href;
       }
     };
 
-    // Guardar hrefs por índice en el link element
-    slides.forEach((s, i) => {
-      // Leer desde el span invisible que inyectamos
-      // No tenemos acceso aquí al objeto post, así que extraemos del slide mismo
+    // ── Abrir lightbox al hacer click en una imagen ────────────────
+    track.addEventListener('click', (e) => {
+      const slide = e.target.closest('.local-slide');
+      if (!slide) return;
+      // Solo abrir si el click fue sobre la imagen (no el badge)
+      if (!e.target.matches('img')) return;
+      const tiendaKey = slide.dataset.tienda;
+      const idx = parseInt(slide.dataset.idx);
+      if (tiendaKey !== undefined && !isNaN(idx)) {
+        APP_Local.openLightbox(tiendaKey, idx);
+      }
     });
 
-    // Touch / Mouse events en el wrapper
     const onStart = (x, y) => { startX = x; startY = y; isDragging = true; moved = false; };
     const onEnd = (x, y) => {
       if (!isDragging) return;
