@@ -139,6 +139,7 @@ APP_Pages.tiendas = async function() {
             <option value="Chedraui">Chedraui</option>
             <option value="Soriana">Soriana</option>
             <option value="La Comer">La Comer</option>
+            <option value="Tiendas Lores">Tiendas Lores</option>
           </select>
           <select id="filtro-orden" style="flex: 1; padding: 10px; border-radius: var(--radius-md); border: 1px solid var(--border); background: var(--surface); color: var(--text); font-size: 14px;">
             <option value="relevancia">Relevancia / IA</option>
