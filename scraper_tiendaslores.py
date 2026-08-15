@@ -169,10 +169,26 @@ def run():
     
     productos = extraer_productos()
     
-    # Guardar JSON
+    # Guardar JSON detallado propio
     with open(OUTPUT_JSON, "w", encoding="utf-8") as f:
         json.dump(productos, f, ensure_ascii=False, indent=2)
     print(f"[OK] JSON guardado: {OUTPUT_JSON} ({len(productos)} productos)")
+    
+    # Guardar en formato nacional (igual que Walmart, Soriana, etc.)
+    # para que aparezca en las busquedas de precios de la app
+    nacionales = [
+        {
+            "producto": p["nombre"],
+            "precio":   p["precio"],
+            "tienda":   p["tienda"],
+            "imagen":   p["imagen_url"],
+            "url":      p["url"],
+        }
+        for p in productos
+    ]
+    with open("ofertas_lores.json", "w", encoding="utf-8") as f:
+        json.dump(nacionales, f, ensure_ascii=False, indent=2)
+    print(f"[OK] JSON nacional guardado: ofertas_lores.json ({len(nacionales)} productos)")
     
     # Guardar en BD
     guardar_en_db(productos)

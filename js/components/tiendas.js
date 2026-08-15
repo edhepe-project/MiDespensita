@@ -37,7 +37,7 @@ APP_Pages.tiendas = async function() {
 
   if (catalogo.length === 0) {
     try {
-      const jsons = ['ofertas_chedraui.json', 'ofertas_walmart.json', 'ofertas_bodega.json', 'ofertas_soriana.json', 'ofertas_lacomer.json', 'ofertas_sams.json', 'ofertas_farmagdl.json', 'ofertas_fahorro.json'];
+      const jsons = ['ofertas_chedraui.json', 'ofertas_walmart.json', 'ofertas_bodega.json', 'ofertas_soriana.json', 'ofertas_lacomer.json', 'ofertas_sams.json', 'ofertas_farmagdl.json', 'ofertas_fahorro.json', 'ofertas_lores.json'];
       
       const cacheBuster = `?d=${new Date().toISOString().slice(0,10)}`; // Cambiar por día para no re-descargar en cada visita
       const results = await Promise.allSettled(
