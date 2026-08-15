@@ -26,8 +26,18 @@ window.APP_Local = {
 
     if (!posts) {
       try {
-        const res = await fetch(`/api/local?t=${Date.now()}`);
-        posts = res.ok ? await res.json() : [];
+        const t = Date.now();
+        // Cargar ambos archivos JSON estáticamente (compatible con GitHub Pages y localhost)
+        const [res1, res2] = await Promise.all([
+          fetch(`ofertas_local_facebook.json?t=${t}`).catch(() => null),
+          fetch(`ofertas_dbodegaocampo.json?t=${t}`).catch(() => null)
+        ]);
+        
+        let allPosts = [];
+        if (res1 && res1.ok) allPosts.push(...(await res1.json()));
+        if (res2 && res2.ok) allPosts.push(...(await res2.json()));
+        
+        posts = allPosts;
       } catch (e) {
         posts = [];
       }
