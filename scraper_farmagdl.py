@@ -35,24 +35,24 @@ def run():
             # Revisar si cayó en CAPTCHA
             time.sleep(5)
             if "blocked" in driver.current_url or "Verifica tu identidad" in driver.page_source:
-                print("CAPTCHA detectado. Intentando auto-resolver (mantener presionado)...")
+                print("\n🚨 ¡CAPTCHA DETECTADO EN FARMACIAS GUADALAJARA! 🚨")
+                print("El sistema anti-bots de PerimeterX está bloqueando el acceso.")
+                print("Por favor:")
+                print("1. Ve a la ventana de Chrome que se abrió.")
+                print("2. Mantén presionado el botón hasta que se valide.")
+                print("3. Regresa a esta consola y presiona ENTER.")
+                
                 try:
-                    from selenium.webdriver.common.action_chains import ActionChains
-                    from selenium.webdriver.common.by import By
-                    captcha = driver.find_element(By.ID, "px-captcha")
-                    action = ActionChains(driver)
-                    action.click_and_hold(captcha).perform()
-                    time.sleep(12)
-                    action.release().perform()
-
-                    # Esperar a que valide y recargar la página del producto perdido
-                    print("Validando CAPTCHA... recargando búsqueda.")
-                    time.sleep(6)
-                    driver.execute_script(f"window.location.href = '{url}';")
-                    time.sleep(5)
-
-                except Exception as e:
-                    print(f"No se pudo auto-resolver: {e}")
+                    import winsound
+                    winsound.Beep(1000, 1000)
+                except:
+                    pass
+                    
+                input("\n👉 Presiona ENTER aquí DESPUÉS de haber resuelto el CAPTCHA... ")
+                
+                print("Continuando... recargando búsqueda.")
+                driver.execute_script(f"window.location.href = '{url}';")
+                time.sleep(5)
 
             driver.execute_script("window.scrollBy(0, 500);")
             time.sleep(2)

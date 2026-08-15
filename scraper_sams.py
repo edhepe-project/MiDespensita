@@ -33,25 +33,25 @@ def run():
             # Revisar si cayó en CAPTCHA
             time.sleep(4)
             if "blocked" in driver.current_url:
-                print("CAPTCHA detectado. Intentando auto-resolver (mantener presionado)...")
+                print("\n🚨 ¡CAPTCHA DETECTADO EN SAM'S CLUB! 🚨")
+                print("El sistema anti-bots de PerimeterX está bloqueando el acceso.")
+                print("Por favor:")
+                print("1. Ve a la ventana de Chrome que se abrió.")
+                print("2. Mantén presionado el botón hasta que se valide.")
+                print("3. Regresa a esta consola y presiona ENTER.")
+                
                 try:
-                    from selenium.webdriver.common.action_chains import ActionChains
-                    from selenium.webdriver.common.by import By
-                    # Buscar el contenedor del captcha
-                    captcha = driver.find_element(By.ID, "px-captcha")
-                    action = ActionChains(driver)
-                    action.click_and_hold(captcha).perform()
-                    time.sleep(12)
-                    action.release().perform()
+                    import winsound
+                    winsound.Beep(1000, 1000)  # Frecuencia 1000Hz, 1 segundo
+                except:
+                    pass
                     
-                    # Esperar a que PerimeterX valide y recargar la página del producto perdido
-                    print("Validando CAPTCHA... recargando búsqueda.")
-                    time.sleep(6)
-                    driver.execute_script(f"window.location.href = '{url}';")
-                    time.sleep(4)
-                    
-                except Exception as e:
-                    print(f"No se pudo auto-resolver: {e}")
+                input("\n👉 Presiona ENTER aquí DESPUÉS de haber resuelto el CAPTCHA... ")
+                
+                # Recargar la página después de que el usuario resolvió el CAPTCHA
+                print("Continuando... recargando búsqueda.")
+                driver.execute_script(f"window.location.href = '{url}';")
+                time.sleep(4)
             
             driver.execute_script("window.scrollBy(0, 600);")
             time.sleep(3)
