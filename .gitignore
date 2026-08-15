@@ -44,10 +44,8 @@ test_*
 patch_*.py
 scraper_*_old.py
 
-# Credenciales de Facebook y datos locales
-scraper_facebook_local.py
-ofertas_local_facebook.json
-*.json
+# Credenciales de Facebook — NO subir cookies de sesión
+# Los JSONs de ofertas SÍ deben subirse (igual que los otros scrapers)
 
 # Perfil de Chrome del scraper (contiene cookies de sesión — NO subir)
 fb_profile/
