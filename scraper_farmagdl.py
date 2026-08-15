@@ -111,6 +111,7 @@ def run():
                             })
                     except Exception:
                         pass
+                print(f"  ✅ Se extrajeron productos de {termino} exitosamente.")
 
             time.sleep(2)  # Pausa entre búsquedas
 

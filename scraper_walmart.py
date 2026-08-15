@@ -118,6 +118,7 @@ def run():
                                 'imagen': imagen,
                                 'termino_busqueda': termino
                             })
+                    print(f"  ✅ Se extrajeron productos de {termino} exitosamente.")
                 except json.JSONDecodeError:
                     pass
             else:

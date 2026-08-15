@@ -109,6 +109,11 @@ def run():
                             'termino_busqueda': termino
                         })
 
+            if len(cards) > 0:
+                print(f"  ✅ Se extrajeron productos de {termino} exitosamente.")
+            else:
+                print(f"  No se encontraron productos para {termino}.")
+
             time.sleep(2)  # Pausa entre búsquedas
 
     except Exception as e:
