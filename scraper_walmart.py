@@ -166,7 +166,6 @@ def run():
             json.dump(ofertas_unicas, f, ensure_ascii=False, indent=2)
 
         print(f"¡Éxito! {len(ofertas_unicas)} ofertas guardadas en ofertas_walmart.json")
-        db_manager.guardar_ofertas(ofertas_unicas)
     else:
         print("❌ Walmart: No se encontraron ofertas.")
         with open("ofertas_walmart.json", "w", encoding="utf-8") as f:

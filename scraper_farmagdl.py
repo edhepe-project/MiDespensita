@@ -1,4 +1,4 @@
-﻿import undetected_chromedriver as uc
+import undetected_chromedriver as uc
 import json
 import time
 import db_manager
@@ -133,7 +133,6 @@ def run():
         with open("ofertas_farmagdl.json", "w", encoding="utf-8") as f:
             json.dump(ofertas_unicas, f, ensure_ascii=False, indent=2)
         print(f"\n¡Éxito! {len(ofertas_unicas)} ofertas guardadas en ofertas_farmagdl.json")
-        db_manager.guardar_ofertas(ofertas_unicas)
     else:
         print("❌ Farmacias Guadalajara: No se encontraron ofertas.")
         with open("ofertas_farmagdl.json", "w", encoding="utf-8") as f:

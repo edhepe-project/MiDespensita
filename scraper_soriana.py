@@ -1,4 +1,4 @@
-﻿import undetected_chromedriver as uc
+import undetected_chromedriver as uc
 import json
 import db_manager
 import time
@@ -134,7 +134,6 @@ def run():
         with open("ofertas_soriana.json", "w", encoding="utf-8") as f:
             json.dump(ofertas_unicas, f, ensure_ascii=False, indent=2)
         print(f"¡Éxito! {len(ofertas_unicas)} ofertas guardadas en ofertas_soriana.json")
-        db_manager.guardar_ofertas(ofertas_unicas)
     else:
         print("❌ Soriana: No se encontraron ofertas.")
         with open("ofertas_soriana.json", "w", encoding="utf-8") as f:
