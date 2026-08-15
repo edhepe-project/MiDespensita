@@ -169,7 +169,7 @@ def run():
         vistos = set()
         ofertas_unicas = []
         for o in ofertas:
-            n = o["producto"].lower().strip()
+            n = o["producto"]["nombre"].lower().strip()
             if n not in vistos:
                 vistos.add(n)
                 ofertas_unicas.append(o)
