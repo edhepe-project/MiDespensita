@@ -153,6 +153,9 @@ def run():
 
                 time.sleep(2)  # Pausa entre búsquedas
 
+        except KeyboardInterrupt:
+            print("\n  ⚠️ Scraper cancelado por el usuario. Guardando progreso parcial...")
+            break
         except Exception as e:
             print(f"Error general en scraper_bodega: {e}")
             time.sleep(5)

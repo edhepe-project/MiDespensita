@@ -151,6 +151,9 @@ def run():
 
                 time.sleep(2)
 
+        except KeyboardInterrupt:
+            print("\n  ⚠️ Scraper cancelado por el usuario. Guardando progreso parcial...")
+            break
         except Exception as e:
             print(f"Error general en scraper_sams: {e}")
             time.sleep(5)
