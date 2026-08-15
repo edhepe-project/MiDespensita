@@ -116,8 +116,11 @@ def run():
 
                             if nombre and precio > 0:
                                 ofertas.append({
-                                    'tienda': "sams",
-                                    'producto': nombre.strip(),
+                                    'tienda': "Sams",
+                                    'producto': {
+                                        'id': f"sams_{termino}_{len(ofertas)}",
+                                        'nombre': nombre.strip()
+                                    },
                                     'precio': precio,
                                     'imagen': imagen,
                                     'termino_busqueda': termino

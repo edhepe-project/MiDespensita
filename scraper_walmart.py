@@ -117,8 +117,11 @@ def run():
 
                             if nombre and precio > 0:
                                 ofertas.append({
-                                    'tienda': "walmart",
-                                    'producto': nombre.strip(),
+                                    'tienda': "Walmart",
+                                    'producto': {
+                                        'id': f"walmart_{termino}_{len(ofertas)}",
+                                        'nombre': nombre.strip()
+                                    },
                                     'precio': precio,
                                     'imagen': imagen,
                                     'termino_busqueda': termino
