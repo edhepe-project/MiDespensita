@@ -123,7 +123,7 @@ def run():
 
                             if nombre and precio > 0:
                                 ofertas.append({
-                                    'tienda': "bodega",
+                                    'tienda': "Bodega Aurrerá",
                                     'producto': {
                                         'id': f"bodega_{termino}_{len(ofertas)}",
                                         'nombre': nombre.strip()
